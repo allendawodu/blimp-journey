@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckj4s2f2jfy6o"]
+
+[ext_resource type="PackedScene" uid="uid://j1l5nfbugmic" path="res://src/ui/item_menu/item_menu.tscn" id="1_8rwmv"]
+[ext_resource type="Script" uid="uid://cvhkroql7y88v" path="res://src/world/levels/02_reality_tv/menus/phone/phone.gd" id="2_tg4q4"]
+
+[node name="Phone" instance=ExtResource("1_8rwmv")]
+script = ExtResource("2_tg4q4")
+pizza_number = "555-7383"
+timeline = null
+characters = {}
+
+[node name="CloseButton" parent="MarginContainer/VBoxContainer" index="0"]
+process_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 256
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 256
+theme_override_constants/margin_bottom = 64
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer" index="0"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+mouse_filter = 2
+
+[node name="PhoneNumberLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/PanelContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+mouse_filter = 2
+
+[node name="CallButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 36
+text = "CALL"
+
+[node name="ClearButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 36
+text = "CLEAR"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="PhoneNumberButtons" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer/CenterContainer" index="0"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 3

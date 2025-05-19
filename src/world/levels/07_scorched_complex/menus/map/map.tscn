@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://2rknqml7p80l"]
+
+[ext_resource type="PackedScene" uid="uid://j1l5nfbugmic" path="res://src/ui/item_menu/item_menu.tscn" id="1_uyd5b"]
+
+[node name="Map" instance=ExtResource("1_uyd5b")]
+
+[node name="Label" type="Label" parent="Holder" index="0"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -414.0
+offset_top = -118.0
+offset_right = 415.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Use the left elevator in the lobby to enter the basement.
+
+There are pipes that carry water from the basement through to the bathroom on the 3rd floor."
+horizontal_alignment = 1
+autowrap_mode = 3

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4qqlg68xrjw2"]
+
+[ext_resource type="PackedScene" uid="uid://cbs4h5pudt2yp" path="res://src/ui/instructions_menu/instructions_menu.tscn" id="1_21xm2"]
+[ext_resource type="Script" uid="uid://cghefo122m88w" path="res://src/world/levels/07_scorched_complex/logic/stealth/game_over/game_over.gd" id="2_5ruar"]
+
+[node name="DeathByWalkingGhost" instance=ExtResource("1_21xm2")]
+script = ExtResource("2_5ruar")
+dialogic_signal_to_show = "death_by_walking_ghost"
+
+[node name="InstructionsLabel" parent="PanelContainer/MarginContainer/VBoxContainer" index="0"]
+text = "Game Over"
+
+[node name="TitleLabel" parent="PanelContainer/MarginContainer/VBoxContainer" index="1"]
+visible = false
+text = "Death by Walking Ghost"
+
+[node name="BodyLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Reason: You were consumed by a walking ghost"
+
+[node name="ContinueButton" parent="PanelContainer/MarginContainer/VBoxContainer" index="4"]
+text = "Try Again"

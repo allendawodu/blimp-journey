@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://0y8i338a810x"]
+
+[ext_resource type="Texture2D" uid="uid://df5ul8e157pjn" path="res://src/world/levels/06_dragons_claw/logic/spikes/spikes.png" id="1_a2b0o"]
+[ext_resource type="Script" uid="uid://e04rn53xenhi" path="res://src/world/levels/06_dragons_claw/logic/toggle_state_obstacle.gd" id="2_d2fw7"]
+[ext_resource type="Script" uid="uid://cqq04tltf0w48" path="res://src/systems/knockback.gd" id="3_ucfbr"]
+
+[node name="Spikes" type="Sprite2D"]
+position = Vector2(0, -85)
+texture = ExtResource("1_a2b0o")
+script = ExtResource("2_d2fw7")
+
+[node name="KnockbackArea" type="Area2D" parent="."]
+script = ExtResource("3_ucfbr")
+should_override_direction = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KnockbackArea"]
+polygon = PackedVector2Array(-73, -104, -110, -61, -139, 33, -143, 92, -127, 105, -95, 103, -83, 94, -86, 56, -88, -25)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="KnockbackArea"]
+polygon = PackedVector2Array(-27, 87, -11, 34, -9, -44, 21, 26, 23, 85, 12, 97)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="KnockbackArea"]
+polygon = PackedVector2Array(85, 91, 96, 2, 88, -72, 77, -94, 117, -45, 138, 35, 140, 86, 127, 97)
+
+[node name="Timer" type="Timer" parent="."]

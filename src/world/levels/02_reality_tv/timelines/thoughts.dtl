@@ -1,0 +1,33 @@
+label stamp
+player: i'll just stick this on the application.
+[end_timeline]
+
+label post
+if {Inventory.has_item("application")} == false:
+	player: i don't have an application.
+elif {02.has_address_from_tv} == false:
+	player: i don't know where to send it to.
+elif {Inventory.has_item("pen")} == false:
+	player: i need a pen to write the post address.
+elif {Inventory.has_item("stamp")} == false:
+	player: my application will be rejected without a stamp.
+else:
+	player: i'll just stick this on the application.
+	do Inventory.remove_item("stamp")
+	player: it's worth a shot!
+	do Inventory.remove_item("application")
+	# Send a signal here
+else:
+	player: wait.
+	player: something's missing...
+[end_timeline]
+
+label admitted
+player: i don't believe it!!!
+player: i made it!!!
+player: i'm on the show!
+[end_timeline]
+
+label application
+player: i hope i make it in.
+[end_timeline]

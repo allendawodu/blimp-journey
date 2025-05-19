@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://drb6ldjuphcdy"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_yug53"]
+
+[resource]
+script = ExtResource("1_yug53")
+name = "04_orb_ruby"
+display_name = "Ruby Orb"
+info = ""

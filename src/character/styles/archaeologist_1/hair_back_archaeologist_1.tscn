@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0rrr4qh4iqmt"]
+
+[ext_resource type="Texture2D" uid="uid://tcx6outbmab6" path="res://src/character/styles/archaeologist_1/hair_back.png" id="1_yx4du"]
+[ext_resource type="Script" uid="uid://b45j8fky1o1s1" path="res://src/character/common/style/style_part.gd" id="2_l54oi"]
+
+[node name="HairBack" type="Sprite2D"]
+texture = ExtResource("1_yx4du")
+offset = Vector2(-7, -21)
+script = ExtResource("2_l54oi")
+style_name = "hair_back_archaeologist_1"
+part = 2

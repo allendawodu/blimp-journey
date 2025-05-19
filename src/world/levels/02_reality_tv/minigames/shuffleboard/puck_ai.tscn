@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6gbj760lt7ct"]
+
+[ext_resource type="Script" uid="uid://yhunlxvcn2il" path="res://src/world/levels/02_reality_tv/minigames/shuffleboard/puck_ai.gd" id="1_c5fgf"]
+[ext_resource type="PackedScene" uid="uid://diqjbps5ett7o" path="res://src/world/levels/02_reality_tv/minigames/shuffleboard/puck.tscn" id="1_w7mew"]
+
+[node name="PuckAI" instance=ExtResource("1_w7mew")]
+script = ExtResource("1_c5fgf")
+deviation = 200.0
+cooldown_min = 0.5
+cooldown_max = 3.0

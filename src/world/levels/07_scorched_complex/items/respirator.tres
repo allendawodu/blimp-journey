@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://cjw3vtooyvos7"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_llsci"]
+
+[resource]
+script = ExtResource("1_llsci")
+name = "07_respirator"
+display_name = "Respirator"
+info = "Breathe easy."
+metadata/_custom_type_script = "uid://bpc76g8fprceh"

@@ -1,0 +1,329 @@
+[gd_scene load_steps=48 format=4 uid="uid://bkrhl7k062oep"]
+
+[ext_resource type="PackedScene" uid="uid://dwapdsx6u217o" path="res://src/world/common/scene/scene.tscn" id="1_lf1sa"]
+[ext_resource type="PackedScene" uid="uid://bpgb6kvo31q02" path="res://src/world/levels/06_dragons_claw/menus/mural/mural.tscn" id="2_hxevg"]
+[ext_resource type="Resource" uid="uid://dmaq7o1mrgkac" path="res://src/world/levels/06_dragons_claw/dialogue/tomb.dtl" id="3_dgofo"]
+[ext_resource type="Resource" uid="uid://dm4micwg7m0fs" path="res://src/character/styles/player/player_style.tres" id="4_0ru03"]
+[ext_resource type="PackedScene" uid="uid://b7em21jin5gyn" path="res://src/world/levels/06_dragons_claw/logic/walkie_talkie/walkie_talkie.tscn" id="4_rl0nc"]
+[ext_resource type="Script" uid="uid://d4fuerrfarwj5" path="res://src/systems/subscene_swapper.gd" id="5_1al8o"]
+[ext_resource type="Script" uid="uid://bno7gq2ba8ivp" path="res://addons/ProCam2D/scripts/core/nds/a.gd" id="5_sac01"]
+[ext_resource type="PackedScene" uid="uid://dt2ji4wm4p6k7" path="res://src/world/levels/06_dragons_claw/scenes/subscenes/mural_blank.tscn" id="6_38yp3"]
+[ext_resource type="Script" uid="uid://b85swurtv77pc" path="res://addons/ProCam2D/scripts/core/addns/pcam_mouse_influence.gd" id="6_n4vwq"]
+[ext_resource type="Script" uid="uid://bix7ou11rm7r7" path="res://addons/ProCam2D/scripts/core/addns/pcam_shake.gd" id="7_iswpw"]
+[ext_resource type="PackedScene" uid="uid://cln3gm5yucc7l" path="res://src/world/levels/06_dragons_claw/scenes/subscenes/mural_completed.tscn" id="7_q6ir4"]
+[ext_resource type="Texture2D" uid="uid://vbjekevsxf05" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/mess_bg.png" id="8_h2xa4"]
+[ext_resource type="Texture2D" uid="uid://c7ej5jvck6xxq" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/pillar.png" id="9_vc6cw"]
+[ext_resource type="Texture2D" uid="uid://cxicao55uxcg7" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/mess_fg.png" id="10_0ru03"]
+[ext_resource type="Texture2D" uid="uid://uslmf27ege3s" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/entrance.png" id="11_53yb1"]
+[ext_resource type="Script" uid="uid://brw3qxymvneca" path="res://src/systems/interactables/interactable_scene_switch.gd" id="11_yi7iv"]
+[ext_resource type="Texture2D" uid="uid://lchi232ovq3m" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/mural_center.png" id="12_sm0o2"]
+[ext_resource type="Texture2D" uid="uid://b6ow5b3b1t63e" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/mural_left.png" id="13_0onsx"]
+[ext_resource type="AudioStream" uid="uid://b4rpltexb0vwg" path="res://src/world/levels/06_dragons_claw/assets/audio/tomb_theme.ogg" id="13_vekir"]
+[ext_resource type="Texture2D" uid="uid://b5s6wwcr45331" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/background.png" id="14_34pxi"]
+[ext_resource type="Texture2D" uid="uid://bpir0b63i3mfs" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/mural_right.png" id="14_ou60l"]
+[ext_resource type="Texture2D" uid="uid://c3o6l4tyw21ym" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/pieces.png" id="15_epmxo"]
+[ext_resource type="Texture2D" uid="uid://bpt8fq0nows1g" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/tools.png" id="16_5o7ei"]
+[ext_resource type="Texture2D" uid="uid://dc6uerp0quuvh" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/silhouette.png" id="17_pv88i"]
+[ext_resource type="Texture2D" uid="uid://i6tbn536v4hp" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/strand_1.png" id="18_emybh"]
+[ext_resource type="Texture2D" uid="uid://ble7ypa2uc1wg" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/strand_2.png" id="19_7xawl"]
+[ext_resource type="Texture2D" uid="uid://br5sss1jm0u7x" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/vine_1.png" id="20_tb70k"]
+[ext_resource type="Texture2D" uid="uid://bv3gog1crpcsj" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/vine_2.png" id="21_1nkjr"]
+[ext_resource type="Script" uid="uid://byyuugyltgunu" path="res://src/systems/polygon_copier.gd" id="21_dka8c"]
+[ext_resource type="Texture2D" uid="uid://cwgx32g51jb2n" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/vine_3.png" id="22_gbtsg"]
+[ext_resource type="Texture2D" uid="uid://drbjuwt550ckb" path="res://src/world/levels/06_dragons_claw/scenes/mural/assets/vine_4.png" id="23_raaet"]
+[ext_resource type="Shader" uid="uid://ciu3o657baitp" path="res://src/world/common/shaders/godrays.gdshader" id="23_vc6cw"]
+
+[sub_resource type="Environment" id="Environment_h2xa4"]
+background_mode = 3
+adjustment_enabled = true
+adjustment_brightness = 1.5
+adjustment_saturation = 1.1
+
+[sub_resource type="Resource" id="Resource_8ud32"]
+script = ExtResource("6_n4vwq")
+max_offset = Vector2(100, 100)
+damping = 0.1
+enabled = true
+priority = 0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g2ov8"]
+
+[sub_resource type="Resource" id="Resource_qk00p"]
+script = ExtResource("7_iswpw")
+preset = 5
+speed = 20.0
+intensity = 3.0
+shake_type = 17
+trauma_attack = 0.05
+trauma_decay = 0.2
+duration = 0.3
+endless = false
+noise = SubResource("FastNoiseLite_g2ov8")
+enabled = true
+priority = 0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_awqc0"]
+
+[sub_resource type="Resource" id="Resource_1rqgi"]
+script = ExtResource("7_iswpw")
+preset = 2
+speed = 15.0
+intensity = 5.0
+shake_type = 12
+trauma_attack = 0.3
+trauma_decay = 5.0
+duration = 3.0
+endless = true
+noise = SubResource("FastNoiseLite_awqc0")
+enabled = true
+priority = 0
+
+[sub_resource type="Gradient" id="Gradient_h2xa4"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.207237, 0.792517, 0.887755)
+colors = PackedColorArray(0.474342, 0.489982, 0.595987, 1, 0.904834, 0.622511, 0.55986, 1, 0.47451, 0.490196, 0.596078, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vc6cw"]
+gradient = SubResource("Gradient_h2xa4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ru03"]
+shader = ExtResource("23_vc6cw")
+shader_parameter/angle = -0.3
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.295
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(0.953448, 0.900503, 0.853829, 0.188235)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="Gradient" id="Gradient_vc6cw"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0ru03"]
+gradient = SubResource("Gradient_vc6cw")
+width = 1024
+height = 1024
+
+[sub_resource type="Gradient" id="Gradient_s7dll"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.301471, 0.727941, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.967249, 0.967249, 0.967249, 0.992333, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5bb06"]
+gradient = SubResource("Gradient_s7dll")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vkex3"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1000, 1)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 8.0
+color = Color(0.928221, 0.865478, 0.807732, 0.501961)
+color_ramp = SubResource("GradientTexture1D_5bb06")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1flfo"]
+blend_mode = 1
+
+[node name="Mural" instance=ExtResource("1_lf1sa")]
+scene_name = "mural"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_h2xa4")
+
+[node name="Mural" parent="UI" index="0" node_paths=PackedStringArray("target", "characters") instance=ExtResource("2_hxevg")]
+visible = false
+timeline = ExtResource("3_dgofo")
+target = NodePath("../../Player")
+characters = [NodePath("../../Player/TextBubbleMarker")]
+
+[node name="Player" parent="." index="2"]
+modulate = Color(0.533926, 0.533926, 0.533926, 1)
+style = ExtResource("4_0ru03")
+
+[node name="WalkieTalkie" parent="Player" index="12" instance=ExtResource("4_rl0nc")]
+
+[node name="ProCam2D" parent="." index="3"]
+addons = Array[ExtResource("5_sac01")]([SubResource("Resource_8ud32"), SubResource("Resource_qk00p"), SubResource("Resource_1rqgi")])
+left_limit = -375
+right_limit = 4250
+top_limit = -1111
+bottom_limit = 191
+
+[node name="Environment" type="Node2D" parent="." index="4"]
+metadata/_edit_lock_ = true
+
+[node name="BG" type="Parallax2D" parent="Environment" index="0"]
+
+[node name="BG" type="Sprite2D" parent="Environment/BG" index="0"]
+modulate = Color(0.238029, 0.192346, 0.0246143, 1)
+position = Vector2(2018, -1176)
+rotation = 1.5708
+scale = Vector2(12.5, 6400)
+texture = SubResource("GradientTexture1D_vc6cw")
+
+[node name="-3" type="Parallax2D" parent="Environment" index="1"]
+
+[node name="MessBg" type="Sprite2D" parent="Environment/-3" index="0"]
+position = Vector2(3807, -83)
+texture = ExtResource("8_h2xa4")
+
+[node name="-2" type="Parallax2D" parent="Environment" index="2"]
+
+[node name="MessFg" type="Sprite2D" parent="Environment/-2" index="0"]
+position = Vector2(3780, -106)
+texture = ExtResource("10_0ru03")
+
+[node name="-1" type="Parallax2D" parent="Environment" index="3"]
+
+[node name="Entrance" type="Sprite2D" parent="Environment/-1" index="0"]
+position = Vector2(-89, -175)
+texture = ExtResource("11_53yb1")
+
+[node name="MuralCenter" type="Sprite2D" parent="Environment/-1" index="1"]
+position = Vector2(2287, -574)
+texture = ExtResource("12_sm0o2")
+
+[node name="MuralLeft" type="Sprite2D" parent="Environment/-1" index="2"]
+modulate = Color(0.648231, 0.648231, 0.648231, 1)
+position = Vector2(867, -455)
+texture = ExtResource("13_0onsx")
+
+[node name="MuralRight" type="Sprite2D" parent="Environment/-1" index="3"]
+position = Vector2(3660, -446)
+texture = ExtResource("14_ou60l")
+
+[node name="Pieces" type="Sprite2D" parent="Environment/-1" index="4"]
+position = Vector2(2273, -64)
+texture = ExtResource("15_epmxo")
+
+[node name="Tools" type="Sprite2D" parent="Environment/-1" index="5"]
+position = Vector2(1221, -49)
+texture = ExtResource("16_5o7ei")
+
+[node name="1" type="Parallax2D" parent="Environment" index="4"]
+
+[node name="Strand1" type="Sprite2D" parent="Environment/1" index="0"]
+position = Vector2(3302, -423)
+texture = ExtResource("18_emybh")
+
+[node name="2" type="Parallax2D" parent="Environment" index="5"]
+
+[node name="Vine1" type="Sprite2D" parent="Environment/2" index="0"]
+position = Vector2(1951, -772)
+texture = ExtResource("20_tb70k")
+
+[node name="GodRays" type="Sprite2D" parent="Environment/2" index="1"]
+material = SubResource("ShaderMaterial_0ru03")
+position = Vector2(2322, -635)
+rotation = 0.3735
+texture = SubResource("GradientTexture2D_0ru03")
+
+[node name="Vine2" type="Sprite2D" parent="Environment/2" index="2"]
+position = Vector2(2291, -763)
+texture = ExtResource("21_1nkjr")
+
+[node name="Vine3" type="Sprite2D" parent="Environment/2" index="3"]
+position = Vector2(3555, -643)
+texture = ExtResource("22_gbtsg")
+
+[node name="Vine4" type="Sprite2D" parent="Environment/2" index="4"]
+position = Vector2(3509, -529)
+texture = ExtResource("23_raaet")
+
+[node name="Strand2" type="Sprite2D" parent="Environment/2" index="5"]
+position = Vector2(2921, -519)
+texture = ExtResource("19_7xawl")
+
+[node name="-4" type="Parallax2D" parent="Environment" index="6"]
+
+[node name="Pillar" type="Sprite2D" parent="Environment/-4" index="0"]
+modulate = Color(0.810992, 0.810992, 0.810992, 1)
+position = Vector2(1495, -219)
+texture = ExtResource("9_vc6cw")
+
+[node name="Pillar2" type="Sprite2D" parent="Environment/-4" index="1"]
+modulate = Color(0.810992, 0.810992, 0.810992, 1)
+position = Vector2(3106, -221)
+texture = ExtResource("9_vc6cw")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Environment/-4" index="2"]
+position = Vector2(2078, -508)
+amount = 32
+lifetime = 10.0
+preprocess = 11.0
+randomness = 1.0
+visibility_rect = Rect2(-2500, -2500, 5000, 5000)
+process_material = SubResource("ParticleProcessMaterial_vkex3")
+
+[node name="0" type="Parallax2D" parent="Environment" index="7"]
+
+[node name="Silhouette" type="Sprite2D" parent="Environment/0" index="0"]
+position = Vector2(1951, -538)
+texture = ExtResource("17_pv88i")
+
+[node name="Polygon2D" type="Polygon2D" parent="Environment/0" index="1"]
+color = Color(0.046891, 0.0312505, 0.0547036, 1)
+polygon = PackedVector2Array(-341, 65, -622, 242, -267, 501, 4484, 509, 4351, 42)
+
+[node name="Parallax2D8" type="Parallax2D" parent="Environment" index="8"]
+
+[node name="Parallax2D9" type="Parallax2D" parent="Environment" index="9"]
+
+[node name="Parallax2D10" type="Parallax2D" parent="Environment" index="10"]
+
+[node name="PlatformLayer" parent="." index="5"]
+visible = false
+
+[node name="GroundLayer" parent="." index="6"]
+visible = false
+tile_map_data = PackedByteArray("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AAAVAPH/AAAAAAAAAAAVAPD/AAAAAAAAAAAVAO//AAAAAAAAAAAVAO7/AAAAAAAAAAAUAO7/AAAAAAAAAAATAO7/AAAAAAAAAAASAO7/AAAAAAAAAAARAO7/AAAAAAAAAAAQAO7/AAAAAAAAAAAPAO7/AAAAAAAAAAAOAO7/AAAAAAAAAAANAO7/AAAAAAAAAAAMAO7/AAAAAAAAAAALAO7/AAAAAAAAAAAKAO7/AAAAAAAAAAAJAO7/AAAAAAAAAAAIAO7/AAAAAAAAAAAHAO7/AAAAAAAAAAAGAO7/AAAAAAAAAAAFAO7/AAAAAAAAAAAEAO7/AAAAAAAAAAADAO7/AAAAAAAAAAACAO7/AAAAAAAAAAABAO7/AAAAAAAAAAAAAO7/AAAAAAAAAAD//+7/AAAAAAAAAAD+/+7/AAAAAAAAAAD9/+7/AAAAAAAAAAD8/+7/AAAAAAAAAAD7/+7/AAAAAAAAAAD7/+//AAAAAAAAAAD7//D/AAAAAAAAAAD7//H/AAAAAAAAAAD7//L/AAAAAAAAAAD7//P/AAAAAAAAAAD7//T/AAAAAAAAAAD7//X/AAAAAAAAAAD7//b/AAAAAAAAAAD7//f/AAAAAAAAAAD7//j/AAAAAAAAAAD8//j/AAAAAAAAAAD8//f/AAAAAAAAAAD8//b/AAAAAAAAAAD8//X/AAAAAAAAAAD8//T/AAAAAAAAAAD8//P/AAAAAAAAAAD8//L/AAAAAAAAAAD8//H/AAAAAAAAAAD8//D/AAAAAAAAAAD8/+//AAAAAAAAAAD9/+//AAAAAAAAAAD9//D/AAAAAAAAAAD9//H/AAAAAAAAAAD9//L/AAAAAAAAAAD9//P/AAAAAAAAAAD9//T/AAAAAAAAAAD9//X/AAAAAAAAAAD9//b/AAAAAAAAAAD9//f/AAAAAAAAAAD9//j/AAAAAAAAAAD+//j/AAAAAAAAAAD+//f/AAAAAAAAAAD+//b/AAAAAAAAAAD+//X/AAAAAAAAAAD+//T/AAAAAAAAAAD+//P/AAAAAAAAAAD+//L/AAAAAAAAAAD+//H/AAAAAAAAAAD+//D/AAAAAAAAAAD+/+//AAAAAAAAAAD//+//AAAAAAAAAAD///D/AAAAAAAAAAD///H/AAAAAAAAAAD///L/AAAAAAAAAAD///P/AAAAAAAAAAD///T/AAAAAAAAAAD///X/AAAAAAAAAAD///b/AAAAAAAAAAD///f/AAAAAAAAAAD///j/AAAAAAAAAAAAAPj/AAAAAAAAAAAAAPf/AAAAAAAAAAAAAPb/AAAAAAAAAAAAAPX/AAAAAAAAAAAAAPT/AAAAAAAAAAAAAPP/AAAAAAAAAAAAAPL/AAAAAAAAAAAAAPH/AAAAAAAAAAAAAPD/AAAAAAAAAAAAAO//AAAAAAAAAAABAO//AAAAAAAAAAABAPD/AAAAAAAAAAABAPH/AAAAAAAAAAABAPL/AAAAAAAAAAABAPP/AAAAAAAAAAABAPT/AAAAAAAAAAABAPX/AAAAAAAAAAABAPb/AAAAAAAAAAABAPf/AAAAAAAAAAABAPj/AAAAAAAAAAACAPj/AAAAAAAAAAACAPf/AAAAAAAAAAACAPb/AAAAAAAAAAACAPX/AAAAAAAAAAACAPT/AAAAAAAAAAACAPP/AAAAAAAAAAACAPL/AAAAAAAAAAACAPH/AAAAAAAAAAACAPD/AAAAAAAAAAACAO//AAAAAAAAAAADAO//AAAAAAAAAAADAPD/AAAAAAAAAAADAPH/AAAAAAAAAAADAPL/AAAAAAAAAAADAPP/AAAAAAAAAAADAPT/AAAAAAAAAAADAPX/AAAAAAAAAAADAPb/AAAAAAAAAAAEAPX/AAAAAAAAAAAEAPT/AAAAAAAAAAAEAPP/AAAAAAAAAAAEAPL/AAAAAAAAAAAEAPH/AAAAAAAAAAAEAPD/AAAAAAAAAAAEAO//AAAAAAAAAAAFAO//AAAAAAAAAAAFAPD/AAAAAAAAAAAFAPH/AAAAAAAAAAAFAPL/AAAAAAAAAAAFAPP/AAAAAAAAAAAFAPT/AAAAAAAAAAAFAPX/AAAAAAAAAAAGAPT/AAAAAAAAAAAGAPP/AAAAAAAAAAAGAPL/AAAAAAAAAAAGAPH/AAAAAAAAAAAGAPD/AAAAAAAAAAAGAO//AAAAAAAAAAAHAO//AAAAAAAAAAAHAPD/AAAAAAAAAAAHAPH/AAAAAAAAAAAHAPL/AAAAAAAAAAAHAPP/AAAAAAAAAAAIAPP/AAAAAAAAAAAIAPL/AAAAAAAAAAAIAPH/AAAAAAAAAAAIAPD/AAAAAAAAAAAIAO//AAAAAAAAAAAJAO//AAAAAAAAAAAJAPD/AAAAAAAAAAAJAPH/AAAAAAAAAAAJAPL/AAAAAAAAAAAKAPL/AAAAAAAAAAAKAPH/AAAAAAAAAAAKAPD/AAAAAAAAAAAKAO//AAAAAAAAAAALAO//AAAAAAAAAAALAPD/AAAAAAAAAAALAPH/AAAAAAAAAAALAPL/AAAAAAAAAAAMAPL/AAAAAAAAAAAMAPH/AAAAAAAAAAAMAPD/AAAAAAAAAAAMAO//AAAAAAAAAAANAO//AAAAAAAAAAANAPD/AAAAAAAAAAANAPH/AAAAAAAAAAANAPL/AAAAAAAAAAAOAPL/AAAAAAAAAAAOAPH/AAAAAAAAAAAOAPD/AAAAAAAAAAAOAO//AAAAAAAAAAAPAO//AAAAAAAAAAAPAPD/AAAAAAAAAAAPAPH/AAAAAAAAAAAPAPL/AAAAAAAAAAAQAPL/AAAAAAAAAAAQAPH/AAAAAAAAAAAQAPD/AAAAAAAAAAAQAO//AAAAAAAAAAARAO//AAAAAAAAAAARAPD/AAAAAAAAAAARAPH/AAAAAAAAAAARAPL/AAAAAAAAAAARAPP/AAAAAAAAAAASAPP/AAAAAAAAAAASAPL/AAAAAAAAAAASAPH/AAAAAAAAAAASAPD/AAAAAAAAAAASAO//AAAAAAAAAAATAO//AAAAAAAAAAATAPD/AAAAAAAAAAATAPH/AAAAAAAAAAATAPL/AAAAAAAAAAATAPP/AAAAAAAAAAAUAPP/AAAAAAAAAAAUAPL/AAAAAAAAAAAUAPH/AAAAAAAAAAAUAPD/AAAAAAAAAAAUAO//AAAAAAAAAAAUAPT/AAAAAAAAAAAVAPT/AAAAAAAAAAAVAPP/AAAAAAAAAAAWAPP/AAAAAAAAAAAWAPL/AAAAAAAAAAAWAPH/AAAAAAAAAAAWAPD/AAAAAAAAAAAWAO//AAAAAAAAAAAWAO7/AAAAAAAAAAAXAO7/AAAAAAAAAAAXAO//AAAAAAAAAAAXAPD/AAAAAAAAAAAXAPH/AAAAAAAAAAAXAPL/AAAAAAAAAAAXAPP/AAAAAAAAAAAXAPT/AAAAAAAAAAAWAPT/AAAAAAAAAAAYAPL/AAAAAAAAAAAYAPH/AAAAAAAAAAAYAPD/AAAAAAAAAAAYAO//AAAAAAAAAAAYAO7/AAAAAAAAAAAZAO7/AAAAAAAAAAAZAO//AAAAAAAAAAAZAPD/AAAAAAAAAAAZAPH/AAAAAAAAAAAaAPD/AAAAAAAAAAAaAO//AAAAAAAAAAAaAO7/AAAAAAAAAAAbAO7/AAAAAAAAAAAbAO//AAAAAAAAAAAcAO//AAAAAAAAAAAcAO7/AAAAAAAAAAAdAO7/AAAAAAAAAAAeAO7/AAAAAAAAAAAfAO7/AAAAAAAAAAAgAO7/AAAAAAAAAAAhAO7/AAAAAAAAAAAVAPX/AAAAAAAAAAAzAPD/AAAAAAAAAAAzAO//AAAAAAAAAAAzAO7/AAAAAAAAAAAyAO7/AAAAAAAAAAAxAO7/AAAAAAAAAAAwAO7/AAAAAAAAAAAvAO7/AAAAAAAAAAAuAO7/AAAAAAAAAAAtAO7/AAAAAAAAAAAsAO7/AAAAAAAAAAArAO7/AAAAAAAAAAAqAO7/AAAAAAAAAAApAO7/AAAAAAAAAAAoAO7/AAAAAAAAAAAnAO7/AAAAAAAAAAAmAO7/AAAAAAAAAAAlAO7/AAAAAAAAAAAqAO//AAAAAAAAAAArAO//AAAAAAAAAAAsAO//AAAAAAAAAAAsAPD/AAAAAAAAAAAtAPD/AAAAAAAAAAAtAO//AAAAAAAAAAAuAO//AAAAAAAAAAAuAPD/AAAAAAAAAAAuAPH/AAAAAAAAAAAvAPH/AAAAAAAAAAAvAPD/AAAAAAAAAAAvAO//AAAAAAAAAAAwAO//AAAAAAAAAAAwAPD/AAAAAAAAAAAwAPH/AAAAAAAAAAAwAPL/AAAAAAAAAAAvAPL/AAAAAAAAAAAwAPP/AAAAAAAAAAAwAPT/AAAAAAAAAAAxAPT/AAAAAAAAAAAxAPP/AAAAAAAAAAAxAPL/AAAAAAAAAAAxAPH/AAAAAAAAAAAxAPD/AAAAAAAAAAAxAO//AAAAAAAAAAAyAO//AAAAAAAAAAAyAPD/AAAAAAAAAAAyAPH/AAAAAAAAAAAyAPL/AAAAAAAAAAAyAPP/AAAAAAAAAAAzAPL/AAAAAAAAAAAzAPH/AAAAAAAAAAA0APH/AAAAAAAAAAA0APD/AAAAAAAAAAA0AO//AAAAAAAAAAA0AO7/AAAAAAAAAAA1AO7/AAAAAAAAAAA1AO//AAAAAAAAAAA1APD/AAAAAAAAAAA1APH/AAAAAAAAAAA2APH/AAAAAAAAAAA2APD/AAAAAAAAAAA2AO//AAAAAAAAAAA2AO7/AAAAAAAAAAA3AO7/AAAAAAAAAAA3AO//AAAAAAAAAAA3APD/AAAAAAAAAAA3APH/AAAAAAAAAAA4APH/AAAAAAAAAAA4APD/AAAAAAAAAAA4AO//AAAAAAAAAAA4AO7/AAAAAAAAAAA5AO7/AAAAAAAAAAA5AO//AAAAAAAAAAA5APD/AAAAAAAAAAA5APH/AAAAAAAAAAA6APH/AAAAAAAAAAA6APD/AAAAAAAAAAA6AO//AAAAAAAAAAA7AO//AAAAAAAAAAA7APD/AAAAAAAAAAA7APH/AAAAAAAAAAA8APH/AAAAAAAAAAA8APD/AAAAAAAAAAA8AO//AAAAAAAAAAA9AO//AAAAAAAAAAA9APD/AAAAAAAAAAA9APH/AAAAAAAAAAA+APH/AAAAAAAAAAA+APD/AAAAAAAAAAA+AO//AAAAAAAAAAA/AO//AAAAAAAAAAA/AO7/AAAAAAAAAABAAO7/AAAAAAAAAABAAO//AAAAAAAAAAA/APD/AAAAAAAAAAA/APH/AAAAAAAAAAA/APL/AAAAAAAAAABAAPP/AAAAAAAAAAA=")
+
+[node name="CustomLayer" parent="." index="7"]
+visible = false
+
+[node name="KillZone" parent="." index="9"]
+position = Vector2(0, 4857)
+
+[node name="SubsceneSwapper" type="Node" parent="Interactables" index="0"]
+script = ExtResource("5_1al8o")
+subscenes = {
+"06_mural_completed": ExtResource("7_q6ir4"),
+"06_started": ExtResource("6_38yp3")
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables" index="1"]
+color = Color(0.394988, 0.496474, 0.75587, 0)
+polygon = PackedVector2Array(-273, -2, -271, -164, -195, -312, -60, -365, 45, -322, 88, -209, 101, 2)
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="Interactables/Polygon2D" index="0"]
+collision_layer = 8
+script = ExtResource("11_yi7iv")
+scene_name = "main_street"
+position_in_new_scene = Vector2(6863.13, -3008.08)
+player_interact_offset = Vector2(0, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Polygon2D/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-273, -2, -271, -164, -195, -312, -60, -365, 45, -322, 88, -209, 101, 2)
+script = ExtResource("21_dka8c")
+target = NodePath("../..")
+
+[node name="TombTheme" type="AudioStreamPlayer" parent="." index="11"]
+process_mode = 3
+stream = ExtResource("13_vekir")
+autoplay = true
+bus = &"Music"
+
+[node name="Background" type="Sprite2D" parent="." index="12"]
+visible = false
+material = SubResource("CanvasItemMaterial_1flfo")
+position = Vector2(1866, -642)
+texture = ExtResource("14_34pxi")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq5x6y8oxgxvc"]
+
+[ext_resource type="Script" uid="uid://xkbgvo4meqn3" path="res://src/systems/pathfinding/point_visualizer.gd" id="1_43yps"]
+[ext_resource type="Texture2D" uid="uid://psakpbobapm2" path="res://src/world/common/scene/tile.png" id="1_goib6"]
+
+[node name="PointVisualizer" type="Node2D"]
+script = ExtResource("1_43yps")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_goib6")

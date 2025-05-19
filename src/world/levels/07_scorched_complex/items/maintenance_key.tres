@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c6b6hsrqrb5ul"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_crrsp"]
+[ext_resource type="Texture2D" uid="uid://b45265brsxm3q" path="res://src/world/levels/07_scorched_complex/assets/lobby/maintenance_key.png" id="2_n17jk"]
+
+[resource]
+script = ExtResource("1_crrsp")
+texture = ExtResource("2_n17jk")
+name = "07_maintenance_key"
+display_name = "Maintenance Key"
+info = "Surprisingly, this one doesn't open every door."
+metadata/_custom_type_script = "uid://bpc76g8fprceh"

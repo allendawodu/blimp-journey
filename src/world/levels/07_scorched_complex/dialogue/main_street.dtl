@@ -1,0 +1,82 @@
+label jakob_1
+npc: Are you... the police?
+player: The police? No.
+npc: Dang!\
+I called them hours ago because my roommate and his friends are trapped inside.\
+My roommate said that if he doesn't come back in 24 hours, he's in trouble.\
+And it's been 30!\
+I'm worried that they won't hold out much longer!
+player: How can I help?
+npc: Please take this and save them before it's too late!
+do Inventory.add_item("07_flashlight")
+do SaverLoader.complete_event("07_spoke_to_jakob")
+[behavior type="s" who="player"]
+npc: I'll stay here and wait for the police to arrive.\
+Tell them that Jakob sent you!
+[end_timeline]
+
+label jakob_2
+player:
+- What are they doing here?
+	npc: They like to explore abandoned places.\
+	"Urban exploration," they call it.\
+	I don't know why they chose this place.\
+	It gives me the creeps...
+- Why don't you call your roommate's friends?
+	npc: I don't have their phone numbers!\
+	My roommate just said that if he doesn't come back in 24 hours, he's in trouble.
+- You're not going inside?
+	npc: I called the police a couple hours ago.\
+	They said they sent someone.\
+	This place is abandoned.\
+	So it may take some time for them to get here.
+[end_timeline]
+
+label no_entry
+player: I should probably figure out the situation before entering.
+[end_timeline]
+
+label jakob_aftermath
+if {07.spoke_to_jakob_aftermath} == false:
+	set {07.spoke_to_jakob_aftermath} = true
+	npc: Thank you for saving Tomasz!\
+	Please, take this.
+	do SaverLoader.complete_event("07_finished")
+else:
+	npc: I called the police hours ago.\
+	I wonder if they actually sent someone...
+[end_timeline]
+
+label tomasz_aftermath
+npc: What a crazy adventure!\
+This is what I live for!\
+...\
+My throat is dry.\
+I shouldn't have ate those saltine crackers on the way here...
+[end_timeline]
+
+label urbexer_1_aftermath
+if {Inventory.has_item("07_phone")}:
+	npc: I'll be taking my phone back.
+	do Inventory.remove_item("07_phone")
+npc: Thanks, really.\
+We don't normally get ourselves in this trouble...
+[end_timeline]
+
+label urbexer_2_aftermath
+npc: That was my first ever urban exploration.\
+I'm glad I found out Otto's hint that water keeps away the ghosts!\
+I can't wait for the next one Tomasz has planned!
+[end_timeline]
+
+label otto_aftermath
+npc: I always hear screams from those who visit this apartment.
+if {07.num_screams} == 0:
+	npc: But you...\
+	You didn't scream once.\
+	Amazing!
+elif {07.num_screams} == 1:
+	npc: I heard you scream 1 time.
+else:
+	npc: I heard you scream {07.num_screams} times.
+[end_timeline]

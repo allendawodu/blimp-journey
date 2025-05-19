@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://bty8qsrq6pexr"]
+
+[ext_resource type="Texture2D" uid="uid://dfjvp0i5dxl8k" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_corpse/assets/guts_1.png" id="1_ts4li"]
+[ext_resource type="Script" uid="uid://dlopy814bb7kk" path="res://src/systems/particle_system_visibility.gd" id="2_rx5pq"]
+[ext_resource type="Script" uid="uid://crndfpxikfj6t" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_corpse/gut_particles.gd" id="2_vmbt2"]
+
+[sub_resource type="Gradient" id="Gradient_v7p8i"]
+offsets = PackedFloat32Array(0, 0.796923, 0.938462)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.753846, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s5erx"]
+gradient = SubResource("Gradient_v7p8i")
+
+[sub_resource type="Curve" id="Curve_v7p8i"]
+_data = [Vector2(0, 1), 0.0, -0.114391, 0, 0, Vector2(1, 0.501964), -1.15011, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s5erx"]
+curve = SubResource("Curve_v7p8i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3o1f6"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 213.72
+initial_velocity_max = 965.7
+gravity = Vector3(0, 980, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_s5erx")
+color_ramp = SubResource("GradientTexture1D_s5erx")
+
+[node name="GutParticles" type="GPUParticles2D"]
+emitting = false
+amount = 16
+texture = ExtResource("1_ts4li")
+lifetime = 1.5
+one_shot = true
+speed_scale = 1.3
+explosiveness = 1.0
+visibility_rect = Rect2(-500000, -500000, 999999, 999999)
+process_material = SubResource("ParticleProcessMaterial_3o1f6")
+script = ExtResource("2_vmbt2")
+
+[node name="ParticleSystemVisibility" type="Node2D" parent="."]
+script = ExtResource("2_rx5pq")
+always_visible = true
+metadata/_custom_type_script = "uid://dlopy814bb7kk"

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7em21jin5gyn"]
+
+[ext_resource type="Script" uid="uid://bqq43jndit2t1" path="res://src/world/levels/06_dragons_claw/logic/walkie_talkie/walkie_talkie.gd" id="1_v8n0q"]
+[ext_resource type="Script" uid="uid://do8xp0vbjsptt" path="res://src/world/dialogue/text_bubble_marker.gd" id="2_wawx3"]
+[ext_resource type="Resource" uid="uid://ba83ar8eud6p1" path="res://src/world/dialogue/npc.dch" id="3_77nvw"]
+
+[node name="WalkieTalkie" type="Polygon2D"]
+visible = false
+position = Vector2(104, -138)
+color = Color(0.512429, 0.554856, 0.483806, 1)
+polygon = PackedVector2Array(-4, -15, -4, 13, 11, 13, 11, -16, 7, -16, 6, -38, 3, -37, 3, -16)
+script = ExtResource("1_v8n0q")
+labels = {
+"06_started": "test"
+}
+
+[node name="TextBubbleMarker" type="Marker2D" parent="."]
+position = Vector2(3, -46)
+script = ExtResource("2_wawx3")
+character = ExtResource("3_77nvw")

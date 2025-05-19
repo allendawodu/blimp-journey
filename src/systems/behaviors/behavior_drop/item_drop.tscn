@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://1q8hlkd1k6m0"]
+
+[ext_resource type="Script" uid="uid://bghsg83it7huj" path="res://src/systems/behaviors/behavior_drop/item_drop.gd" id="1_vet6m"]
+[ext_resource type="Script" uid="uid://blh80gwmwdoh" path="res://src/systems/interactables/interactable_collectible.gd" id="2_d7r8v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scxnh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5bkr"]
+
+[node name="ItemDrop" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 6
+gravity_scale = 2.0
+freeze = true
+script = ExtResource("1_vet6m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_scxnh")
+
+[node name="InteractableCollectible" type="Area2D" parent="." node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+collision_layer = 8
+script = ExtResource("2_d7r8v")
+free_if_already_collected = false
+target = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableCollectible"]
+shape = SubResource("RectangleShape2D_y5bkr")

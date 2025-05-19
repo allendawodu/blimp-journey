@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://p58ve7kojqqh"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_bhdyc"]
+[ext_resource type="Texture2D" uid="uid://do6hhhqi7116e" path="res://src/world/levels/06_dragons_claw/items/icon_translation_page.png" id="2_d6xbo"]
+
+[resource]
+script = ExtResource("1_bhdyc")
+texture = ExtResource("2_d6xbo")
+name = "06_translation_page"
+display_name = "Translation Page"
+info = "Martin's guide to Dragolian!"

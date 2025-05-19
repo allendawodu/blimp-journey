@@ -1,0 +1,31 @@
+player: hello.
+npc: how about buying a giant-screen tv to watch tomorrow's premiere of reality tv island?
+player: sorry.
+player: i don't have any money.
+npc: that's ok!
+npc: nobody does here!
+npc: you can buy it on credit!!!
+player: that doesn't sound like a good idea...
+npc: maybe you're right.
+npc: i delivered a tv to bucky lucas when he stayed at our motel.
+npc: he skipped around town never paying me back! 
+[end_timeline]
+
+label channel
+npc: maybe there's something else on.
+npc: try changing the channel.
+[end_timeline]
+
+label pizza
+npc: i'm gonna order pizza tomorrow tonight.
+npc: i heard bucky lucas loves pizza.
+[end_timeline]
+
+label lord
+npc: i wish i could get on reality tv island and win the grand prize!
+[end_timeline]
+
+label tv
+set {02.has_address_from_tv} = true
+player: it says i should send my application to 123 star avenue.
+[end_timeline]

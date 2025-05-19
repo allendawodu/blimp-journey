@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://uetfs3e8ecdi"]
+
+[ext_resource type="Texture2D" uid="uid://dcjkjyrx6yml7" path="res://src/character/styles/player/shoe_l.png" id="1_pph8a"]
+[ext_resource type="Script" uid="uid://b45j8fky1o1s1" path="res://src/character/common/style/style_part.gd" id="2_2g3rx"]
+
+[node name="ShoeL" type="Sprite2D"]
+texture = ExtResource("1_pph8a")
+offset = Vector2(-3, 40)
+script = ExtResource("2_2g3rx")
+style_name = "shoe_l_player"
+part = 31

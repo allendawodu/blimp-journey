@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=4 uid="uid://bcjm03j5btor7"]
+
+[ext_resource type="PackedScene" uid="uid://dwapdsx6u217o" path="res://src/world/common/scene/scene.tscn" id="1_7yku0"]
+[ext_resource type="Texture2D" uid="uid://fpse6v7h08vg" path="res://src/world/levels/04_volcano/scenes/dragons_claw_layout_20250130081011.png" id="2_dyxwh"]
+[ext_resource type="Script" uid="uid://byyuugyltgunu" path="res://src/systems/polygon_copier.gd" id="5_3keuo"]
+[ext_resource type="Script" uid="uid://brw3qxymvneca" path="res://src/systems/interactables/interactable_scene_switch.gd" id="6_dx83k"]
+[ext_resource type="Script" uid="uid://dkjpjl1dwitg1" path="res://src/systems/interactables/interactable_destroyable.gd" id="7_xi8ua"]
+
+[node name="MainStreet" instance=ExtResource("1_7yku0")]
+scene_name = "main_street"
+
+[node name="DragonsClawLayout20250130081011" type="Sprite2D" parent="." index="0"]
+position = Vector2(3620, -2285)
+scale = Vector2(5, 5)
+texture = ExtResource("2_dyxwh")
+
+[node name="GroundLayer" parent="." index="5"]
+tile_map_data = PackedByteArray("AAD7/w4AAAAAAAAAAAD8/w4AAAAAAAAAAAD9/w4AAAAAAAAAAAD+/w4AAAAAAAAAAAD//w4AAAAAAAAAAAAAAA4AAAAAAAAAAAABAA4AAAAAAAAAAAACAA4AAAAAAAAAAAADAA4AAAAAAAAAAAAEAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAHAA4AAAAAAAAAAAAIAA4AAAAAAAAAAAAJAA4AAAAAAAAAAAAKAA4AAAAAAAAAAAALAA4AAAAAAAAAAAAMAA4AAAAAAAAAAAANAA4AAAAAAAAAAAAOAA4AAAAAAAAAAAAPAA4AAAAAAAAAAAAQAA4AAAAAAAAAAAARAA4AAAAAAAAAAAASAA4AAAAAAAAAAAATAA4AAAAAAAAAAAAUAA4AAAAAAAAAAAAVAA4AAAAAAAAAAAAWAA4AAAAAAAAAAAAXAA4AAAAAAAAAAAAYAA4AAAAAAAAAAAAZAA4AAAAAAAAAAAAaAA4AAAAAAAAAAAAbAA4AAAAAAAAAAAAcAA4AAAAAAAAAAAAdAA4AAAAAAAAAAAAeAA4AAAAAAAAAAAAfAA4AAAAAAAAAAAAgAA4AAAAAAAAAAAAhAA4AAAAAAAAAAAAiAA4AAAAAAAAAAAAjAA4AAAAAAAAAAAAkAA4AAAAAAAAAAAAlAA4AAAAAAAAAAAAmAA4AAAAAAAAAAAAnAA4AAAAAAAAAAAAoAA4AAAAAAAAAAAApAA4AAAAAAAAAAAAqAA4AAAAAAAAAAAArAA4AAAAAAAAAAAAsAA4AAAAAAAAAAAAtAA4AAAAAAAAAAAAtAA0AAAAAAAAAAAAtAAwAAAAAAAAAAAAtAAsAAAAAAAAAAAAtAAoAAAAAAAAAAAAtAAkAAAAAAAAAAAAtAAgAAAAAAAAAAAAtAAcAAAAAAAAAAAAtAAYAAAAAAAAAAAAtAAUAAAAAAAAAAAAtAAQAAAAAAAAAAAAtAAMAAAAAAAAAAAAtAAIAAAAAAAAAAAAtAAEAAAAAAAAAAAAtAAAAAAAAAAAAAAAtAP//AAAAAAAAAAAtAP7/AAAAAAAAAAAtAP3/AAAAAAAAAAAtAPz/AAAAAAAAAAAtAPv/AAAAAAAAAAD7/w0AAAAAAAAAAAD7/wwAAAAAAAAAAAD7/wsAAAAAAAAAAAD7/woAAAAAAAAAAAD7/wkAAAAAAAAAAAD7/wgAAAAAAAAAAAD7/wcAAAAAAAAAAAD7/wYAAAAAAAAAAAD7/wUAAAAAAAAAAAD7/wQAAAAAAAAAAAD7/wMAAAAAAAAAAAD7/wIAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wAAAAAAAAAAAAD7////AAAAAAAAAAD7//7/AAAAAAAAAAD7//3/AAAAAAAAAAD7//z/AAAAAAAAAAD7//v/AAAAAAAAAAD7//r/AAAAAAAAAAAtAPr/AAAAAAAAAAA=")
+
+[node name="Entrance" type="Polygon2D" parent="Interactables" index="0"]
+position = Vector2(1708, 867)
+color = Color(0.939132, 0.779422, 0.611548, 0.729412)
+polygon = PackedVector2Array(-114, -16, -90, -180, 33, -294, 80, -284, 123, -226, 103, 14)
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="Interactables/Entrance" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("6_dx83k")
+scene_name = "volcano"
+target = NodePath("..")
+player_interact_offset = Vector2(-100, 0)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Interactables/Entrance/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-114, -16, -90, -180, 33, -294, 80, -284, 123, -226, 103, 14)
+script = ExtResource("5_3keuo")
+target = NodePath("../..")
+
+[node name="InteractableDestroyable" type="Area2D" parent="Interactables/Entrance" index="1" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("7_xi8ua")
+condition = "Inventory.has_item(\"04_translation_1\")"
+target = NodePath(".")
+player_interact_offset = Vector2(-100, 0)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Interactables/Entrance/InteractableDestroyable" index="0"]
+polygon = PackedVector2Array(-114, -16, -90, -180, 33, -294, 80, -284, 123, -226, 103, 14)
+script = ExtResource("5_3keuo")
+target = NodePath("../..")
+
+[node name="TreasureChest" type="Polygon2D" parent="Interactables" index="1"]
+position = Vector2(2468, 881)
+color = Color(0.552989, 0.878059, 0.980483, 0.537255)
+polygon = PackedVector2Array(-90, -2, -83, -82, -67, -135, 50, -137, 90, -99, 111, -31, 107, -6)
+
+[node name="InteractableDestroyable" type="Area2D" parent="Interactables/TreasureChest" index="0" node_paths=PackedStringArray("target")]
+script = ExtResource("7_xi8ua")
+after_success = "Inventory.add_item(\"04_translation_1\")"
+target = NodePath("..")
+player_interact_offset = Vector2(-100, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/TreasureChest/InteractableDestroyable" index="0"]
+polygon = PackedVector2Array(-90, -2, -83, -82, -67, -135, 50, -137, 90, -99, 111, -31, 107, -6)
+script = ExtResource("5_3keuo")
+target = NodePath("../..")

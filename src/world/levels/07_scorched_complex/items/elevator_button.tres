@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemExamine" load_steps=3 format=3 uid="uid://cl56xfd8w7stc"]
+
+[ext_resource type="Script" uid="uid://desgwjxtqe338" path="res://src/systems/item/item_examine.gd" id="1_eml3x"]
+[ext_resource type="Texture2D" uid="uid://sjj7lvtnmra7" path="res://src/world/levels/07_scorched_complex/assets/rooms/elevator_button.png" id="2_t2kr8"]
+
+[resource]
+script = ExtResource("1_eml3x")
+texture = ExtResource("2_t2kr8")
+name = "07_elevator_button"
+display_name = "Elevator Button"
+info = "It has the number 3 on it."
+metadata/_custom_type_script = "uid://desgwjxtqe338"

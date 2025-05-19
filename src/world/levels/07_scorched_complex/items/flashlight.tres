@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bqcpoln6qir15"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_00e8s"]
+
+[resource]
+script = ExtResource("1_00e8s")
+name = "07_flashlight"
+display_name = "Flashlight"
+info = "\"I can see!\""
+metadata/_custom_type_script = "uid://bpc76g8fprceh"

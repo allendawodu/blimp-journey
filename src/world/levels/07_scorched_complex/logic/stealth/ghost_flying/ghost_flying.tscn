@@ -1,0 +1,378 @@
+[gd_scene load_steps=37 format=3 uid="uid://cs6rnogmyi5k8"]
+
+[ext_resource type="Script" uid="uid://b4ax206h0ojrj" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/ghost_flying.gd" id="1_ti4cc"]
+[ext_resource type="Animation" uid="uid://bl8334486hxii" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/animations/RESET.tres" id="2_lki4x"]
+[ext_resource type="Script" uid="uid://cdimjpeol4y3a" path="res://src/systems/health_component.gd" id="2_qagb1"]
+[ext_resource type="Texture2D" uid="uid://0pm2ro8bcut0" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/assets/arm_l.png" id="3_2qmxg"]
+[ext_resource type="Animation" uid="uid://c36kaar4mp7tw" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/animations/roam.tres" id="3_8jjmw"]
+[ext_resource type="Animation" uid="uid://bb5cemnenv2ks" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/animations/pursue.tres" id="4_4lw2y"]
+[ext_resource type="Texture2D" uid="uid://kocopkv75y1a" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/assets/arm_r.png" id="4_fjq6m"]
+[ext_resource type="Script" uid="uid://dd6fce70ab7oe" path="res://addons/godot_state_charts/state_chart.gd" id="4_q3j6d"]
+[ext_resource type="Texture2D" uid="uid://bscqlqj5ersg2" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/assets/body.png" id="5_s2q6u"]
+[ext_resource type="Script" uid="uid://bbm4nsrsnevll" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/movement.gd" id="5_ti4cc"]
+[ext_resource type="Texture2D" uid="uid://dge1la77d5eic" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/assets/hand_l.png" id="6_4n8sv"]
+[ext_resource type="Script" uid="uid://bx7noo0ddeea2" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/roam.gd" id="6_lcyy8"]
+[ext_resource type="Texture2D" uid="uid://i4461r7prcv5" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/assets/hand_r.png" id="7_l0ptg"]
+[ext_resource type="Script" uid="uid://b62f7ssnv2gn3" path="res://addons/godot_state_charts/transition.gd" id="7_oh1j0"]
+[ext_resource type="Texture2D" uid="uid://swy5g38djh38" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/assets/head_bottom.png" id="8_4w2t0"]
+[ext_resource type="Script" uid="uid://dadc7or3w0kqs" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/pursue.gd" id="8_lcyy8"]
+[ext_resource type="Texture2D" uid="uid://bedxur8ogjplg" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/assets/head_top.png" id="9_77lm0"]
+[ext_resource type="Script" uid="uid://vgrejn51fnf6" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/wait.gd" id="9_lcyy8"]
+[ext_resource type="Texture2D" uid="uid://bea0nxnbmlcbb" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/assets/slime.png" id="10_lki4x"]
+[ext_resource type="Script" uid="uid://1uqcvsu1hgul" path="res://addons/soupik/utility/soup_bone.gd" id="11_2qmxg"]
+[ext_resource type="Script" uid="uid://bk1xmcdoq8mdo" path="res://addons/soupik/modifications/soup_group.gd" id="12_4n8sv"]
+[ext_resource type="Script" uid="uid://c2v2d0uxk34pf" path="res://addons/soupik/resources/zm_constraint_data.gd" id="12_l0ptg"]
+[ext_resource type="Script" uid="uid://q8tdyxcu0p42" path="res://addons/soupik/modifications/soup_two_bone_ik.gd" id="14_4w2t0"]
+[ext_resource type="Script" uid="uid://dxiosxca1gnms" path="res://addons/godot_state_charts/parallel_state.gd" id="16_77lm0"]
+[ext_resource type="Script" uid="uid://dnbih0i5k5b45" path="res://addons/godot_state_charts/animation_player_state.gd" id="23_77lm0"]
+[ext_resource type="Script" uid="uid://1604xk1xd2y" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/animation.gd" id="25_4lw2y"]
+[ext_resource type="Script" uid="uid://c6b3j33eleyub" path="res://addons/godot_state_charts/state_is_active_guard.gd" id="25_viqsv"]
+[ext_resource type="Script" uid="uid://bepe584dhc6co" path="res://addons/godot_state_charts/not_guard.gd" id="28_4lw2y"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lki4x"]
+_data = {
+&"RESET": ExtResource("2_lki4x"),
+&"pursue": ExtResource("4_4lw2y"),
+&"roam": ExtResource("3_8jjmw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vb13"]
+size = Vector2(260, 260)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5crme"]
+radius = 512.0
+
+[sub_resource type="Resource" id="Resource_4w2t0"]
+script = ExtResource("12_l0ptg")
+rotation_direction_degrees = 11.0
+rotation_half_arc_degrees = 73.0
+area_offset = Vector2(0, 0)
+area_rotation_degrees = 0.0
+proportions = Vector2(1, 1)
+metadata/_custom_type_script = "uid://c2v2d0uxk34pf"
+
+[sub_resource type="Resource" id="Resource_77lm0"]
+script = ExtResource("12_l0ptg")
+rotation_direction_degrees = -41.5
+rotation_half_arc_degrees = 83.0
+area_offset = Vector2(0, 0)
+area_rotation_degrees = 0.0
+proportions = Vector2(1, 1)
+metadata/_custom_type_script = "uid://c2v2d0uxk34pf"
+
+[sub_resource type="Resource" id="Resource_bk1fa"]
+script = ExtResource("25_viqsv")
+state = NodePath("../../../Movement/Pursue")
+metadata/_custom_type_script = "uid://c6b3j33eleyub"
+
+[sub_resource type="Resource" id="Resource_d7plh"]
+script = ExtResource("25_viqsv")
+state = NodePath("../../../Movement/Pursue")
+metadata/_custom_type_script = "uid://c6b3j33eleyub"
+
+[sub_resource type="Resource" id="Resource_80e1b"]
+script = ExtResource("28_4lw2y")
+guard = SubResource("Resource_d7plh")
+metadata/_custom_type_script = "uid://bepe584dhc6co"
+
+[node name="GhostFlying" type="CharacterBody2D"]
+z_index = 3
+scale = Vector2(0.5, 0.5)
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_ti4cc")
+max_speed = 700.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lki4x")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -130)
+shape = SubResource("RectangleShape2D_8vb13")
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_qagb1")
+target = NodePath("..")
+max_health = 20.0
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PlayerChecker" type="Area2D" parent="Visuals"]
+unique_name_in_owner = true
+scale = Vector2(2, 2)
+collision_layer = 0
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/PlayerChecker"]
+position = Vector2(512, 0)
+shape = SubResource("CircleShape2D_5crme")
+
+[node name="Body" type="CanvasGroup" parent="Visuals"]
+
+[node name="ArmL" type="Sprite2D" parent="Visuals/Body"]
+position = Vector2(115, 35)
+rotation = 0.46248
+texture = ExtResource("4_fjq6m")
+offset = Vector2(4, 57)
+
+[node name="HandL" type="Sprite2D" parent="Visuals/Body"]
+position = Vector2(75.7607, 133.88)
+rotation = -0.845882
+scale = Vector2(1, 1)
+texture = ExtResource("7_l0ptg")
+offset = Vector2(-21, 71)
+
+[node name="Body" type="Sprite2D" parent="Visuals/Body"]
+texture = ExtResource("5_s2q6u")
+offset = Vector2(-27, -71)
+
+[node name="Slime" type="Sprite2D" parent="Visuals/Body"]
+position = Vector2(223, 6)
+rotation = 0.261799
+scale = Vector2(1, 0.7)
+texture = ExtResource("10_lki4x")
+
+[node name="HeadBottom" type="Sprite2D" parent="Visuals/Body"]
+position = Vector2(113, 14)
+texture = ExtResource("8_4w2t0")
+offset = Vector2(68, 22)
+
+[node name="HeadTop" type="Sprite2D" parent="Visuals/Body"]
+position = Vector2(115, -40)
+texture = ExtResource("9_77lm0")
+offset = Vector2(80, -12)
+
+[node name="ArmR" type="Sprite2D" parent="Visuals/Body"]
+position = Vector2(-157, -66)
+rotation = 0.00785021
+texture = ExtResource("3_2qmxg")
+offset = Vector2(-46, 66)
+
+[node name="HandR" type="Sprite2D" parent="Visuals/Body"]
+position = Vector2(-248.041, 66.2894)
+rotation = -0.0131426
+texture = ExtResource("6_4n8sv")
+offset = Vector2(48.1903, 80.0907)
+
+[node name="Bones" type="Node2D" parent="Visuals"]
+visible = false
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Visuals/Bones"]
+
+[node name="Body" type="Bone2D" parent="Visuals/Bones/Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+script = ExtResource("11_2qmxg")
+transform_mode = 0
+metadata/_custom_type_script = "uid://1uqcvsu1hgul"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Body"]
+remote_path = NodePath("../../../../Body/Body")
+update_rotation = false
+update_scale = false
+
+[node name="ArmR" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Body"]
+position = Vector2(-157, -66)
+rotation = 0.00785021
+rest = Transform2D(0.999969, 0.00784981, -0.00784981, 0.999969, -157, -66)
+script = ExtResource("11_2qmxg")
+transform_mode = 0
+target_rotation = 0.00785021
+target_position = Vector2(-157, -66)
+metadata/_custom_type_script = "uid://1uqcvsu1hgul"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Body/ArmR"]
+remote_path = NodePath("../../../../../Body/ArmR")
+
+[node name="HandR" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Body/ArmR"]
+position = Vector2(-90, 133)
+rotation = -0.0209928
+rest = Transform2D(0.999779, -0.0209906, 0.0209906, 0.999779, -90, 133)
+auto_calculate_length_and_angle = false
+length = 109.8
+bone_angle = 73.24
+script = ExtResource("11_2qmxg")
+transform_mode = 0
+target_rotation = -0.0209928
+target_position = Vector2(-90, 133)
+constraint_data = SubResource("Resource_4w2t0")
+metadata/_custom_type_script = "uid://1uqcvsu1hgul"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Body/ArmR/HandR"]
+remote_path = NodePath("../../../../../../Body/HandR")
+
+[node name="End" type="Node2D" parent="Visuals/Bones/Skeleton2D/Body/ArmR/HandR"]
+position = Vector2(32, 104)
+
+[node name="ArmL" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Body"]
+position = Vector2(115, 35)
+rotation = 0.46248
+rest = Transform2D(0.894949, 0.446168, -0.446168, 0.894949, 115, 35)
+script = ExtResource("11_2qmxg")
+transform_mode = 0
+target_rotation = 0.462479
+target_position = Vector2(115, 35)
+metadata/_custom_type_script = "uid://1uqcvsu1hgul"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Body/ArmL"]
+remote_path = NodePath("../../../../../Body/ArmL")
+
+[node name="HandL" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Body/ArmL"]
+position = Vector2(9, 106)
+rotation = -1.30836
+scale = Vector2(1, 1)
+rest = Transform2D(0.245646, -0.96936, 0.96936, 0.245646, 9, 106)
+auto_calculate_length_and_angle = false
+length = 69.84
+bone_angle = 117.28
+script = ExtResource("11_2qmxg")
+transform_mode = 0
+target_rotation = -1.30836
+target_position = Vector2(9, 106)
+constraint_data = SubResource("Resource_77lm0")
+metadata/_custom_type_script = "uid://1uqcvsu1hgul"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Body/ArmL/HandL"]
+remote_path = NodePath("../../../../../../Body/HandL")
+
+[node name="End" type="Node2D" parent="Visuals/Bones/Skeleton2D/Body/ArmL/HandL"]
+position = Vector2(-33, 61)
+
+[node name="HeadTop" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Body"]
+position = Vector2(115, -40)
+rest = Transform2D(1, 0, 0, 1, 115, -40)
+auto_calculate_length_and_angle = false
+length = 138.37
+bone_angle = -2.56
+script = ExtResource("11_2qmxg")
+transform_mode = 1
+target_position = Vector2(115, -40)
+metadata/_custom_type_script = "uid://1uqcvsu1hgul"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Body/HeadTop"]
+remote_path = NodePath("../../../../../Body/HeadTop")
+
+[node name="End" type="Node2D" parent="Visuals/Bones/Skeleton2D/Body/HeadTop"]
+position = Vector2(139, -7)
+
+[node name="HeadBottom" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Body"]
+position = Vector2(113, 14)
+rest = Transform2D(1, 0, 0, 1, 113, 14)
+auto_calculate_length_and_angle = false
+length = 113.7
+bone_angle = 23.6
+script = ExtResource("11_2qmxg")
+transform_mode = 1
+target_position = Vector2(113, 14)
+metadata/_custom_type_script = "uid://1uqcvsu1hgul"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Body/HeadBottom"]
+remote_path = NodePath("../../../../../Body/HeadBottom")
+
+[node name="End" type="Node2D" parent="Visuals/Bones/Skeleton2D/Body/HeadBottom"]
+position = Vector2(104, 45)
+
+[node name="SoupGroup" type="Node" parent="Visuals/Bones/Skeleton2D"]
+script = ExtResource("12_4n8sv")
+metadata/_custom_type_script = "uid://bk1xmcdoq8mdo"
+
+[node name="SoupTwoBoneIK" type="Node" parent="Visuals/Bones/Skeleton2D/SoupGroup" node_paths=PackedStringArray("target_node", "joint_one_bone_node", "joint_two_bone_node")]
+script = ExtResource("14_4w2t0")
+target_node = NodePath("../../../../IKTargets/HandRTarget")
+enabled = true
+joint_one_bone_node = NodePath("../../Body/ArmR")
+joint_two_bone_node = NodePath("../../Body/ArmR/HandR")
+metadata/_custom_type_script = "uid://q8tdyxcu0p42"
+
+[node name="SoupTwoBoneIK2" type="Node" parent="Visuals/Bones/Skeleton2D/SoupGroup" node_paths=PackedStringArray("target_node", "joint_one_bone_node", "joint_two_bone_node")]
+script = ExtResource("14_4w2t0")
+target_node = NodePath("../../../../IKTargets/HandLTarget")
+enabled = true
+joint_one_bone_node = NodePath("../../Body/ArmL")
+joint_two_bone_node = NodePath("../../Body/ArmL/HandL")
+metadata/_custom_type_script = "uid://q8tdyxcu0p42"
+
+[node name="IKTargets" type="Node2D" parent="Visuals"]
+
+[node name="HandRTarget" type="Marker2D" parent="Visuals/IKTargets"]
+position = Vector2(-215, 171)
+
+[node name="HandLTarget" type="Marker2D" parent="Visuals/IKTargets"]
+position = Vector2(101, 199)
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("4_q3j6d")
+metadata/_custom_type_script = "uid://dd6fce70ab7oe"
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("16_77lm0")
+
+[node name="Movement" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_ti4cc")
+initial_state = NodePath("Roam")
+
+[node name="Roam" type="Node" parent="StateChart/Root/Movement"]
+script = ExtResource("6_lcyy8")
+
+[node name="ToPursue" type="Node" parent="StateChart/Root/Movement/Roam"]
+script = ExtResource("7_oh1j0")
+to = NodePath("../../Pursue")
+event = &"pursue"
+delay_in_seconds = "0.0"
+
+[node name="ToWait" type="Node" parent="StateChart/Root/Movement/Roam"]
+script = ExtResource("7_oh1j0")
+to = NodePath("../../Wait")
+event = &"wait"
+delay_in_seconds = "0.0"
+
+[node name="Pursue" type="Node" parent="StateChart/Root/Movement"]
+unique_name_in_owner = true
+script = ExtResource("8_lcyy8")
+
+[node name="ToWait" type="Node" parent="StateChart/Root/Movement/Pursue"]
+script = ExtResource("7_oh1j0")
+to = NodePath("../../Wait")
+event = &"wait"
+delay_in_seconds = "0.0"
+
+[node name="Wait" type="Node" parent="StateChart/Root/Movement"]
+script = ExtResource("9_lcyy8")
+
+[node name="ToRoam" type="Node" parent="StateChart/Root/Movement/Wait"]
+script = ExtResource("7_oh1j0")
+to = NodePath("../../Roam")
+delay_in_seconds = "3"
+
+[node name="Animation" type="Node" parent="StateChart/Root"]
+script = ExtResource("25_4lw2y")
+initial_state = NodePath("Roam")
+
+[node name="Roam" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("23_77lm0")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = &"roam"
+custom_blend = 0.2
+custom_speed = 0.5
+
+[node name="ToPursue" type="Node" parent="StateChart/Root/Animation/Roam"]
+script = ExtResource("7_oh1j0")
+to = NodePath("../../Pursue")
+guard = SubResource("Resource_bk1fa")
+delay_in_seconds = "0.0"
+
+[node name="Pursue" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("23_77lm0")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = &"pursue"
+custom_blend = 0.2
+custom_speed = 1.5
+
+[node name="ToRoam" type="Node" parent="StateChart/Root/Animation/Pursue"]
+script = ExtResource("7_oh1j0")
+to = NodePath("../../Roam")
+guard = SubResource("Resource_80e1b")
+delay_in_seconds = "0.0"

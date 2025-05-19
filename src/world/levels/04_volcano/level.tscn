@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://vdvohei76anl"]
+
+[ext_resource type="Script" uid="uid://bgcjhjqsnuj3c" path="res://src/world/common/level/level.gd" id="1_21ycm"]
+[ext_resource type="Script" uid="uid://bfw7n02cus36g" path="res://src/systems/command_center/command_center_level.gd" id="2_6vcie"]
+[ext_resource type="PackedScene" uid="uid://dpttcfbbabw6j" path="res://src/world/levels/04_volcano/scenes/volcano.tscn" id="3_0abuy"]
+[ext_resource type="PackedScene" uid="uid://btcmdnyri2vhg" path="res://src/ui/hand/hand.tscn" id="3_vk82j"]
+[ext_resource type="Texture2D" uid="uid://d36fk0fuc0o3r" path="res://src/ui/icons/menu.png" id="4_v0nrg"]
+[ext_resource type="Script" uid="uid://ohm7go7h6hiu" path="res://src/ui/maaack/overlaid_menus/pause_handler.gd" id="5_uqeoa"]
+[ext_resource type="PackedScene" uid="uid://t5scwf4rqd5j" path="res://src/ui/maaack/overlaid_menus/pause_menu.tscn" id="7_mlvsg"]
+
+[node name="Level" type="Node"]
+script = ExtResource("1_21ycm")
+level_code = 4
+scenes = {
+"main_street": ExtResource("3_0abuy")
+}
+
+[node name="CommandCenterLevel" type="Node" parent="."]
+script = ExtResource("2_6vcie")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PauseHandler" type="TextureButton" parent="UI" node_paths=PackedStringArray("pause_menu")]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("4_v0nrg")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("5_uqeoa")
+pause_menu = NodePath("../PauseMenu")
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("7_mlvsg")]
+visible = false
+
+[node name="Hand" parent="UI" instance=ExtResource("3_vk82j")]

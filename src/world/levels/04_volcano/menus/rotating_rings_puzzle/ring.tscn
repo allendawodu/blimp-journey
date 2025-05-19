@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://5s7211qsjd1o"]
+
+[ext_resource type="Script" uid="uid://tv6ml1gkp3y3" path="res://src/world/levels/04_volcano/menus/rotating_rings_puzzle/ring.gd" id="1_7yp3f"]
+[ext_resource type="Texture2D" uid="uid://dgx3nggeb58t" path="res://src/ui/icons/cursor_interact.png" id="2_mdysk"]
+
+[node name="Ring" type="TextureButton"]
+custom_minimum_size = Vector2(1024, 1024)
+offset_right = 512.0
+offset_bottom = 512.0
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("1_7yp3f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_mdysk")
+expand_mode = 1
+stretch_mode = 5

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cknbmrlct77pc"]
+
+[ext_resource type="Texture2D" uid="uid://dk8lu06v60mu7" path="res://src/character/styles/player/Shirt.png" id="1_yq53i"]
+[ext_resource type="Script" uid="uid://b45j8fky1o1s1" path="res://src/character/common/style/style_part.gd" id="2_gxabv"]
+
+[node name="Shirt" type="Sprite2D"]
+texture = ExtResource("1_yq53i")
+offset = Vector2(3, -32)
+script = ExtResource("2_gxabv")
+style_name = "shirt_player"
+part = 15

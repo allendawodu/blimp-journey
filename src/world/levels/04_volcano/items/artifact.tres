@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://c8ox2ims2v68x"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_026my"]
+
+[resource]
+script = ExtResource("1_026my")
+name = "04_artifact"
+display_name = "Artifact"
+info = ""

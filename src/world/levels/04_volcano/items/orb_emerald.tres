@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bx2wb3leyt2hi"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_bgyhi"]
+
+[resource]
+script = ExtResource("1_bgyhi")
+name = "04_orb_emerald"
+display_name = "Emerald Orb"
+info = ""

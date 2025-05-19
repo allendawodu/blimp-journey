@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt2ji4wm4p6k7"]
+
+[ext_resource type="Texture2D" uid="uid://bc36sgnh7mqie" path="res://src/world/levels/06_dragons_claw/menus/mural/border.png" id="1_e0f4p"]
+[ext_resource type="Script" uid="uid://b06erqdnqtptw" path="res://src/systems/interactables/interactable_menu.gd" id="4_82hfk"]
+
+[node name="MuralBlank" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(2275, -445)
+texture = ExtResource("1_e0f4p")
+
+[node name="InteractableMenu" type="Area2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_82hfk")
+menu_path = NodePath("/root/DragonsClawVolcano/Mural/UI/Mural")
+target = NodePath("..")
+player_interact_offset = Vector2(0, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractableMenu"]
+position = Vector2(0, -64)
+scale = Vector2(1.25, 1.25)
+polygon = PackedVector2Array(-487, 290, -440, -2, -319, -180, -170, -276, 47, -303, 215, -252, 382, -117, 454, 67, 484, 292)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://f58x2kynqi0x"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_otxcv"]
+[ext_resource type="Texture2D" uid="uid://brpa3xet8a842" path="res://src/world/levels/06_dragons_claw/scenes/queens_chamber/assets/journal.png" id="2_qreh5"]
+
+[resource]
+script = ExtResource("1_otxcv")
+texture = ExtResource("2_qreh5")
+name = "06_journal"
+display_name = "Martin's Journal"
+info = "\"To my dear Marcie...\""

@@ -1,0 +1,45 @@
+label meet_mcrusty
+player: are you okay?
+npc: yea, yea i'm alright, thanks for asking kid.\
+err, since you're here and all, would you mind doing a little something for me?
+player:
+- i can help. what do you need?
+	npc: i seem to have lost a little oil canister when i was hauling some parts around earlier.\
+	if i had to make a little guess, i'd say it's probably somewhere around tick-tock tower in the plaza.\
+	if you could get that and put a little oil in it, i can give you an all-access pass to the finest junk and scrap you've ever seen!\
+	interested in a little deal?
+	player: i'll bring you the canister.
+	npc: appreciate it, kid. when you find it, take it to the garage down left from the plaza.\
+	it's owned by a lady named margo, she'll be sure to have some oil for you.\
+	tell her that mcrusty sent you, and to make sure he gets the good stuff. no skimping!!
+- i'm busy right now, sorry.
+	player: that sounds like too much work for me. no thanks!
+[end_timeline]
+
+label give_oil
+npc: finally! took you long enough...
+# mcRusty sips the oil.
+npc: ahhh- definitely the good stuff. here's a little token of my appreciation, as promised.
+do Inventory.add_item("03_junkyard_key")
+npc: don't go too crazy in my yard, though. i have a little system i like to adhere to...
+[end_timeline]
+
+label get_propellers
+# the junkyard features massive piles of scrap metal, parts, and other junk. in the middle of the yard is a light pole with sparks coming out of a locked box at its base. a wire connection puzzle on the box disables the lock, revealing weak batteries inside. atop the largest pile in the yard is a set of scrap propellers. after some simple platforming, the player grabs the propellers, but their rival shouts at them from offscreen.
+npc: STOOOOOOOOOPPPP!!!!
+# the player jumps down from the pile as the rival comes running towards them, yelling angrily.
+npc: stop right there!! i saw those propellers first, so they're mine! hands off my property!
+player: aren't you participating in the blimp-building competition too?\
+i got to these parts first, so you need to go and find your own.\
+i don't know what your probl-
+npc: sheesh, whatever! the rule is obviously finders keepers, and i totally found those propellers first, with my eyes of course,\
+but your grubby hands are already all over it so you can just keep it i guess.\
+but like i said before, i'm gonna be the one who wins this competition and i'm gonna make sure of it!!\
+i'm gonna be the greatest explorer any of these scaredy-cats have ever seen!!\
+i'm going to the paint store to get a blank tarp, so if you're thinking about going there then DON'T!\
+if i see you in the paint store, we're going to fight and i mean it. so, stay out of my way!! later!!
+[behavior type="m" who="rival" wait="true"]
+player: unbelievable.\
+anyways, the art supply store does sound like a good place i could get a blank tarp from.\
+i could probably use some paint supplies to customize my blimp too...
+[end_timeline]

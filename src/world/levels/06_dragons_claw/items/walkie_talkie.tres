@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemExamine" load_steps=3 format=3 uid="uid://bbdyuvc38mgby"]
+
+[ext_resource type="Script" uid="uid://desgwjxtqe338" path="res://src/systems/item/item_examine.gd" id="1_5v0vw"]
+[ext_resource type="Texture2D" uid="uid://b08pj3frn5stq" path="res://src/world/levels/06_dragons_claw/items/icon_walkie_talkie.png" id="2_hijga"]
+
+[resource]
+script = ExtResource("1_5v0vw")
+texture = ExtResource("2_hijga")
+name = "06_walkie_talkie"
+display_name = "Walkie Talkie"
+info = "\"Can anyone here me?\"
+(Interactable)"

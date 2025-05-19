@@ -1,0 +1,154 @@
+label mural
+[wait time="0.1" hide_text="true"]
+[signal arg="shake_tomb"]
+[wait time="1.0" hide_text="true"]
+player: What's going on?!
+[signal arg="teleport_player"]
+[end_timeline]
+
+label 06_treasure
+player: Ooh, shiny! I'm definitely keeping this for later.
+[end_timeline]
+
+label guide_explore
+npc: Let's explore what I've dreamed about for twenty years!
+[end_timeline]
+
+label guide_found
+do SaverLoader.complete_event("06_guide_found")
+npc: I can hear their whispers.\
+"You gave up everything for nothing."\
+"Was it worth it?"\
+But you... you could help me prove them all wrong.
+[behavior type="m" who="guide" index="0" wait="true"]
+[signal arg="start_combat"]
+do SaverLoader.complete_event("06_combat_started")
+[end_timeline]
+
+label guide_saved
+set {06.is_following_player} = true
+do SaverLoader.complete_event("06_combat_ended")
+[signal arg="pathfind_to_player"]
+npc: Thank you for saving me!\
+But danger still lurks in this tomb.\
+By the way...\
+I found this [color=maroon]key[/color] that might open something important.
+[end_timeline]
+
+label guide_explore_combat_chamber
+npc: This [color=maroon]key[/color]... feels like we're getting closer to something big.
+[end_timeline]
+
+label guide_explore_burial
+npc: A new path downward has opened up!\
+Ready to make history?
+[end_timeline]
+
+label traps
+npc: Careful!\
+The queen didn't want visitors dropping by unannounced.\
+You need to disable these traps for us to continue.
+[end_timeline]
+
+label traps_disabled
+do SaverLoader.complete_event("06_traps_disabled")
+player: Traps disabled! That was a close one.
+[end_timeline]
+
+label traps_disabled_again
+player: I already took care of the traps. We're good to go!
+[end_timeline]
+
+label dont_start
+player: I should speak with the guide first.\
+He's the expert here, after all.
+[behavior type="m" who="player" index="1" wait="true"]
+[end_timeline]
+
+label queens_chamber
+do SaverLoader.complete_event("06_traps_disabled")
+# Prevents the Guide from following the player during the cutscene
+set {06.is_following_player} = false
+[flip who="player" direction="r" wait="false"]
+[behavior type="m" who="guide" index="0" wait="true"]
+[flip who="guide" direction="l"]
+npc: This is the queen's chamber...
+[flip who="guide" direction="r"]
+npc: And it appears that I have the key for it.
+do SaverLoader.complete_event("06_unlocked_queens_chamber")
+[wait time="0.25" hide_text="true"]
+[behavior type="m" who="guide" index="3" wait="false"]
+[wait time="0.5" hide_text="true"]
+[behavior type="m" who="player" index="2" wait="true"]
+[flip who="player" direction="l"]
+npc: The resting place of the fire dragon queen!\
+The inscriptions say we must make a final sacrifice.\
+To honor the queen and unlock her secrets.
+[behavior type="m" who="guide" index="4" wait="false"]
+[wait time="0.75" hide_text="true"]
+[behavior type="m" who="player" index="3" wait="true"]
+[flip who="guide" direction="l"]
+npc: I lost my career, my reputation, my family...\
+All because I believed when no one else would.
+[flip who="guide" direction="r"]
+npc: Now, I must give up my journal.\
+The only thing i have left.
+[behavior type="d" who="guide" wait="true"]
+do SaverLoader.complete_event("06_guide_sacrificed_journal")
+[wait time="1.75" hide_text="true"]
+[flip who="guide" direction="l"]
+npc: What will you give to complete our journey?
+[end_timeline]
+
+label sacrifice
+if {Inventory.has_item("06_treasure")}:
+	[flip who="player" direction="r" wait="false"]
+	do Inventory.remove_item("06_treasure")
+	[behavior type="d" who="player" wait="true"]
+	do SaverLoader.complete_event("06_sacrifice_made")
+	[wait time="1.5" hide_text="true"]
+	jump uncover_secret
+else:
+	player: I don't have anything worthy to give yet.
+[end_timeline]
+
+label sacrifice_again
+npc: The queen won't reveal her secrets without a gift.\
+Perhaps the tomb has treasure you desire?
+[end_timeline]
+
+label uncover_secret
+[flip who="player" direction="l" wait="false"]
+set {06.is_following_player} = false
+[signal arg="open_sarcophagus"]
+[behavior type="m" who="guide" index="5" wait="false"]
+[wait time="0.75" hide_text="true"]
+[behavior type="m" who="player" index="4" wait="true"]
+[flip who="guide" direction="r"]
+npc: Listen kid.\
+Twenty years I've chased this dream.\
+This tomb is my vindication!\
+This is to everyone who laughed, who doubted me...
+# Guide takes crown.
+do SaverLoader.complete_event("06_artifact_taken")
+[wait time="1.5" hide_text="true"]
+player: Uh-oh! That doesn't look good!
+npc: The magma is rising!\
+All this work can't be for nothing!\
+We've got to get out of here!\
+Meet me at the top!
+do SaverLoader.complete_event("06_escape_sequence_started")
+[flip who="player" direction="r"]
+[behavior type="m" who="guide" index="1" wait="true"]
+[wait time="0.5"]
+[behavior type="t" who="guide" index="1" wait="true"]
+[behavior type="m" who="player" index="0" wait="true"]
+[end_timeline]
+
+label confrontation
+set {06.is_following_player} = false
+npc: One last crazy stunt!\
+I'll use the tomb's power to stop the magma!\
+Keep going!
+[behavior type="m" who="guide" index="2" wait="false"]
+[end_timeline]

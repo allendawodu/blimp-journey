@@ -1,0 +1,40 @@
+[gd_scene load_steps=11 format=3 uid="uid://cp72hpyboiagf"]
+
+[ext_resource type="PackedScene" uid="uid://bqpjqjy1lqxeg" path="res://src/world/common/level/level.tscn" id="1_m7nxf"]
+[ext_resource type="PackedScene" uid="uid://b7djop7yh5l72" path="res://src/world/levels/06_dragons_claw/scenes/base_camp/main_street.tscn" id="2_0cua4"]
+[ext_resource type="PackedScene" uid="uid://big37kla1eoyg" path="res://src/world/levels/06_dragons_claw/menus/journal/journal.tscn" id="3_ejeec"]
+[ext_resource type="PackedScene" uid="uid://bkrhl7k062oep" path="res://src/world/levels/06_dragons_claw/scenes/mural/mural.tscn" id="4_au0mm"]
+[ext_resource type="PackedScene" uid="uid://d4mjdglfpwqre" path="res://src/world/levels/06_dragons_claw/scenes/burial_chamber/burial_chamber.tscn" id="5_8qb62"]
+[ext_resource type="PackedScene" uid="uid://c4ed3atqrygrx" path="res://src/world/levels/06_dragons_claw/scenes/combat_chamber/combat_chamber.tscn" id="6_54uf0"]
+[ext_resource type="PackedScene" uid="uid://pyra7drhu478" path="res://src/world/levels/06_dragons_claw/scenes/queens_chamber/queens_chamber.tscn" id="7_da7lg"]
+[ext_resource type="PackedScene" uid="uid://cp7pq71yte0h8" path="res://src/world/levels/06_dragons_claw/scenes/perch/perch.tscn" id="8_4jdlh"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="9_tfe44"]
+[ext_resource type="Script" uid="uid://du0d5r8gi2a67" path="res://src/ui/item_menu/item_menu.gd" id="10_1oig3"]
+
+[node name="DragonsClawVolcano" instance=ExtResource("1_m7nxf")]
+level_code = 6
+scenes = {
+"burial_chamber": ExtResource("5_8qb62"),
+"combat_chamber": ExtResource("6_54uf0"),
+"main_street": ExtResource("2_0cua4"),
+"mural": ExtResource("4_au0mm"),
+"perch": ExtResource("8_4jdlh"),
+"queens_chamber": ExtResource("7_da7lg")
+}
+
+[node name="FamilyPhotos" parent="UI" index="1" instance=ExtResource("3_ejeec")]
+visible = false
+script = ExtResource("10_1oig3")
+corresponding_item = "06_family_photos"
+
+[node name="StateChartDebugger" parent="UI" index="2" instance=ExtResource("9_tfe44")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -522.0
+offset_bottom = 720.0
+grow_horizontal = 0
+grow_vertical = 1
+ignore_transitions = true

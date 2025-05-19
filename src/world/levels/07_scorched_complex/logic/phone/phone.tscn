@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgkvddl3qycs1"]
+
+[ext_resource type="Script" uid="uid://ht1jubw3q1hg" path="res://src/world/levels/07_scorched_complex/logic/phone/phone.gd" id="1_8g003"]
+[ext_resource type="Texture2D" uid="uid://harujweox7ci" path="res://src/world/levels/07_scorched_complex/assets/_common/phone.png" id="1_rhrxe"]
+[ext_resource type="Script" uid="uid://do8xp0vbjsptt" path="res://src/world/dialogue/text_bubble_marker.gd" id="2_rhrxe"]
+[ext_resource type="Resource" uid="uid://ba83ar8eud6p1" path="res://src/world/dialogue/npc.dch" id="3_wf7la"]
+
+[node name="Phone" type="Sprite2D"]
+visible = false
+position = Vector2(104, -138)
+texture = ExtResource("1_rhrxe")
+script = ExtResource("1_8g003")
+labels = Dictionary[String, String]({
+"07_final_fight_completed": "stop_calling",
+"07_spoke_to_urbexers": "urbexers_2",
+"07_started": "urbexers_1",
+"07_water_pack_filled": "hurry"
+})
+
+[node name="TextBubbleMarker" type="Marker2D" parent="."]
+position = Vector2(3, -46)
+script = ExtResource("2_rhrxe")
+character = ExtResource("3_wf7la")

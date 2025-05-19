@@ -1,0 +1,175 @@
+[gd_scene load_steps=38 format=3 uid="uid://dp2i4orakbag1"]
+
+[ext_resource type="PackedScene" uid="uid://c8db5pwju6ruy" path="res://src/character/common/character.tscn" id="1_im85t"]
+[ext_resource type="Script" uid="uid://csmfa8q6rlqc7" path="res://src/character/player/player.gd" id="2_61nrd"]
+[ext_resource type="Script" uid="uid://cahd0d4fiqtnl" path="res://src/character/player/states/movement.gd" id="2_i8ns1"]
+[ext_resource type="Script" uid="uid://srrjtqd6gm4q" path="res://addons/godot_state_charts/compound_state.gd" id="2_l35kn"]
+[ext_resource type="PackedScene" uid="uid://tem7qe8rdwgl" path="res://src/character/styles/base/eye_l_base.tscn" id="3_dck2s"]
+[ext_resource type="Script" uid="uid://bfwtwbcac6vkc" path="res://src/character/player/body_player.gd" id="3_latbq"]
+[ext_resource type="Script" uid="uid://lal5sh0l8aef" path="res://addons/godot_state_charts/atomic_state.gd" id="3_si0ci"]
+[ext_resource type="Resource" uid="uid://c30ubnqromwfv" path="res://src/world/dialogue/player.dch" id="3_tk1j8"]
+[ext_resource type="Script" uid="uid://cdrtabblayhl" path="res://src/character/player/states/grounded.gd" id="3_wm7h0"]
+[ext_resource type="PackedScene" uid="uid://deqdhg7d7px4r" path="res://src/character/styles/base/eye_r_base.tscn" id="4_akckr"]
+[ext_resource type="Script" uid="uid://15qbgib3t657" path="res://src/character/player/states/idle.gd" id="4_g1p1u"]
+[ext_resource type="Script" uid="uid://b62f7ssnv2gn3" path="res://addons/godot_state_charts/transition.gd" id="4_slpip"]
+[ext_resource type="Script" uid="uid://c6b3j33eleyub" path="res://addons/godot_state_charts/state_is_active_guard.gd" id="5_3o3lb"]
+[ext_resource type="Script" uid="uid://bj6tjo01oa88k" path="res://src/character/player/states/walk.gd" id="5_elb4b"]
+[ext_resource type="Shader" uid="uid://b2geafj6liken" path="res://src/world/common/shaders/outline.gdshader" id="5_m23g1"]
+[ext_resource type="PackedScene" uid="uid://dfj53lpxv6wc8" path="res://src/character/styles/base/hand_l_base.tscn" id="5_qe76m"]
+[ext_resource type="PackedScene" uid="uid://c7xsd06q4xeea" path="res://src/character/styles/base/hand_r_base.tscn" id="6_0vhio"]
+[ext_resource type="Script" uid="uid://bguekrqqdk02f" path="res://src/character/player/states/can_interact.gd" id="6_4tmpm"]
+[ext_resource type="Texture2D" uid="uid://ccnl2iol0ki64" path="res://src/ui/icons/priority_high.png" id="6_m5h8u"]
+[ext_resource type="Script" uid="uid://dqhq7bfvikf32" path="res://src/character/player/states/jump.gd" id="7_d80g2"]
+[ext_resource type="Script" uid="uid://bepe584dhc6co" path="res://addons/godot_state_charts/not_guard.gd" id="7_qtiyx"]
+[ext_resource type="PackedScene" uid="uid://ddnpfatnhpbjs" path="res://src/character/styles/base/head_base.tscn" id="7_sj6k0"]
+[ext_resource type="PackedScene" uid="uid://bh6o0ivr6eucq" path="res://src/character/styles/base/leg_l_base.tscn" id="8_pch0v"]
+[ext_resource type="Script" uid="uid://c4w80b6yeh5k2" path="res://src/character/player/arrow.gd" id="8_vnj3q"]
+[ext_resource type="PackedScene" uid="uid://655nh84fdgg4" path="res://src/character/styles/base/leg_r_base.tscn" id="9_uxx46"]
+[ext_resource type="PackedScene" uid="uid://b6mdjdj6t27lt" path="res://src/character/styles/base/pupil_l_base.tscn" id="10_1g4h2"]
+[ext_resource type="PackedScene" uid="uid://dn3ytutkepvws" path="res://src/character/styles/base/pupil_r_base.tscn" id="11_obhcf"]
+[ext_resource type="Script" uid="uid://ekgsgj4smvbr" path="res://src/character/common/style/style.gd" id="12_gidtx"]
+[ext_resource type="PackedScene" uid="uid://ccslu0b12mtfa" path="res://src/character/styles/base/torso_base.tscn" id="13_4akki"]
+[ext_resource type="Script" uid="uid://euv0shtyv0jb" path="res://src/character/player/states/pathfinding.gd" id="14_51dr1"]
+[ext_resource type="Script" uid="uid://ccdoxllyk6p3k" path="res://src/character/player/states/can_pathfind.gd" id="20_rq316"]
+[ext_resource type="Script" uid="uid://l8onc621bn01" path="res://src/character/player/states/crouch.gd" id="23_dck2s"]
+
+[sub_resource type="Resource" id="Resource_r6qv2"]
+resource_local_to_scene = true
+script = ExtResource("12_gidtx")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("7_sj6k0")
+eye_r = ExtResource("4_akckr")
+eye_l = ExtResource("3_dck2s")
+pupil_r = ExtResource("11_obhcf")
+pupil_l = ExtResource("10_1g4h2")
+torso = ExtResource("13_4akki")
+hand_r = ExtResource("6_0vhio")
+hand_l = ExtResource("5_qe76m")
+leg_r = ExtResource("9_uxx46")
+leg_l = ExtResource("8_pch0v")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xnc"]
+shader = ExtResource("5_m23g1")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 10.0
+
+[sub_resource type="Resource" id="Resource_anwko"]
+script = ExtResource("5_3o3lb")
+state = NodePath("../../../Movement/Grounded/Idle")
+
+[sub_resource type="Resource" id="Resource_tcijc"]
+script = ExtResource("5_3o3lb")
+state = NodePath("../../../Movement/Grounded/Idle")
+
+[sub_resource type="Resource" id="Resource_clxw7"]
+script = ExtResource("7_qtiyx")
+guard = SubResource("Resource_tcijc")
+
+[node name="Player" groups=["player"] instance=ExtResource("1_im85t")]
+collision_layer = 1
+collision_mask = 22
+script = ExtResource("2_61nrd")
+style = SubResource("Resource_r6qv2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+layer = 11
+
+[node name="Arrow" type="Line2D" parent="CanvasLayer" index="0"]
+top_level = true
+z_index = 999
+points = PackedVector2Array(0, 0, 0, 0)
+width = 12.0
+end_cap_mode = 2
+antialiased = true
+script = ExtResource("8_vnj3q")
+jump_color = Color(0.502448, 0.774869, 0.974496, 1)
+drop_color = Color(0.955227, 0.528834, 0.689514, 1)
+alt_color = Color(0.524283, 0.900896, 0.765251, 1)
+
+[node name="ArrowHead" type="Polygon2D" parent="CanvasLayer/Arrow" index="0"]
+polygon = PackedVector2Array(0, -16, 0, 16, 24, 0)
+
+[node name="CustomCursor" type="Sprite2D" parent="CanvasLayer/Arrow" index="1"]
+visible = false
+material = SubResource("ShaderMaterial_o6xnc")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_m5h8u")
+
+[node name="OutlineArrowLine" type="Line2D" parent="CanvasLayer/Arrow" index="2"]
+show_behind_parent = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 24.0
+end_cap_mode = 2
+antialiased = true
+
+[node name="OutlineArrowHead" type="Polygon2D" parent="CanvasLayer/Arrow" index="3"]
+show_behind_parent = true
+antialiased = true
+polygon = PackedVector2Array(-6, -28, -6, -8, 0, -8, 0, 9, -6, 9, -6, 30, 36, 0)
+
+[node name="TextBubbleMarker" parent="." index="8"]
+character = ExtResource("3_tk1j8")
+
+[node name="Body" parent="Visuals" index="0"]
+script = ExtResource("3_latbq")
+
+[node name="Movement" parent="StateChart/Root" index="0"]
+script = ExtResource("2_i8ns1")
+
+[node name="Grounded" parent="StateChart/Root/Movement" index="2"]
+script = ExtResource("3_wm7h0")
+
+[node name="Idle" parent="StateChart/Root/Movement/Grounded" index="2"]
+script = ExtResource("4_g1p1u")
+prejump_friction = 0.02
+
+[node name="Walk" parent="StateChart/Root/Movement/Grounded" index="3"]
+script = ExtResource("5_elb4b")
+
+[node name="Crouch" parent="StateChart/Root/Movement/Grounded" index="4"]
+script = ExtResource("23_dck2s")
+friction = 0.1
+
+[node name="Jump" parent="StateChart/Root/Movement/Airborne" index="2"]
+script = ExtResource("7_d80g2")
+
+[node name="InteractPossible" type="Node" parent="StateChart/Root" index="2"]
+script = ExtResource("2_l35kn")
+initial_state = NodePath("NoInteract")
+
+[node name="NoInteract" type="Node" parent="StateChart/Root/InteractPossible" index="0"]
+script = ExtResource("3_si0ci")
+
+[node name="OnNone" type="Node" parent="StateChart/Root/InteractPossible/NoInteract" index="0"]
+script = ExtResource("4_slpip")
+to = NodePath("../../CanInteract")
+guard = SubResource("Resource_anwko")
+delay_in_seconds = "0.0"
+
+[node name="CanInteract" type="Node" parent="StateChart/Root/InteractPossible" index="1"]
+unique_name_in_owner = true
+script = ExtResource("6_4tmpm")
+
+[node name="OnNone" type="Node" parent="StateChart/Root/InteractPossible/CanInteract" index="0"]
+script = ExtResource("4_slpip")
+to = NodePath("../../NoInteract")
+guard = SubResource("Resource_clxw7")
+delay_in_seconds = "0.0"
+
+[node name="CanPathfind" parent="StateChart/Root/PathfindPossible" index="1"]
+script = ExtResource("20_rq316")
+
+[node name="Pathfinding" parent="StateChart/Root/PathfindPossible" index="2"]
+script = ExtResource("14_51dr1")
+
+[editable path="Visuals/Body/Head/EyeR"]
+[editable path="Visuals/Body/Head/EyeL"]

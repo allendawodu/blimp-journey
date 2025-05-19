@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0ke4hgj6aupq"]
+
+[ext_resource type="Script" uid="uid://b5ydcr120r1e1" path="res://src/world/common/scene/scene.gd" id="1_61a0j"]
+[ext_resource type="PackedScene" uid="uid://d4nigg73rqbxs" path="res://src/world/levels/02_reality_tv/minigames/shuffleboard/puck_player.tscn" id="1_fmk0j"]
+[ext_resource type="PackedScene" uid="uid://bmaga2klphf6h" path="res://src/world/levels/02_reality_tv/minigames/shuffleboard/ranking.tscn" id="2_7vgvw"]
+[ext_resource type="Script" uid="uid://d3f6l886wwqbe" path="res://src/world/levels/02_reality_tv/minigames/shuffleboard/arrow.gd" id="2_c1apn"]
+[ext_resource type="Script" uid="uid://booet3hie41k" path="res://src/world/levels/02_reality_tv/minigames/shuffleboard/puck_spawner.gd" id="2_cxt1h"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fve86"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xkdt7"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sokdi"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s18ql"]
+normal = Vector2(1, 0)
+
+[sub_resource type="Gradient" id="Gradient_m3i6u"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kc7xj"]
+gradient = SubResource("Gradient_m3i6u")
+fill = 1
+fill_from = Vector2(0.5, 0.45)
+fill_to = Vector2(0.438287, 0.464987)
+repeat = 2
+
+[node name="Shuffleboard" type="Node"]
+script = ExtResource("1_61a0j")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Arrow" type="Line2D" parent="UI" node_paths=PackedStringArray("_target")]
+top_level = true
+z_index = 999
+points = PackedVector2Array(0, 0, 0, 0)
+width = 12.0
+begin_cap_mode = 2
+antialiased = true
+script = ExtResource("2_c1apn")
+_target = NodePath("../../Pucks/PuckPlayer")
+
+[node name="ArrowHead" type="Polygon2D" parent="UI/Arrow"]
+polygon = PackedVector2Array(0, -16, 0, 16, 24, 0)
+
+[node name="Ranking" parent="UI" instance=ExtResource("2_7vgvw")]
+
+[node name="Bounds" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bounds"]
+position = Vector2(960, 1080)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_fve86")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Bounds"]
+position = Vector2(960, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_xkdt7")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Bounds"]
+position = Vector2(1920, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_sokdi")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Bounds"]
+position = Vector2(0, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_s18ql")
+
+[node name="Center" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = SubResource("GradientTexture2D_kc7xj")
+
+[node name="Pucks" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+script = ExtResource("2_cxt1h")
+metadata/_edit_lock_ = true
+
+[node name="PuckPlayer" parent="Pucks" instance=ExtResource("1_fmk0j")]
+position = Vector2(272, -187)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://ciwcsve8bmqbo"]
+
+[ext_resource type="Script" uid="uid://dgxabsrd8jqqg" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_corpse/ghost_guts.gd" id="1_2x7ja"]
+[ext_resource type="Texture2D" uid="uid://dfjvp0i5dxl8k" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_corpse/assets/guts_1.png" id="2_m7ama"]
+[ext_resource type="Texture2D" uid="uid://cfir1gdqmmt8t" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_corpse/assets/guts_3.png" id="3_5rxm6"]
+[ext_resource type="Texture2D" uid="uid://cscp1kfpmbbwo" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_corpse/assets/guts_2.png" id="3_mrd84"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqwh8"]
+size = Vector2(116, 20)
+
+[node name="GhostGuts" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 6
+gravity_scale = 2.0
+linear_velocity = Vector2(0, -700)
+script = ExtResource("1_2x7ja")
+guts = Dictionary[Texture2D, float]({
+ExtResource("2_m7ama"): 0.4,
+ExtResource("3_mrd84"): 0.4,
+ExtResource("3_5rxm6"): 0.2
+})
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_kqwh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

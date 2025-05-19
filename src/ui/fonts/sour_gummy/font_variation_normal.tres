@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://dpoxxk60qn2u2"]
+
+[ext_resource type="FontFile" uid="uid://bfp7pbfnipkd4" path="res://src/ui/fonts/sour_gummy/SourGummy-Medium.otf" id="1_ny8br"]
+
+[resource]
+base_font = ExtResource("1_ny8br")
+spacing_glyph = 1

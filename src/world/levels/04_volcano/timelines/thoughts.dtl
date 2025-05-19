@@ -1,0 +1,52 @@
+label statue_base
+if {Inventory.has_item("04_orb_ruby")}:
+	[wait time="0.5"]
+	do Inventory.remove_item("04_orb_ruby")
+	do SaverLoader.complete_event("04_ruby_orb_placed")
+	jump _statue_base
+if {Inventory.has_item("04_orb_emerald")}:
+	[wait time="0.5"]
+	do Inventory.remove_item("04_orb_emerald")
+	do SaverLoader.complete_event("04_emerald_orb_placed")
+	jump _statue_base
+if {Inventory.has_item("04_orb_sapphire")}:
+	[wait time="0.5"]
+	do Inventory.remove_item("04_orb_sapphire")
+	do SaverLoader.complete_event("04_sapphire_orb_placed")
+	jump _statue_base
+
+if {04.num_orbs_left} == 1:
+	player: just 1 orb left!
+elif {04.num_orbs_left} == 3:
+	player: something seems to slot here.
+elif {04.num_orbs_left} > 0:
+	player: just {04.num_orbs_left} orbs left!
+[end_timeline]
+
+
+label shortcut_locked
+player: the wall seems soft here...
+[end_timeline]
+
+
+label shortcut_unlocked
+do SaverLoader.complete_event("04_shortcut_unlocked")
+[wait time="0.5"]
+player: i unlocked a shortcut!
+[end_timeline]
+
+
+label artifact
+do SaverLoader.complete_event("04_artifact_taken")
+player: the ground is shaking!
+[behavior type="m" who="player" wait="true"]
+do SaverLoader.complete_event("04_escape_sequence_started")
+[end_timeline]
+
+
+label _statue_base
+set {04.num_orbs_left} -= 1
+if {04.num_orbs_left} <= 0:
+	do SaverLoader.complete_event("04_all_orbs_placed")
+return
+[end_timeline]

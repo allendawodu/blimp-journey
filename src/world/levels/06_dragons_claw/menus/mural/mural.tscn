@@ -1,0 +1,222 @@
+[gd_scene load_steps=22 format=3 uid="uid://bpgb6kvo31q02"]
+
+[ext_resource type="PackedScene" uid="uid://j1l5nfbugmic" path="res://src/ui/item_menu/item_menu.tscn" id="1_8m4qt"]
+[ext_resource type="Script" uid="uid://ciegxeaw5a66u" path="res://src/ui/item_menu/item_menu_dialogue.gd" id="2_jpg72"]
+[ext_resource type="Script" uid="uid://bq427m7w0bpom" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces.gd" id="3_f66o8"]
+[ext_resource type="Resource" uid="uid://cvl1uuysw5168" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces/pieces_group.tres" id="4_r01o2"]
+[ext_resource type="PackedScene" uid="uid://cbs4h5pudt2yp" path="res://src/ui/instructions_menu/instructions_menu.tscn" id="5_kexgr"]
+[ext_resource type="Script" uid="uid://b3tnwhfxcl3g5" path="res://src/world/levels/06_dragons_claw/menus/mural/drag_component.gd" id="7_57s4n"]
+[ext_resource type="Texture2D" uid="uid://du0k2e5erholn" path="res://src/world/levels/06_dragons_claw/menus/mural/wipe/brush.png" id="8_n0k7r"]
+[ext_resource type="Script" uid="uid://bbw2hutnbrnvw" path="res://src/world/levels/06_dragons_claw/menus/mural/wipe/brush.gd" id="9_gaitr"]
+[ext_resource type="Texture2D" uid="uid://bc36sgnh7mqie" path="res://src/world/levels/06_dragons_claw/menus/mural/border.png" id="9_sfyy8"]
+[ext_resource type="Texture2D" uid="uid://becpdq4cttujo" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_01.png" id="10_ytiab"]
+[ext_resource type="Texture2D" uid="uid://b1w3tte2mg2en" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_02.png" id="11_7bsw4"]
+[ext_resource type="Texture2D" uid="uid://xeucgbv2elp0" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_03.png" id="12_2ppi3"]
+[ext_resource type="Texture2D" uid="uid://c3yoklf8roguo" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_04.png" id="13_tje1i"]
+[ext_resource type="Texture2D" uid="uid://j5t7hxin6r65" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_05.png" id="14_v0byq"]
+[ext_resource type="Texture2D" uid="uid://dl1gi6i7elb38" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_06.png" id="15_dw1ue"]
+[ext_resource type="Texture2D" uid="uid://chypaxfsdlvx0" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_07.png" id="16_mf4sr"]
+[ext_resource type="Texture2D" uid="uid://hiyfy5t7kcw0" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_08.png" id="17_q041h"]
+[ext_resource type="Texture2D" uid="uid://itfnlisf78sb" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_09.png" id="18_vk8uh"]
+[ext_resource type="Texture2D" uid="uid://dvraifm02o2bg" path="res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_10.png" id="19_pwrla"]
+[ext_resource type="Texture2D" uid="uid://bboyng3nc1aaq" path="res://src/world/levels/06_dragons_claw/menus/mural/instruction_image.png" id="20_a432j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tr0bc"]
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="Mural" node_paths=PackedStringArray("characters") instance=ExtResource("1_8m4qt")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_tr0bc")
+script = ExtResource("2_jpg72")
+timeline = null
+characters = []
+
+[node name="Pieces" type="Control" parent="Holder" index="0"]
+modulate = Color(1, 1, 1, 0.74902)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_f66o8")
+pieces_group = ExtResource("4_r01o2")
+
+[node name="ReferencePieces" type="Control" parent="Holder" index="1"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Piece01" type="TextureRect" parent="Holder/ReferencePieces" index="0"]
+layout_mode = 0
+offset_left = -373.0
+offset_top = -25.0
+offset_right = -192.0
+offset_bottom = 274.0
+mouse_filter = 2
+texture = ExtResource("10_ytiab")
+
+[node name="Piece02" type="TextureRect" parent="Holder/ReferencePieces" index="1"]
+layout_mode = 0
+offset_left = -310.0
+offset_top = -258.0
+offset_right = -100.0
+offset_bottom = 30.0
+mouse_filter = 2
+texture = ExtResource("11_7bsw4")
+
+[node name="Piece03" type="TextureRect" parent="Holder/ReferencePieces" index="2"]
+layout_mode = 0
+offset_left = -123.0
+offset_top = 57.0
+offset_right = 138.0
+offset_bottom = 236.0
+mouse_filter = 2
+texture = ExtResource("12_2ppi3")
+
+[node name="Piece04" type="TextureRect" parent="Holder/ReferencePieces" index="3"]
+layout_mode = 0
+offset_left = -203.0
+offset_top = -126.0
+offset_right = 70.0
+offset_bottom = 125.0
+mouse_filter = 2
+texture = ExtResource("13_tje1i")
+
+[node name="Piece05" type="TextureRect" parent="Holder/ReferencePieces" index="4"]
+layout_mode = 0
+offset_left = -331.0
+offset_top = 91.0
+offset_right = 89.0
+offset_bottom = 293.0
+mouse_filter = 2
+texture = ExtResource("14_v0byq")
+
+[node name="Piece06" type="TextureRect" parent="Holder/ReferencePieces" index="5"]
+layout_mode = 0
+offset_left = -407.0
+offset_top = -258.0
+offset_right = -208.0
+offset_bottom = -10.0
+mouse_filter = 2
+texture = ExtResource("15_dw1ue")
+
+[node name="Piece07" type="TextureRect" parent="Holder/ReferencePieces" index="6"]
+layout_mode = 0
+offset_left = -487.0
+offset_top = -67.0
+offset_right = -289.0
+offset_bottom = 291.0
+mouse_filter = 2
+texture = ExtResource("16_mf4sr")
+
+[node name="Piece08" type="TextureRect" parent="Holder/ReferencePieces" index="7"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 94.0
+offset_right = 291.0
+offset_bottom = 293.0
+mouse_filter = 2
+texture = ExtResource("17_q041h")
+
+[node name="Piece09" type="TextureRect" parent="Holder/ReferencePieces" index="8"]
+layout_mode = 0
+offset_left = -210.0
+offset_top = -303.0
+offset_right = 417.0
+offset_bottom = 148.0
+mouse_filter = 2
+texture = ExtResource("18_vk8uh")
+
+[node name="Piece10" type="TextureRect" parent="Holder/ReferencePieces" index="9"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = -33.0
+offset_right = 480.0
+offset_bottom = 295.0
+mouse_filter = 2
+texture = ExtResource("19_pwrla")
+
+[node name="Border" type="TextureRect" parent="Holder" index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -491.0
+offset_top = -307.0
+offset_right = 491.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_sfyy8")
+
+[node name="InstructionsMenu" parent="Holder" index="3" instance=ExtResource("5_kexgr")]
+layout_mode = 1
+
+[node name="TitleLabel" parent="Holder/InstructionsMenu/PanelContainer/MarginContainer/VBoxContainer" index="1"]
+text = "Mural Restoration"
+
+[node name="TextureRect" parent="Holder/InstructionsMenu/PanelContainer/MarginContainer/VBoxContainer" index="2"]
+texture = ExtResource("20_a432j")
+expand_mode = 5
+
+[node name="BodyLabel" parent="Holder/InstructionsMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "1. Place the pieces in the correct position
+2. Brush off the dirt to reveal the image"
+
+[node name="BrushTarget" type="Control" parent="Holder" index="4"]
+anchors_preset = 0
+offset_left = 1624.0
+offset_top = 717.0
+offset_right = 1624.0
+offset_bottom = 717.0
+
+[node name="Brush" type="TextureRect" parent="Holder/BrushTarget" index="0"]
+unique_name_in_owner = true
+top_level = true
+z_index = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -342.0
+offset_top = -333.0
+offset_right = -86.0
+offset_bottom = 179.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("8_n0k7r")
+script = ExtResource("9_gaitr")
+
+[node name="DragComponent" type="TextureButton" parent="Holder/BrushTarget/Brush" index="0" node_paths=PackedStringArray("target")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+script = ExtResource("7_57s4n")
+target = NodePath("../..")
+
+[node name="BrushHead" type="Marker2D" parent="Holder/BrushTarget/Brush" index="1"]
+position = Vector2(108, 126)
+
+[editable path="Holder/InstructionsMenu"]

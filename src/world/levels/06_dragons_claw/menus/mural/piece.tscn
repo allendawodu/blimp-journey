@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dugldjha0btyt"]
+
+[ext_resource type="Shader" uid="uid://bgyrk466plr2u" path="res://src/world/levels/06_dragons_claw/menus/mural/wipe/wipe.gdshader" id="1_744si"]
+[ext_resource type="Script" uid="uid://riilr5xmp8xs" path="res://src/world/levels/06_dragons_claw/menus/mural/piece.gd" id="4_ys3s1"]
+[ext_resource type="Script" uid="uid://b3tnwhfxcl3g5" path="res://src/world/levels/06_dragons_claw/menus/mural/drag_component.gd" id="5_jjhfq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_psvt7"]
+resource_local_to_scene = true
+shader = ExtResource("1_744si")
+shader_parameter/dirt_strength = 1.0
+
+[node name="Piece" type="TextureRect"]
+material = SubResource("ShaderMaterial_psvt7")
+mouse_filter = 2
+script = ExtResource("4_ys3s1")
+
+[node name="DragComponent" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+script = ExtResource("5_jjhfq")
+
+[node name="Node2D" type="Node2D" parent="."]
+editor_description = "Exists to access a method not found in Control nodes."

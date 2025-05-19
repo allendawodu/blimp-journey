@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo3qq8tjs8ggv"]
+
+[ext_resource type="Script" uid="uid://dknasvyy1fe5h" path="res://src/world/levels/07_scorched_complex/logic/stealth/player_visibility/player_visibility.gd" id="1_cyu15"]
+
+[node name="PlayerVisibility" type="Node2D"]
+script = ExtResource("1_cyu15")
+metadata/_edit_lock_ = true
+
+[node name="CrouchHidden" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CrouchHidden"]
+
+[node name="Hidden" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hidden"]

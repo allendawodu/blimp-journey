@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://djx7la3kocuka"]
+
+[ext_resource type="FontFile" uid="uid://5tmi11yg85mk" path="res://src/ui/fonts/sour_gummy/SourGummy-Bold.otf" id="1_adaj6"]
+
+[resource]
+base_font = ExtResource("1_adaj6")
+spacing_glyph = 1

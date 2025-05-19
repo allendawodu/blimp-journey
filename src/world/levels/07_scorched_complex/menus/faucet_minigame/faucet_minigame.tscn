@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgvkihnaqm4wl"]
+
+[ext_resource type="PackedScene" uid="uid://j1l5nfbugmic" path="res://src/ui/item_menu/item_menu.tscn" id="1_8q72j"]
+[ext_resource type="Script" uid="uid://wbsn0ciw7c76" path="res://src/world/levels/07_scorched_complex/menus/faucet_minigame/faucet_minigame.gd" id="2_7dw6v"]
+
+[node name="FaucetMinigame" instance=ExtResource("1_8q72j")]
+script = ExtResource("2_7dw6v")
+
+[node name="Button" type="Button" parent="Holder" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fill water pack"

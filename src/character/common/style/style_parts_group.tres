@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://320t6nj6xdiu"]
+
+[ext_resource type="Script" uid="uid://byambarbk0gqa" path="res://addons/godot_resource_groups/resource_group.gd" id="1_c8moi"]
+
+[resource]
+script = ExtResource("1_c8moi")
+base_folder = "res://src/character/common/appearance"
+includes = Array[String](["**head_*.tscn", "**hair_back_*.tscn", "**hair_front_*.tscn", "**eye_r_*.tscn", "**eye_l_*.tscn", "**pupil_r_*.tscn", "**pupil_l_*.tscn", "**eyebrow_r_*.tscn", "**eyebrow_l_*.tscn", "**eyewear_*.tscn", "**mouth_*.tscn", "**face_marks_*.tscn", "**facial_hair_*.tscn", "**torso_*.tscn", "**shirt_*.tscn", "**overshirt_*.tscn", "**pack_*.tscn", "**hand_r_*.tscn", "**hand_l_*.tscn", "**wrist_r_*.tscn", "**wrist_l_*.tscn", "**held_item_r_*.tscn", "**held_item_l_*.tscn", "**pants_*.tscn", "**overpants_*.tscn", "**leg_r_*.tscn", "**leg_l_*.tscn", "**sock_r_*.tscn", "**sock_l_*.tscn", "**shoe_r_*.tscn", "**shoe_l_*.tscn"])
+excludes = Array[String]([])
+paths = Array[String]([])

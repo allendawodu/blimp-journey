@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwln0evg6d7es"]
+
+[ext_resource type="Texture2D" uid="uid://dllo20b265456" path="res://src/character/styles/player/sock_r.png" id="1_2ev5q"]
+[ext_resource type="Script" uid="uid://b45j8fky1o1s1" path="res://src/character/common/style/style_part.gd" id="2_hgfgk"]
+
+[node name="SockR" type="Sprite2D"]
+texture = ExtResource("1_2ev5q")
+offset = Vector2(-5, 13)
+script = ExtResource("2_hgfgk")
+style_name = "sock_r_player"
+part = 28

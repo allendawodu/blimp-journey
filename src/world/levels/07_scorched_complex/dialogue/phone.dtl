@@ -1,0 +1,60 @@
+label jakob_calling
+npc: Tomasz!\
+You finally picked up the phone!\
+Where are you? Are you okay?!
+player: I'm not Tomasz.\
+You're the guy I met outside, right? Jakob?
+npc: That's me. Have you found Tomasz and his friends?
+player: Not yet...\
+But it looks like I found his phone.
+npc: Oh.\
+Wait!\
+I have an idea.\
+[color=maroon]Try using his phone to call his friends.[/color]\
+I'll hang up now.
+do Inventory.add_item("07_phone")
+do SaverLoader.complete_event("07_picked_up_phone")
+[end_timeline]
+
+label urbexers_1
+npc: *Ring Ring*
+npc: Who's this? Why do you have Tomasz's phone?
+player: I'm here to help. Jakob told me the situation.
+npc: Oh, well, we're in deep trouble!\
+We're surrounded by ghosts here on the [color=maroon]roof[/color].\
+My friend here figured out that [color=maroon]water[/color] is their weakness.\
+So we've been flicking water at them from our water bottles.\
+If you could get here quickly and spray down all of these ghosts, that would be REALLY nice.\
+[color=maroon]I saw a mask in a room on the third floor.[/color]\
+That should allow you to enter the [color=maroon]moldy bathroom[/color].\
+Please hurry!\
+We're almost out!
+do SaverLoader.complete_event("07_spoke_to_urbexers")
+[end_timeline]
+
+label urbexers_2
+npc: Hello?
+player:
+- (Hint) I can't enter the bathroom!
+	npc: You'll need a mask.\
+	I saw one in a room on the third floor.
+- (Hint) The water in the bathroom's not running!
+	npc: I'm not surprised.\
+	You'll probably have to go around fixing the pipes.
+- Nevermind.
+	npc: Please hurry!\
+	We're on our last bottle of water!
+[end_timeline]
+
+label hurry
+npc: We've run out of water.\
+We're surrounded.\
+Please hurry!
+[signal arg="show_water_pack_instructions"]
+[end_timeline]
+
+label stop_calling
+npc: You can stop calling us now.\
+Give my friend his phone back please.\
+Thanks.
+[end_timeline]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemExamine" load_steps=3 format=3 uid="uid://bp66bvukuma4m"]
+
+[ext_resource type="Script" uid="uid://desgwjxtqe338" path="res://src/systems/item/item_examine.gd" id="1_jdirp"]
+[ext_resource type="Texture2D" uid="uid://ccyyw4ag3slyv" path="res://src/world/levels/02_reality_tv/menus/tabloid/page_1.png" id="2_d1y3s"]
+
+[resource]
+script = ExtResource("1_jdirp")
+texture = ExtResource("2_d1y3s")
+name = "tabloid"
+display_name = ""
+info = "Pop-Top!cs issue no.1"

@@ -1,0 +1,620 @@
+[gd_scene load_steps=52 format=4 uid="uid://cw48k231fq3k6"]
+
+[ext_resource type="PackedScene" uid="uid://dwapdsx6u217o" path="res://src/world/common/scene/scene.tscn" id="1_1qlb1"]
+[ext_resource type="PackedScene" uid="uid://tem7qe8rdwgl" path="res://src/character/styles/base/eye_l_base.tscn" id="2_rr7d1"]
+[ext_resource type="PackedScene" uid="uid://b2l33hiddry8y" path="res://src/world/levels/07_scorched_complex/menus/dumpster/dumpster.tscn" id="2_tmv0f"]
+[ext_resource type="PackedScene" uid="uid://deqdhg7d7px4r" path="res://src/character/styles/base/eye_r_base.tscn" id="3_2ehmb"]
+[ext_resource type="Resource" uid="uid://dcu6j5c6nwwiu" path="res://src/character/styles/player_sc/player_sc.tres" id="3_rar5n"]
+[ext_resource type="PackedScene" uid="uid://dfj53lpxv6wc8" path="res://src/character/styles/base/hand_l_base.tscn" id="4_xhw3v"]
+[ext_resource type="PackedScene" uid="uid://c7xsd06q4xeea" path="res://src/character/styles/base/hand_r_base.tscn" id="5_bndgb"]
+[ext_resource type="PackedScene" uid="uid://ddnpfatnhpbjs" path="res://src/character/styles/base/head_base.tscn" id="6_ewtcf"]
+[ext_resource type="Script" uid="uid://dqd071bb4t6rh" path="res://src/systems/behaviors/behavior_style_change.gd" id="7_rcqv8"]
+[ext_resource type="PackedScene" uid="uid://bh6o0ivr6eucq" path="res://src/character/styles/base/leg_l_base.tscn" id="7_ssqxe"]
+[ext_resource type="PackedScene" uid="uid://655nh84fdgg4" path="res://src/character/styles/base/leg_r_base.tscn" id="8_3cmsu"]
+[ext_resource type="PackedScene" uid="uid://bji14rls8lnos" path="res://src/character/styles/player_sc/held_item_r_player_sc.tscn" id="8_bo6of"]
+[ext_resource type="PackedScene" uid="uid://b6mdjdj6t27lt" path="res://src/character/styles/base/pupil_l_base.tscn" id="9_5j5uh"]
+[ext_resource type="PackedScene" uid="uid://dn3ytutkepvws" path="res://src/character/styles/base/pupil_r_base.tscn" id="10_phxud"]
+[ext_resource type="Script" uid="uid://ekgsgj4smvbr" path="res://src/character/common/style/style.gd" id="11_7e1pq"]
+[ext_resource type="PackedScene" uid="uid://ccslu0b12mtfa" path="res://src/character/styles/base/torso_base.tscn" id="12_75ray"]
+[ext_resource type="PackedScene" uid="uid://bl2l6bdrpyq1v" path="res://src/world/levels/07_scorched_complex/logic/flashlight/flashlight.tscn" id="13_cdpcp"]
+[ext_resource type="Script" uid="uid://h51b74w6ojmo" path="res://src/systems/interactables/interactable_dialogue.gd" id="14_0u3u2"]
+[ext_resource type="PackedScene" uid="uid://cgkvddl3qycs1" path="res://src/world/levels/07_scorched_complex/logic/phone/phone.tscn" id="14_i31g4"]
+[ext_resource type="PackedScene" uid="uid://bouurhlfluqfj" path="res://src/character/npc/npc.tscn" id="14_r2e4b"]
+[ext_resource type="PackedScene" uid="uid://g3n4ubd0hrps" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water_pack.tscn" id="15_76vkq"]
+[ext_resource type="Resource" uid="uid://nj1lfnc6n30n" path="res://src/world/levels/07_scorched_complex/dialogue/main_street.dtl" id="15_q8sai"]
+[ext_resource type="Texture2D" uid="uid://8g0r1jbfeyd7" path="res://src/world/levels/07_scorched_complex/assets/main_street/tree.png" id="17_avgjl"]
+[ext_resource type="Texture2D" uid="uid://bqh7tdnw3ot5u" path="res://src/world/levels/07_scorched_complex/assets/main_street/building_bg.png" id="18_loopt"]
+[ext_resource type="Texture2D" uid="uid://dekklwhu7ouca" path="res://src/world/levels/07_scorched_complex/assets/main_street/divider.png" id="19_rar5n"]
+[ext_resource type="Texture2D" uid="uid://dt65i0q0rub7y" path="res://src/world/levels/07_scorched_complex/assets/main_street/window_small.png" id="20_oggt1"]
+[ext_resource type="Texture2D" uid="uid://l8hve51f6oc4" path="res://src/world/levels/07_scorched_complex/assets/main_street/window_medium.png" id="21_rcqv8"]
+[ext_resource type="Texture2D" uid="uid://1niwpmwq00f6" path="res://src/world/levels/07_scorched_complex/assets/main_street/board_large.png" id="22_bo6of"]
+[ext_resource type="Script" uid="uid://b06erqdnqtptw" path="res://src/systems/interactables/interactable_menu.gd" id="22_qtxyp"]
+[ext_resource type="Texture2D" uid="uid://ustwm63qpffe" path="res://src/world/levels/07_scorched_complex/assets/main_street/board_medium.png" id="22_rar5n"]
+[ext_resource type="Texture2D" uid="uid://c031eimw2hu0f" path="res://src/world/levels/07_scorched_complex/assets/main_street/board_small.png" id="23_oggt1"]
+[ext_resource type="Texture2D" uid="uid://i203ohxxkvoy" path="res://src/world/levels/07_scorched_complex/assets/main_street/dumpster.png" id="23_x7wxr"]
+[ext_resource type="Texture2D" uid="uid://3srkxcr7jg7d" path="res://src/world/levels/07_scorched_complex/assets/main_street/pillar_left.png" id="24_64ojj"]
+[ext_resource type="Texture2D" uid="uid://cmtjsxufg54yc" path="res://src/world/levels/07_scorched_complex/assets/main_street/pillar_right.png" id="25_1nveo"]
+[ext_resource type="Texture2D" uid="uid://dy2ifxc2r5im8" path="res://src/world/levels/07_scorched_complex/assets/main_street/sign.png" id="26_khgm8"]
+[ext_resource type="Texture2D" uid="uid://dpppnj7knc5tp" path="res://src/world/levels/07_scorched_complex/assets/main_street/window_large.png" id="27_nyaos"]
+[ext_resource type="Texture2D" uid="uid://cc1g15l2ymt2y" path="res://src/world/levels/07_scorched_complex/assets/main_street/window_large_broken.png" id="28_d65pl"]
+[ext_resource type="Texture2D" uid="uid://dog8026q1nv71" path="res://src/world/levels/07_scorched_complex/assets/main_street/background.png" id="29_1pn15"]
+[ext_resource type="Texture2D" uid="uid://crr38fcwy7ux3" path="res://src/world/levels/07_scorched_complex/assets/main_street/car.png" id="31_oggt1"]
+[ext_resource type="Script" uid="uid://cu217q42b0tjy" path="res://src/systems/free_on_game_event.gd" id="39_loopt"]
+[ext_resource type="Script" uid="uid://b1v0738dkl5jg" path="res://src/systems/swapper.gd" id="41_oggt1"]
+[ext_resource type="Script" uid="uid://brw3qxymvneca" path="res://src/systems/interactables/interactable_scene_switch.gd" id="42_rcqv8"]
+[ext_resource type="AudioStream" uid="uid://cogdcauanjn2s" path="res://src/world/levels/07_scorched_complex/assets/audio/highway.ogg" id="43_bo6of"]
+
+[sub_resource type="Resource" id="Resource_0u3u2"]
+resource_local_to_scene = true
+script = ExtResource("11_7e1pq")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_ewtcf")
+eye_r = ExtResource("3_2ehmb")
+eye_l = ExtResource("2_rr7d1")
+pupil_r = ExtResource("10_phxud")
+pupil_l = ExtResource("9_5j5uh")
+torso = ExtResource("12_75ray")
+hand_r = ExtResource("5_bndgb")
+hand_l = ExtResource("4_xhw3v")
+leg_r = ExtResource("8_3cmsu")
+leg_l = ExtResource("7_ssqxe")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8sai"]
+size = Vector2(64, 216)
+
+[sub_resource type="Resource" id="Resource_rar5n"]
+resource_local_to_scene = true
+script = ExtResource("11_7e1pq")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_ewtcf")
+eye_r = ExtResource("3_2ehmb")
+eye_l = ExtResource("2_rr7d1")
+pupil_r = ExtResource("10_phxud")
+pupil_l = ExtResource("9_5j5uh")
+torso = ExtResource("12_75ray")
+hand_r = ExtResource("5_bndgb")
+hand_l = ExtResource("4_xhw3v")
+leg_r = ExtResource("8_3cmsu")
+leg_l = ExtResource("7_ssqxe")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oggt1"]
+size = Vector2(64, 216)
+
+[sub_resource type="Resource" id="Resource_rcqv8"]
+resource_local_to_scene = true
+script = ExtResource("11_7e1pq")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_ewtcf")
+eye_r = ExtResource("3_2ehmb")
+eye_l = ExtResource("2_rr7d1")
+pupil_r = ExtResource("10_phxud")
+pupil_l = ExtResource("9_5j5uh")
+torso = ExtResource("12_75ray")
+hand_r = ExtResource("5_bndgb")
+hand_l = ExtResource("4_xhw3v")
+leg_r = ExtResource("8_3cmsu")
+leg_l = ExtResource("7_ssqxe")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="Resource" id="Resource_bo6of"]
+resource_local_to_scene = true
+script = ExtResource("11_7e1pq")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_ewtcf")
+eye_r = ExtResource("3_2ehmb")
+eye_l = ExtResource("2_rr7d1")
+pupil_r = ExtResource("10_phxud")
+pupil_l = ExtResource("9_5j5uh")
+torso = ExtResource("12_75ray")
+hand_r = ExtResource("5_bndgb")
+hand_l = ExtResource("4_xhw3v")
+leg_r = ExtResource("8_3cmsu")
+leg_l = ExtResource("7_ssqxe")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="Resource" id="Resource_x7wxr"]
+resource_local_to_scene = true
+script = ExtResource("11_7e1pq")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_ewtcf")
+eye_r = ExtResource("3_2ehmb")
+eye_l = ExtResource("2_rr7d1")
+pupil_r = ExtResource("10_phxud")
+pupil_l = ExtResource("9_5j5uh")
+torso = ExtResource("12_75ray")
+hand_r = ExtResource("5_bndgb")
+hand_l = ExtResource("4_xhw3v")
+leg_r = ExtResource("8_3cmsu")
+leg_l = ExtResource("7_ssqxe")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64ojj"]
+size = Vector2(64, 216)
+
+[node name="MainStreet" instance=ExtResource("1_1qlb1")]
+scene_name = "main_street"
+
+[node name="Dumpster" parent="UI" index="0" instance=ExtResource("2_tmv0f")]
+visible = false
+
+[node name="Player" parent="." index="1"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+style = ExtResource("3_rar5n")
+
+[node name="Flashlight" parent="Player" index="12" instance=ExtResource("13_cdpcp")]
+
+[node name="Phone" parent="Player" index="13" instance=ExtResource("14_i31g4")]
+
+[node name="WaterPack" parent="Player" index="14" instance=ExtResource("15_76vkq")]
+
+[node name="BehaviorStyleChange" type="Node2D" parent="Player" index="16" node_paths=PackedStringArray("target")]
+script = ExtResource("7_rcqv8")
+style_additions = Dictionary[String, Variant]({
+"held_item_r": ExtResource("8_bo6of")
+})
+target = NodePath("..")
+metadata/_custom_type_script = "uid://dqd071bb4t6rh"
+
+[node name="ProCam2D" parent="." index="2"]
+left_limit = -2400
+right_limit = 2400
+top_limit = -1623
+bottom_limit = 124
+
+[node name="Environment" parent="." index="3"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+
+[node name="Trees" type="Parallax2D" parent="Environment" index="0"]
+
+[node name="Tree13" type="Sprite2D" parent="Environment/Trees" index="0"]
+position = Vector2(2520, -477.208)
+rotation = -0.141112
+texture = ExtResource("17_avgjl")
+
+[node name="Tree14" type="Sprite2D" parent="Environment/Trees" index="1"]
+position = Vector2(1859, -547.208)
+texture = ExtResource("17_avgjl")
+
+[node name="Tree15" type="Sprite2D" parent="Environment/Trees" index="2"]
+position = Vector2(2065, -744.208)
+rotation = 0.132607
+texture = ExtResource("17_avgjl")
+
+[node name="Tree16" type="Sprite2D" parent="Environment/Trees" index="3"]
+position = Vector2(2107, -301.208)
+rotation = -0.139076
+texture = ExtResource("17_avgjl")
+
+[node name="Tree4" type="Sprite2D" parent="Environment/Trees" index="4"]
+position = Vector2(2087, -544)
+rotation = -0.141112
+texture = ExtResource("17_avgjl")
+
+[node name="Tree" type="Sprite2D" parent="Environment/Trees" index="5"]
+position = Vector2(1426, -614)
+texture = ExtResource("17_avgjl")
+
+[node name="Tree2" type="Sprite2D" parent="Environment/Trees" index="6"]
+position = Vector2(1632, -811)
+rotation = 0.132607
+texture = ExtResource("17_avgjl")
+
+[node name="Tree3" type="Sprite2D" parent="Environment/Trees" index="7"]
+position = Vector2(1674, -368)
+rotation = -0.139076
+texture = ExtResource("17_avgjl")
+
+[node name="Tree9" type="Sprite2D" parent="Environment/Trees" index="8"]
+position = Vector2(-1754, -453.208)
+rotation = -0.141112
+texture = ExtResource("17_avgjl")
+
+[node name="Tree10" type="Sprite2D" parent="Environment/Trees" index="9"]
+position = Vector2(-2415, -523.208)
+texture = ExtResource("17_avgjl")
+
+[node name="Tree11" type="Sprite2D" parent="Environment/Trees" index="10"]
+position = Vector2(-2209, -720.208)
+rotation = 0.132607
+texture = ExtResource("17_avgjl")
+
+[node name="Tree12" type="Sprite2D" parent="Environment/Trees" index="11"]
+position = Vector2(-2167, -277.208)
+rotation = -0.139076
+texture = ExtResource("17_avgjl")
+
+[node name="Tree5" type="Sprite2D" parent="Environment/Trees" index="12"]
+position = Vector2(-1072, -544)
+rotation = -0.141112
+texture = ExtResource("17_avgjl")
+
+[node name="Tree6" type="Sprite2D" parent="Environment/Trees" index="13"]
+position = Vector2(-1733, -614)
+texture = ExtResource("17_avgjl")
+
+[node name="Tree7" type="Sprite2D" parent="Environment/Trees" index="14"]
+position = Vector2(-1527, -811)
+rotation = 0.132607
+texture = ExtResource("17_avgjl")
+
+[node name="Tree8" type="Sprite2D" parent="Environment/Trees" index="15"]
+position = Vector2(-1485, -368)
+rotation = -0.139076
+texture = ExtResource("17_avgjl")
+
+[node name="Building" type="Parallax2D" parent="Environment" index="1"]
+
+[node name="BuildingBg" type="Sprite2D" parent="Environment/Building" index="0"]
+position = Vector2(0, -455)
+texture = ExtResource("18_loopt")
+
+[node name="BuildingBg2" type="Sprite2D" parent="Environment/Building" index="1"]
+position = Vector2(0, -1342)
+texture = ExtResource("18_loopt")
+
+[node name="Divider" type="Sprite2D" parent="Environment/Building" index="2"]
+position = Vector2(16, -874)
+texture = ExtResource("19_rar5n")
+
+[node name="Divider2" type="Sprite2D" parent="Environment/Building" index="3"]
+position = Vector2(16, -98)
+texture = ExtResource("19_rar5n")
+
+[node name="WindowSmall" type="Sprite2D" parent="Environment/Building" index="4"]
+position = Vector2(-996, -1144)
+texture = ExtResource("20_oggt1")
+
+[node name="WindowSmall2" type="Sprite2D" parent="Environment/Building" index="5"]
+position = Vector2(-564, -1144)
+texture = ExtResource("20_oggt1")
+
+[node name="WindowSmall3" type="Sprite2D" parent="Environment/Building" index="6"]
+position = Vector2(547.5, -1144)
+texture = ExtResource("20_oggt1")
+
+[node name="WindowSmall4" type="Sprite2D" parent="Environment/Building" index="7"]
+position = Vector2(979.5, -1144)
+texture = ExtResource("20_oggt1")
+
+[node name="WindowSmall5" type="Sprite2D" parent="Environment/Building" index="8"]
+position = Vector2(-996, -1539)
+texture = ExtResource("20_oggt1")
+
+[node name="WindowSmall6" type="Sprite2D" parent="Environment/Building" index="9"]
+position = Vector2(-564, -1539)
+texture = ExtResource("20_oggt1")
+
+[node name="WindowSmall7" type="Sprite2D" parent="Environment/Building" index="10"]
+position = Vector2(547.5, -1539)
+texture = ExtResource("20_oggt1")
+
+[node name="WindowSmall8" type="Sprite2D" parent="Environment/Building" index="11"]
+position = Vector2(979.5, -1539)
+texture = ExtResource("20_oggt1")
+
+[node name="WindowMedium" type="Sprite2D" parent="Environment/Building" index="12"]
+position = Vector2(0, -1147)
+texture = ExtResource("21_rcqv8")
+
+[node name="WindowMedium2" type="Sprite2D" parent="Environment/Building" index="13"]
+position = Vector2(0, -1551)
+texture = ExtResource("21_rcqv8")
+
+[node name="BoardMedium" type="Sprite2D" parent="Environment/Building" index="14"]
+position = Vector2(-5, -1165)
+texture = ExtResource("22_rar5n")
+
+[node name="BoardMedium2" type="Sprite2D" parent="Environment/Building" index="15"]
+position = Vector2(4, -1565)
+texture = ExtResource("22_rar5n")
+
+[node name="BoardSmall" type="Sprite2D" parent="Environment/Building" index="16"]
+position = Vector2(-570, -1161)
+texture = ExtResource("23_oggt1")
+
+[node name="BoardSmall2" type="Sprite2D" parent="Environment/Building" index="17"]
+position = Vector2(-1002, -1551)
+texture = ExtResource("23_oggt1")
+
+[node name="BoardSmall3" type="Sprite2D" parent="Environment/Building" index="18"]
+position = Vector2(542, -1161)
+texture = ExtResource("23_oggt1")
+
+[node name="BoardSmall4" type="Sprite2D" parent="Environment/Building" index="19"]
+position = Vector2(974, -1165)
+texture = ExtResource("23_oggt1")
+
+[node name="BoardLarge" type="Sprite2D" parent="Environment/Building" index="20"]
+position = Vector2(-4, -433)
+texture = ExtResource("22_bo6of")
+
+[node name="PillarLeft" type="Sprite2D" parent="Environment/Building" index="21"]
+position = Vector2(-614, -225)
+texture = ExtResource("24_64ojj")
+
+[node name="PillarRight" type="Sprite2D" parent="Environment/Building" index="22"]
+position = Vector2(571, -326)
+texture = ExtResource("25_1nveo")
+
+[node name="Sign" type="Sprite2D" parent="Environment/Building" index="23"]
+position = Vector2(43, -331)
+texture = ExtResource("26_khgm8")
+
+[node name="WindowLargeBroken" type="Sprite2D" parent="Environment/Building" index="24"]
+position = Vector2(-911, -483)
+texture = ExtResource("28_d65pl")
+
+[node name="Midground" type="Parallax2D" parent="Environment" index="2"]
+
+[node name="Dumpster" type="Sprite2D" parent="Environment/Midground" index="0"]
+position = Vector2(1389, -224)
+texture = ExtResource("23_x7wxr")
+
+[node name="Foreground" type="Parallax2D" parent="Environment" index="3"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+
+[node name="Car" type="Sprite2D" parent="Environment/Foreground" index="0"]
+position = Vector2(-1438.5, 50)
+texture = ExtResource("31_oggt1")
+
+[node name="Car2" type="Sprite2D" parent="Environment/Foreground" index="1"]
+position = Vector2(-2427.5, 50)
+texture = ExtResource("31_oggt1")
+
+[node name="Background" type="Sprite2D" parent="Environment" index="4"]
+visible = false
+modulate = Color(1, 1, 1, 0.45098)
+position = Vector2(23, -1006)
+texture = ExtResource("29_1pn15")
+metadata/_edit_lock_ = true
+
+[node name="PlatformLayer" parent="." index="4"]
+visible = false
+tile_map_data = PackedByteArray("AAATAP3/AAAAAAAAAQAUAP3/AAAAAAAAAQAVAP3/AAAAAAAAAQAWAP3/AAAAAAAAAQAXAP3/AAAAAAAAAQAYAP3/AAAAAAAAAQAWAPv/AAAAAAAAAQAXAPv/AAAAAAAAAQAYAPv/AAAAAAAAAQD3//3/AAAAAAAAAQD4//3/AAAAAAAAAQD5//3/AAAAAAAAAQD6//3/AAAAAAAAAQD7//3/AAAAAAAAAQD8//3/AAAAAAAAAQD9//3/AAAAAAAAAQD+//3/AAAAAAAAAQD///3/AAAAAAAAAQAAAP3/AAAAAAAAAQABAP3/AAAAAAAAAQACAP3/AAAAAAAAAQADAP3/AAAAAAAAAQAEAP3/AAAAAAAAAQAFAP3/AAAAAAAAAQAGAP3/AAAAAAAAAQAHAP3/AAAAAAAAAQAIAP3/AAAAAAAAAQAJAP3/AAAAAAAAAQA=")
+
+[node name="GroundLayer" parent="." index="5"]
+visible = false
+tile_map_data = PackedByteArray("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AADn/9n/AAAAAAAAAADm/9n/AAAAAAAAAADl/9n/AAAAAAAAAADk/9n/AAAAAAAAAADj/9n/AAAAAAAAAADi/9n/AAAAAAAAAADh/9n/AAAAAAAAAADg/9n/AAAAAAAAAADf/9n/AAAAAAAAAADe/9n/AAAAAAAAAADd/9n/AAAAAAAAAADc/9n/AAAAAAAAAADb/9n/AAAAAAAAAADa/9n/AAAAAAAAAAAmANn/AAAAAAAAAAAmANr/AAAAAAAAAAAmANv/AAAAAAAAAAAmANz/AAAAAAAAAAAmAN3/AAAAAAAAAAAmAN7/AAAAAAAAAAAmAN//AAAAAAAAAAAmAOD/AAAAAAAAAAAmAOH/AAAAAAAAAAAmAOL/AAAAAAAAAAAmAOP/AAAAAAAAAAAmAOT/AAAAAAAAAAAmAOX/AAAAAAAAAAAmAOb/AAAAAAAAAAAmAOf/AAAAAAAAAAAmAOj/AAAAAAAAAAAmAOn/AAAAAAAAAAAmAOr/AAAAAAAAAAAmAOv/AAAAAAAAAAAmAOz/AAAAAAAAAAAmAO3/AAAAAAAAAAAmAO7/AAAAAAAAAAAmAO//AAAAAAAAAAAmAPD/AAAAAAAAAAAmAPH/AAAAAAAAAAAmAPL/AAAAAAAAAAAmAPP/AAAAAAAAAAAmAPT/AAAAAAAAAAAmAPX/AAAAAAAAAAAmAPb/AAAAAAAAAAAmAPf/AAAAAAAAAAAmAPj/AAAAAAAAAAAmAPn/AAAAAAAAAAAmAPr/AAAAAAAAAAAmAPv/AAAAAAAAAAAmAPz/AAAAAAAAAAAmAP3/AAAAAAAAAAAmAP7/AAAAAAAAAAAmAP//AAAAAAAAAAAmAAAAAAAAAAAAAAAYANn/AAAAAAAAAAAZANn/AAAAAAAAAAAaANn/AAAAAAAAAAAbANn/AAAAAAAAAAAcANn/AAAAAAAAAAAdANn/AAAAAAAAAAAeANn/AAAAAAAAAAAfANn/AAAAAAAAAAAgANn/AAAAAAAAAAAhANn/AAAAAAAAAAAiANn/AAAAAAAAAAAjANn/AAAAAAAAAAAkANn/AAAAAAAAAAAlANn/AAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAhAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAjAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAlAAAAAAAAAAAAAAA=")
+
+[node name="Interactables" parent="." index="9"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+
+[node name="Jakob" parent="Interactables" index="0" instance=ExtResource("14_r2e4b")]
+position = Vector2(-441, 0)
+style = SubResource("Resource_0u3u2")
+
+[node name="InteractableDialogue" type="Area2D" parent="Interactables/Jakob" index="10" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("14_0u3u2")
+timeline = ExtResource("15_q8sai")
+labels = Dictionary[String, String]({
+"07_final_fight_completed": "jakob_aftermath",
+"07_spoke_to_jakob": "jakob_2",
+"07_started": "jakob_1"
+})
+target = NodePath("..")
+player_interact_offset = Vector2(200, 0)
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Jakob/InteractableDialogue" index="0"]
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_q8sai")
+
+[node name="DumpsterInteractableMenu" type="Area2D" parent="Interactables" index="1" node_paths=PackedStringArray("target")]
+position = Vector2(1371, -40)
+collision_layer = 8
+script = ExtResource("22_qtxyp")
+menu_path = NodePath("../../UI/Dumpster")
+target = NodePath(".")
+player_interact_offset = Vector2(-75, 0)
+metadata/_custom_type_script = "uid://b06erqdnqtptw"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/DumpsterInteractableMenu" index="0"]
+polygon = PackedVector2Array(-165, 15, -172, -259, 210, -257, 208, 16)
+
+[node name="WindowSwapper" type="Node2D" parent="." index="10" node_paths=PackedStringArray("subscenes")]
+modulate = Color(0.466181, 0.466181, 0.466181, 1)
+script = ExtResource("41_oggt1")
+subscenes = {
+NodePath("WindowLarge"): "07_started",
+NodePath("WindowLargeInteractable"): "07_glass_breaker_taken",
+NodePath("WindowLargeBroken"): "07_window_broken"
+}
+
+[node name="WindowLarge" type="Sprite2D" parent="WindowSwapper" index="0"]
+position = Vector2(934, -478)
+texture = ExtResource("27_nyaos")
+
+[node name="WindowLargeInteractable" type="Sprite2D" parent="WindowSwapper" index="1"]
+visible = false
+position = Vector2(934, -478)
+texture = ExtResource("27_nyaos")
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="WindowSwapper/WindowLargeInteractable" index="0" node_paths=PackedStringArray("target")]
+position = Vector2(0, 439)
+collision_layer = 8
+script = ExtResource("42_rcqv8")
+scene_name = "lobby"
+position_in_new_scene = Vector2(1906, 0)
+target = NodePath("..")
+metadata/_custom_type_script = "uid://brw3qxymvneca"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WindowSwapper/WindowLargeInteractable/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-162, -154, -159, -630, -77, -713, 70, -713, 169, -620, 164, -157)
+
+[node name="InteractableDialogue" type="Area2D" parent="WindowSwapper/WindowLargeInteractable" index="1" node_paths=PackedStringArray("target")]
+position = Vector2(0, 439)
+collision_layer = 8
+script = ExtResource("14_0u3u2")
+timeline = ExtResource("15_q8sai")
+labels = Dictionary[String, String]({
+"07_started": "no_entry"
+})
+text_bubble_markers = Array[NodePath]([NodePath("../../../Player/TextBubbleMarker")])
+target = NodePath("..")
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WindowSwapper/WindowLargeInteractable/InteractableDialogue" index="0"]
+polygon = PackedVector2Array(-162, -154, -159, -630, -77, -713, 70, -713, 169, -620, 164, -157)
+
+[node name="FreeOnGameEvent" type="Node" parent="WindowSwapper/WindowLargeInteractable" index="2" node_paths=PackedStringArray("target")]
+script = ExtResource("39_loopt")
+game_event = "07_spoke_to_jakob"
+target = NodePath("../InteractableDialogue")
+metadata/_custom_type_script = "uid://cu217q42b0tjy"
+
+[node name="WindowLargeBroken" type="Sprite2D" parent="WindowSwapper" index="2"]
+visible = false
+position = Vector2(934, -478)
+texture = ExtResource("27_nyaos")
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="WindowSwapper/WindowLargeBroken" index="0" node_paths=PackedStringArray("target")]
+position = Vector2(0, 439)
+collision_layer = 8
+script = ExtResource("42_rcqv8")
+scene_name = "lobby"
+position_in_new_scene = Vector2(1906, 0)
+target = NodePath("..")
+metadata/_custom_type_script = "uid://brw3qxymvneca"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WindowSwapper/WindowLargeBroken/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-162, -154, -159, -630, -77, -713, 70, -713, 169, -620, 164, -157)
+
+[node name="AftermathSwapper" type="Node2D" parent="." index="11" node_paths=PackedStringArray("subscenes")]
+modulate = Color(0.466181, 0.466181, 0.466181, 1)
+script = ExtResource("41_oggt1")
+subscenes = {
+NodePath("Aftermath"): "07_final_fight_completed"
+}
+
+[node name="Aftermath" type="Node2D" parent="AftermathSwapper" index="0"]
+visible = false
+
+[node name="Tomasz" parent="AftermathSwapper/Aftermath" index="0" instance=ExtResource("14_r2e4b")]
+position = Vector2(-332, -13)
+wander_distance_max = 0.0
+style = SubResource("Resource_rar5n")
+
+[node name="InteractableDialogue" type="Area2D" parent="AftermathSwapper/Aftermath/Tomasz" index="11" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("14_0u3u2")
+timeline = ExtResource("15_q8sai")
+labels = Dictionary[String, String]({
+"07_started": "tomasz_aftermath"
+})
+target = NodePath("..")
+player_interact_offset = Vector2(200, 0)
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AftermathSwapper/Aftermath/Tomasz/InteractableDialogue" index="0"]
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_oggt1")
+
+[node name="Urbexer1" parent="AftermathSwapper/Aftermath" index="1" instance=ExtResource("14_r2e4b")]
+position = Vector2(274, -13)
+wander_distance_max = 0.0
+style = SubResource("Resource_rcqv8")
+
+[node name="InteractableDialogue" type="Area2D" parent="AftermathSwapper/Aftermath/Urbexer1" index="11" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("14_0u3u2")
+timeline = ExtResource("15_q8sai")
+labels = Dictionary[String, String]({
+"07_started": "urbexer_1_aftermath"
+})
+target = NodePath("..")
+player_interact_offset = Vector2(200, 0)
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AftermathSwapper/Aftermath/Urbexer1/InteractableDialogue" index="0"]
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_oggt1")
+
+[node name="Urbexer2" parent="AftermathSwapper/Aftermath" index="2" instance=ExtResource("14_r2e4b")]
+position = Vector2(374, -13)
+wander_distance_max = 0.0
+style = SubResource("Resource_bo6of")
+
+[node name="InteractableDialogue" type="Area2D" parent="AftermathSwapper/Aftermath/Urbexer2" index="11" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("14_0u3u2")
+timeline = ExtResource("15_q8sai")
+labels = Dictionary[String, String]({
+"07_started": "urbexer_2_aftermath"
+})
+target = NodePath("..")
+player_interact_offset = Vector2(200, 0)
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AftermathSwapper/Aftermath/Urbexer2/InteractableDialogue" index="0"]
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_oggt1")
+
+[node name="Otto" parent="AftermathSwapper/Aftermath" index="3" instance=ExtResource("14_r2e4b")]
+position = Vector2(839, 0)
+wander_distance_max = 0.0
+style = SubResource("Resource_x7wxr")
+
+[node name="InteractableDialogue" type="Area2D" parent="AftermathSwapper/Aftermath/Otto" index="11" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("14_0u3u2")
+timeline = ExtResource("15_q8sai")
+labels = Dictionary[String, String]({
+"07_started": "otto_aftermath"
+})
+target = NodePath("..")
+player_interact_offset = Vector2(200, 0)
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AftermathSwapper/Aftermath/Otto/InteractableDialogue" index="0"]
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_64ojj")
+
+[node name="HighwayAmbiance" type="AudioStreamPlayer" parent="." index="12"]
+process_mode = 3
+stream = ExtResource("43_bo6of")
+autoplay = true
+bus = &"Music"

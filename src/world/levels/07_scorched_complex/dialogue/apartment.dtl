@@ -1,0 +1,98 @@
+label otto_1
+npc: This is no ordinary apartment.\
+The ghosts here will chase you tirelessly.\
+That is, unless you [color=maroon]crouch to hide behind objects[/color].\
+Take this map.
+do Inventory.add_item("07_map")
+do SaverLoader.complete_event("07_spoke_to_otto")
+npc: And be careful.
+[end_timeline]
+
+label otto_2
+player: <Empty Text Event>
+- Who are you?
+	npc: I am Otto.\
+	The landlord everyone hates.
+	[end_timeline]
+- What are the tally marks behind you?
+	npc: Just a thing I do.\
+	You explorers [i]always[/i] scream when a ghost catches you.
+	player: Have you heard me scream?
+	if {07.num_screams} == 0:
+		npc: Not yet.\
+		But don't worry...\
+		I'll be keeping track.\
+		Not much more to do.
+	elif {07.num_screams} == 1:
+		npc: I heard you scream 1 time.
+	else:
+		npc: I heard you scream {07.num_screams} times.
+	[end_timeline]
+- What happened here?
+	npc: My negligence brought fire to this place.\
+	My guilt keeps me around.\
+	And those ghosts were residents who did not escape in time.
+	[end_timeline]
+[end_timeline]
+
+label closet_locked
+player: It's locked.
+[end_timeline]
+
+label left_elevator
+player: I don't want to go down there without a reason!
+[end_timeline]
+
+label pipes
+player: It's broken.
+[end_timeline]
+
+label all_pipes_fixed
+if {07.num_pipes_fixed} >= 3:
+	player: All the pipes are fixed.\
+	I should turn the valve in the basement.
+else:
+	player: Fixed!
+[end_timeline]
+
+label valve
+if {07.num_pipes_fixed} >= 3:
+	do SaverLoader.complete_event("07_valve_turned")
+	player: The water should be running now.
+else:
+	player: The pipes aren't fixed yet!
+[end_timeline]
+
+label mold
+player: Ew. The smell is nauseating!
+[end_timeline]
+
+label respirator
+player: Here it is!
+do Inventory.add_item("07_respirator")
+[behavior type="s" who="player"]
+[end_timeline]
+
+label no_water_pack
+player: I don't have anything to fill up with water.
+[end_timeline]
+
+label pipes_not_fixed
+player: The water isn't running.
+[end_timeline]
+
+label save_us
+npc: Please save us!\
+We're surrounded!
+[end_timeline]
+
+label locked_in_bathroom
+player: I can't abandon Tomasz and his friends now!
+[end_timeline]
+
+label roof
+npc: Thanks a bunch!\
+You saved our lives!\
+Let's head back down.
+[scene name="main_street" x="0.0" y="0.0"]
+[end_timeline]

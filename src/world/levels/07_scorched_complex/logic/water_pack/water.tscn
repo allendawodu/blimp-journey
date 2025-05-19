@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://djabcrhujvotm"]
+
+[ext_resource type="Script" uid="uid://cxvj5tsvgtfxf" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water.gd" id="1_my62m"]
+[ext_resource type="Script" uid="uid://bb7g5kqgnx3vu" path="res://src/world/levels/07_scorched_complex/logic/water_pack/lifetime_component.gd" id="2_8abbj"]
+[ext_resource type="Texture2D" uid="uid://cyvb1y8f1wyq0" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water_texture.tres" id="2_uwdii"]
+[ext_resource type="Script" uid="uid://dlopy814bb7kk" path="res://src/systems/particle_system_visibility.gd" id="4_8bf0f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_akkga"]
+radius = 32.0
+
+[sub_resource type="Gradient" id="Gradient_rxmd4"]
+offsets = PackedFloat32Array(0, 0.793846, 0.938462)
+colors = PackedColorArray(0.314506, 0.734464, 1, 1, 0.105882, 0.52549, 0.760784, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8bf0f"]
+gradient = SubResource("Gradient_rxmd4")
+
+[sub_resource type="Curve" id="Curve_jjup5"]
+_data = [Vector2(0, 1), 0.0, -0.114391, 0, 0, Vector2(1, 0.501964), -1.15011, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_edeqe"]
+curve = SubResource("Curve_jjup5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0kokw"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 965.7
+gravity = Vector3(0, 980, 0)
+scale_min = 0.0
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_edeqe")
+color_ramp = SubResource("GradientTexture1D_8bf0f")
+
+[node name="Water" type="RigidBody2D"]
+z_index = 1
+z_as_relative = false
+collision_layer = 0
+collision_mask = 34
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_my62m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_akkga")
+
+[node name="WaterVisual" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.106733, 0.523554, 0.762387, 1)
+texture = ExtResource("2_uwdii")
+
+[node name="WaterImpactSplash" type="GPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("2_uwdii")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.91
+visibility_rect = Rect2(-500000, -500000, 999999, 999999)
+process_material = SubResource("ParticleProcessMaterial_0kokw")
+
+[node name="ParticleSystemVisibility" type="Node2D" parent="WaterImpactSplash"]
+script = ExtResource("4_8bf0f")
+always_visible = true
+metadata/_custom_type_script = "uid://dlopy814bb7kk"
+
+[node name="LifetimeComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_8abbj")
+target = NodePath("..")

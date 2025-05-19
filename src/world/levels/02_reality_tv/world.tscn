@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://csfa8mlmxybu6"]
+
+[ext_resource type="Script" uid="uid://bgcjhjqsnuj3c" path="res://src/world/common/level/level.gd" id="1_76ekk"]
+[ext_resource type="Texture2D" uid="uid://c40c4i8beu50" path="res://src/ui/icons/cursor_railed.png" id="1_x7h0e"]
+[ext_resource type="Script" uid="uid://ohm7go7h6hiu" path="res://src/ui/maaack/overlaid_menus/pause_handler.gd" id="2_48n3q"]
+[ext_resource type="Script" uid="uid://bfw7n02cus36g" path="res://src/systems/command_center/command_center_level.gd" id="2_ue4su"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="3_c6m56"]
+[ext_resource type="Resource" uid="uid://dcysv3c8oechb" path="res://src/world/levels/02_reality_tv/timelines/phone.dtl" id="3_wswtc"]
+[ext_resource type="PackedScene" uid="uid://t5scwf4rqd5j" path="res://src/ui/maaack/overlaid_menus/pause_menu.tscn" id="4_c60va"]
+[ext_resource type="PackedScene" uid="uid://chpgimbvu3iir" path="res://src/world/levels/02_reality_tv/menus/tabloid/tabloid.tscn" id="8_aphej"]
+[ext_resource type="PackedScene" uid="uid://btcmdnyri2vhg" path="res://src/ui/hand/hand.tscn" id="8_oc75h"]
+[ext_resource type="PackedScene" uid="uid://deo6o430pklmw" path="res://src/world/levels/02_reality_tv/scenes/main_street.tscn" id="10_vu2dh"]
+[ext_resource type="PackedScene" uid="uid://ckj4s2f2jfy6o" path="res://src/world/levels/02_reality_tv/menus/phone/phone.tscn" id="18_t6ntq"]
+
+[node name="World" type="Node"]
+script = ExtResource("1_76ekk")
+level_code = 2
+scenes = {
+"main_street": ExtResource("10_vu2dh")
+}
+
+[node name="CommandCenter" type="Node" parent="."]
+script = ExtResource("2_ue4su")
+scenes = {
+"mainstreet": ExtResource("10_vu2dh")
+}
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 10
+
+[node name="PauseHandler" type="TextureButton" parent="UI" node_paths=PackedStringArray("pause_menu")]
+modulate = Color(1, 1, 1, 0.5)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("1_x7h0e")
+stretch_mode = 5
+script = ExtResource("2_48n3q")
+pause_menu = NodePath("../PauseMenu")
+
+[node name="StateChartDebugger" parent="UI" instance=ExtResource("3_c6m56")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+anchors_preset = 11
+anchor_left = 1.0
+offset_left = -398.0
+offset_bottom = -674.0
+grow_horizontal = 0
+enabled = false
+ignore_events = true
+ignore_transitions = true
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("4_c60va")]
+visible = false
+
+[node name="Phone" parent="UI" node_paths=PackedStringArray("characters") instance=ExtResource("18_t6ntq")]
+process_mode = 0
+visible = false
+timeline = ExtResource("3_wswtc")
+characters = []
+
+[node name="Tabloid" parent="UI" instance=ExtResource("8_aphej")]
+visible = false
+
+[node name="Hand" parent="UI" instance=ExtResource("8_oc75h")]

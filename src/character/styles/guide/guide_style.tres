@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="Style" load_steps=25 format=3 uid="uid://c6u3rlck8e5tw"]
+
+[ext_resource type="PackedScene" uid="uid://tem7qe8rdwgl" path="res://src/character/styles/base/eye_l_base.tscn" id="1_hkrc6"]
+[ext_resource type="PackedScene" uid="uid://deqdhg7d7px4r" path="res://src/character/styles/base/eye_r_base.tscn" id="2_3n2vq"]
+[ext_resource type="PackedScene" uid="uid://bpfc1mt82d2jv" path="res://src/character/styles/guide/eyewear_guide.tscn" id="3_3rh3l"]
+[ext_resource type="PackedScene" uid="uid://bdbm2b3njkk70" path="res://src/character/styles/guide/face_marks_guide.tscn" id="4_egmsa"]
+[ext_resource type="PackedScene" uid="uid://covki8celrgqe" path="res://src/character/styles/guide/facial_hair_guide.tscn" id="5_omr4o"]
+[ext_resource type="PackedScene" uid="uid://dn0vvnivqw61l" path="res://src/character/styles/guide/hair_back_guide.tscn" id="6_yjh6o"]
+[ext_resource type="PackedScene" uid="uid://dj3bv46yvgjoa" path="res://src/character/styles/guide/hair_front_guide.tscn" id="7_j5nat"]
+[ext_resource type="PackedScene" uid="uid://dfj53lpxv6wc8" path="res://src/character/styles/base/hand_l_base.tscn" id="8_hlq1p"]
+[ext_resource type="PackedScene" uid="uid://c7xsd06q4xeea" path="res://src/character/styles/base/hand_r_base.tscn" id="9_cxscm"]
+[ext_resource type="PackedScene" uid="uid://ddnpfatnhpbjs" path="res://src/character/styles/base/head_base.tscn" id="10_sj27i"]
+[ext_resource type="PackedScene" uid="uid://bh6o0ivr6eucq" path="res://src/character/styles/base/leg_l_base.tscn" id="11_qpwua"]
+[ext_resource type="PackedScene" uid="uid://655nh84fdgg4" path="res://src/character/styles/base/leg_r_base.tscn" id="12_algcf"]
+[ext_resource type="PackedScene" uid="uid://dtiwnvkshgv6l" path="res://src/character/styles/guide/mouth_guide.tscn" id="13_hxmnt"]
+[ext_resource type="PackedScene" uid="uid://chvsgn8wlg8ag" path="res://src/character/styles/guide/overpants_guide.tscn" id="14_qcyoy"]
+[ext_resource type="PackedScene" uid="uid://0sd21biprbgn" path="res://src/character/styles/guide/pants_guide.tscn" id="15_msg8e"]
+[ext_resource type="PackedScene" uid="uid://b6mdjdj6t27lt" path="res://src/character/styles/base/pupil_l_base.tscn" id="16_s0b4d"]
+[ext_resource type="PackedScene" uid="uid://dn3ytutkepvws" path="res://src/character/styles/base/pupil_r_base.tscn" id="17_c4lgm"]
+[ext_resource type="Script" uid="uid://ekgsgj4smvbr" path="res://src/character/common/style/style.gd" id="18_puiyr"]
+[ext_resource type="PackedScene" uid="uid://c3on34woj86nx" path="res://src/character/styles/guide/shirt_guide.tscn" id="19_b2f6e"]
+[ext_resource type="PackedScene" uid="uid://d37sbf53cf7o8" path="res://src/character/styles/guide/shoe_l_guide.tscn" id="20_5dbxa"]
+[ext_resource type="PackedScene" uid="uid://b2y5jjjtoyoxo" path="res://src/character/styles/guide/shoe_r_guide.tscn" id="21_swtlc"]
+[ext_resource type="PackedScene" uid="uid://d3cwmwff87ujh" path="res://src/character/styles/guide/sock_l_guide.tscn" id="22_7uunx"]
+[ext_resource type="PackedScene" uid="uid://b0vrpp7lb4el5" path="res://src/character/styles/guide/sock_r_guide.tscn" id="23_mdfc6"]
+[ext_resource type="PackedScene" uid="uid://ccslu0b12mtfa" path="res://src/character/styles/base/torso_base.tscn" id="24_phrx5"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("18_puiyr")
+hair_back = ExtResource("6_yjh6o")
+hair_front = ExtResource("7_j5nat")
+eyewear = ExtResource("3_3rh3l")
+mouth = ExtResource("13_hxmnt")
+face_marks = ExtResource("4_egmsa")
+facial_hair = ExtResource("5_omr4o")
+shirt = ExtResource("19_b2f6e")
+pants = ExtResource("15_msg8e")
+overpants = ExtResource("14_qcyoy")
+sock_r = ExtResource("23_mdfc6")
+sock_l = ExtResource("22_7uunx")
+shoe_r = ExtResource("21_swtlc")
+shoe_l = ExtResource("20_5dbxa")
+color_skin = Color(0.882353, 0.709804, 0.584314, 1)
+color_head = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("10_sj27i")
+eye_r = ExtResource("2_3n2vq")
+eye_l = ExtResource("1_hkrc6")
+pupil_r = ExtResource("17_c4lgm")
+pupil_l = ExtResource("16_s0b4d")
+torso = ExtResource("24_phrx5")
+hand_r = ExtResource("9_cxscm")
+hand_l = ExtResource("8_hlq1p")
+leg_r = ExtResource("12_algcf")
+leg_l = ExtResource("11_qpwua")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"

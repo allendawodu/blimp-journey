@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq6byb786qytx"]
+
+[ext_resource type="Script" uid="uid://bf1da3fbocivh" path="res://src/world/levels/06_dragons_claw/logic/combat_chamber/dragon_spirit.gd" id="1_nsshx"]
+[ext_resource type="Script" uid="uid://cqq04tltf0w48" path="res://src/systems/knockback.gd" id="2_1wex2"]
+
+[sub_resource type="Curve" id="Curve_oonm5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="DragonSpirit" type="Line2D"]
+points = PackedVector2Array(0, 0, -1024, 0)
+width = 75.0
+width_curve = SubResource("Curve_oonm5")
+begin_cap_mode = 2
+script = ExtResource("1_nsshx")
+
+[node name="KnockbackArea" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("2_1wex2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KnockbackArea"]
+polygon = PackedVector2Array(-9, -36, 13, -34, 33, -17, 35, 9, 23, 27, 0, 37, -82, 33, -217, 28, -626, 14, -625, -15, -252, -25)
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true

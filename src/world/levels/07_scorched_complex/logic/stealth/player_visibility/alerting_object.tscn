@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxyjfe6h3errq"]
+
+[ext_resource type="Script" uid="uid://ckr7vq1srjwhd" path="res://src/world/levels/07_scorched_complex/logic/stealth/player_visibility/alerting_object.gd" id="1_0jtyt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eukkm"]
+radius = 700.0
+
+[node name="AlertingObject" type="Area2D"]
+collision_layer = 0
+collision_mask = 32
+input_pickable = false
+script = ExtResource("1_0jtyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_eukkm")

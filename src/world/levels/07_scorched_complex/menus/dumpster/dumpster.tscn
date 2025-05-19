@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2l33hiddry8y"]
+
+[ext_resource type="PackedScene" uid="uid://j1l5nfbugmic" path="res://src/ui/item_menu/item_menu.tscn" id="1_0t424"]
+[ext_resource type="Script" uid="uid://b6fwo68mnxjke" path="res://src/world/levels/07_scorched_complex/menus/dumpster/dumpster.gd" id="2_ytt8l"]
+[ext_resource type="Texture2D" uid="uid://ctlvcmlr6vkhx" path="res://src/world/levels/07_scorched_complex/menus/dumpster/assets/glass_breaker.png" id="3_et16b"]
+
+[node name="Dumpster" instance=ExtResource("1_0t424")]
+script = ExtResource("2_ytt8l")
+
+[node name="Button" type="Button" parent="Holder" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "Get glass hammer"
+
+[node name="GlassBreaker" type="Sprite2D" parent="Holder" index="1"]
+position = Vector2(1208, 505)
+texture = ExtResource("3_et16b")

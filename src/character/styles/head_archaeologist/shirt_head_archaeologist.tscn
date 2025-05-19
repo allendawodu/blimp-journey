@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://p4o7m14bfmn0"]
+
+[ext_resource type="Texture2D" uid="uid://bt6dgijskoklx" path="res://src/character/styles/head_archaeologist/shirt.png" id="1_7cb8i"]
+[ext_resource type="Script" uid="uid://b45j8fky1o1s1" path="res://src/character/common/style/style_part.gd" id="2_m3k3e"]
+
+[node name="Shirt" type="Sprite2D"]
+texture = ExtResource("1_7cb8i")
+offset = Vector2(3, -29)
+script = ExtResource("2_m3k3e")
+style_name = "shirt_head_archaeologist"
+part = 15

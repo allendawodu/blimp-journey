@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuabnvd778pk3"]
+
+[ext_resource type="Texture2D" uid="uid://vfkmqcsryrov" path="res://src/world/levels/04_volcano/sprites/interactibles/dragon_head.svg" id="2_1u0lm"]
+[ext_resource type="Texture2D" uid="uid://bb203meenxvq4" path="res://src/world/levels/04_volcano/sprites/interactibles/wall_support.svg" id="2_6v182"]
+[ext_resource type="PackedScene" uid="uid://c3jnxnaijwm17" path="res://src/world/levels/04_volcano/logic/flamethrower/flame.tscn" id="2_f2flr"]
+
+[node name="Flamethrower" type="Polygon2D"]
+color = Color(0.908315, 0.35256, 0.199778, 0)
+polygon = PackedVector2Array(-95, -69, -122, -14, -161, 43, -152, 92, -105, 50, -71, 11, -46, 28, -54, 82, -90, 120, -42, 129, 9, 84, 20, 26, 94, 31, 101, -97, -33, -93)
+
+[node name="Flame" parent="." instance=ExtResource("2_f2flr")]
+
+[node name="WallSupport" type="Sprite2D" parent="."]
+position = Vector2(79, -8)
+texture = ExtResource("2_6v182")
+
+[node name="StatueHead" type="Sprite2D" parent="WallSupport"]
+position = Vector2(0, -2.99998)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_1u0lm")
+offset = Vector2(81, -5)

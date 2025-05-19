@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://djf0gyksxhybj"]
+
+[ext_resource type="Script" uid="uid://byambarbk0gqa" path="res://addons/godot_resource_groups/resource_group.gd" id="1_ale7n"]
+
+[resource]
+script = ExtResource("1_ale7n")
+base_folder = "res://src/world/levels"
+includes = Array[String](["/*/*.tscn", ""])
+excludes = Array[String]([])
+paths = Array[String](["res://src/world/levels/02_reality_tv/world.tscn", "res://src/world/levels/03_groundlands/level.tscn", "res://src/world/levels/04_volcano/level.tscn", "res://src/world/levels/05_tutorial/tutorial.tscn", "res://src/world/levels/06_dragons_claw/dragons_claw_volcano.tscn", "res://src/world/levels/07_scorched_complex/scorched_complex.tscn"])

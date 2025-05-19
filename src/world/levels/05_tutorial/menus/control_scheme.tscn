@@ -1,0 +1,127 @@
+[gd_scene load_steps=12 format=3 uid="uid://cd3d0hbpdu0fl"]
+
+[ext_resource type="PackedScene" uid="uid://j1l5nfbugmic" path="res://src/ui/item_menu/item_menu.tscn" id="1_yvi1v"]
+[ext_resource type="FontFile" uid="uid://d01bkxkrxln5h" path="res://src/ui/fonts/boogaloo/Boogaloo-Regular.ttf" id="2_gq2wv"]
+[ext_resource type="Script" uid="uid://bscqunstqofat" path="res://src/world/levels/05_tutorial/menus/control_scheme.gd" id="2_u00xe"]
+[ext_resource type="Texture2D" uid="uid://chvqthemh6w3v" path="res://src/ui/icons/touchpad_mouse.png" id="3_w0w74"]
+[ext_resource type="Texture2D" uid="uid://u1sa8dpbrqpr" path="res://src/ui/icons/mouse.png" id="4_sf57t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e26vo"]
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 0.784314)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ylhe2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0xav"]
+font = ExtResource("2_gq2wv")
+font_size = 96
+
+[sub_resource type="LabelSettings" id="LabelSettings_0736q"]
+font = ExtResource("2_gq2wv")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_uijnd"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_boowm"]
+font_size = 24
+
+[node name="ControlScheme" instance=ExtResource("1_yvi1v")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_e26vo")
+script = ExtResource("2_u00xe")
+
+[node name="HSeparator" type="HSeparator" parent="." index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ylhe2")
+
+[node name="MarginContainer" type="MarginContainer" parent="Holder" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Holder/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Holder/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Choose a control scheme..."
+label_settings = SubResource("LabelSettings_i0xav")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Holder/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="TouchpadButton" type="TextureButton" parent="Holder/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_w0w74")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="MouseButton" type="TextureButton" parent="Holder/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_sf57t")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Holder/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="TouchpadTitleLabel" type="Label" parent="Holder/MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Touchpad Controls"
+label_settings = SubResource("LabelSettings_0736q")
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Holder/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Mouse Controls"
+label_settings = SubResource("LabelSettings_0736q")
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Holder/MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+
+[node name="BodyLabel2" type="Label" parent="Holder/MarginContainer/VBoxContainer/HBoxContainer3" index="0"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "(Recommended for touchpad users)
+Drag the mouse cursor to move while in the air."
+label_settings = SubResource("LabelSettings_uijnd")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BodyLabel" type="Label" parent="Holder/MarginContainer/VBoxContainer/HBoxContainer3" index="1"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "(Recommended for mouse and drawing tablet users)
+Hold down the left mouse button to move while in the air."
+label_settings = SubResource("LabelSettings_uijnd")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="InfoLabel" type="Label" parent="Holder/MarginContainer/VBoxContainer" index="4"]
+self_modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 2
+size_flags_vertical = 6
+text = "You can change this later in the settings menu."
+label_settings = SubResource("LabelSettings_boowm")
+horizontal_alignment = 1
+
+[node name="CloseButton" parent="." index="2"]
+self_modulate = Color(1, 1, 1, 0.498039)

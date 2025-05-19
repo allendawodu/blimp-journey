@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6mdjdj6t27lt"]
+
+[ext_resource type="Script" uid="uid://bwhkbgrej7kvt" path="res://src/character/styles/base/eye_tracking_pupil.gd" id="1_mf225"]
+
+[sub_resource type="Image" id="Image_4jyva"]
+data = {
+"data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 137, 0, 0, 0, 155, 0, 0, 0, 93, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 92, 0, 0, 0, 251, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 180, 0, 0, 0, 2, 0, 0, 0, 13, 0, 0, 0, 241, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 93, 0, 0, 0, 62, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 157, 0, 0, 0, 45, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 139, 0, 0, 0, 3, 0, 0, 0, 206, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 251, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 0, 37, 0, 0, 0, 206, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 242, 0, 0, 0, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 46, 0, 0, 0, 65, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0),
+"format": "RGBA8",
+"height": 8,
+"mipmaps": false,
+"width": 8
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_4jyva"]
+image = SubResource("Image_4jyva")
+
+[node name="PupilL" type="Node2D"]
+script = ExtResource("1_mf225")
+style_name = "pupil_l_base"
+part = 7
+
+[node name="@Sprite2D@53397" type="Sprite2D" parent="."]
+texture = SubResource("ImageTexture_4jyva")

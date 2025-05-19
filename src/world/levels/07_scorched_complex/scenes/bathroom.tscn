@@ -1,0 +1,230 @@
+[gd_scene load_steps=30 format=4 uid="uid://c8panjd0u6s5b"]
+
+[ext_resource type="PackedScene" uid="uid://dwapdsx6u217o" path="res://src/world/common/scene/scene.tscn" id="1_lwnwx"]
+[ext_resource type="PackedScene" uid="uid://dgvkihnaqm4wl" path="res://src/world/levels/07_scorched_complex/menus/faucet_minigame/faucet_minigame.tscn" id="2_8sjok"]
+[ext_resource type="PackedScene" uid="uid://tem7qe8rdwgl" path="res://src/character/styles/base/eye_l_base.tscn" id="2_k1gbr"]
+[ext_resource type="PackedScene" uid="uid://deqdhg7d7px4r" path="res://src/character/styles/base/eye_r_base.tscn" id="3_l425y"]
+[ext_resource type="PackedScene" uid="uid://dfj53lpxv6wc8" path="res://src/character/styles/base/hand_l_base.tscn" id="4_bgwge"]
+[ext_resource type="PackedScene" uid="uid://c7xsd06q4xeea" path="res://src/character/styles/base/hand_r_base.tscn" id="5_h5uk2"]
+[ext_resource type="PackedScene" uid="uid://ddnpfatnhpbjs" path="res://src/character/styles/base/head_base.tscn" id="6_nywju"]
+[ext_resource type="PackedScene" uid="uid://bh6o0ivr6eucq" path="res://src/character/styles/base/leg_l_base.tscn" id="7_8sjok"]
+[ext_resource type="PackedScene" uid="uid://655nh84fdgg4" path="res://src/character/styles/base/leg_r_base.tscn" id="8_mnup2"]
+[ext_resource type="PackedScene" uid="uid://b6mdjdj6t27lt" path="res://src/character/styles/base/pupil_l_base.tscn" id="9_qarq7"]
+[ext_resource type="PackedScene" uid="uid://dn3ytutkepvws" path="res://src/character/styles/base/pupil_r_base.tscn" id="10_y2mbx"]
+[ext_resource type="Script" uid="uid://ekgsgj4smvbr" path="res://src/character/common/style/style.gd" id="11_0xvj3"]
+[ext_resource type="PackedScene" uid="uid://ccslu0b12mtfa" path="res://src/character/styles/base/torso_base.tscn" id="12_0yj28"]
+[ext_resource type="PackedScene" uid="uid://bl2l6bdrpyq1v" path="res://src/world/levels/07_scorched_complex/logic/flashlight/flashlight.tscn" id="13_k1gbr"]
+[ext_resource type="Script" uid="uid://brw3qxymvneca" path="res://src/systems/interactables/interactable_scene_switch.gd" id="14_bgwge"]
+[ext_resource type="Script" uid="uid://byyuugyltgunu" path="res://src/systems/polygon_copier.gd" id="15_h5uk2"]
+[ext_resource type="PackedScene" uid="uid://cgkvddl3qycs1" path="res://src/world/levels/07_scorched_complex/logic/phone/phone.tscn" id="15_y2mbx"]
+[ext_resource type="PackedScene" uid="uid://g3n4ubd0hrps" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water_pack.tscn" id="16_0xvj3"]
+[ext_resource type="Script" uid="uid://b06erqdnqtptw" path="res://src/systems/interactables/interactable_menu.gd" id="16_h5uk2"]
+[ext_resource type="Script" uid="uid://h51b74w6ojmo" path="res://src/systems/interactables/interactable_dialogue.gd" id="17_nywju"]
+[ext_resource type="Script" uid="uid://33a5tq7xm00y" path="res://src/world/levels/07_scorched_complex/logic/faucet.gd" id="17_qarq7"]
+[ext_resource type="Texture2D" uid="uid://bgit8mqhagaxf" path="res://src/world/levels/07_scorched_complex/assets/_common/door.png" id="17_xnroi"]
+[ext_resource type="Resource" uid="uid://cyx2lef15qr70" path="res://src/world/levels/07_scorched_complex/dialogue/apartment.dtl" id="19_mnup2"]
+[ext_resource type="Script" uid="uid://cu217q42b0tjy" path="res://src/systems/free_on_game_event.gd" id="23_y7j1c"]
+[ext_resource type="Script" uid="uid://ddgj0d7l8hicn" path="res://src/systems/lock_and_key.gd" id="24_xnroi"]
+[ext_resource type="AudioStream" uid="uid://c3k2hlvvx3rlk" path="res://src/world/levels/07_scorched_complex/assets/audio/apartment.ogg" id="29_8pfib"]
+[ext_resource type="Script" uid="uid://b1v0738dkl5jg" path="res://src/systems/swapper.gd" id="29_bhp66"]
+[ext_resource type="Texture2D" uid="uid://dt65i0q0rub7y" path="res://src/world/levels/07_scorched_complex/assets/main_street/window_small.png" id="30_8pfib"]
+
+[sub_resource type="Resource" id="Resource_n2pch"]
+resource_local_to_scene = true
+script = ExtResource("11_0xvj3")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_nywju")
+eye_r = ExtResource("3_l425y")
+eye_l = ExtResource("2_k1gbr")
+pupil_r = ExtResource("10_y2mbx")
+pupil_l = ExtResource("9_qarq7")
+torso = ExtResource("12_0yj28")
+hand_r = ExtResource("5_h5uk2")
+hand_l = ExtResource("4_bgwge")
+leg_r = ExtResource("8_mnup2")
+leg_l = ExtResource("7_8sjok")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[node name="Bathroom" instance=ExtResource("1_lwnwx")]
+scene_name = "bathroom"
+
+[node name="FaucetMinigame" parent="UI" index="0" instance=ExtResource("2_8sjok")]
+visible = false
+
+[node name="Player" parent="." index="1"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+style = SubResource("Resource_n2pch")
+
+[node name="Flashlight" parent="Player" index="12" instance=ExtResource("13_k1gbr")]
+
+[node name="Phone" parent="Player" index="13" instance=ExtResource("15_y2mbx")]
+
+[node name="WaterPack" parent="Player" index="14" instance=ExtResource("16_0xvj3")]
+
+[node name="Environment" parent="." index="3"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Midground" type="Parallax2D" parent="Environment" index="0"]
+
+[node name="Door" type="Sprite2D" parent="Environment/Midground" index="0"]
+position = Vector2(8, -179)
+texture = ExtResource("17_xnroi")
+
+[node name="GroundLayer" parent="." index="5"]
+tile_map_data = PackedByteArray("AAD2/wAAAAAAAAAAAAD3/wAAAAAAAAAAAAD4/wAAAAAAAAAAAAD5/wAAAAAAAAAAAAD6/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAA=")
+
+[node name="Interactables" parent="." index="9"]
+modulate = Color(0.466667, 0.466667, 0.466667, 1)
+
+[node name="Faucet" type="Polygon2D" parent="Interactables" index="0"]
+position = Vector2(478, -52)
+polygon = PackedVector2Array(34, -30, -42, -25, -53, -7, -55, 7, -35, 6, -38, -6, -33, -11, 36, -6)
+script = ExtResource("17_qarq7")
+
+[node name="InteractableMenu" type="Area2D" parent="Interactables/Faucet" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("16_h5uk2")
+menu_path = NodePath("../../../UI/FaucetMinigame")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://b06erqdnqtptw"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Faucet/InteractableMenu" index="0"]
+polygon = PackedVector2Array(34, -30, -42, -25, -53, -7, -55, 7, -35, 6, -38, -6, -33, -11, 36, -6)
+script = ExtResource("15_h5uk2")
+target = NodePath("../..")
+
+[node name="InteractableDialogue" type="Area2D" parent="Interactables/Faucet" index="1" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("17_nywju")
+timeline = ExtResource("19_mnup2")
+labels = Dictionary[String, String]({
+"07_started": "no_water_pack"
+})
+text_bubble_markers = Array[NodePath]([NodePath("../../../Player/TextBubbleMarker")])
+target = NodePath("..")
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Faucet/InteractableDialogue" index="0"]
+polygon = PackedVector2Array(34, -30, -42, -25, -53, -7, -55, 7, -35, 6, -38, -6, -33, -11, 36, -6)
+script = ExtResource("15_h5uk2")
+target = NodePath("../..")
+
+[node name="InteractableDialogue2" type="Area2D" parent="Interactables/Faucet" index="2" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("17_nywju")
+timeline = ExtResource("19_mnup2")
+labels = Dictionary[String, String]({
+"07_started": "pipes_not_fixed"
+})
+text_bubble_markers = Array[NodePath]([NodePath("../../../Player/TextBubbleMarker")])
+target = NodePath("..")
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Faucet/InteractableDialogue2" index="0"]
+polygon = PackedVector2Array(34, -30, -42, -25, -53, -7, -55, 7, -35, 6, -38, -6, -33, -11, 36, -6)
+script = ExtResource("15_h5uk2")
+target = NodePath("../..")
+
+[node name="FreeOnGameEvent" type="Node" parent="Interactables/Faucet/InteractableDialogue2" index="1" node_paths=PackedStringArray("target")]
+script = ExtResource("23_y7j1c")
+game_event = "07_valve_turned"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cu217q42b0tjy"
+
+[node name="LockAndKey" type="Node" parent="Interactables/Faucet" index="3" node_paths=PackedStringArray("lock")]
+script = ExtResource("24_xnroi")
+key = "07_water_pack"
+lock = NodePath("../InteractableDialogue")
+metadata/_custom_type_script = "uid://ddgj0d7l8hicn"
+
+[node name="WindowSwapper" type="Node2D" parent="Interactables" index="1" node_paths=PackedStringArray("subscenes")]
+script = ExtResource("29_bhp66")
+subscenes = {
+NodePath("WindowSmall"): "07_started",
+NodePath("WindowSmallOpen"): "07_water_pack_filled"
+}
+
+[node name="WindowSmall" type="Sprite2D" parent="Interactables/WindowSwapper" index="0"]
+position = Vector2(316, -284)
+texture = ExtResource("30_8pfib")
+
+[node name="WindowSmallOpen" type="Sprite2D" parent="Interactables/WindowSwapper" index="1"]
+position = Vector2(316, -284)
+texture = ExtResource("30_8pfib")
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="Interactables/WindowSwapper/WindowSmallOpen" index="0" node_paths=PackedStringArray("target")]
+position = Vector2(0, 279)
+collision_layer = 8
+script = ExtResource("14_bgwge")
+scene_name = "roof"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://brw3qxymvneca"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/WindowSwapper/WindowSmallOpen/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-110, -434, -112, -148, 106, -147, 109, -430)
+
+[node name="EntranceSwapper" type="Node2D" parent="Interactables" index="2" node_paths=PackedStringArray("subscenes")]
+script = ExtResource("29_bhp66")
+subscenes = {
+NodePath("Entrance"): "07_started",
+NodePath("Entrance2"): "07_water_pack_filled",
+NodePath("Entrance3"): "07_final_fight_completed"
+}
+
+[node name="Entrance" type="Node2D" parent="Interactables/EntranceSwapper" index="0"]
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="Interactables/EntranceSwapper/Entrance" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("14_bgwge")
+scene_name = "floor_3"
+position_in_new_scene = Vector2(-2398, 0)
+target = NodePath("..")
+metadata/_custom_type_script = "uid://brw3qxymvneca"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/EntranceSwapper/Entrance/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-120, -8, -119, -346, 135, -351, 135, -5)
+
+[node name="Entrance2" type="Node2D" parent="Interactables/EntranceSwapper" index="1"]
+visible = false
+
+[node name="InteractableDialogue" type="Area2D" parent="Interactables/EntranceSwapper/Entrance2" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("17_nywju")
+timeline = ExtResource("19_mnup2")
+labels = Dictionary[String, String]({
+"07_started": "locked_in_bathroom"
+})
+text_bubble_markers = Array[NodePath]([NodePath("../../../../Player/TextBubbleMarker")])
+target = NodePath("..")
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/EntranceSwapper/Entrance2/InteractableDialogue" index="0"]
+polygon = PackedVector2Array(-120, -8, -119, -346, 135, -351, 135, -5)
+
+[node name="Entrance3" type="Node2D" parent="Interactables/EntranceSwapper" index="2"]
+visible = false
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="Interactables/EntranceSwapper/Entrance3" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("14_bgwge")
+scene_name = "floor_3"
+position_in_new_scene = Vector2(-2398, 0)
+target = NodePath("..")
+metadata/_custom_type_script = "uid://brw3qxymvneca"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/EntranceSwapper/Entrance3/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-120, -8, -119, -346, 135, -351, 135, -5)
+
+[node name="InteriorAmbiance" type="AudioStreamPlayer" parent="." index="10"]
+process_mode = 3
+stream = ExtResource("29_8pfib")
+autoplay = true
+bus = &"Music"

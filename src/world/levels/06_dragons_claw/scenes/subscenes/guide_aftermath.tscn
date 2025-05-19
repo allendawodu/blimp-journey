@@ -1,0 +1,204 @@
+[gd_scene load_steps=26 format=3 uid="uid://di25w3o5fsnbo"]
+
+[ext_resource type="PackedScene" uid="uid://c8db5pwju6ruy" path="res://src/character/common/character.tscn" id="1_ybmwi"]
+[ext_resource type="Script" uid="uid://cipcbqh2a0i" path="res://src/character/npc/npc.gd" id="2_bf1cy"]
+[ext_resource type="Resource" uid="uid://c6u3rlck8e5tw" path="res://src/character/styles/guide/guide_style.tres" id="3_6klb6"]
+[ext_resource type="Script" uid="uid://b62f7ssnv2gn3" path="res://addons/godot_state_charts/transition.gd" id="4_nmrsj"]
+[ext_resource type="Script" uid="uid://c6b3j33eleyub" path="res://addons/godot_state_charts/state_is_active_guard.gd" id="5_aev2q"]
+[ext_resource type="Script" uid="uid://bepe584dhc6co" path="res://addons/godot_state_charts/not_guard.gd" id="6_nvogu"]
+[ext_resource type="Script" uid="uid://d017khxo1mx7v" path="res://src/character/npc/states/pathfind_possible.gd" id="7_vp5xa"]
+[ext_resource type="Script" uid="uid://bfekw4hyeslpt" path="res://src/character/npc/states/can_pathfind.gd" id="8_vg8vs"]
+[ext_resource type="Script" uid="uid://h51b74w6ojmo" path="res://src/systems/interactables/interactable_dialogue.gd" id="9_83kxn"]
+[ext_resource type="Resource" uid="uid://b63puet7bua7v" path="res://src/world/levels/06_dragons_claw/dialogue/base_camp.dtl" id="10_ckduk"]
+[ext_resource type="Texture2D" uid="uid://closrmxb1xfvm" path="res://src/character/styles/guide/pants.png" id="17_xstc1"]
+[ext_resource type="Texture2D" uid="uid://c0ity2mpd48uj" path="res://src/character/styles/guide/overpants.png" id="18_3pota"]
+[ext_resource type="Texture2D" uid="uid://ci8ewy0lbb7t4" path="res://src/character/styles/guide/shirt.png" id="19_k84ex"]
+[ext_resource type="Texture2D" uid="uid://bc8o3rxp8g53h" path="res://src/character/styles/guide/mouth.png" id="21_8g3om"]
+[ext_resource type="Texture2D" uid="uid://wdkqkuorv25i" path="res://src/character/styles/guide/hair_front.png" id="22_farhd"]
+[ext_resource type="Texture2D" uid="uid://bvq3580fo0rpk" path="res://src/character/styles/guide/face_marks.png" id="23_pdcdp"]
+[ext_resource type="Texture2D" uid="uid://qsbhtdr4bkfu" path="res://src/character/styles/guide/facial_hair.png" id="24_qn6qd"]
+[ext_resource type="Texture2D" uid="uid://bsr7iiui7rn8a" path="res://src/character/styles/guide/eyewear.png" id="25_sqr4c"]
+[ext_resource type="Texture2D" uid="uid://bknbiatyjlqbi" path="res://src/character/styles/guide/sock_l.png" id="26_dy6st"]
+[ext_resource type="Texture2D" uid="uid://dh8ucca2b4oyk" path="res://src/character/styles/guide/shoe_l.png" id="27_54et7"]
+[ext_resource type="Texture2D" uid="uid://dptag4e1ym0c5" path="res://src/character/styles/guide/sock_r.png" id="28_j7gsc"]
+[ext_resource type="Texture2D" uid="uid://ccjx8apwten2u" path="res://src/character/styles/guide/shoe_r.png" id="29_pgp4a"]
+
+[sub_resource type="Resource" id="Resource_lri8q"]
+script = ExtResource("5_aev2q")
+state = NodePath("../../../../PathfindPossible/NoPathfind")
+
+[sub_resource type="Resource" id="Resource_hebht"]
+script = ExtResource("6_nvogu")
+guard = SubResource("Resource_lri8q")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab5cv"]
+size = Vector2(74, 214)
+
+[node name="Guide" instance=ExtResource("1_ybmwi")]
+position = Vector2(-430, 660)
+script = ExtResource("2_bf1cy")
+wander_distance_max = 0.0
+wander_delay_min = 1.0
+wander_delay_max = 5.0
+style = ExtResource("3_6klb6")
+
+[node name="PathfindTimer" type="Timer" parent="." index="6"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="HandL" parent="Visuals/Body" index="0"]
+self_modulate = Color(0.882353, 0.709804, 0.584314, 1)
+position = Vector2(29.9998, -98.9999)
+scale = Vector2(0.999995, 0.999995)
+
+[node name="HairBack" parent="Visuals/Body" index="1"]
+position = Vector2(6, -150)
+scale = Vector2(0.999996, 0.999996)
+
+[node name="Torso" parent="Visuals/Body" index="2"]
+self_modulate = Color(0.882353, 0.709804, 0.584314, 1)
+
+[node name="Pants" parent="Visuals/Body/Torso" index="1"]
+position = Vector2(0, 0)
+texture = ExtResource("17_xstc1")
+offset = Vector2(2.39, -4.74)
+
+[node name="Overpants" parent="Visuals/Body/Torso" index="2"]
+position = Vector2(0, 0)
+texture = ExtResource("18_3pota")
+offset = Vector2(3, -13)
+
+[node name="Shirt" parent="Visuals/Body/Torso" index="3"]
+position = Vector2(0, 0)
+texture = ExtResource("19_k84ex")
+offset = Vector2(1.68, -37.15)
+
+[node name="Head" parent="Visuals/Body" index="3"]
+self_modulate = Color(0.882353, 0.709804, 0.584314, 1)
+position = Vector2(6, -150)
+scale = Vector2(0.999996, 0.999996)
+
+[node name="Mouth" parent="Visuals/Body/Head" index="1"]
+position = Vector2(0, 0)
+texture = ExtResource("21_8g3om")
+offset = Vector2(9, -6)
+
+[node name="HairFront" parent="Visuals/Body/Head" index="2"]
+position = Vector2(0, 0)
+texture = ExtResource("22_farhd")
+offset = Vector2(-1, -50)
+
+[node name="PupilR" parent="Visuals/Body/Head/EyeR" index="0"]
+self_modulate = Color(0, 0, 0, 1)
+
+[node name="PupilL" parent="Visuals/Body/Head/EyeL" index="0"]
+self_modulate = Color(0, 0, 0, 1)
+
+[node name="FaceMarks" parent="Visuals/Body/Head" index="5"]
+position = Vector2(0, 0)
+texture = ExtResource("23_pdcdp")
+offset = Vector2(4, -14)
+
+[node name="FacialHair" parent="Visuals/Body/Head" index="6"]
+position = Vector2(0, 0)
+texture = ExtResource("24_qn6qd")
+offset = Vector2(8, 6)
+
+[node name="Eyewear" parent="Visuals/Body/Head" index="7"]
+position = Vector2(0, 0)
+texture = ExtResource("25_sqr4c")
+offset = Vector2(16, -25)
+
+[node name="LegL" parent="Visuals/Body" index="4"]
+self_modulate = Color(0.882353, 0.709804, 0.584314, 1)
+position = Vector2(12.8932, -57.0601)
+scale = Vector2(0.999996, 0.999996)
+
+[node name="SockL" parent="Visuals/Body/LegL" index="0"]
+position = Vector2(0, 0)
+rotation = 0.0
+texture = ExtResource("26_dy6st")
+offset = Vector2(-5, 19)
+
+[node name="ShoeL" parent="Visuals/Body/LegL" index="1"]
+position = Vector2(0, 0)
+rotation = 0.0
+texture = ExtResource("27_54et7")
+offset = Vector2(-4, 41)
+
+[node name="LegR" parent="Visuals/Body" index="5"]
+self_modulate = Color(0.882353, 0.709804, 0.584314, 1)
+position = Vector2(-7.24988, -53.9843)
+scale = Vector2(0.999998, 0.999998)
+
+[node name="SockR" parent="Visuals/Body/LegR" index="0"]
+position = Vector2(0, 0)
+rotation = 0.0
+texture = ExtResource("28_j7gsc")
+offset = Vector2(-5, 19)
+
+[node name="ShoeR" parent="Visuals/Body/LegR" index="1"]
+position = Vector2(0, 0)
+rotation = 0.0
+texture = ExtResource("29_pgp4a")
+offset = Vector2(-4, 40)
+
+[node name="HandR" parent="Visuals/Body" index="6"]
+self_modulate = Color(0.882353, 0.709804, 0.584314, 1)
+
+[node name="ArmL" parent="Visuals/Bones/Skeleton2D/Torso" index="2"]
+scale = Vector2(0.999999, 0.999999)
+
+[node name="HandL" parent="Visuals/Bones/Skeleton2D/Torso/ArmL" index="0"]
+scale = Vector2(0.999998, 0.999998)
+
+[node name="ShinR" parent="Visuals/Bones/Skeleton2D/Torso/LegR" index="0"]
+scale = Vector2(1, 1)
+
+[node name="LegL" parent="Visuals/Bones/Skeleton2D/Torso" index="4"]
+scale = Vector2(0.999998, 0.999998)
+
+[node name="ShinL" parent="Visuals/Bones/Skeleton2D/Torso/LegL" index="0"]
+scale = Vector2(1, 1)
+
+[node name="OnNoPathfind" type="Node" parent="StateChart/Root/Movement/Grounded" index="2"]
+script = ExtResource("4_nmrsj")
+to = NodePath("../Idle")
+event = &"no_pathfind"
+delay_in_seconds = "0.0"
+
+[node name="OnMove" parent="StateChart/Root/Movement/Grounded/Idle" index="0"]
+guard = SubResource("Resource_hebht")
+
+[node name="PathfindPossibleHijacker" type="Node" parent="StateChart/Root/PathfindPossible" index="0"]
+unique_name_in_owner = true
+script = ExtResource("7_vp5xa")
+
+[node name="OnNoPathfind" type="Node" parent="StateChart/Root/PathfindPossible" index="1"]
+script = ExtResource("4_nmrsj")
+to = NodePath("../NoPathfind")
+event = &"no_pathfind"
+delay_in_seconds = "0.0"
+
+[node name="OnCanPathfind" type="Node" parent="StateChart/Root/PathfindPossible/NoPathfind" index="0"]
+script = ExtResource("4_nmrsj")
+to = NodePath("../../CanPathfind")
+event = &"can_pathfind"
+delay_in_seconds = "0.0"
+
+[node name="CanPathfind" parent="StateChart/Root/PathfindPossible" index="3"]
+script = ExtResource("8_vg8vs")
+
+[node name="InteractableDialogue" type="Area2D" parent="." index="10"]
+script = ExtResource("9_83kxn")
+timeline = ExtResource("10_ckduk")
+labels = {
+"06_started": "guide_aftermath"
+}
+should_disable_prompt = null
+prompt_offset = null
+player_interact_offset = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableDialogue" index="0"]
+position = Vector2(1.5, -109)
+shape = SubResource("RectangleShape2D_ab5cv")

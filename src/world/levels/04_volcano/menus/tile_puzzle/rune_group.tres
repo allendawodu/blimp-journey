@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://eghibgcwc0pl"]
+
+[ext_resource type="Script" uid="uid://byambarbk0gqa" path="res://addons/godot_resource_groups/resource_group.gd" id="1_fc6xq"]
+
+[resource]
+script = ExtResource("1_fc6xq")
+base_folder = "res://src/world/levels/04_volcano/menus/tile_puzzle/runes"
+includes = Array[String](["**rune*.png"])
+excludes = Array[String]([])
+paths = Array[String](["res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_1.png", "res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_2.png", "res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_3.png", "res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_4.png", "res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_5.png", "res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_6.png", "res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_7.png", "res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_8.png", "res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_9.png", "res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_10.png", "res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_11.png", "res://src/world/levels/04_volcano/menus/tile_puzzle/runes/rune_12.png"])

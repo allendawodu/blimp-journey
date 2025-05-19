@@ -1,0 +1,41 @@
+label start
+if {05.has_spoken_with_tutorial_guy} == false:
+	set {05.has_spoken_with_tutorial_guy} = true
+	npc: did you know you're bad at jumping?
+	player: excuse me?!
+	npc: try getting across without bumping your head or falling\
+	you'll see what i mean\
+	and if you need help, just come talk to me
+else:
+	npc: need a hint?
+	player:
+	- yes...
+		do SaverLoader.complete_event("05_hint_taken")
+		npc: movement in this world is a lot more precise than you think!\
+		make sure you're not trying to drag the arrow from yourself to where you want to go\
+		that will make things ten times more difficult!\
+		also, keep your arrow close to you\
+		too far and you'll fling yourself across the world!\
+		lastly, there's no need to rush\
+		i'm not chasing you or anything
+	- nevermind!
+		npc: good luck!
+[end_timeline]
+
+
+label precision
+if {05.times_fallen} > 0 or {05.times_head_bumped} > 0:
+	npc: wasn't so easy, huh?
+else:
+	npc: wow! first try!
+
+if {AppConfig.Settings.is_drag_only_air_control_enabled()}:
+	npc: click without moving your cursor to perform a precise jump
+else:
+	npc: click once to perform a precise jump
+
+npc: the target appears at the arrow head\
+and shows the peak of your jump\
+(unless it's too far away...)\
+try getting to the top just by clicking. no dragging!
+[end_timeline]

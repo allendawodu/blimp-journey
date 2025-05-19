@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemExamine" load_steps=2 format=3 uid="uid://ll3gubxlupoi"]
+
+[ext_resource type="Script" uid="uid://desgwjxtqe338" path="res://src/systems/item/item_examine.gd" id="1_gssuy"]
+
+[resource]
+script = ExtResource("1_gssuy")
+name = "04_translation_1"
+display_name = "Translation Page (1/2)"
+info = ""

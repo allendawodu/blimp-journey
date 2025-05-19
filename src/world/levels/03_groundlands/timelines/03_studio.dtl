@@ -1,0 +1,26 @@
+label challenge
+npc: oh no you don't!!\
+i'm not going to let you steal this tarp from me too-\
+it's mine!!
+# the player and npc both grab the tarp, engaging in a tug-of-war style boss fight. the player must reach a minimum number of clicks per second to pull the tarp to their side. upon winning, the rival gives their final remarks.
+[end_timeline]
+
+label tug_of_war
+npc: ugh, fine, i surrender!! you win this time, thief.\
+but i'm not going to give up just because i might lose!!\
+i'm still gonna build a totally super awesome sauce blimp.\
+it's gonna blow your loser mind, along with everyone else, into outer space!!\
+just watch me!! this isn't the last time you're gonna be hearing from me!!\
+i'm gonna be the greatest explorer you wimps have ever seen!! later!!
+
+# the npc runs out of the store. the player receives the painter's tarp. upon interacting with the store clerk, penny, she thanks them for getting rid of the npc.
+[end_timeline]
+
+label penny_thanks
+npc: THANK YOU so much for getting rid of that guy from earlier!\
+he wouldn't stop pestering me no matter how many times i told him we were out of tarps.\
+if i even knew i still had one in all that inventory back there, i would have just given it to him.\
+i don't know what either of you need it for, but if you're thinking about putting some nice color to that canvas...\
+i can totally hook you up with some fresh paint and some brushes! how about it?
+# the player receives the palette and paintbrush set. back at margo's garage, the player tells her they have all of the pieces for the blimp. the blueprint isn't fully complete, so the player must drag the parts into the correct places to complete it.
+[end_timeline]

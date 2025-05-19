@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://6qc6whcft41f"]
+
+[ext_resource type="Texture2D" uid="uid://d25c4rm1lmkue" path="res://src/world/levels/04_volcano/sprites/interactibles/spikes.png" id="1_4gfsa"]
+[ext_resource type="Script" uid="uid://buqn58spdeuko" path="res://src/world/levels/04_volcano/logic/toggle_state_obstacle.gd" id="1_l8vel"]
+[ext_resource type="Script" uid="uid://cqq04tltf0w48" path="res://src/systems/knockback.gd" id="2_stqii"]
+
+[node name="Spikes" type="Sprite2D"]
+position = Vector2(0, -85)
+texture = ExtResource("1_4gfsa")
+script = ExtResource("1_l8vel")
+
+[node name="KnockbackArea" type="Area2D" parent="."]
+script = ExtResource("2_stqii")
+should_override_direction = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KnockbackArea"]
+polygon = PackedVector2Array(-74, -101, -116, -36, -139, 31, -141, 93, -122, 106, -79, 91, 83, 92, 101, 101, 135, 97, 140, 85, 134, 0, 100, -70, 80, -90, 94, -47, -10, -45, -84, -46)
+
+[node name="Timer" type="Timer" parent="."]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://bouurhlfluqfj"]
+
+[ext_resource type="PackedScene" uid="uid://c8db5pwju6ruy" path="res://src/character/common/character.tscn" id="1_hsa5r"]
+[ext_resource type="Script" uid="uid://cipcbqh2a0i" path="res://src/character/npc/npc.gd" id="1_spfu7"]
+[ext_resource type="Script" uid="uid://bfekw4hyeslpt" path="res://src/character/npc/states/can_pathfind.gd" id="3_gy8ih"]
+[ext_resource type="Script" uid="uid://c6b3j33eleyub" path="res://addons/godot_state_charts/state_is_active_guard.gd" id="5_7e3we"]
+[ext_resource type="Script" uid="uid://bepe584dhc6co" path="res://addons/godot_state_charts/not_guard.gd" id="6_xay6c"]
+[ext_resource type="Script" uid="uid://b62f7ssnv2gn3" path="res://addons/godot_state_charts/transition.gd" id="8_nw2uq"]
+[ext_resource type="Script" uid="uid://d017khxo1mx7v" path="res://src/character/npc/states/pathfind_possible.gd" id="18_0v1yx"]
+
+[sub_resource type="Resource" id="Resource_lri8q"]
+script = ExtResource("5_7e3we")
+state = NodePath("../../../../PathfindPossible/NoPathfind")
+
+[sub_resource type="Resource" id="Resource_hebht"]
+script = ExtResource("6_xay6c")
+guard = SubResource("Resource_lri8q")
+
+[node name="NPC" instance=ExtResource("1_hsa5r")]
+script = ExtResource("1_spfu7")
+wander_distance_max = 200.0
+wander_delay_min = 1.0
+wander_delay_max = 5.0
+
+[node name="PathfindTimer" type="Timer" parent="." index="6"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="HandL" parent="Visuals/Body" index="0"]
+position = Vector2(29.9998, -98.9999)
+scale = Vector2(0.999995, 0.999995)
+
+[node name="HairBack" parent="Visuals/Body" index="1"]
+position = Vector2(5.99999, -150)
+scale = Vector2(0.999996, 0.999996)
+
+[node name="Head" parent="Visuals/Body" index="3"]
+position = Vector2(5.99999, -150)
+scale = Vector2(0.999996, 0.999996)
+
+[node name="LegL" parent="Visuals/Body" index="4"]
+position = Vector2(12.8933, -57.0602)
+scale = Vector2(0.999996, 0.999996)
+
+[node name="LegR" parent="Visuals/Body" index="5"]
+position = Vector2(-7.24986, -53.9843)
+scale = Vector2(0.999998, 0.999998)
+
+[node name="ArmL" parent="Visuals/Bones/Skeleton2D/Torso" index="2"]
+scale = Vector2(0.999999, 0.999999)
+
+[node name="HandL" parent="Visuals/Bones/Skeleton2D/Torso/ArmL" index="0"]
+scale = Vector2(0.999998, 0.999998)
+
+[node name="ShinR" parent="Visuals/Bones/Skeleton2D/Torso/LegR" index="0"]
+scale = Vector2(1, 1)
+
+[node name="LegL" parent="Visuals/Bones/Skeleton2D/Torso" index="4"]
+scale = Vector2(0.999998, 0.999998)
+
+[node name="ShinL" parent="Visuals/Bones/Skeleton2D/Torso/LegL" index="0"]
+scale = Vector2(1, 1)
+
+[node name="OnNoPathfind" type="Node" parent="StateChart/Root/Movement/Grounded" index="2"]
+script = ExtResource("8_nw2uq")
+to = NodePath("../Idle")
+event = &"no_pathfind"
+delay_in_seconds = "0.0"
+
+[node name="OnMove" parent="StateChart/Root/Movement/Grounded/Idle" index="0"]
+guard = SubResource("Resource_hebht")
+
+[node name="PathfindPossibleHijacker" type="Node" parent="StateChart/Root/PathfindPossible" index="0"]
+unique_name_in_owner = true
+script = ExtResource("18_0v1yx")
+
+[node name="OnNoPathfind" type="Node" parent="StateChart/Root/PathfindPossible" index="1"]
+script = ExtResource("8_nw2uq")
+to = NodePath("../NoPathfind")
+event = &"no_pathfind"
+delay_in_seconds = "0.0"
+
+[node name="OnCanPathfind" type="Node" parent="StateChart/Root/PathfindPossible/NoPathfind" index="0"]
+script = ExtResource("8_nw2uq")
+to = NodePath("../../CanPathfind")
+event = &"can_pathfind"
+delay_in_seconds = "0.0"
+
+[node name="CanPathfind" parent="StateChart/Root/PathfindPossible" index="3"]
+script = ExtResource("3_gy8ih")

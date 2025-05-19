@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://de3u0e4a8b004"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_m81v5"]
+[ext_resource type="Texture2D" uid="uid://6yblfc6osemk" path="res://src/world/levels/06_dragons_claw/items/icon_photos.png" id="2_bgq6l"]
+
+[resource]
+script = ExtResource("1_m81v5")
+texture = ExtResource("2_bgq6l")
+name = "06_family_photos"
+display_name = "Family Photos"
+info = "Mr. Martin's & his family."

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cln3gm5yucc7l"]
+
+[ext_resource type="Texture2D" uid="uid://eqv0vfxygjgb" path="res://src/world/levels/06_dragons_claw/menus/mural/finished_mural.png" id="1_657rg"]
+[ext_resource type="Script" uid="uid://d2ubkxgx654cn" path="res://src/world/levels/06_dragons_claw/logic/mural.gd" id="2_sqnuu"]
+[ext_resource type="Script" uid="uid://h51b74w6ojmo" path="res://src/systems/interactables/interactable_dialogue.gd" id="3_0hbon"]
+[ext_resource type="Resource" uid="uid://dmaq7o1mrgkac" path="res://src/world/levels/06_dragons_claw/dialogue/tomb.dtl" id="4_5y2oo"]
+
+[node name="MuralCompleted" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(2275, -445)
+texture = ExtResource("1_657rg")
+script = ExtResource("2_sqnuu")
+
+[node name="InteractableDialogue" type="Area2D" parent="."]
+script = ExtResource("3_0hbon")
+timeline = ExtResource("4_5y2oo")
+labels = {
+"06_started": "mural"
+}
+text_bubble_markers = Array[NodePath]([NodePath("/root/DragonsClawVolcano/Mural/Player/TextBubbleMarker")])
+player_interact_offset = Vector2(0, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractableDialogue"]
+polygon = PackedVector2Array(-487, 290, -440, -2, -319, -180, -170, -276, 47, -303, 215, -252, 382, -117, 454, 67, 484, 292)

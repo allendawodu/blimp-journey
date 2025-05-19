@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemUseable" load_steps=4 format=3 uid="uid://jc3q01i43kpd"]
+
+[ext_resource type="Script" uid="uid://ufp4xfsqamg" path="res://src/systems/item/item_useable.gd" id="1_oind3"]
+[ext_resource type="Texture2D" uid="uid://kk4ujseosjt5" path="res://src/world/levels/06_dragons_claw/items/icon_treasure.png" id="2_2djwi"]
+[ext_resource type="Resource" uid="uid://dmaq7o1mrgkac" path="res://src/world/levels/06_dragons_claw/dialogue/tomb.dtl" id="2_oefhf"]
+
+[resource]
+script = ExtResource("1_oind3")
+interactable_node_path = NodePath("/root/DragonsClawVolcano/QueensChamber/Interactables/InteractableSacrifice")
+max_distance_to_interactable = 3800.0
+timeline = ExtResource("2_oefhf")
+texture = ExtResource("2_2djwi")
+name = "06_treasure"
+display_name = "Treasure"
+info = "It shines brilliantly!
+(Interactable)"

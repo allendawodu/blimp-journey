@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctaiiqfp1uxve"]
+
+[ext_resource type="Script" uid="uid://bomf3cntdkfgk" path="res://src/ui/text_bubble_layer/text_bubble_layer.gd" id="1_b37je"]
+
+[node name="TextBubbleLayer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_b37je")
+text_size = 30
+text_max_width = 500
+box_wobble_amount = 0.0
+behaviour_distance = 75
+behaviour_direction = Vector2(0, -1)
+name_label_enabled = false
+choices_text_size = 30
+apply_overrides_on_ready = true

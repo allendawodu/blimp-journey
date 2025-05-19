@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://btnabd148q087"]
+
+[ext_resource type="Texture2D" uid="uid://bk5ef7mvygcqg" path="res://src/ui/icons/fiber_manual_record.png" id="1_hir5v"]
+[ext_resource type="Script" uid="uid://dv81h3exd8erm" path="res://src/character/player/precision_jump/precision_jump.gd" id="2_y54u2"]
+
+[node name="PrecisionJump" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.498039)
+texture = ExtResource("1_hir5v")
+script = ExtResource("2_y54u2")

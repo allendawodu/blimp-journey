@@ -1,0 +1,322 @@
+[gd_scene load_steps=43 format=4 uid="uid://cp7pq71yte0h8"]
+
+[ext_resource type="PackedScene" uid="uid://dwapdsx6u217o" path="res://src/world/common/scene/scene.tscn" id="1_232rq"]
+[ext_resource type="PackedScene" uid="uid://bpmr7mvivdr03" path="res://src/world/common/scene/scene_switch_area.tscn" id="2_jnjbg"]
+[ext_resource type="Script" uid="uid://h51b74w6ojmo" path="res://src/systems/interactables/interactable_dialogue.gd" id="2_o0su6"]
+[ext_resource type="PackedScene" uid="uid://b7em21jin5gyn" path="res://src/world/levels/06_dragons_claw/logic/walkie_talkie/walkie_talkie.tscn" id="2_tfllc"]
+[ext_resource type="Resource" uid="uid://dm4micwg7m0fs" path="res://src/character/styles/player/player_style.tres" id="2_wp1nx"]
+[ext_resource type="Script" uid="uid://brw3qxymvneca" path="res://src/systems/interactables/interactable_scene_switch.gd" id="3_i3csu"]
+[ext_resource type="Texture2D" uid="uid://7lx37s4uslvt" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/sun.png" id="3_rokem"]
+[ext_resource type="Resource" uid="uid://b63puet7bua7v" path="res://src/world/levels/06_dragons_claw/dialogue/base_camp.dtl" id="3_u5r0n"]
+[ext_resource type="Texture2D" uid="uid://b2346uy2s7tcw" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/bg_fill.png" id="4_dvs7m"]
+[ext_resource type="Script" uid="uid://byyuugyltgunu" path="res://src/systems/polygon_copier.gd" id="4_lmejl"]
+[ext_resource type="Texture2D" uid="uid://b8kla347jdnt1" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/cloud1.png" id="4_pymie"]
+[ext_resource type="Texture2D" uid="uid://ceiog8qaxq5b1" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/mg_mount_face1.png" id="4_ujq1n"]
+[ext_resource type="Texture2D" uid="uid://bcsil46sy1c6e" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/bg_egde1.png" id="5_iady6"]
+[ext_resource type="Texture2D" uid="uid://bxfthic7vq035" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/mg_mount_face2.png" id="5_pt3wk"]
+[ext_resource type="Texture2D" uid="uid://dw88rnsjl4ww1" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/cloud2.png" id="5_u5wni"]
+[ext_resource type="Texture2D" uid="uid://dlf0byyhc00j2" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/mg_mount_face3.png" id="6_8duij"]
+[ext_resource type="Texture2D" uid="uid://clihlxpo231k0" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/bg_egde2.png" id="6_awclw"]
+[ext_resource type="Texture2D" uid="uid://dvvxixhbjc6k6" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/cloud3.png" id="6_wp1nx"]
+[ext_resource type="Script" uid="uid://cu217q42b0tjy" path="res://src/systems/free_on_game_event.gd" id="7_08735"]
+[ext_resource type="Texture2D" uid="uid://bhkx82khont4v" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/mg1.png" id="7_dvs7m"]
+[ext_resource type="Texture2D" uid="uid://c03jygknp18w1" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/cloud_sec_l1.png" id="7_etwl4"]
+[ext_resource type="Texture2D" uid="uid://dij6e88ne8y56" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/bg_egde3.png" id="7_vphkd"]
+[ext_resource type="Texture2D" uid="uid://c7etgwgnun5yu" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/mg2.png" id="8_iady6"]
+[ext_resource type="Texture2D" uid="uid://me7anflorju3" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/cloud_sec_l2.png" id="8_pe0x3"]
+[ext_resource type="Texture2D" uid="uid://dldbigbby0axl" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/mg3.png" id="9_awclw"]
+[ext_resource type="Texture2D" uid="uid://bw2cpnlhxuo5f" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/cloud_sec_m.png" id="9_dth5m"]
+[ext_resource type="Texture2D" uid="uid://dd78xs0fyvrb8" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/cloud_sec_r1.png" id="10_0eitm"]
+[ext_resource type="Texture2D" uid="uid://h107gpueu6sm" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/mg_door_inner.png" id="10_vphkd"]
+[ext_resource type="Texture2D" uid="uid://pp2dp5mgra6k" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/cloud_sec_r2.png" id="11_6k1oy"]
+[ext_resource type="Texture2D" uid="uid://dq2ehn67uomoq" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/mg_door_outer.png" id="11_xw0h8"]
+[ext_resource type="Texture2D" uid="uid://dm4ear18neqy2" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/mg_lava.png" id="12_ms5xh"]
+[ext_resource type="Shader" uid="uid://dyqgc2341nojx" path="res://src/world/common/shaders/blur.gdshader" id="12_u5wni"]
+[ext_resource type="Texture2D" uid="uid://ct82s11epeqjj" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/fg1.png" id="13_y245m"]
+[ext_resource type="Texture2D" uid="uid://cnde6gu2ioema" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/fg2.png" id="14_jy1gm"]
+[ext_resource type="Texture2D" uid="uid://cnd6ukmka8xpt" path="res://src/world/levels/06_dragons_claw/scenes/perch/assets/fg3.png" id="15_pymie"]
+
+[sub_resource type="Environment" id="Environment_u5wni"]
+background_mode = 3
+adjustment_enabled = true
+adjustment_saturation = 1.1
+
+[sub_resource type="Gradient" id="Gradient_u5wni"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.207483, 0.520408, 0.802721)
+colors = PackedColorArray(0.474342, 0.489982, 0.595987, 1, 0.904834, 0.622511, 0.55986, 1, 0.47451, 0.490196, 0.596078, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wp1nx"]
+gradient = SubResource("Gradient_u5wni")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u5wni"]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wp1nx"]
+shader = ExtResource("12_u5wni")
+shader_parameter/blur_amount = 3.043
+shader_parameter/sample_count = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxq33"]
+resource_local_to_scene = true
+size = Vector2(215.984, 10149)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjdu5"]
+size = Vector2(294, 2718)
+
+[node name="Perch" instance=ExtResource("1_232rq")]
+scene_name = "perch"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_u5wni")
+
+[node name="Player" parent="." index="2"]
+style = ExtResource("2_wp1nx")
+
+[node name="WalkieTalkie" parent="Player" index="12" instance=ExtResource("2_tfllc")]
+
+[node name="Environment" type="Node2D" parent="." index="4"]
+metadata/_edit_lock_ = true
+
+[node name="-6" type="Parallax2D" parent="Environment" index="0"]
+ignore_camera_scroll = true
+
+[node name="BG" type="Sprite2D" parent="Environment/-6" index="0"]
+position = Vector2(-2639, -150)
+rotation = 1.5708
+scale = Vector2(12.5, 12800)
+texture = SubResource("GradientTexture1D_wp1nx")
+
+[node name="Sun" type="Sprite2D" parent="Environment/-6" index="1"]
+self_modulate = Color(1, 0.812941, 0.623625, 1)
+position = Vector2(-2519, 2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_rokem")
+
+[node name="Sun2" type="Sprite2D" parent="Environment/-6/Sun" index="0"]
+self_modulate = Color(1, 0.81775, 0.632077, 0.243137)
+material = SubResource("CanvasItemMaterial_u5wni")
+rotation = -0.151844
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3_rokem")
+
+[node name="-5" type="Parallax2D" parent="Environment" index="1"]
+modulate = Color(0.939617, 0.874556, 0.832851, 0.65098)
+scale = Vector2(0.3, 0.3)
+scroll_scale = Vector2(0.7, 0.99)
+repeat_size = Vector2(10000, 2500)
+autoscroll = Vector2(-5, 0)
+repeat_times = 3
+ignore_camera_scroll = true
+
+[node name="CloudSecL1" type="Sprite2D" parent="Environment/-5" index="0"]
+position = Vector2(-1019, -430)
+texture = ExtResource("7_etwl4")
+
+[node name="CloudSecM" type="Sprite2D" parent="Environment/-5" index="1"]
+position = Vector2(-3670, -1520)
+texture = ExtResource("9_dth5m")
+
+[node name="CloudSecR1" type="Sprite2D" parent="Environment/-5" index="2"]
+position = Vector2(-5398, 349)
+texture = ExtResource("10_0eitm")
+
+[node name="CloudSecR2" type="Sprite2D" parent="Environment/-5" index="3"]
+position = Vector2(1873, 62)
+texture = ExtResource("11_6k1oy")
+
+[node name="-4" type="Parallax2D" parent="Environment" index="2"]
+modulate = Color(0.989029, 0.859884, 0.77605, 1)
+scroll_scale = Vector2(0.9, 0.99)
+repeat_size = Vector2(5000, 2500)
+autoscroll = Vector2(-15, 0)
+repeat_times = 3
+
+[node name="Cloud1" type="Sprite2D" parent="Environment/-4" index="0"]
+self_modulate = Color(0.937073, 0.921415, 0.948306, 1)
+position = Vector2(-3733, -359)
+texture = ExtResource("4_pymie")
+
+[node name="Cloud2" type="Sprite2D" parent="Environment/-4" index="1"]
+modulate = Color(0.82811, 0.893291, 0.939862, 1)
+position = Vector2(-222, 564)
+texture = ExtResource("5_u5wni")
+
+[node name="Cloud3" type="Sprite2D" parent="Environment/-4" index="2"]
+position = Vector2(-1888, -18.5)
+texture = ExtResource("6_wp1nx")
+
+[node name="CloudSecL2" type="Sprite2D" parent="Environment/-4" index="3"]
+position = Vector2(-4306, 805)
+texture = ExtResource("8_pe0x3")
+
+[node name="-3" type="Parallax2D" parent="Environment" index="3"]
+
+[node name="Blur" type="ColorRect" parent="Environment/-3" index="0"]
+material = SubResource("ShaderMaterial_wp1nx")
+offset_left = -12330.0
+offset_top = -8272.0
+offset_right = 8691.0
+offset_bottom = 7596.0
+mouse_filter = 2
+
+[node name="BgFill" type="Sprite2D" parent="Environment/-3" index="1"]
+position = Vector2(782, 140)
+texture = ExtResource("4_dvs7m")
+
+[node name="BgEgde1" type="Sprite2D" parent="Environment/-3" index="2"]
+position = Vector2(-210, 35)
+texture = ExtResource("5_iady6")
+
+[node name="BgEgde2" type="Sprite2D" parent="Environment/-3" index="3"]
+position = Vector2(-521, 1450)
+texture = ExtResource("6_awclw")
+
+[node name="BgEgde3" type="Sprite2D" parent="Environment/-3" index="4"]
+position = Vector2(116, -1060)
+texture = ExtResource("7_vphkd")
+
+[node name="-2" type="Parallax2D" parent="Environment" index="4"]
+scroll_offset = Vector2(1410, -965)
+
+[node name="MgMountFace1" type="Sprite2D" parent="Environment/-2" index="0"]
+position = Vector2(-1462, 542)
+texture = ExtResource("4_ujq1n")
+
+[node name="MgMountFace2" type="Sprite2D" parent="Environment/-2" index="1"]
+position = Vector2(-1576, 1945)
+texture = ExtResource("5_pt3wk")
+
+[node name="MgMountFace3" type="Sprite2D" parent="Environment/-2" index="2"]
+position = Vector2(-858, 752)
+texture = ExtResource("6_8duij")
+
+[node name="-1" type="Parallax2D" parent="Environment" index="5"]
+
+[node name="Mg1" type="Sprite2D" parent="Environment/-1" index="0"]
+position = Vector2(-1416, 304)
+texture = ExtResource("7_dvs7m")
+
+[node name="Mg2" type="Sprite2D" parent="Environment/-1" index="1"]
+position = Vector2(-763, 478)
+texture = ExtResource("8_iady6")
+
+[node name="Mg3" type="Sprite2D" parent="Environment/-1" index="2"]
+position = Vector2(-10, 838)
+texture = ExtResource("9_awclw")
+
+[node name="0" type="Parallax2D" parent="Environment" index="6"]
+
+[node name="MgDoorInner" type="Sprite2D" parent="Environment/0" index="0"]
+position = Vector2(45, -192)
+texture = ExtResource("10_vphkd")
+
+[node name="MgDoorOuter" type="Sprite2D" parent="Environment/0" index="1"]
+position = Vector2(0, -195)
+texture = ExtResource("11_xw0h8")
+
+[node name="MgLava" type="Sprite2D" parent="Environment/0" index="2"]
+position = Vector2(-99, -105)
+texture = ExtResource("12_ms5xh")
+
+[node name="1" type="Parallax2D" parent="Environment" index="7"]
+
+[node name="Fg1" type="Sprite2D" parent="Environment/1" index="0"]
+position = Vector2(-1186, 214)
+texture = ExtResource("13_y245m")
+
+[node name="Fg2" type="Sprite2D" parent="Environment/1" index="1"]
+position = Vector2(-2176, 104)
+texture = ExtResource("14_jy1gm")
+
+[node name="Fg3" type="Sprite2D" parent="Environment/1" index="2"]
+position = Vector2(-113, 427)
+texture = ExtResource("15_pymie")
+
+[node name="2" type="Parallax2D" parent="Environment" index="8"]
+visible = false
+modulate = Color(1, 1, 1, 0.560784)
+z_index = 1
+scroll_scale = Vector2(1.1, 1.05)
+scroll_offset = Vector2(0, 500)
+repeat_size = Vector2(5000, 2500)
+autoscroll = Vector2(-20, 0)
+repeat_times = 3
+
+[node name="Cloud1" type="Sprite2D" parent="Environment/2" index="0"]
+modulate = Color(0.958822, 0.866648, 0.817453, 1)
+position = Vector2(-3733, -359)
+texture = ExtResource("4_pymie")
+
+[node name="PlatformLayer" parent="." index="5"]
+visible = false
+
+[node name="GroundLayer" parent="." index="6"]
+visible = false
+tile_map_data = PackedByteArray("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")
+
+[node name="CustomLayer" parent="." index="7"]
+visible = false
+
+[node name="KillZone" parent="." index="9"]
+position = Vector2(0, 5545)
+
+[node name="Entrance" type="Polygon2D" parent="Interactables" index="0"]
+self_modulate = Color(1, 1, 1, 0)
+color = Color(0.170568, 0.170568, 0.170568, 1)
+polygon = PackedVector2Array(-187, -1, -172, -258, -84, -392, 73, -447, 199, -386, 279, -263, 299, -152, 304, -1)
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="Interactables/Entrance" index="0"]
+collision_layer = 8
+script = ExtResource("3_i3csu")
+scene_name = "queens_chamber"
+position_in_new_scene = Vector2(5456, -1983)
+player_interact_offset = Vector2(0, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Entrance/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-187, -1, -172, -258, -84, -392, 73, -447, 199, -386, 279, -263, 299, -152, 304, -1)
+script = ExtResource("4_lmejl")
+target = NodePath("../..")
+
+[node name="InteractableDialogue" type="Area2D" parent="Interactables/Entrance" index="1"]
+script = ExtResource("2_o0su6")
+timeline = ExtResource("3_u5r0n")
+labels = {
+"06_started": "perch_entrance"
+}
+text_bubble_markers = Array[NodePath]([NodePath("../../../Player/TextBubbleMarker")])
+player_interact_offset = Vector2(0, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Entrance/InteractableDialogue" index="0"]
+polygon = PackedVector2Array(-187, -1, -172, -258, -84, -392, 73, -447, 199, -386, 279, -263, 299, -152, 304, -1)
+script = ExtResource("4_lmejl")
+target = NodePath("../..")
+
+[node name="FreeOnGameEvent" type="Node" parent="Interactables/Entrance/InteractableDialogue" index="1" node_paths=PackedStringArray("target")]
+script = ExtResource("7_08735")
+game_event = "06_finished"
+target = NodePath("..")
+
+[node name="SceneSwitchArea" parent="." index="11" instance=ExtResource("2_jnjbg")]
+position = Vector2(-3191, 1182)
+rotation = 1.57079
+scene_name = "main_street"
+position_in_new_scene = Vector2(0, -2348)
+
+[node name="CollisionShape2D" parent="SceneSwitchArea" index="0"]
+position = Vector2(0, 1460.5)
+shape = SubResource("RectangleShape2D_mxq33")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="12"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(607, 0)
+shape = SubResource("RectangleShape2D_fjdu5")
+
+[node name="NoMusic" type="AudioStreamPlayer" parent="." index="13"]
+process_mode = 3
+autoplay = true
+bus = &"Music"
+
+[editable path="SceneSwitchArea"]

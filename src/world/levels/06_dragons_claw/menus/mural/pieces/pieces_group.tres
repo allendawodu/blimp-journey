@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://cvl1uuysw5168"]
+
+[ext_resource type="Script" uid="uid://byambarbk0gqa" path="res://addons/godot_resource_groups/resource_group.gd" id="1_rlhxp"]
+
+[resource]
+script = ExtResource("1_rlhxp")
+base_folder = "res://src/world/levels/06_dragons_claw/menus/mural/pieces"
+includes = Array[String](["**.png"])
+excludes = Array[String]([])
+paths = Array[String](["res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_01.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_01_dirty.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_02.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_02_dirty.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_03.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_03_dirty.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_04.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_04_dirty.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_05.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_05_dirty.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_06.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_06_dirty.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_07.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_07_dirty.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_08.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_08_dirty.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_09.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_09_dirty.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_10.png", "res://src/world/levels/06_dragons_claw/menus/mural/pieces/piece_10_dirty.png"])

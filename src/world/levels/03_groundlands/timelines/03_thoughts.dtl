@@ -1,0 +1,9 @@
+label annoucement
+player: what's going on?\
+maybe i should have a look-see.
+[end_timeline]
+
+label tower_entrance
+player: this entrance is locked.\
+maybe there's another way in...
+[end_timeline]

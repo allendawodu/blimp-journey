@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="WordList" load_steps=2 format=3 uid="uid://gu0yxqri7o7v"]
+
+[ext_resource type="Script" uid="uid://gs20e4wp25x1" path="res://src/ui/account_management/name/word_list.gd" id="1_pixu5"]
+
+[resource]
+script = ExtResource("1_pixu5")
+word_list = Array[String](["Slanted", "Lazy", "Clean", "Fried", "Tall", "New"])

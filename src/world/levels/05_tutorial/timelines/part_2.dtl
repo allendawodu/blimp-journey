@@ -1,0 +1,28 @@
+label start
+if {AppConfig.Settings.is_drag_only_air_control_enabled()}:
+	npc: move your mouse cursor left and right to dodge the obstacles
+else:
+	npc: click and drag left and right to dodge the the obstacles
+npc: try your best to follow the line
+npc: when you're ready, just drop down
+npc: good luck!
+[end_timeline]
+
+
+label pathfind
+npc: one more thing:\
+i made the blocks here invisible\
+but there's still a way to get to the other side\
+try [color=maroon]right clicking[/color] the spot on the other side of the wall
+[camera id="pathfind" index="0" wait="true"]
+[camera]
+[end_timeline]
+
+label finish
+npc: that's pathfinding\
+it makes traversal much easier\
+but you can't rely on it in every situation!
+do SaverLoader.complete_event("05_finished")
+[wait time="0.5"]
+do SceneLoader.quick_load_scene("res://src/world/overworld_map/overworld_map.tscn")
+[end_timeline]

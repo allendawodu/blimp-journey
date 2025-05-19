@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://diqjbps5ett7o"]
+
+[ext_resource type="Script" uid="uid://c2iqifrhpmg8e" path="res://src/world/levels/02_reality_tv/minigames/shuffleboard/puck.gd" id="1_hplx4"]
+[ext_resource type="Texture2D" uid="uid://gaxlfio3txlg" path="res://src/world/levels/02_reality_tv/minigames/shuffleboard/puck.png" id="2_g3lbi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pma2v"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fev0o"]
+radius = 25.0
+
+[node name="Puck" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_pma2v")
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+linear_damp = 1.0
+script = ExtResource("1_hplx4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_g3lbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fev0o")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true

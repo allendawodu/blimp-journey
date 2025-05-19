@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://caebfgsggku5g"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_7px0t"]
+
+[resource]
+script = ExtResource("1_7px0t")
+name = "07_fuse_left"
+display_name = "Left Elevator Fuse"
+info = "Restore left elevator power."
+metadata/_custom_type_script = "uid://bpc76g8fprceh"

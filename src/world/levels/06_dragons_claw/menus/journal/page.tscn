@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw4d51rbi0pbu"]
+
+[ext_resource type="Texture2D" uid="uid://bfejfpp4cxq1s" path="res://src/world/levels/06_dragons_claw/menus/journal/page.png" id="1_1fof2"]
+[ext_resource type="Script" uid="uid://b1jxstoxrjbmy" path="res://src/world/levels/06_dragons_claw/menus/journal/page.gd" id="2_nt2i2"]
+[ext_resource type="Script" uid="uid://cvpgumyb0u31w" path="res://src/world/levels/06_dragons_claw/menus/journal/drag_component.gd" id="3_be2jx"]
+
+[node name="Page" type="TextureRect"]
+offset_left = 177.0
+offset_top = 126.0
+offset_right = 777.0
+offset_bottom = 926.0
+mouse_filter = 2
+texture = ExtResource("1_1fof2")
+script = ExtResource("2_nt2i2")
+
+[node name="DragComponent" type="Button" parent="." node_paths=PackedStringArray("target")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+script = ExtResource("3_be2jx")
+target = NodePath("..")

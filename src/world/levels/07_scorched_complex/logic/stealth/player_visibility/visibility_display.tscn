@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://08fqsctcclow"]
+
+[ext_resource type="Texture2D" uid="uid://b4sice6b1xuk4" path="res://src/world/levels/07_scorched_complex/logic/stealth/player_visibility/assets/visibility_off.png" id="1_7jkka"]
+[ext_resource type="Script" uid="uid://mwp2b8l3gxu1" path="res://src/world/levels/07_scorched_complex/logic/stealth/player_visibility/visibility_display.gd" id="2_r4yda"]
+[ext_resource type="Texture2D" uid="uid://fpnhpolapa25" path="res://src/world/levels/07_scorched_complex/logic/stealth/player_visibility/assets/visibility.png" id="3_lvfvp"]
+[ext_resource type="Texture2D" uid="uid://bpisqjd3hjw17" path="res://src/world/levels/07_scorched_complex/logic/stealth/player_visibility/assets/eye_tracking.png" id="4_xmxdk"]
+
+[node name="VisibilityDisplay" type="TextureRect"]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 160.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("1_7jkka")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_r4yda")
+texture_hidden = ExtResource("1_7jkka")
+texture_visible = ExtResource("3_lvfvp")
+texture_panic = ExtResource("4_xmxdk")

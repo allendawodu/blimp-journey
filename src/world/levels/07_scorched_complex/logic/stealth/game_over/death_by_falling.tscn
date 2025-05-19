@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dysk1dgxe6ain"]
+
+[ext_resource type="PackedScene" uid="uid://cbs4h5pudt2yp" path="res://src/ui/instructions_menu/instructions_menu.tscn" id="1_actvo"]
+[ext_resource type="Script" uid="uid://cghefo122m88w" path="res://src/world/levels/07_scorched_complex/logic/stealth/game_over/game_over.gd" id="2_wr6rh"]
+
+[node name="DeathByFalling" instance=ExtResource("1_actvo")]
+script = ExtResource("2_wr6rh")
+dialogic_signal_to_show = "death_by_falling"
+
+[node name="InstructionsLabel" parent="PanelContainer/MarginContainer/VBoxContainer" index="0"]
+text = "Game Over"
+
+[node name="TitleLabel" parent="PanelContainer/MarginContainer/VBoxContainer" index="1"]
+visible = false
+text = "Death by Falling"
+
+[node name="BodyLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Reason: You fell off and couldn't save the explorers on time"
+
+[node name="ContinueButton" parent="PanelContainer/MarginContainer/VBoxContainer" index="4"]
+text = "Try Again"

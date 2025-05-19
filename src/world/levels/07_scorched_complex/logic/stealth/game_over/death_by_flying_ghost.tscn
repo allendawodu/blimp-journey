@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5nv4hta6iqmd"]
+
+[ext_resource type="PackedScene" uid="uid://cbs4h5pudt2yp" path="res://src/ui/instructions_menu/instructions_menu.tscn" id="1_o2qwd"]
+[ext_resource type="Script" uid="uid://cghefo122m88w" path="res://src/world/levels/07_scorched_complex/logic/stealth/game_over/game_over.gd" id="2_et4df"]
+
+[node name="DeathByFlyingGhost" instance=ExtResource("1_o2qwd")]
+script = ExtResource("2_et4df")
+dialogic_signal_to_show = "death_by_flying_ghost"
+
+[node name="InstructionsLabel" parent="PanelContainer/MarginContainer/VBoxContainer" index="0"]
+text = "Game Over"
+
+[node name="TitleLabel" parent="PanelContainer/MarginContainer/VBoxContainer" index="1"]
+visible = false
+text = ""
+
+[node name="BodyLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Reason: Consumed by a flying ghost"
+
+[node name="ContinueButton" parent="PanelContainer/MarginContainer/VBoxContainer" index="4"]
+text = "Try Again"

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp1pvwoupvefs"]
+
+[ext_resource type="Script" uid="uid://8ws1lu1c1ovp" path="res://src/world/levels/04_volcano/logic/boulder/boulder.gd" id="1_82qqu"]
+[ext_resource type="Script" uid="uid://cqq04tltf0w48" path="res://src/systems/knockback.gd" id="1_sdx58"]
+[ext_resource type="Texture2D" uid="uid://b2selc7a7j26e" path="res://src/world/levels/04_volcano/sprites/interactibles/boulder.svg" id="2_2jefe"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ae3gi"]
+friction = 0.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6758"]
+radius = 162.0
+
+[node name="Boulder" type="RigidBody2D"]
+position = Vector2(8009, -5111)
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_ae3gi")
+gravity_scale = 2.0
+linear_velocity = Vector2(-2100, 0)
+angular_velocity = -0.174533
+script = ExtResource("1_82qqu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l6758")
+
+[node name="Boulder" type="Sprite2D" parent="."]
+position = Vector2(3.0002, 2.00005)
+scale = Vector2(0.641824, 0.656941)
+texture = ExtResource("2_2jefe")
+
+[node name="KnockbackArea" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("1_sdx58")
+knockback = Vector2(-1500, -512)
+should_override_direction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnockbackArea"]
+shape = SubResource("CircleShape2D_l6758")
+
+[node name="LifetimerTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true

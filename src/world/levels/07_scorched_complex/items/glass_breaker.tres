@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://5w4ciyhlt302"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_40ayl"]
+[ext_resource type="Texture2D" uid="uid://ctlvcmlr6vkhx" path="res://src/world/levels/07_scorched_complex/menus/dumpster/assets/glass_breaker.png" id="2_pwlvd"]
+
+[resource]
+script = ExtResource("1_40ayl")
+texture = ExtResource("2_pwlvd")
+name = "07_glass_breaker"
+display_name = "Glass Breaker"
+info = "A single tap breaks tempered glass."
+metadata/_custom_type_script = "uid://ufp4xfsqamg"

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl2l6bdrpyq1v"]
+
+[ext_resource type="Script" uid="uid://cgrishilmcp23" path="res://src/world/levels/07_scorched_complex/logic/flashlight/flashlight.gd" id="1_tketf"]
+
+[sub_resource type="Gradient" id="Gradient_2ehmb"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.69337)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xhw3v"]
+gradient = SubResource("Gradient_2ehmb")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[node name="Flashlight" type="PointLight2D"]
+top_level = true
+enabled = false
+texture = SubResource("GradientTexture2D_xhw3v")
+texture_scale = 5.0
+script = ExtResource("1_tketf")

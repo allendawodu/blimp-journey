@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemExamine" load_steps=2 format=3 uid="uid://bb5mcmv2q6i3l"]
+
+[ext_resource type="Script" uid="uid://desgwjxtqe338" path="res://src/systems/item/item_examine.gd" id="1_lxq2k"]
+
+[resource]
+script = ExtResource("1_lxq2k")
+name = "07_map"
+display_name = "Building Map"
+info = "(Interactable) The firefighters could've used this."
+metadata/_custom_type_script = "uid://desgwjxtqe338"

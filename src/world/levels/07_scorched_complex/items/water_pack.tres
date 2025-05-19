@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://dj1dtsmauohi0"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_psd7d"]
+
+[resource]
+script = ExtResource("1_psd7d")
+name = "07_water_pack"
+display_name = "Water Pack"
+info = "Empty water tank."
+metadata/_custom_type_script = "uid://bpc76g8fprceh"

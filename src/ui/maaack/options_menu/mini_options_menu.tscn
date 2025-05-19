@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ueqcvxdcwujn"]
+
+[ext_resource type="PackedScene" uid="uid://vh1ucj2rfbby" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/mini_options_menu.tscn" id="1_ue10a"]
+[ext_resource type="Script" uid="uid://vdu31w2h641k" path="res://src/ui/maaack/options_menu/mini_options_menu.gd" id="2_n1aer"]
+[ext_resource type="PackedScene" uid="uid://bsxh6v7j0257h" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/option_control/toggle_option_control.tscn" id="3_4cxp3"]
+
+[node name="MiniOptionsMenu" instance=ExtResource("1_ue10a")]
+script = ExtResource("2_n1aer")
+
+[node name="FullscreenControl" parent="." index="2"]
+visible = false
+
+[node name="AirControlControl" parent="." index="3" instance=ExtResource("3_4cxp3")]
+unique_name_in_owner = true
+layout_mode = 2
+option_name = "Air Control (Drag Only)"
+option_section = 4
+key = "AirControl"
+section = "GameSettings"
+
+[connection signal="setting_changed" from="AirControlControl" to="." method="_on_air_control_control_setting_changed"]

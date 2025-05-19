@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://qoifbkro0ocq"]
+
+[ext_resource type="PackedScene" uid="uid://j1l5nfbugmic" path="res://src/ui/item_menu/item_menu.tscn" id="1_bej1j"]
+[ext_resource type="Script" uid="uid://bsce1paovx08e" path="res://src/world/levels/06_dragons_claw/menus/chest/treasure_chest.gd" id="2_fks7f"]
+[ext_resource type="FontVariation" uid="uid://djx7la3kocuka" path="res://src/ui/fonts/sour_gummy/font_variation_bold.tres" id="2_tv0lt"]
+[ext_resource type="FontFile" uid="uid://cthpmhqj81kvj" path="res://src/world/levels/06_dragons_claw/menus/chest/font/Kurland-Regular.otf" id="3_4x7vb"]
+[ext_resource type="PackedScene" uid="uid://cw4d51rbi0pbu" path="res://src/world/levels/06_dragons_claw/menus/journal/page.tscn" id="3_x3k6l"]
+[ext_resource type="Script" uid="uid://de8psauivkxqr" path="res://src/world/levels/06_dragons_claw/menus/chest/dial.gd" id="4_o2cxp"]
+[ext_resource type="Texture2D" uid="uid://dqses352oowmx" path="res://src/world/levels/06_dragons_claw/menus/journal/page_1.png" id="7_2iq23"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a367t"]
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_d43i2"]
+base_font = ExtResource("3_4x7vb")
+
+[node name="TreasureChest" instance=ExtResource("1_bej1j")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_a367t")
+script = ExtResource("2_fks7f")
+answer = Array[String](["🔓", "K", "C", "L", "N"])
+
+[node name="MarginContainer" type="MarginContainer" parent="Holder" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Holder/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CheckButton" type="Button" parent="Holder/MarginContainer/VBoxContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_tv0lt")
+theme_override_font_sizes/font_size = 65
+text = "Check"
+
+[node name="Dials" type="HBoxContainer" parent="Holder/MarginContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Dial1" type="Button" parent="Holder/MarginContainer/VBoxContainer/Dials" index="0"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = SubResource("FontVariation_d43i2")
+theme_override_font_sizes/font_size = 200
+text = "X"
+script = ExtResource("4_o2cxp")
+characters = Array[String](["☀", "☄", "❤", "0x1F480", "0x1F513"])
+
+[node name="Dial2" type="Button" parent="Holder/MarginContainer/VBoxContainer/Dials" index="1"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_tv0lt")
+theme_override_font_sizes/font_size = 200
+text = "X"
+script = ExtResource("4_o2cxp")
+characters = Array[String](["K", "J", "B", "C", "V"])
+
+[node name="Dial3" type="Button" parent="Holder/MarginContainer/VBoxContainer/Dials" index="2"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_tv0lt")
+theme_override_font_sizes/font_size = 200
+text = "X"
+script = ExtResource("4_o2cxp")
+characters = Array[String](["C", "P", "Q", "W", "X"])
+
+[node name="Dial4" type="Button" parent="Holder/MarginContainer/VBoxContainer/Dials" index="3"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_tv0lt")
+theme_override_font_sizes/font_size = 200
+text = "X"
+script = ExtResource("4_o2cxp")
+characters = Array[String](["L", "R", "S", "T", "F"])
+
+[node name="Dial5" type="Button" parent="Holder/MarginContainer/VBoxContainer/Dials" index="4"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_tv0lt")
+theme_override_font_sizes/font_size = 200
+text = "X"
+script = ExtResource("4_o2cxp")
+characters = Array[String](["N", "Z", "G", "H", "M"])
+
+[node name="PageHolder" type="Control" parent="Holder" index="1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Page" parent="Holder/PageHolder" index="0" instance=ExtResource("3_x3k6l")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -560.0
+offset_top = -224.0
+offset_right = 40.0
+offset_bottom = 576.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("7_2iq23")
+corresponding_item = "06_translation_page"

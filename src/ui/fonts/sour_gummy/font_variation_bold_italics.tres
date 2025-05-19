@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c11ixim5r1gmk"]
+
+[ext_resource type="FontFile" uid="uid://bhwnmp8sita2w" path="res://src/ui/fonts/sour_gummy/SourGummy-BoldItalic.otf" id="1_50icb"]
+
+[resource]
+base_font = ExtResource("1_50icb")
+spacing_glyph = 1

@@ -1,0 +1,107 @@
+[gd_scene load_steps=23 format=4 uid="uid://bgh5bgqi8ku4h"]
+
+[ext_resource type="PackedScene" uid="uid://dwapdsx6u217o" path="res://src/world/common/scene/scene.tscn" id="1_5v0q5"]
+[ext_resource type="PackedScene" uid="uid://tem7qe8rdwgl" path="res://src/character/styles/base/eye_l_base.tscn" id="2_eoxhq"]
+[ext_resource type="PackedScene" uid="uid://deqdhg7d7px4r" path="res://src/character/styles/base/eye_r_base.tscn" id="3_baso2"]
+[ext_resource type="PackedScene" uid="uid://dfj53lpxv6wc8" path="res://src/character/styles/base/hand_l_base.tscn" id="4_3hqpd"]
+[ext_resource type="PackedScene" uid="uid://c7xsd06q4xeea" path="res://src/character/styles/base/hand_r_base.tscn" id="5_2or3j"]
+[ext_resource type="PackedScene" uid="uid://ddnpfatnhpbjs" path="res://src/character/styles/base/head_base.tscn" id="6_80di7"]
+[ext_resource type="PackedScene" uid="uid://bh6o0ivr6eucq" path="res://src/character/styles/base/leg_l_base.tscn" id="7_b3sya"]
+[ext_resource type="PackedScene" uid="uid://655nh84fdgg4" path="res://src/character/styles/base/leg_r_base.tscn" id="8_5ybi5"]
+[ext_resource type="PackedScene" uid="uid://b6mdjdj6t27lt" path="res://src/character/styles/base/pupil_l_base.tscn" id="9_b2qhp"]
+[ext_resource type="PackedScene" uid="uid://dn3ytutkepvws" path="res://src/character/styles/base/pupil_r_base.tscn" id="10_jxg01"]
+[ext_resource type="Script" uid="uid://ekgsgj4smvbr" path="res://src/character/common/style/style.gd" id="11_8e6n1"]
+[ext_resource type="PackedScene" uid="uid://ccslu0b12mtfa" path="res://src/character/styles/base/torso_base.tscn" id="12_n0gkp"]
+[ext_resource type="PackedScene" uid="uid://bl2l6bdrpyq1v" path="res://src/world/levels/07_scorched_complex/logic/flashlight/flashlight.tscn" id="13_eoxhq"]
+[ext_resource type="PackedScene" uid="uid://cgkvddl3qycs1" path="res://src/world/levels/07_scorched_complex/logic/phone/phone.tscn" id="14_b3sya"]
+[ext_resource type="Script" uid="uid://blh80gwmwdoh" path="res://src/systems/interactables/interactable_collectible.gd" id="14_baso2"]
+[ext_resource type="PackedScene" uid="uid://g3n4ubd0hrps" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water_pack.tscn" id="15_5ybi5"]
+[ext_resource type="Texture2D" uid="uid://bgit8mqhagaxf" path="res://src/world/levels/07_scorched_complex/assets/_common/door.png" id="16_5ybi5"]
+[ext_resource type="Script" uid="uid://brw3qxymvneca" path="res://src/systems/interactables/interactable_scene_switch.gd" id="16_80di7"]
+[ext_resource type="Texture2D" uid="uid://sjj7lvtnmra7" path="res://src/world/levels/07_scorched_complex/assets/rooms/elevator_button.png" id="17_b2qhp"]
+[ext_resource type="AudioStream" uid="uid://c3k2hlvvx3rlk" path="res://src/world/levels/07_scorched_complex/assets/audio/apartment.ogg" id="20_b2qhp"]
+
+[sub_resource type="Resource" id="Resource_n2pch"]
+resource_local_to_scene = true
+script = ExtResource("11_8e6n1")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_80di7")
+eye_r = ExtResource("3_baso2")
+eye_l = ExtResource("2_eoxhq")
+pupil_r = ExtResource("10_jxg01")
+pupil_l = ExtResource("9_b2qhp")
+torso = ExtResource("12_n0gkp")
+hand_r = ExtResource("5_2or3j")
+hand_l = ExtResource("4_3hqpd")
+leg_r = ExtResource("8_5ybi5")
+leg_l = ExtResource("7_b3sya")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3hqpd"]
+radius = 54.96
+
+[node name="Floor2Room" instance=ExtResource("1_5v0q5")]
+scene_name = "floor_2_room"
+
+[node name="Player" parent="." index="1"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+style = SubResource("Resource_n2pch")
+
+[node name="Flashlight" parent="Player" index="12" instance=ExtResource("13_eoxhq")]
+
+[node name="Phone" parent="Player" index="13" instance=ExtResource("14_b3sya")]
+
+[node name="WaterPack" parent="Player" index="14" instance=ExtResource("15_5ybi5")]
+
+[node name="Environment" parent="." index="3"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Midground" type="Parallax2D" parent="Environment" index="0"]
+
+[node name="Door" type="Sprite2D" parent="Environment/Midground" index="0"]
+position = Vector2(8, -179)
+texture = ExtResource("16_5ybi5")
+
+[node name="GroundLayer" parent="." index="5"]
+tile_map_data = PackedByteArray("AADi/wAAAAAAAAAAAADj/wAAAAAAAAAAAADk/wAAAAAAAAAAAADl/wAAAAAAAAAAAADm/wAAAAAAAAAAAADn/wAAAAAAAAAAAADo/wAAAAAAAAAAAADp/wAAAAAAAAAAAADq/wAAAAAAAAAAAADr/wAAAAAAAAAAAADs/wAAAAAAAAAAAADt/wAAAAAAAAAAAADu/wAAAAAAAAAAAADv/wAAAAAAAAAAAADw/wAAAAAAAAAAAADx/wAAAAAAAAAAAADy/wAAAAAAAAAAAADz/wAAAAAAAAAAAAD0/wAAAAAAAAAAAAD1/wAAAAAAAAAAAAD2/wAAAAAAAAAAAAD3/wAAAAAAAAAAAAD4/wAAAAAAAAAAAAD5/wAAAAAAAAAAAAD6/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAA=")
+
+[node name="ElevatorButton" type="Sprite2D" parent="Interactables" index="0"]
+position = Vector2(-1695, -78)
+texture = ExtResource("17_b2qhp")
+
+[node name="InteractableCollectible" type="Area2D" parent="Interactables/ElevatorButton" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("14_baso2")
+item_name = "07_elevator_button"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://blh80gwmwdoh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ElevatorButton/InteractableCollectible" index="0"]
+shape = SubResource("CircleShape2D_3hqpd")
+
+[node name="Entrance" type="Node2D" parent="Interactables" index="1"]
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="Interactables/Entrance" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("16_80di7")
+scene_name = "floor_2"
+position_in_new_scene = Vector2(1517, 0)
+target = NodePath("..")
+metadata/_custom_type_script = "uid://brw3qxymvneca"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Entrance/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-120, -8, -119, -346, 135, -351, 135, -5)
+
+[node name="InteriorAmbiance" type="AudioStreamPlayer" parent="." index="10"]
+process_mode = 3
+stream = ExtResource("20_b2qhp")
+autoplay = true
+bus = &"Music"

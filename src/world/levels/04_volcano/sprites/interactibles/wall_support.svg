@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135.84 292.98">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3b3136;
+        stroke: #2b1e2b;
+        stroke-linejoin: bevel;
+        stroke-width: 4px;
+      }
+
+      .cls-2 {
+        fill: #2b1e2b;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2-2" data-name="Layer 2">
+    <g id="flamethrower">
+      <g id="wall_support">
+        <path class="cls-1" d="M134.42,49.07l-18.67-18.67L106.27,1.96l-25.19,5.04s15.11,29.04-8.3,29.04h-9.48c-23.41,0-8.3-29.04-8.3-29.04L29.83,1.96l-9.48,28.44L1.68,49.07l18.96,29.44v180.37h0l47.41,32.44,47.41-32.44h0V78.51l18.96-29.44Z"/>
+        <polygon class="cls-2" points="45.98 64.15 45.98 247.59 68.05 262.7 90.12 247.59 90.13 247.59 90.13 64.15 45.98 64.15"/>
+      </g>
+    </g>
+  </g>
+</svg>

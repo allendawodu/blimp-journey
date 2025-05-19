@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://g3n4ubd0hrps"]
+
+[ext_resource type="Script" uid="uid://br0y17b5m6r2f" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water_pack.gd" id="1_s32gb"]
+[ext_resource type="Texture2D" uid="uid://cyvb1y8f1wyq0" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water_texture.tres" id="2_fvgyd"]
+[ext_resource type="Script" uid="uid://dlopy814bb7kk" path="res://src/systems/particle_system_visibility.gd" id="3_vaims"]
+
+[sub_resource type="Gradient" id="Gradient_61ymf"]
+offsets = PackedFloat32Array(0, 0.793846, 0.938462)
+colors = PackedColorArray(0.314506, 0.734464, 1, 1, 0.105882, 0.52549, 0.760784, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wdtq6"]
+gradient = SubResource("Gradient_61ymf")
+
+[sub_resource type="Curve" id="Curve_5ac3e"]
+_data = [Vector2(0, 1), 0.0, -0.114391, 0, 0, Vector2(1, 0.501964), -1.15011, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jkrkd"]
+curve = SubResource("Curve_5ac3e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c1368"]
+particle_flag_disable_z = true
+spread = 90.0
+initial_velocity_max = 965.7
+gravity = Vector3(0, 980, 0)
+scale_min = 0.0
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_jkrkd")
+color_ramp = SubResource("GradientTexture1D_wdtq6")
+
+[node name="WaterPack" type="Node2D"]
+position = Vector2(50, -105)
+script = ExtResource("1_s32gb")
+spray_factor = 0.1
+
+[node name="WaterImpactSplash" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+texture = ExtResource("2_fvgyd")
+lifetime = 0.2
+visibility_rect = Rect2(-500000, -500000, 999999, 999999)
+process_material = SubResource("ParticleProcessMaterial_c1368")
+
+[node name="ParticleSystemVisibility" type="Node2D" parent="WaterImpactSplash"]
+script = ExtResource("3_vaims")
+always_visible = true
+metadata/_custom_type_script = "uid://dlopy814bb7kk"

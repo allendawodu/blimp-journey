@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemUseable" load_steps=4 format=3 uid="uid://ddfbesu1dyme1"]
+
+[ext_resource type="Script" uid="uid://ufp4xfsqamg" path="res://src/systems/item/item_useable.gd" id="1_wdwnc"]
+[ext_resource type="Resource" uid="uid://cc080elysyhr3" path="res://src/world/levels/02_reality_tv/timelines/thoughts.dtl" id="2_vxosd"]
+[ext_resource type="Texture2D" uid="uid://c020e2f8ncsuh" path="res://src/world/levels/02_reality_tv/menus/tabloid/application.png" id="2_xyokq"]
+
+[resource]
+script = ExtResource("1_wdwnc")
+interactable_node_path = NodePath("Interactables/Postbox/InteractableDialgoue")
+max_distance_to_interactable = 512.0
+timeline = ExtResource("2_vxosd")
+texture = ExtResource("2_xyokq")
+name = "application"
+display_name = ""
+info = "Send this for a chance to be on Reality TV Island!"

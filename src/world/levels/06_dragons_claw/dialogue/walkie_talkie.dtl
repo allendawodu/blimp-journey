@@ -1,0 +1,58 @@
+label test
+player: Hello? Is anyone there?
+npc: Who's that?!
+[end_timeline]
+
+label guide_found
+player: Hello? Martin?
+npc: I'm standing right here.
+[end_timeline]
+
+label burial_chamber
+player: Hello?\
+I'm in this tall room with mutliple sarcophagi.\
+What am I looking at here?
+npc: The queen's servants, buried with her when she died.\
+They chose to follow her even into death.\
+Talk about employee loyalty, huh?
+[end_timeline]
+
+label combat_chamber
+player: Hello? Are you okay?
+npc: I see you~\
+Why don't you come over?
+[end_timeline]
+
+label main_street
+player: Hello? Is anyone there?
+npc: WE. ARE. THE. DRAGON. CLAN.\
+BOWING. TO. NO. MAN.\
+[color=gray]Michael, stop being weird.[/color]
+[end_timeline]
+
+label queens_chamber
+player: Hello? We're in the queen's chamber!
+npc: After all these years, we made it!\
+I knew I wasn't crazy! Well... not completely.
+[end_timeline]
+
+label storage_chamber
+player: Hello? Martin?\
+There's a chest here I want to open, any advice?
+label guide_hint
+if {06.num_hints_requested} == 0:
+	set {06.num_hints_requested} += 1
+	npc: What words do the icons correspond to?\
+	Perhaps that will help crack the password...
+elif {06.num_hints_requested} == 1:
+	set {06.num_hints_requested} += 1
+	npc: One icon corresponds to HEART or LOVE.\
+	Another to COMET.\
+	I wonder what the other icons correspond to...
+else:
+	set {06.num_hints_requested} = 0
+	npc: For the other icons...\
+	PADLOCK or UNLOCK.\
+	SKULL or DEATH.\
+	And of course, we already know Dragolian for SUN.
+[end_timeline]

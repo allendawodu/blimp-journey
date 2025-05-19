@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="WordList" load_steps=2 format=3 uid="uid://0lya3o8u03f"]
+
+[ext_resource type="Script" uid="uid://gs20e4wp25x1" path="res://src/ui/account_management/name/word_list.gd" id="1_wvmoh"]
+
+[resource]
+script = ExtResource("1_wvmoh")
+word_list = Array[String](["Fish", "Kid", "Pizza", "Hero", "House"])

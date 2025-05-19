@@ -1,0 +1,755 @@
+[gd_scene load_steps=64 format=3 uid="uid://c8db5pwju6ruy"]
+
+[ext_resource type="Script" uid="uid://bew77gn5eke4f" path="res://src/character/common/character.gd" id="1_jmaow"]
+[ext_resource type="PackedScene" uid="uid://tem7qe8rdwgl" path="res://src/character/styles/base/eye_l_base.tscn" id="2_fuitx"]
+[ext_resource type="Script" uid="uid://ekgsgj4smvbr" path="res://src/character/common/style/style.gd" id="2_xh54y"]
+[ext_resource type="PackedScene" uid="uid://deqdhg7d7px4r" path="res://src/character/styles/base/eye_r_base.tscn" id="3_ksk8k"]
+[ext_resource type="Script" uid="uid://cfw7wis7qq7aw" path="res://src/character/player/platform_check_area.gd" id="3_kuost"]
+[ext_resource type="Script" uid="uid://do8xp0vbjsptt" path="res://src/world/dialogue/text_bubble_marker.gd" id="3_weppd"]
+[ext_resource type="PackedScene" uid="uid://dfj53lpxv6wc8" path="res://src/character/styles/base/hand_l_base.tscn" id="4_2r3vq"]
+[ext_resource type="Resource" uid="uid://ba83ar8eud6p1" path="res://src/world/dialogue/npc.dch" id="4_38tnm"]
+[ext_resource type="Script" uid="uid://dd6fce70ab7oe" path="res://addons/godot_state_charts/state_chart.gd" id="4_gn2su"]
+[ext_resource type="Script" uid="uid://5svguqv8tr5w" path="res://src/character/common/body.gd" id="4_r3dxv"]
+[ext_resource type="Script" uid="uid://dxiosxca1gnms" path="res://addons/godot_state_charts/parallel_state.gd" id="5_2peja"]
+[ext_resource type="PackedScene" uid="uid://c7xsd06q4xeea" path="res://src/character/styles/base/hand_r_base.tscn" id="5_4uejc"]
+[ext_resource type="Script" uid="uid://blj24jm6kk85k" path="res://src/character/common/states/movement.gd" id="6_f4eh5"]
+[ext_resource type="PackedScene" uid="uid://ddnpfatnhpbjs" path="res://src/character/styles/base/head_base.tscn" id="6_hrncw"]
+[ext_resource type="Script" uid="uid://lal5sh0l8aef" path="res://addons/godot_state_charts/atomic_state.gd" id="7_mao46"]
+[ext_resource type="PackedScene" uid="uid://bh6o0ivr6eucq" path="res://src/character/styles/base/leg_l_base.tscn" id="7_qpsst"]
+[ext_resource type="Script" uid="uid://b62f7ssnv2gn3" path="res://addons/godot_state_charts/transition.gd" id="8_2aehw"]
+[ext_resource type="PackedScene" uid="uid://655nh84fdgg4" path="res://src/character/styles/base/leg_r_base.tscn" id="8_27pwx"]
+[ext_resource type="Script" uid="uid://c21mnxrgaaqmd" path="res://src/character/common/states/grounded.gd" id="9_eikds"]
+[ext_resource type="PackedScene" uid="uid://b6mdjdj6t27lt" path="res://src/character/styles/base/pupil_l_base.tscn" id="9_n5khr"]
+[ext_resource type="Script" uid="uid://c6b3j33eleyub" path="res://addons/godot_state_charts/state_is_active_guard.gd" id="10_ctd44"]
+[ext_resource type="PackedScene" uid="uid://dn3ytutkepvws" path="res://src/character/styles/base/pupil_r_base.tscn" id="10_hnk5x"]
+[ext_resource type="Script" uid="uid://ew605xm3w2hu" path="res://src/character/common/states/idle.gd" id="11_k6s60"]
+[ext_resource type="PackedScene" uid="uid://ccslu0b12mtfa" path="res://src/character/styles/base/torso_base.tscn" id="12_5d7um"]
+[ext_resource type="Script" uid="uid://da88ur6i0ys67" path="res://src/character/common/states/walk.gd" id="12_pmiom"]
+[ext_resource type="Script" uid="uid://cupad5j6nqln" path="res://src/character/common/states/crouch.gd" id="13_1h1is"]
+[ext_resource type="Script" uid="uid://iy5q7lps3gqf" path="res://src/character/common/states/airborne.gd" id="14_21orp"]
+[ext_resource type="Animation" uid="uid://dbdm0i6s2me2a" path="res://src/character/common/animations/RESET.tres" id="14_xh54y"]
+[ext_resource type="Script" uid="uid://bhy1y104ff0il" path="res://src/character/common/states/jump.gd" id="16_t1u48"]
+[ext_resource type="Script" uid="uid://srrjtqd6gm4q" path="res://addons/godot_state_charts/compound_state.gd" id="17_7ejfy"]
+[ext_resource type="Script" uid="uid://cnkvwfemo3sl7" path="res://src/character/common/states/pathfinding.gd" id="18_gk0r0"]
+[ext_resource type="Animation" uid="uid://bw4xqdxgprhfm" path="res://src/character/common/animations/fall.tres" id="20_cm8b3"]
+[ext_resource type="Animation" uid="uid://do0bsfcy5ycho" path="res://src/character/common/animations/jump.tres" id="20_hfcd2"]
+[ext_resource type="Animation" uid="uid://cho7treemmrtd" path="res://src/character/common/animations/run.tres" id="20_wme6k"]
+[ext_resource type="Animation" uid="uid://dqwdgv7pvsluw" path="res://src/character/common/animations/walk.tres" id="20_xh54y"]
+[ext_resource type="Animation" uid="uid://do7bn4cstpy0h" path="res://src/character/common/animations/knockback.tres" id="21_cm8b3"]
+[ext_resource type="Animation" uid="uid://c22rlktpysgiu" path="res://src/character/common/animations/land.tres" id="21_hfcd2"]
+[ext_resource type="Animation" uid="uid://d17xa1bkltonk" path="res://src/character/common/animations/idle.tres" id="21_wme6k"]
+[ext_resource type="Animation" uid="uid://clcbd0idubnqa" path="res://src/character/common/animations/crouch.tres" id="22_7obb7"]
+[ext_resource type="Script" uid="uid://ecank6l612ub" path="res://src/character/common/body_remote_transform.gd" id="23_xh54y"]
+[ext_resource type="PackedScene" uid="uid://bi1qmdr25siuo" path="res://src/character/styles/base/eyelid_r_base.tscn" id="28_3ooal"]
+[ext_resource type="Script" uid="uid://cjaashn16268r" path="res://src/character/common/states/knockback.gd" id="29_mwvr2"]
+[ext_resource type="Script" uid="uid://dnbih0i5k5b45" path="res://addons/godot_state_charts/animation_player_state.gd" id="29_nvvj7"]
+[ext_resource type="PackedScene" uid="uid://66owtv0vgfqo" path="res://src/character/styles/base/eyelid_l_base.tscn" id="30_3ooal"]
+[ext_resource type="Script" uid="uid://pohcy0kk1vfq" path="res://src/character/common/states/animation.gd" id="32_6kchf"]
+[ext_resource type="Script" uid="uid://c30v2dkpv50su" path="res://addons/godot_state_charts/guard.gd" id="36_7nt1i"]
+[ext_resource type="Script" uid="uid://b3gf2ejh8jc8m" path="res://addons/godot_state_charts/any_of_guard.gd" id="37_q8qni"]
+
+[sub_resource type="Resource" id="Resource_xh54y"]
+resource_local_to_scene = true
+script = ExtResource("2_xh54y")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_hrncw")
+eye_r = ExtResource("3_ksk8k")
+eye_l = ExtResource("2_fuitx")
+pupil_r = ExtResource("10_hnk5x")
+pupil_l = ExtResource("9_n5khr")
+torso = ExtResource("12_5d7um")
+hand_r = ExtResource("5_4uejc")
+hand_l = ExtResource("4_2r3vq")
+leg_r = ExtResource("8_27pwx")
+leg_l = ExtResource("7_qpsst")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xk8ty"]
+custom_solver_bias = 1.0
+size = Vector2(64, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfcd2"]
+custom_solver_bias = 1.0
+size = Vector2(64, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q02b8"]
+size = Vector2(64, 128)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ytjyj"]
+_data = {
+&"RESET": ExtResource("14_xh54y"),
+&"crouch": ExtResource("22_7obb7"),
+&"fall": ExtResource("20_cm8b3"),
+&"idle": ExtResource("21_wme6k"),
+&"jump": ExtResource("20_hfcd2"),
+&"knockback": ExtResource("21_cm8b3"),
+&"land": ExtResource("21_hfcd2"),
+&"run": ExtResource("20_wme6k"),
+&"walk": ExtResource("20_xh54y")
+}
+
+[sub_resource type="Resource" id="Resource_kisxl"]
+script = ExtResource("10_ctd44")
+state = NodePath("../../../JumpPossible/CanJump")
+
+[sub_resource type="Resource" id="Resource_5dgmq"]
+script = ExtResource("10_ctd44")
+state = NodePath("../../Movement/PreJump")
+
+[sub_resource type="Resource" id="Resource_doc5f"]
+script = ExtResource("10_ctd44")
+state = NodePath("../../Movement/Airborne/Jump")
+
+[sub_resource type="Resource" id="Resource_qak3u"]
+script = ExtResource("37_q8qni")
+guards = Array[ExtResource("36_7nt1i")]([SubResource("Resource_5dgmq"), SubResource("Resource_doc5f")])
+
+[sub_resource type="Resource" id="Resource_o2w6s"]
+script = ExtResource("10_ctd44")
+state = NodePath("../../Movement/Airborne/Fall")
+
+[sub_resource type="Resource" id="Resource_broy3"]
+script = ExtResource("10_ctd44")
+state = NodePath("../../Movement/Airborne/Knockback")
+
+[sub_resource type="Resource" id="Resource_lja12"]
+script = ExtResource("10_ctd44")
+state = NodePath("../../../Movement/Grounded/Idle")
+
+[sub_resource type="Resource" id="Resource_nvrav"]
+script = ExtResource("10_ctd44")
+state = NodePath("../../../Movement/Grounded/Walk")
+
+[sub_resource type="Resource" id="Resource_7obb7"]
+script = ExtResource("10_ctd44")
+state = NodePath("../../../Movement/Grounded/Crouch")
+metadata/_custom_type_script = "uid://c6b3j33eleyub"
+
+[sub_resource type="Resource" id="Resource_jn75w"]
+script = ExtResource("10_ctd44")
+state = NodePath("../../../Movement/Grounded/Idle")
+
+[sub_resource type="Resource" id="Resource_bw4wp"]
+script = ExtResource("10_ctd44")
+state = NodePath("../../../Movement/Grounded/Idle")
+
+[node name="Character" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_jmaow")
+style = SubResource("Resource_xh54y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_xk8ty")
+debug_color = Color(0, 0.601379, 0.701202, 0)
+
+[node name="CrouchCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -54)
+shape = SubResource("RectangleShape2D_hfcd2")
+disabled = true
+debug_color = Color(0, 0.601379, 0.701202, 0)
+
+[node name="LedgeSnapRay" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -16)
+target_position = Vector2(0, 20)
+collision_mask = 6
+hit_from_inside = true
+
+[node name="PlatformCheckArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 64)
+collision_layer = 0
+collision_mask = 4
+input_pickable = false
+script = ExtResource("3_kuost")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformCheckArea"]
+shape = SubResource("RectangleShape2D_q02b8")
+
+[node name="DropTimer" type="Timer" parent="PlatformCheckArea"]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="AntiLedgeSlip" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="L" type="RayCast2D" parent="AntiLedgeSlip"]
+position = Vector2(-45, 2)
+target_position = Vector2(90, 0)
+collision_mask = 4
+hit_from_inside = true
+
+[node name="R" type="RayCast2D" parent="AntiLedgeSlip"]
+position = Vector2(45, 2)
+target_position = Vector2(-90, 0)
+collision_mask = 4
+hit_from_inside = true
+
+[node name="RepathfindTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ytjyj")
+}
+playback_default_blend_time = 0.1
+
+[node name="TextBubbleMarker" type="Marker2D" parent="."]
+position = Vector2(0, -235)
+script = ExtResource("3_weppd")
+character = ExtResource("4_38tnm")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="Body" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+script = ExtResource("4_r3dxv")
+
+[node name="HairBack" type="Sprite2D" parent="Visuals/Body"]
+unique_name_in_owner = true
+
+[node name="HandL" parent="Visuals/Body" instance=ExtResource("4_2r3vq")]
+unique_name_in_owner = true
+position = Vector2(24.73, -77.94)
+
+[node name="WristL" type="Sprite2D" parent="Visuals/Body/HandL"]
+unique_name_in_owner = true
+
+[node name="HeldItemL" type="Sprite2D" parent="Visuals/Body/HandL"]
+unique_name_in_owner = true
+
+[node name="Torso" parent="Visuals/Body" instance=ExtResource("12_5d7um")]
+unique_name_in_owner = true
+position = Vector2(-2.09, -97.09)
+
+[node name="Pack" type="Sprite2D" parent="Visuals/Body/Torso"]
+unique_name_in_owner = true
+
+[node name="Pants" type="Sprite2D" parent="Visuals/Body/Torso"]
+unique_name_in_owner = true
+
+[node name="Overpants" type="Sprite2D" parent="Visuals/Body/Torso"]
+unique_name_in_owner = true
+
+[node name="Shirt" type="Sprite2D" parent="Visuals/Body/Torso"]
+unique_name_in_owner = true
+
+[node name="Overshirt" type="Sprite2D" parent="Visuals/Body/Torso"]
+unique_name_in_owner = true
+
+[node name="Head" parent="Visuals/Body" instance=ExtResource("6_hrncw")]
+unique_name_in_owner = true
+position = Vector2(0.6, -175.97)
+
+[node name="HairBackRemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Body/Head" node_paths=PackedStringArray("body")]
+unique_name_in_owner = true
+remote_path = NodePath("../../HairBack")
+script = ExtResource("23_xh54y")
+body = NodePath("../..")
+
+[node name="Mouth" type="Sprite2D" parent="Visuals/Body/Head"]
+unique_name_in_owner = true
+
+[node name="HairFront" type="Sprite2D" parent="Visuals/Body/Head"]
+unique_name_in_owner = true
+
+[node name="EyebrowR" type="Sprite2D" parent="Visuals/Body/Head"]
+unique_name_in_owner = true
+
+[node name="EyebrowL" type="Sprite2D" parent="Visuals/Body/Head"]
+unique_name_in_owner = true
+
+[node name="EyeR" parent="Visuals/Body/Head" instance=ExtResource("3_ksk8k")]
+unique_name_in_owner = true
+
+[node name="@Sprite2D@53392" parent="Visuals/Body/Head/EyeR" index="0"]
+clip_children = 2
+
+[node name="PupilR" parent="Visuals/Body/Head/EyeR/@Sprite2D@53392" index="0" instance=ExtResource("10_hnk5x")]
+unique_name_in_owner = true
+position = Vector2(3.99701, 0.306)
+
+[node name="EyelidR" parent="Visuals/Body/Head/EyeR/@Sprite2D@53392" index="1" node_paths=PackedStringArray("pupil") instance=ExtResource("28_3ooal")]
+unique_name_in_owner = true
+position = Vector2(-0.035161, -3.62337)
+pupil = NodePath("../../../EyeL/@Sprite2D@53393/PupilL")
+
+[node name="EyeL" parent="Visuals/Body/Head" instance=ExtResource("2_fuitx")]
+unique_name_in_owner = true
+
+[node name="@Sprite2D@53393" parent="Visuals/Body/Head/EyeL" index="0"]
+clip_children = 2
+
+[node name="PupilL" parent="Visuals/Body/Head/EyeL/@Sprite2D@53393" index="0" instance=ExtResource("9_n5khr")]
+unique_name_in_owner = true
+position = Vector2(2.502, 0.144012)
+
+[node name="EyelidL" parent="Visuals/Body/Head/EyeL/@Sprite2D@53393" index="1" node_paths=PackedStringArray("pupil") instance=ExtResource("30_3ooal")]
+unique_name_in_owner = true
+position = Vector2(-2.07103, -3.92444)
+pupil = NodePath("../PupilL")
+
+[node name="FaceMarks" type="Sprite2D" parent="Visuals/Body/Head"]
+unique_name_in_owner = true
+
+[node name="FacialHair" type="Sprite2D" parent="Visuals/Body/Head"]
+unique_name_in_owner = true
+
+[node name="Eyewear" type="Sprite2D" parent="Visuals/Body/Head"]
+unique_name_in_owner = true
+
+[node name="LegL" parent="Visuals/Body" instance=ExtResource("7_qpsst")]
+unique_name_in_owner = true
+position = Vector2(12.18, -25.35)
+
+[node name="SockL" type="Sprite2D" parent="Visuals/Body/LegL"]
+unique_name_in_owner = true
+
+[node name="ShoeL" type="Sprite2D" parent="Visuals/Body/LegL"]
+unique_name_in_owner = true
+
+[node name="LegR" parent="Visuals/Body" instance=ExtResource("8_27pwx")]
+unique_name_in_owner = true
+position = Vector2(-15.91, -24.13)
+
+[node name="SockR" type="Sprite2D" parent="Visuals/Body/LegR"]
+unique_name_in_owner = true
+
+[node name="ShoeR" type="Sprite2D" parent="Visuals/Body/LegR"]
+unique_name_in_owner = true
+
+[node name="HandR" parent="Visuals/Body" instance=ExtResource("5_4uejc")]
+unique_name_in_owner = true
+position = Vector2(-31.76, -77.03)
+
+[node name="WristR" type="Sprite2D" parent="Visuals/Body/HandR"]
+unique_name_in_owner = true
+
+[node name="HeldItemR" type="Sprite2D" parent="Visuals/Body/HandR"]
+unique_name_in_owner = true
+
+[node name="Bones" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Visuals/Bones"]
+
+[node name="Torso" type="Bone2D" parent="Visuals/Bones/Skeleton2D"]
+position = Vector2(-2.09, -97.09)
+rest = Transform2D(1, 0, 0, 1, -2.09, -97.09)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Torso" node_paths=PackedStringArray("body")]
+remote_path = NodePath("../../../../Body/Torso")
+script = ExtResource("23_xh54y")
+body = NodePath("../../../../Body")
+
+[node name="ArmR" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Torso"]
+position = Vector2(-10, -30)
+rest = Transform2D(1, 0, 0, 1, -10, -30)
+
+[node name="HandR" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Torso/ArmR"]
+position = Vector2(-19.67, 50.06)
+rest = Transform2D(1, 0, 0, 1, -19.67, 50.06)
+auto_calculate_length_and_angle = false
+length = 21.91
+bone_angle = 96.64
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Torso/ArmR/HandR" node_paths=PackedStringArray("body")]
+remote_path = NodePath("../../../../../../Body/HandR")
+script = ExtResource("23_xh54y")
+body = NodePath("../../../../../../Body")
+
+[node name="End" type="Node2D" parent="Visuals/Bones/Skeleton2D/Torso/ArmR/HandR"]
+position = Vector2(-1.24, 11.29)
+
+[node name="ArmL" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Torso"]
+position = Vector2(10, -30)
+rest = Transform2D(1, 0, 0, 1, 10, -30)
+
+[node name="HandL" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Torso/ArmL"]
+position = Vector2(16.82, 49.15)
+rest = Transform2D(1, 0, 0, 1, 16.82, 49.15)
+auto_calculate_length_and_angle = false
+length = 21.08
+bone_angle = 92.43
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Torso/ArmL/HandL" node_paths=PackedStringArray("body")]
+remote_path = NodePath("../../../../../../Body/HandL")
+script = ExtResource("23_xh54y")
+body = NodePath("../../../../../../Body")
+
+[node name="End" type="Node2D" parent="Visuals/Bones/Skeleton2D/Torso/ArmL/HandL"]
+position = Vector2(1.27, 11.2)
+
+[node name="LegR" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Torso"]
+position = Vector2(-13.91, 34.09)
+rest = Transform2D(1, 0, 0, 1, -13.91, 34.09)
+
+[node name="ShinR" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Torso/LegR"]
+position = Vector2(0.09, 38.87)
+rest = Transform2D(1, 0, 0, 1, 0.09, 38.87)
+auto_calculate_length_and_angle = false
+length = 53.89
+bone_angle = 94.65
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Torso/LegR/ShinR" node_paths=PackedStringArray("body")]
+remote_path = NodePath("../../../../../../Body/LegR")
+script = ExtResource("23_xh54y")
+body = NodePath("../../../../../../Body")
+
+[node name="End" type="Node2D" parent="Visuals/Bones/Skeleton2D/Torso/LegR/ShinR"]
+position = Vector2(2.91, 28.13)
+
+[node name="LegL" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Torso"]
+position = Vector2(9.09, 34.09)
+rest = Transform2D(1, 0, 0, 1, 9.09, 34.09)
+
+[node name="ShinL" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Torso/LegL"]
+position = Vector2(5.18, 37.65)
+rest = Transform2D(1, 0, 0, 1, 5.18, 37.65)
+auto_calculate_length_and_angle = false
+length = 53.9
+bone_angle = 95.61
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Torso/LegL/ShinL" node_paths=PackedStringArray("body")]
+remote_path = NodePath("../../../../../../Body/LegL")
+script = ExtResource("23_xh54y")
+body = NodePath("../../../../../../Body")
+
+[node name="End" type="Node2D" parent="Visuals/Bones/Skeleton2D/Torso/LegL/ShinL"]
+position = Vector2(2.82, 26.35)
+
+[node name="Head" type="Bone2D" parent="Visuals/Bones/Skeleton2D/Torso"]
+position = Vector2(2.69, -78.88)
+rest = Transform2D(1, 0, 0, 1, 2.69, -78.88)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Visuals/Bones/Skeleton2D/Torso/Head" node_paths=PackedStringArray("body")]
+remote_path = NodePath("../../../../../Body/Head")
+script = ExtResource("23_xh54y")
+body = NodePath("../../../../../Body")
+
+[node name="StateChart" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_gn2su")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("5_2peja")
+
+[node name="Movement" type="Node" parent="StateChart/Root"]
+unique_name_in_owner = true
+script = ExtResource("6_f4eh5")
+initial_state = NodePath("Grounded")
+
+[node name="OnKnockback" type="Node" parent="StateChart/Root/Movement"]
+script = ExtResource("8_2aehw")
+to = NodePath("../Airborne/Knockback")
+event = &"knockback"
+delay_in_seconds = "0.0"
+
+[node name="PreJump" type="Node" parent="StateChart/Root/Movement"]
+unique_name_in_owner = true
+script = ExtResource("7_mao46")
+
+[node name="OnNone" type="Node" parent="StateChart/Root/Movement/PreJump"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Airborne/Jump")
+delay_in_seconds = "0.1"
+
+[node name="Grounded" type="Node" parent="StateChart/Root/Movement"]
+unique_name_in_owner = true
+script = ExtResource("9_eikds")
+initial_state = NodePath("Idle")
+
+[node name="OnFall" type="Node" parent="StateChart/Root/Movement/Grounded"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Airborne/Fall")
+event = &"fall"
+delay_in_seconds = "0.0"
+
+[node name="OnJump" type="Node" parent="StateChart/Root/Movement/Grounded"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../PreJump")
+event = &"jump"
+guard = SubResource("Resource_kisxl")
+delay_in_seconds = "0.0"
+
+[node name="Idle" type="Node" parent="StateChart/Root/Movement/Grounded"]
+script = ExtResource("11_k6s60")
+
+[node name="OnMove" type="Node" parent="StateChart/Root/Movement/Grounded/Idle"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Walk")
+event = &"move"
+delay_in_seconds = "0.0"
+
+[node name="OnCrouch" type="Node" parent="StateChart/Root/Movement/Grounded/Idle"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Crouch")
+event = &"crouch"
+delay_in_seconds = "0.0"
+
+[node name="Walk" type="Node" parent="StateChart/Root/Movement/Grounded"]
+script = ExtResource("12_pmiom")
+
+[node name="OnStop" type="Node" parent="StateChart/Root/Movement/Grounded/Walk"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Idle")
+event = &"stop"
+delay_in_seconds = "0.0"
+
+[node name="OnCrouch" type="Node" parent="StateChart/Root/Movement/Grounded/Walk"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Crouch")
+event = &"crouch"
+delay_in_seconds = "0.0"
+
+[node name="Crouch" type="Node" parent="StateChart/Root/Movement/Grounded"]
+script = ExtResource("13_1h1is")
+
+[node name="OnMove" type="Node" parent="StateChart/Root/Movement/Grounded/Crouch"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Walk")
+event = &"move"
+delay_in_seconds = "0.0"
+
+[node name="OnStop" type="Node" parent="StateChart/Root/Movement/Grounded/Crouch"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Idle")
+event = &"stop"
+delay_in_seconds = "0.0"
+
+[node name="Airborne" type="Node" parent="StateChart/Root/Movement"]
+unique_name_in_owner = true
+script = ExtResource("14_21orp")
+initial_state = NodePath("Fall")
+
+[node name="OnGround" type="Node" parent="StateChart/Root/Movement/Airborne"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Grounded")
+event = &"ground"
+delay_in_seconds = "0.0"
+
+[node name="Fall" type="Node" parent="StateChart/Root/Movement/Airborne"]
+script = ExtResource("7_mao46")
+
+[node name="Jump" type="Node" parent="StateChart/Root/Movement/Airborne"]
+unique_name_in_owner = true
+script = ExtResource("16_t1u48")
+jump_height_max = 448.0
+time_to_apex = 0.58
+
+[node name="OnFall" type="Node" parent="StateChart/Root/Movement/Airborne/Jump"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Fall")
+event = &"fall"
+delay_in_seconds = "0.0"
+
+[node name="Knockback" type="Node" parent="StateChart/Root/Movement/Airborne"]
+unique_name_in_owner = true
+script = ExtResource("29_mwvr2")
+
+[node name="JumpPossible" type="Node" parent="StateChart/Root"]
+script = ExtResource("17_7ejfy")
+initial_state = NodePath("CanJump")
+
+[node name="NoJump" type="Node" parent="StateChart/Root/JumpPossible"]
+script = ExtResource("7_mao46")
+
+[node name="OnGround" type="Node" parent="StateChart/Root/JumpPossible/NoJump"]
+editor_description = "Delay is jump cooldown."
+script = ExtResource("8_2aehw")
+to = NodePath("../../CanJump")
+event = &"ground"
+delay_in_seconds = "0.1"
+
+[node name="OnRope" type="Node" parent="StateChart/Root/JumpPossible/NoJump"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../CanJump")
+event = &"rope"
+delay_in_seconds = "0.0"
+
+[node name="CanJump" type="Node" parent="StateChart/Root/JumpPossible"]
+script = ExtResource("7_mao46")
+
+[node name="OnJump" type="Node" parent="StateChart/Root/JumpPossible/CanJump"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../NoJump")
+event = &"jump"
+delay_in_seconds = "0.0"
+
+[node name="OnFall" type="Node" parent="StateChart/Root/JumpPossible/CanJump"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../NoJump")
+event = &"fall"
+delay_in_seconds = "0.0"
+
+[node name="PathfindPossible" type="Node" parent="StateChart/Root"]
+script = ExtResource("17_7ejfy")
+initial_state = NodePath("CanPathfind")
+
+[node name="NoPathfind" type="Node" parent="StateChart/Root/PathfindPossible"]
+script = ExtResource("7_mao46")
+
+[node name="CanPathfind" type="Node" parent="StateChart/Root/PathfindPossible"]
+script = ExtResource("7_mao46")
+
+[node name="OnPathfind" type="Node" parent="StateChart/Root/PathfindPossible/CanPathfind"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Pathfinding")
+event = &"pathfind"
+delay_in_seconds = "0.0"
+
+[node name="Pathfinding" type="Node" parent="StateChart/Root/PathfindPossible"]
+unique_name_in_owner = true
+script = ExtResource("18_gk0r0")
+
+[node name="OnStop" type="Node" parent="StateChart/Root/PathfindPossible/Pathfinding"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../CanPathfind")
+event = &"stop"
+delay_in_seconds = "0.0"
+
+[node name="Animation" type="Node" parent="StateChart/Root"]
+unique_name_in_owner = true
+script = ExtResource("32_6kchf")
+initial_state = NodePath("Idle")
+
+[node name="OnJump" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("8_2aehw")
+to = NodePath("../Jump")
+guard = SubResource("Resource_qak3u")
+delay_in_seconds = "0.0"
+
+[node name="OnFall" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("8_2aehw")
+to = NodePath("../Fall")
+guard = SubResource("Resource_o2w6s")
+delay_in_seconds = "0.0"
+
+[node name="OnKnockback" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("8_2aehw")
+to = NodePath("../Knockback")
+guard = SubResource("Resource_broy3")
+delay_in_seconds = "0.0"
+
+[node name="Jump" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("29_nvvj7")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = &"jump"
+
+[node name="OnGround" type="Node" parent="StateChart/Root/Animation/Jump"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Idle")
+guard = SubResource("Resource_lja12")
+delay_in_seconds = "0.0"
+
+[node name="Idle" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("29_nvvj7")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = &"idle"
+custom_blend = 0.1
+
+[node name="OnMove" type="Node" parent="StateChart/Root/Animation/Idle"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Walk")
+guard = SubResource("Resource_nvrav")
+delay_in_seconds = "0.0"
+
+[node name="OnCrouch" type="Node" parent="StateChart/Root/Animation/Idle"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Crouch")
+guard = SubResource("Resource_7obb7")
+delay_in_seconds = "0.0"
+
+[node name="Walk" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("29_nvvj7")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = &"walk"
+custom_blend = 0.17
+
+[node name="OnStop" type="Node" parent="StateChart/Root/Animation/Walk"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Idle")
+guard = SubResource("Resource_jn75w")
+delay_in_seconds = "0.0"
+
+[node name="OnCrouch" type="Node" parent="StateChart/Root/Animation/Walk"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Crouch")
+guard = SubResource("Resource_7obb7")
+delay_in_seconds = "0.0"
+
+[node name="Fall" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("29_nvvj7")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = &"fall"
+custom_blend = 0.4
+
+[node name="OnGround" type="Node" parent="StateChart/Root/Animation/Fall"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Land")
+guard = SubResource("Resource_lja12")
+delay_in_seconds = "0.0"
+
+[node name="Knockback" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("29_nvvj7")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = &"knockback"
+
+[node name="OnGround" type="Node" parent="StateChart/Root/Animation/Knockback"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Idle")
+guard = SubResource("Resource_bw4wp")
+delay_in_seconds = "0.0"
+
+[node name="Land" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("29_nvvj7")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = &"land"
+
+[node name="OnNone" type="Node" parent="StateChart/Root/Animation/Land"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Idle")
+delay_in_seconds = "0.1"
+
+[node name="Crouch" type="Node" parent="StateChart/Root/Animation"]
+script = ExtResource("29_nvvj7")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = &"crouch"
+
+[node name="OnMove" type="Node" parent="StateChart/Root/Animation/Crouch"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Walk")
+guard = SubResource("Resource_nvrav")
+delay_in_seconds = "0.0"
+
+[node name="OnStop" type="Node" parent="StateChart/Root/Animation/Crouch"]
+script = ExtResource("8_2aehw")
+to = NodePath("../../Idle")
+guard = SubResource("Resource_jn75w")
+delay_in_seconds = "0.0"
+
+[editable path="Visuals/Body/Head/EyeR"]
+[editable path="Visuals/Body/Head/EyeL"]

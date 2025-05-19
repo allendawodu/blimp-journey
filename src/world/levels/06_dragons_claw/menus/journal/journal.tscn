@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://big37kla1eoyg"]
+
+[ext_resource type="PackedScene" uid="uid://j1l5nfbugmic" path="res://src/ui/item_menu/item_menu.tscn" id="1_ktg6f"]
+[ext_resource type="Texture2D" uid="uid://bfejfpp4cxq1s" path="res://src/world/levels/06_dragons_claw/menus/journal/page.png" id="2_2073b"]
+[ext_resource type="Script" uid="uid://duvr4cajwjeyu" path="res://src/world/levels/06_dragons_claw/menus/journal/journal.gd" id="2_am3lx"]
+[ext_resource type="Script" uid="uid://b1jxstoxrjbmy" path="res://src/world/levels/06_dragons_claw/menus/journal/page.gd" id="3_mt8ss"]
+[ext_resource type="FontVariation" uid="uid://dpoxxk60qn2u2" path="res://src/ui/fonts/sour_gummy/font_variation_normal.tres" id="5_bkwqt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ixrrh"]
+font = ExtResource("5_bkwqt")
+font_size = 28
+
+[node name="FamilyPhotos" instance=ExtResource("1_ktg6f")]
+script = ExtResource("2_am3lx")
+corresponding_items = Array[String](["06_journal_1", "06_journal_2", "06_journal_3"])
+corresponding_item = "06_journal"
+
+[node name="Page2" type="TextureRect" parent="Holder" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -400.0
+offset_right = 300.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_2073b")
+script = ExtResource("3_mt8ss")
+corresponding_item = "06_family_photos"
+
+[node name="Label" type="Label" parent="Holder/Page2" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.1667
+offset_right = 20.0
+offset_bottom = 11.1667
+grow_horizontal = 2
+grow_vertical = 2
+text = "A couple pictures of Martin's family."
+label_settings = SubResource("LabelSettings_ixrrh")

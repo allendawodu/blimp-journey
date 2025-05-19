@@ -1,0 +1,171 @@
+label opening
+npc: mr. director! there's something urgent you NEED to see!!!
+03_director: what is it? bring it here now!
+# the scientist walks over to his desk and shows him the journal notes.
+[signal arg="run_scientist_1"]
+03_director: this can't possibly be true. what are we going to do?\
+get me desmond immediately!!
+# the scientist runs out of the room and comes back with research director desmond.
+[signal arg="run_scientist_2"]
+[signal arg="run_desmond_1"]
+03_director: desmond!! are you aware of the situation?\
+please tell me you have some kind of brilliant solution already whipped up!
+[signal arg="emote_proud_desmond"]
+03_researcher: actually, i do. i propose that good should hold a blimp building competition.\
+the goal is to find brave, dedicated explorers to leave this place and search for our next home.
+[signal arg="emote_confused_theo"]
+03_director: i'm sorry, you want to, erm… leave the groundlands?\
+what has gotten into you lately, desmond!\
+this is not the kind of behavior or rationale expected of our amazing research director.
+03_researcher: i know it's a stretch, but you have to believe me.\
+our research is slowing down at an alarming rate.\
+we are going to run out of resources and options to explore regardless,\
+and this new threat only increases the urgency to explore other lands!\
+what else can we do…
+03_director: what else can we do?!
+[signal arg="emote_angry_theo"]
+03_director: GET YOUR TEAM WORKING ON A SOLUTION, PRONTO!!\
+according to that scientist fellow, we only have so many years before this thing obliterates our entire home,\
+everything we have ever known and all the people we love... and you want to leave!
+03_researcher: you know what i meant when i said we have to leave the- nevermind.
+# desmond walks out of the office.
+[signal arg="run_desmond_2"]
+03_director: stop! wait! where are you going!
+03_researcher: well, i'm going to have my team prepare for a blimp building competition.
+[end_timeline]
+
+label travesty
+[signal arg="emote_travesty_theo"]
+03_director: what are we going to do!\
+please tell me you already have some magical solution whipped up right?\
+isn't that what you guys do???
+npc: sir, i'm just a scientist. i never said i was god.
+03_director: remind me to have you fired later.\
+just take me to the spot already!!!
+[end_timeline]
+
+label desmond
+03_researcher: ah, hello! you're a contestant in the competition, yes?\
+did you have a question about the rules or something?
+player: uh, the engine you gave me doesn't work.
+03_researcher: [laughing] that's funny, but don't joke like that.
+player: it blew up during my test flight.
+03_researcher: WHAT?! impossible!\
+i know i only had them produced in a day, but my design should have been flawless.\
+[pause, growing angry] i know... it must have been theodore and his team!!\
+they sabotaged our engines because he's too scared to travel outside of the groundlands!!\
+he thinks that everyone should just stay here their whole lives and never see the world, but he doesn't know anything!!\
+hmph. seems i need to go give him a piece of my mind!!!!! follow me!\
+and bring the engine!!
+# 03_desmond rushes out, the player following. they leave the GOOD building, heading right.
+# at an area blocked by scientists, 03_desmond demands passage to speak to 03_theo.
+[end_timeline]
+
+label blame
+npc: uh, sir, it's kind of dangerous to go past this point.\
+we really don't think you shou-
+03_researcher: OUT OF MY WAY!!! WHERE IS THEODORE!!?
+# 03_desmond barges past the guards, with the player following. in the next area, scientists surround a medium-sized lava pool. 03_theo stands near the pool, talking to a scientist.
+03_researcher: THEODOOOOOORE!!!
+# 03_theo and the scientists turn toward the shouting. 03_desmond storms in, red-faced, with the player behind him.
+03_researcher: theodore!!! i know you sabotaged my engines!\
+my designs are flawless, so this malfunction has your name all over it!\
+you've always opposed my plans to leave the groundlands, so just admit it already!!
+# the scientists look at each other in confusion, question marks above their heads.
+03_director: [speechless] desmond, my oh my...\
+i can't believe you would accuse me of such an act!!\
+yes, it’s true that i do not support your silly plan to leave the groundlands.\
+it doesn’t even make sense!\
+we have everything we need right here at home.\
+what is the point of doing all that work to go anywhere else?\
+why you must have such disdain for our wonderful home, i will never understand.
+03_researcher: there’s just no winning with you!!\
+hmph. fine then, be that way.\
+i guess we’ll just sit around playing with our thumbs for the next 30 years until this volcano blows up and wipes us all out!!
+player: can’t we all just get along?
+03_director: no!!!
+03_researcher: what he said!!! hmph.
+player: i can’t believe two directors of GOOD would act like this.
+[end_timeline]
+# after bickering like kids, 03_theo and 03_desmond refuse to hear each other out further. the scientists are worried and confused. the player decides to speak to both individually, gathering their sides and testimonies from scientists nearby.
+
+label theo_pov
+03_director: like i said, i simply don’t see the point in leaving.\
+we do have everything we need right here at home!\
+what could possibly be out there, past those scary and dangerous mountains, that could be worth so much time and energy?\
+building a whole fleet of blimps and ships and whatever crazy machines that lunatic comes up with?\
+i just don’t get it.\
+we already have so many amazing scientists here now working on solutions to this... thing... whatever it is.\
+they’ll save us soon. nothing has to change!! we have 20 years!
+[end_timeline]
+
+label desmond_pov
+03_researcher: like i said, i’ve been trying to get out of this place forever.\
+theodore has never been receptive to my ideas, and at some point, i just got tired of it.\
+he’s so scared of doing or trying anything new that it cripples him and he can’t see it’s holding him back.\
+it’s hard being the only person who wants to do something different here.\
+this lava pit thing gave me the perfect reason!\
+why wouldn’t i jump at the opportunity?!
+[end_timeline]
+# scientists share personal opinions, alignments, and scientific testimonies. the player speaks to both directors to engage their final dialogues.
+
+label scientist_for_1
+npc: measurements at the edges of the "mountains" show that the Groundlands have actually been "sinking" towards the pit of the volcano.
+[end_timeline]
+
+label scientist_for_2
+npc: measurements at the edges of the "mountains" show that the Groundlands have actually been "sinking" towards the pit of the volcano.
+[end_timeline]
+
+label scientist_for_3
+npc: measurements at the edges of the "mountains" show that the Groundlands have actually been "sinking" towards the pit of the volcano.
+[end_timeline]
+
+label scientist_for_4
+npc: measurements at the edges of the "mountains" show that the Groundlands have actually been "sinking" towards the pit of the volcano.
+[end_timeline]
+
+label scientist_against_1
+npc: measurements at the edges of the "mountains" show that the Groundlands have actually been "sinking" towards the pit of the volcano.
+[end_timeline]
+
+label scientist_against_2
+npc: measurements at the edges of the "mountains" show that the Groundlands have actually been "sinking" towards the pit of the volcano.
+[end_timeline]
+
+label scientist_against_3
+npc: measurements at the edges of the "mountains" show that the Groundlands have actually been "sinking" towards the pit of the volcano.
+[end_timeline]
+
+label scientist_against_4
+npc: measurements at the edges of the "mountains" show that the Groundlands have actually been "sinking" towards the pit of the volcano.
+[end_timeline]
+
+label reunion
+player: i think i know of a way you can both be satisfied.
+03_researcher: hah. that’s impossible.
+03_director: yeah, no way.
+player: just... hear me out.\
+from what i can tell, theodore doesn’t want anyone to leave the groundlands because it’s safer to stay here, even though it might hold back research.\
+desmond wants to explore outside the groundlands because nobody knows what’s out there, and it might change our lives for the better.\
+scientists think we can do both.\
+the solution is obvious- we have to work together, or none of us are getting anywhere!
+03_researcher: as much as i don’t want to admit it... you’re right.\
+[turning to 03_theo] i wish you’d give my ideas more of a chance.\
+i know it’s risky, but how will we know if we never try?\
+you can’t tell me you’ve never wondered what’s beyond those mountains...?
+03_director: [grumbling] mmm... maybe i have, but i have no desire to know.\
+i still think it’s better to prioritize safety over regrets later.\
+however... if it’s truly for the good of the groundlands, i won’t stop you.\
+i am sorry for not giving you the chance you deserve.\
+i’m open to exploring ways we can both achieve our goals and make this place better for everyone.
+player: see, that wasn’t so hard, right?
+03_director: hah, i guess not.\
+sometimes change is inevitable. fighting against it only cripples you.
+03_researcher: sounds like a plan, theodore.\
+[to player] do you still have that faulty engine? give it here, and i’ll fix it.
+# the player gives the engine to 03_desmond. he repairs it, giving the player a Repaired Blimp Engine.
+03_researcher: i’ll get to work.\
+theodore, i’ll draft plans for exploration machines and analysis tools for your team.\
+i hope to see you at the competition wrap-up tomorrow!
+[end_timeline]

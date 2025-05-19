@@ -1,0 +1,13 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+builds/
+.vscode/
+.env*
+*.dll
+dev/
+.firebase/
+*.log
+addons/resources_spreadsheet_view/saved_state.json
+.cursorignore
+functions/

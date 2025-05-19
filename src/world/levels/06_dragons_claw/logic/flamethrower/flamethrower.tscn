@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1xqib2gmsk5g"]
+
+[ext_resource type="PackedScene" uid="uid://cb00ani75ws6o" path="res://src/world/levels/06_dragons_claw/logic/flamethrower/flame.tscn" id="1_2yowg"]
+[ext_resource type="Script" uid="uid://e04rn53xenhi" path="res://src/world/levels/06_dragons_claw/logic/toggle_state_obstacle.gd" id="2_3vdcu"]
+[ext_resource type="Texture2D" uid="uid://cd22vkyoe1n0r" path="res://src/world/levels/06_dragons_claw/logic/flamethrower/wall_support.svg" id="3_jsq67"]
+[ext_resource type="Texture2D" uid="uid://dnungcd3g57m4" path="res://src/world/levels/06_dragons_claw/logic/flamethrower/dragon_head.svg" id="4_wmtal"]
+
+[node name="Flamethrower" type="Polygon2D"]
+position = Vector2(1644, -989)
+color = Color(0.908315, 0.35256, 0.199778, 0)
+polygon = PackedVector2Array(-95, -69, -122, -14, -161, 43, -152, 92, -105, 50, -71, 11, -46, 28, -54, 82, -90, 120, -42, 129, 9, 84, 20, 26, 94, 31, 101, -97, -33, -93)
+
+[node name="Flame" parent="." instance=ExtResource("1_2yowg")]
+script = ExtResource("2_3vdcu")
+
+[node name="WallSupport" type="Sprite2D" parent="."]
+position = Vector2(79, -8)
+texture = ExtResource("3_jsq67")
+
+[node name="StatueHead" type="Sprite2D" parent="WallSupport"]
+position = Vector2(0, -2.99998)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("4_wmtal")
+offset = Vector2(81, -5)

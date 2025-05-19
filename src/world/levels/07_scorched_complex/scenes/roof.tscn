@@ -1,0 +1,407 @@
+[gd_scene load_steps=46 format=4 uid="uid://rymc78b2l50i"]
+
+[ext_resource type="PackedScene" uid="uid://dwapdsx6u217o" path="res://src/world/common/scene/scene.tscn" id="1_4o5ft"]
+[ext_resource type="Script" uid="uid://dv4jeqfix7kg4" path="res://src/world/levels/07_scorched_complex/logic/final_fight/health_bar.gd" id="2_ebdqo"]
+[ext_resource type="PackedScene" uid="uid://tem7qe8rdwgl" path="res://src/character/styles/base/eye_l_base.tscn" id="2_gya61"]
+[ext_resource type="PackedScene" uid="uid://b5nv4hta6iqmd" path="res://src/world/levels/07_scorched_complex/logic/stealth/game_over/death_by_flying_ghost.tscn" id="2_ktcp7"]
+[ext_resource type="PackedScene" uid="uid://dg4nsmqypirbw" path="res://src/world/levels/07_scorched_complex/menus/instructions/water_pack_instructions.tscn" id="2_qyya8"]
+[ext_resource type="PackedScene" uid="uid://dysk1dgxe6ain" path="res://src/world/levels/07_scorched_complex/logic/stealth/game_over/death_by_falling.tscn" id="3_6xgp1"]
+[ext_resource type="PackedScene" uid="uid://deqdhg7d7px4r" path="res://src/character/styles/base/eye_r_base.tscn" id="3_uxyob"]
+[ext_resource type="PackedScene" uid="uid://dfj53lpxv6wc8" path="res://src/character/styles/base/hand_l_base.tscn" id="4_g8oik"]
+[ext_resource type="PackedScene" uid="uid://c4qqlg68xrjw2" path="res://src/world/levels/07_scorched_complex/logic/stealth/game_over/death_by_walking_ghost.tscn" id="4_gudhg"]
+[ext_resource type="PackedScene" uid="uid://c7xsd06q4xeea" path="res://src/character/styles/base/hand_r_base.tscn" id="5_2qs5w"]
+[ext_resource type="PackedScene" uid="uid://c2shfbqjh0prj" path="res://src/world/levels/07_scorched_complex/logic/stealth/game_over/game_over.tscn" id="6_77l2r"]
+[ext_resource type="PackedScene" uid="uid://ddnpfatnhpbjs" path="res://src/character/styles/base/head_base.tscn" id="6_83jvf"]
+[ext_resource type="Script" uid="uid://c8w0je4d1aqr3" path="res://src/world/levels/07_scorched_complex/logic/final_fight/player.gd" id="6_t3juj"]
+[ext_resource type="PackedScene" uid="uid://bh6o0ivr6eucq" path="res://src/character/styles/base/leg_l_base.tscn" id="7_sx7fd"]
+[ext_resource type="Script" uid="uid://ddf3nqc282ygg" path="res://src/world/levels/07_scorched_complex/logic/final_fight/enemies_left_bar.gd" id="8_35g1j"]
+[ext_resource type="FontFile" uid="uid://d01bkxkrxln5h" path="res://src/ui/fonts/boogaloo/Boogaloo-Regular.ttf" id="8_jqr0y"]
+[ext_resource type="PackedScene" uid="uid://655nh84fdgg4" path="res://src/character/styles/base/leg_r_base.tscn" id="8_tlmsa"]
+[ext_resource type="Script" uid="uid://cdimjpeol4y3a" path="res://src/systems/health_component.gd" id="9_77l2r"]
+[ext_resource type="PackedScene" uid="uid://b6mdjdj6t27lt" path="res://src/character/styles/base/pupil_l_base.tscn" id="9_h3lqv"]
+[ext_resource type="PackedScene" uid="uid://dn3ytutkepvws" path="res://src/character/styles/base/pupil_r_base.tscn" id="10_cdili"]
+[ext_resource type="Script" uid="uid://ekgsgj4smvbr" path="res://src/character/common/style/style.gd" id="11_f0muo"]
+[ext_resource type="PackedScene" uid="uid://ccslu0b12mtfa" path="res://src/character/styles/base/torso_base.tscn" id="12_lwfr2"]
+[ext_resource type="PackedScene" uid="uid://cgkvddl3qycs1" path="res://src/world/levels/07_scorched_complex/logic/phone/phone.tscn" id="13_2qs5w"]
+[ext_resource type="PackedScene" uid="uid://bouurhlfluqfj" path="res://src/character/npc/npc.tscn" id="13_g8oik"]
+[ext_resource type="Script" uid="uid://h51b74w6ojmo" path="res://src/systems/interactables/interactable_dialogue.gd" id="14_2qs5w"]
+[ext_resource type="Script" uid="uid://b1v0738dkl5jg" path="res://src/systems/swapper.gd" id="14_38uqn"]
+[ext_resource type="PackedScene" uid="uid://g3n4ubd0hrps" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water_pack.tscn" id="14_llbks"]
+[ext_resource type="Texture2D" uid="uid://dt65i0q0rub7y" path="res://src/world/levels/07_scorched_complex/assets/main_street/window_small.png" id="15_cdili"]
+[ext_resource type="Resource" uid="uid://cyx2lef15qr70" path="res://src/world/levels/07_scorched_complex/dialogue/apartment.dtl" id="17_h3lqv"]
+[ext_resource type="PackedScene" uid="uid://xn8dsefh5yvv" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_walking/ghost.tscn" id="18_sx7fd"]
+[ext_resource type="Script" uid="uid://brw3qxymvneca" path="res://src/systems/interactables/interactable_scene_switch.gd" id="19_f0muo"]
+[ext_resource type="Script" uid="uid://dskllavlmaoc5" path="res://src/world/levels/07_scorched_complex/logic/stealth/game_over/fall_zone.gd" id="19_gudhg"]
+[ext_resource type="PackedScene" uid="uid://bo3qq8tjs8ggv" path="res://src/world/levels/07_scorched_complex/logic/stealth/player_visibility/player_visibility.tscn" id="19_tlmsa"]
+[ext_resource type="PackedScene" uid="uid://cdkf8i0ck5o81" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_bounds/ghost_bounds.tscn" id="20_h3lqv"]
+[ext_resource type="PackedScene" uid="uid://bk8vwgiuph1tv" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water_tank_refill.tscn" id="20_llbks"]
+[ext_resource type="Script" uid="uid://d210dqfc7xd5w" path="res://src/world/levels/07_scorched_complex/logic/final_fight/ghost_counter.gd" id="20_lus7i"]
+[ext_resource type="PackedScene" uid="uid://cs6rnogmyi5k8" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/ghost_flying.tscn" id="21_lwfr2"]
+[ext_resource type="AudioStream" uid="uid://cogdcauanjn2s" path="res://src/world/levels/07_scorched_complex/assets/audio/highway.ogg" id="24_rb4s0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctxl3"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rc6g8"]
+bg_color = Color(0.928217, 0.395937, 0.49719, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pvika"]
+normal = Vector2(0, 1)
+
+[sub_resource type="Resource" id="Resource_sx7fd"]
+resource_local_to_scene = true
+script = ExtResource("11_f0muo")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_83jvf")
+eye_r = ExtResource("3_uxyob")
+eye_l = ExtResource("2_gya61")
+pupil_r = ExtResource("10_cdili")
+pupil_l = ExtResource("9_h3lqv")
+torso = ExtResource("12_lwfr2")
+hand_r = ExtResource("5_2qs5w")
+hand_l = ExtResource("4_g8oik")
+leg_r = ExtResource("8_tlmsa")
+leg_l = ExtResource("7_sx7fd")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="Resource" id="Resource_g8oik"]
+resource_local_to_scene = true
+script = ExtResource("11_f0muo")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_83jvf")
+eye_r = ExtResource("3_uxyob")
+eye_l = ExtResource("2_gya61")
+pupil_r = ExtResource("10_cdili")
+pupil_l = ExtResource("9_h3lqv")
+torso = ExtResource("12_lwfr2")
+hand_r = ExtResource("5_2qs5w")
+hand_l = ExtResource("4_g8oik")
+leg_r = ExtResource("8_tlmsa")
+leg_l = ExtResource("7_sx7fd")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="Resource" id="Resource_2qs5w"]
+resource_local_to_scene = true
+script = ExtResource("11_f0muo")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_83jvf")
+eye_r = ExtResource("3_uxyob")
+eye_l = ExtResource("2_gya61")
+pupil_r = ExtResource("10_cdili")
+pupil_l = ExtResource("9_h3lqv")
+torso = ExtResource("12_lwfr2")
+hand_r = ExtResource("5_2qs5w")
+hand_l = ExtResource("4_g8oik")
+leg_r = ExtResource("8_tlmsa")
+leg_l = ExtResource("7_sx7fd")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lus7i"]
+size = Vector2(272, 216)
+
+[node name="Roof" instance=ExtResource("1_4o5ft")]
+scene_name = "roof"
+
+[node name="HealthBar" type="ProgressBar" parent="UI" index="0"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = 32.0
+offset_right = -128.0
+offset_bottom = 387.0
+grow_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_ctxl3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rc6g8")
+fill_mode = 3
+script = ExtResource("2_ebdqo")
+
+[node name="WaterPackInstructions" parent="UI" index="1" instance=ExtResource("2_qyya8")]
+
+[node name="DeathByFlyingGhost" parent="UI" index="2" instance=ExtResource("2_ktcp7")]
+visible = false
+
+[node name="DeathByWalkingGhost" parent="UI" index="3" instance=ExtResource("4_gudhg")]
+visible = false
+
+[node name="DeathByFalling" parent="UI" index="4" instance=ExtResource("3_6xgp1")]
+visible = false
+
+[node name="GameOver" parent="UI" index="5" instance=ExtResource("6_77l2r")]
+visible = false
+
+[node name="EnemiesRemainingLabel" type="Label" parent="UI" index="6"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -106.5
+offset_top = 32.0
+offset_right = 106.5
+offset_bottom = 70.6667
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_jqr0y")
+theme_override_font_sizes/font_size = 32
+text = "XX ENEMIES LEFT!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_35g1j")
+
+[node name="Player" parent="." index="1"]
+script = ExtResource("6_t3juj")
+style = null
+
+[node name="Phone" parent="Player" index="12" instance=ExtResource("13_2qs5w")]
+
+[node name="WaterPack" parent="Player" index="13" instance=ExtResource("14_llbks")]
+
+[node name="HealthComponent" type="Node" parent="Player" index="15" node_paths=PackedStringArray("target")]
+script = ExtResource("9_77l2r")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cdimjpeol4y3a"
+
+[node name="Environment" parent="." index="3"]
+modulate = Color(0.466181, 0.466181, 0.466181, 1)
+
+[node name="Midground" type="Parallax2D" parent="Environment" index="0"]
+
+[node name="WindowSmall" type="Sprite2D" parent="Environment/Midground" index="0"]
+position = Vector2(-2, -127)
+texture = ExtResource("15_cdili")
+
+[node name="PlatformLayer" parent="." index="4"]
+tile_map_data = PackedByteArray("AADw/wAAAAAAAAAAAQDx/wAAAAAAAAAAAQDy/wAAAAAAAAAAAQDz/wAAAAAAAAAAAQD3/wAAAAAAAAAAAQD4/wAAAAAAAAAAAQD5/wAAAAAAAAAAAQD6/wAAAAAAAAAAAQD+/wAAAAAAAAAAAQD//wAAAAAAAAAAAQAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAQAMAAAAAAAAAAAAAQANAAAAAAAAAAAAAQAOAAAAAAAAAAAAAQAPAAAAAAAAAAAAAQD+//n/AAAAAAAAAQD///n/AAAAAAAAAQAAAPn/AAAAAAAAAQABAPn/AAAAAAAAAQD6//n/AAAAAAAAAQD5//n/AAAAAAAAAQD4//n/AAAAAAAAAQD3//n/AAAAAAAAAQDz//n/AAAAAAAAAQDy//n/AAAAAAAAAQDx//n/AAAAAAAAAQDw//n/AAAAAAAAAQAFAPn/AAAAAAAAAQAGAPn/AAAAAAAAAQAHAPn/AAAAAAAAAQAIAPn/AAAAAAAAAQAMAPn/AAAAAAAAAQANAPn/AAAAAAAAAQAOAPn/AAAAAAAAAQAPAPn/AAAAAAAAAQDw//L/AAAAAAAAAQDx//L/AAAAAAAAAQDy//L/AAAAAAAAAQDz//L/AAAAAAAAAQD3//L/AAAAAAAAAQD4//L/AAAAAAAAAQD5//L/AAAAAAAAAQD6//L/AAAAAAAAAQD+//L/AAAAAAAAAQD///L/AAAAAAAAAQAAAPL/AAAAAAAAAQABAPL/AAAAAAAAAQAFAPL/AAAAAAAAAQAGAPL/AAAAAAAAAQAHAPL/AAAAAAAAAQAIAPL/AAAAAAAAAQAMAPL/AAAAAAAAAQANAPL/AAAAAAAAAQAOAPL/AAAAAAAAAQAPAPL/AAAAAAAAAQAFAAAAAAAAAAAAAQAGAAAAAAAAAAAAAQAHAAAAAAAAAAAAAQAIAAAAAAAAAAAAAQDw/+v/AAAAAAAAAQDx/+v/AAAAAAAAAQDy/+v/AAAAAAAAAQD3/+v/AAAAAAAAAQD4/+v/AAAAAAAAAQD5/+v/AAAAAAAAAQD+/+v/AAAAAAAAAQD//+v/AAAAAAAAAQAAAOv/AAAAAAAAAQAFAOv/AAAAAAAAAQAGAOv/AAAAAAAAAQAHAOv/AAAAAAAAAQAMAOv/AAAAAAAAAQANAOv/AAAAAAAAAQAOAOv/AAAAAAAAAQDz/+v/AAAAAAAAAQD6/+v/AAAAAAAAAQABAOv/AAAAAAAAAQAIAOv/AAAAAAAAAQAPAOv/AAAAAAAAAQDw/+T/AAAAAAAAAQDx/+T/AAAAAAAAAQDy/+T/AAAAAAAAAQDz/+T/AAAAAAAAAQD3/+T/AAAAAAAAAQD4/+T/AAAAAAAAAQD5/+T/AAAAAAAAAQD6/+T/AAAAAAAAAQD+/+T/AAAAAAAAAQD//+T/AAAAAAAAAQAAAOT/AAAAAAAAAQABAOT/AAAAAAAAAQAFAOT/AAAAAAAAAQAGAOT/AAAAAAAAAQAHAOT/AAAAAAAAAQAIAOT/AAAAAAAAAQAMAOT/AAAAAAAAAQANAOT/AAAAAAAAAQAOAOT/AAAAAAAAAQAPAOT/AAAAAAAAAQDw/93/AAAAAAAAAQDx/93/AAAAAAAAAQDy/93/AAAAAAAAAQDz/93/AAAAAAAAAQD3/93/AAAAAAAAAQD4/93/AAAAAAAAAQD5/93/AAAAAAAAAQD6/93/AAAAAAAAAQD+/93/AAAAAAAAAQD//93/AAAAAAAAAQAAAN3/AAAAAAAAAQABAN3/AAAAAAAAAQAFAN3/AAAAAAAAAQAGAN3/AAAAAAAAAQAHAN3/AAAAAAAAAQAIAN3/AAAAAAAAAQAMAN3/AAAAAAAAAQANAN3/AAAAAAAAAQAOAN3/AAAAAAAAAQAPAN3/AAAAAAAAAQDw/9b/AAAAAAAAAQDx/9b/AAAAAAAAAQDy/9b/AAAAAAAAAQDz/9b/AAAAAAAAAQD3/9b/AAAAAAAAAQD4/9b/AAAAAAAAAQD5/9b/AAAAAAAAAQD6/9b/AAAAAAAAAQD+/9b/AAAAAAAAAQD//9b/AAAAAAAAAQAAANb/AAAAAAAAAQABANb/AAAAAAAAAQAFANb/AAAAAAAAAQAGANb/AAAAAAAAAQAHANb/AAAAAAAAAQAIANb/AAAAAAAAAQAMANb/AAAAAAAAAQANANb/AAAAAAAAAQAOANb/AAAAAAAAAQAPANb/AAAAAAAAAQD0/9b/AAAAAAAAAQD1/9b/AAAAAAAAAQD2/9b/AAAAAAAAAQD7/9b/AAAAAAAAAQD8/9b/AAAAAAAAAQD9/9b/AAAAAAAAAQACANb/AAAAAAAAAQADANb/AAAAAAAAAQAEANb/AAAAAAAAAQAJANb/AAAAAAAAAQAKANb/AAAAAAAAAQALANb/AAAAAAAAAQD7/wAAAAAAAAAAAQD8/wAAAAAAAAAAAQD9/wAAAAAAAAAAAQACAAAAAAAAAAAAAQADAAAAAAAAAAAAAQAEAAAAAAAAAAAAAQD7//n/AAAAAAAAAQD8//n/AAAAAAAAAQD9//n/AAAAAAAAAQACAPn/AAAAAAAAAQADAPn/AAAAAAAAAQAEAPn/AAAAAAAAAQD7//L/AAAAAAAAAQD8//L/AAAAAAAAAQD9//L/AAAAAAAAAQACAPL/AAAAAAAAAQADAPL/AAAAAAAAAQAEAPL/AAAAAAAAAQD7/+v/AAAAAAAAAQD8/+v/AAAAAAAAAQD9/+v/AAAAAAAAAQACAOv/AAAAAAAAAQADAOv/AAAAAAAAAQAEAOv/AAAAAAAAAQD7/+T/AAAAAAAAAQD8/+T/AAAAAAAAAQD9/+T/AAAAAAAAAQACAOT/AAAAAAAAAQADAOT/AAAAAAAAAQAEAOT/AAAAAAAAAQD7/93/AAAAAAAAAQD8/93/AAAAAAAAAQD9/93/AAAAAAAAAQACAN3/AAAAAAAAAQADAN3/AAAAAAAAAQAEAN3/AAAAAAAAAQA=")
+
+[node name="KillZone" parent="." index="8"]
+visible = false
+
+[node name="CollisionShape2D" parent="KillZone" index="0"]
+disabled = true
+
+[node name="FallZone" type="Area2D" parent="." index="9"]
+position = Vector2(0, 1418)
+rotation = 3.14159
+collision_layer = 2
+input_pickable = false
+script = ExtResource("19_gudhg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone" index="0"]
+shape = SubResource("WorldBoundaryShape2D_pvika")
+
+[node name="Swapper" type="Node2D" parent="Interactables" index="0" node_paths=PackedStringArray("subscenes")]
+script = ExtResource("14_38uqn")
+subscenes = {
+NodePath("Window"): "07_started",
+NodePath("Window2"): "07_finished"
+}
+
+[node name="Window" type="Node2D" parent="Interactables/Swapper" index="0"]
+
+[node name="Window2" type="Node2D" parent="Interactables/Swapper" index="1"]
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="Interactables/Swapper/Window2" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("19_f0muo")
+scene_name = "bathroom"
+position_in_new_scene = Vector2(316, 0)
+target = NodePath("..")
+metadata/_custom_type_script = "uid://brw3qxymvneca"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Swapper/Window2/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-103, -3, -103, -277, 108, -274, 106, -3)
+
+[node name="Urbexers" type="Node2D" parent="Interactables" index="1"]
+position = Vector2(-605, -2691)
+
+[node name="Tomasz" parent="Interactables/Urbexers" index="0" instance=ExtResource("13_g8oik")]
+position = Vector2(-363, -10)
+wander_distance_max = 0.0
+style = SubResource("Resource_sx7fd")
+
+[node name="Urbexer1" parent="Interactables/Urbexers" index="1" instance=ExtResource("13_g8oik")]
+position = Vector2(-262, -10)
+wander_distance_max = 0.0
+style = SubResource("Resource_g8oik")
+
+[node name="Urbexer2" parent="Interactables/Urbexers" index="2" instance=ExtResource("13_g8oik")]
+position = Vector2(-162, -10)
+wander_distance_max = 0.0
+style = SubResource("Resource_2qs5w")
+
+[node name="InteractableDialogue" type="Area2D" parent="Interactables/Urbexers" index="3" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("14_2qs5w")
+timeline = ExtResource("17_h3lqv")
+labels = Dictionary[String, String]({
+"07_final_fight_completed": "roof",
+"07_started": "save_us"
+})
+text_bubble_markers = Array[NodePath]([NodePath("../Tomasz/TextBubbleMarker")])
+target = NodePath("..")
+prompt_offset = Vector2(-340, -256)
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Urbexers/InteractableDialogue" index="0"]
+position = Vector2(-265, -108)
+shape = SubResource("RectangleShape2D_lus7i")
+
+[node name="Refills" type="Node2D" parent="." index="11"]
+
+[node name="WaterTankRefill" parent="Refills" index="0" instance=ExtResource("20_llbks")]
+position = Vector2(-902, -464)
+
+[node name="WaterTankRefill2" parent="Refills" index="1" instance=ExtResource("20_llbks")]
+position = Vector2(890, -1817)
+
+[node name="Ghosts" type="Node2D" parent="." index="12"]
+unique_name_in_owner = true
+script = ExtResource("20_lus7i")
+
+[node name="GhostFlying" parent="Ghosts" index="0" instance=ExtResource("21_lwfr2")]
+position = Vector2(-1126, -310)
+
+[node name="GhostFlying2" parent="Ghosts" index="1" instance=ExtResource("21_lwfr2")]
+position = Vector2(-1296, -2107)
+
+[node name="GhostFlying3" parent="Ghosts" index="2" instance=ExtResource("21_lwfr2")]
+position = Vector2(-1850, -1260)
+
+[node name="GhostFlying4" parent="Ghosts" index="3" instance=ExtResource("21_lwfr2")]
+position = Vector2(762, -319)
+
+[node name="GhostFlying5" parent="Ghosts" index="4" instance=ExtResource("21_lwfr2")]
+position = Vector2(592, -2116)
+
+[node name="GhostFlying6" parent="Ghosts" index="5" instance=ExtResource("21_lwfr2")]
+position = Vector2(38, -1269)
+
+[node name="GhostFlying7" parent="Ghosts" index="6" instance=ExtResource("21_lwfr2")]
+position = Vector2(-662, -317)
+
+[node name="GhostFlying8" parent="Ghosts" index="7" instance=ExtResource("21_lwfr2")]
+position = Vector2(-832, -2114)
+
+[node name="GhostFlying9" parent="Ghosts" index="8" instance=ExtResource("21_lwfr2")]
+position = Vector2(-1386, -1267)
+
+[node name="GhostFlying10" parent="Ghosts" index="9" instance=ExtResource("21_lwfr2")]
+position = Vector2(1226, -326)
+
+[node name="GhostFlying11" parent="Ghosts" index="10" instance=ExtResource("21_lwfr2")]
+position = Vector2(1056, -2123)
+
+[node name="GhostFlying12" parent="Ghosts" index="11" instance=ExtResource("21_lwfr2")]
+position = Vector2(502, -1276)
+
+[node name="GhostFlying13" parent="Ghosts" index="12" instance=ExtResource("21_lwfr2")]
+position = Vector2(-1281, -776)
+
+[node name="GhostFlying14" parent="Ghosts" index="13" instance=ExtResource("21_lwfr2")]
+position = Vector2(-1451, -2573)
+
+[node name="GhostFlying15" parent="Ghosts" index="14" instance=ExtResource("21_lwfr2")]
+position = Vector2(-2005, -1726)
+
+[node name="GhostFlying16" parent="Ghosts" index="15" instance=ExtResource("21_lwfr2")]
+position = Vector2(607, -785)
+
+[node name="GhostFlying17" parent="Ghosts" index="16" instance=ExtResource("21_lwfr2")]
+position = Vector2(437, -2582)
+
+[node name="GhostFlying18" parent="Ghosts" index="17" instance=ExtResource("21_lwfr2")]
+position = Vector2(-117, -1735)
+
+[node name="GhostFlying19" parent="Ghosts" index="18" instance=ExtResource("21_lwfr2")]
+position = Vector2(-1273, 217)
+
+[node name="GhostFlying20" parent="Ghosts" index="19" instance=ExtResource("21_lwfr2")]
+position = Vector2(-1443, -1580)
+
+[node name="GhostFlying21" parent="Ghosts" index="20" instance=ExtResource("21_lwfr2")]
+position = Vector2(-1997, -733)
+
+[node name="GhostFlying22" parent="Ghosts" index="21" instance=ExtResource("21_lwfr2")]
+position = Vector2(615, 208)
+
+[node name="GhostFlying23" parent="Ghosts" index="22" instance=ExtResource("21_lwfr2")]
+position = Vector2(445, -1589)
+
+[node name="GhostFlying24" parent="Ghosts" index="23" instance=ExtResource("21_lwfr2")]
+position = Vector2(-109, -742)
+
+[node name="GhostFlying25" parent="Ghosts" index="24" instance=ExtResource("21_lwfr2")]
+position = Vector2(-879, -59)
+
+[node name="GhostFlying26" parent="Ghosts" index="25" instance=ExtResource("21_lwfr2")]
+position = Vector2(-1049, -1856)
+
+[node name="GhostFlying27" parent="Ghosts" index="26" instance=ExtResource("21_lwfr2")]
+position = Vector2(-1603, -1009)
+
+[node name="GhostFlying28" parent="Ghosts" index="27" instance=ExtResource("21_lwfr2")]
+position = Vector2(1009, -68)
+
+[node name="GhostFlying29" parent="Ghosts" index="28" instance=ExtResource("21_lwfr2")]
+position = Vector2(839, -1865)
+
+[node name="GhostFlying30" parent="Ghosts" index="29" instance=ExtResource("21_lwfr2")]
+position = Vector2(285, -1018)
+
+[node name="GhostWalking" parent="Ghosts" index="30" instance=ExtResource("18_sx7fd")]
+position = Vector2(-272, -2688)
+
+[node name="GhostWalking2" parent="Ghosts" index="31" instance=ExtResource("18_sx7fd")]
+position = Vector2(500, -2688)
+walk_time = 4.0
+
+[node name="PlayerVisibility" parent="." index="13" instance=ExtResource("19_tlmsa")]
+unique_name_in_owner = true
+
+[node name="CrouchHidden" parent="PlayerVisibility" index="0"]
+visible = false
+
+[node name="CollisionPolygon2D" parent="PlayerVisibility/CrouchHidden" index="0"]
+disabled = true
+
+[node name="CollisionPolygon2D" parent="PlayerVisibility/Hidden" index="0"]
+polygon = PackedVector2Array(-106, -3, -106, -283, 102, -286, 107, -5)
+
+[node name="GhostBounds" parent="." index="14" instance=ExtResource("20_h3lqv")]
+
+[node name="RightCollisionShape2D" parent="GhostBounds" index="0"]
+position = Vector2(2320.5, -2008.5)
+
+[node name="LeftCollisionShape2D" parent="GhostBounds" index="1"]
+position = Vector2(-2225, -1418)
+
+[node name="HighwayAmbiance" type="AudioStreamPlayer" parent="." index="15"]
+process_mode = 3
+stream = ExtResource("24_rb4s0")
+autoplay = true
+bus = &"Music"
+
+[editable path="PlayerVisibility"]
+[editable path="GhostBounds"]

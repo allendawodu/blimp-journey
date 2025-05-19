@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://fxdn3joxkml"]
+
+[ext_resource type="Script" uid="uid://7l62n0arb2sl" path="res://src/world/levels/02_reality_tv/menus/tabloid/page_button.gd" id="1_u6pb7"]
+
+[node name="PageButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+focus_mode = 0
+flat = true
+script = ExtResource("1_u6pb7")

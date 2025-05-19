@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg4nsmqypirbw"]
+
+[ext_resource type="PackedScene" uid="uid://cbs4h5pudt2yp" path="res://src/ui/instructions_menu/instructions_menu.tscn" id="1_28pae"]
+[ext_resource type="Script" uid="uid://ba2kiaanfx45y" path="res://src/world/levels/07_scorched_complex/menus/instructions/popup_instructions.gd" id="2_hybk3"]
+
+[node name="WaterPackInstructions" instance=ExtResource("1_28pae")]
+script = ExtResource("2_hybk3")
+event_name = "07_water_pack_instructions_shown"
+
+[node name="TitleLabel" parent="PanelContainer/MarginContainer/VBoxContainer" index="1"]
+text = "Save the Explorers"
+
+[node name="BodyLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(800, 64)
+text = "Use [SPACE] to spray down the ghosts.
+Use your mouse cursor to control water direction & pressure.
+
+Use the water fountains to refill your water tank."
+horizontal_alignment = 1
+autowrap_mode = 3

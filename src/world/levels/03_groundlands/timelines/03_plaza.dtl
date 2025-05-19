@@ -1,0 +1,55 @@
+label confusion_1
+npc: what's going on?
+[end_timeline]
+
+label confusion_2
+npc: apparently, good is supposed to be giving some sort of surprise presentation.
+[end_timeline]
+
+label confusion_3
+npc: man, i hope my 100 cats are doing okay without me at home...
+[end_timeline]
+
+label announcement
+set {03.saw_announcement} = true
+# player sits, triggering a cutscene as the presentation begins.
+03_researcher: welcome groundlands residents from far and wide! i, research director desmond, am proud to officially announce the kickoff of our first-ever blimp-building competition!  
+03_researcher: as some of you may know, the land we live on currently is the only land we have ever known. because of this, we aren't too sure if we will be able to continue our scientific research here.  
+03_researcher: so, i have proposed a blimp-building competition in order to rally the brightest minds among us who will change our world as we know it.  
+03_researcher: the winner of this competition will become the first groundland resident to ever explore outside of our home! doesn't that sound exciting?  
+03_researcher: of course, the lucky explorer will have the full and forever support of good! who in the audience today would like to participate for the chance of a lifetime? can i get a show of hands?  
+# the crowd is confused, expressing concern and questioning desmond. nobody raises their hand, except the player, who waves frantically.
+03_researcher: you there, with the crazy wave! i am glad to see someone so eager to take such a big leap forward for our country's future!  
+# another audience member slowly raises their hand.  
+03_researcher: oh, what's this? a second contestant? what wonderful news! a bit of friendly competition is sure to keep things interesting. can i get both of you on the stage, please?  
+# the player and other volunteer come up to the stage, forming a line in front of desmond.
+03_researcher: a wonderful selection of talent with a dangerous prize on the line! whom of these competitors will build the blimp that will change our world forever?!  
+03_researcher: to ease the load for you a bit, our research and development team here at good is honored to supply you with our brand new, state-of-the-art blimp engine technology!  
+03_researcher: aaaand, your time starts now! best of luck to you both!  
+npc: [whispering] these people are out of their minds...  
+npc: i know, right? nobody leaves the groundlands... like, ever...  
+npc: my kitties!!! i have to protect my kitties!!!!!  
+# after the announcement, the player receives the blimp engine from desmond. the crowd quickly disperses. just before the player leaves the stage, the second contestant stops them.
+npc: hey. listen, i know you think you wanna be the next great explorer or whatever, but i just want you to know that you don't even stand a chance against me. so, don't get in my way. got it? later!!  
+# the contestant runs off.  
+player: ??? what the... anyways, i should probably find that oil can. i could definitely use some scrap from mcrusty's junkyard right now.
+[end_timeline]
+
+label results
+03_researcher: it’s time to announce the winner of the blimp-building competition!! as you all know,  
+03_researcher: we had two bold and courageous explorers-to-be from yesterday’s audience participating  
+03_researcher: in this amazing contest of skill and creativity!! would our contestants please come up  
+03_researcher: to the stage?  
+# only the player comes up to the stage. the rival is nowhere to be seen.  
+03_researcher: well… in an unforeseen turn of events, it seems we only have one participant remaining!!  
+03_researcher: by default, i am proud to present to you the outstanding winner of the first-ever  
+03_researcher: groundlands blimp building competition!! can we get a round of applause for this brave  
+03_researcher: explorer?!  
+# the audience cheers loudly.  
+npc: i can’t believe they actually did it.  
+npc: yeah, i expected both of them to drop the contest, if i’m being honest.  
+npc: my cats are gonna love this news!!!!!  
+03_researcher: we can’t forget the most important part of the competition: the prize!! a beautiful and  
+03_researcher: rare collectible to remind you of home no matter where your adventures may take you!!  
+03_researcher: give it a shake when you’re thinking of us.  
+[end_timeline]

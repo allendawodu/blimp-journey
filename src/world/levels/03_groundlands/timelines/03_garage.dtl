@@ -1,0 +1,77 @@
+label meet_margo
+player: hi, are you margo?
+npc: yea, that's me. what can i do for ya, kid?
+player: can you fill this canister with some oil for me?\
+a guy named mcrusty said he lost it and wanted you to fill it for him\
+he said he wanted the good stuff, and no skimming, either. 
+npc: hmph- couldn't be any lazier, i see. bet he pretended to be injured when you talked to him too. what was it this time, an ankle? an elbow? maybe his wisdom teeth?\
+he can be a little creative at times, but you never know with that guy...
+do Inventory.remove_item("03_canister_empty")
+# she takes the canister, fills it, and gives the filled oil canister back to the player.
+npc: anyways, here. tell him he needs to come get it himself next time! let me know if you need anything else.
+do Inventory.add_item("03_canister_full")
+player:
+- can you help me build a blimp? | [if {03.saw_announcement}]:
+	npc: wait- build a what now??\
+	you wanna build a blimp??\
+	i don't think that's such a good idea, kid. just since, you know, nobody really leaves the groundlands...
+	# she pauses, turning away from the player.
+	npc: hah, it's funny, really... i used to have a dream like yours- leaving the groundlands... i always wanted to be an explorer too. you remind me of my nephew, mitchell.
+	npc: he always tells me he wants to leave this place and see what's beyond these rocky mountains of ours... but i just tell him it's too dangerous. he thinks i'm just lying to keep him safe, but...
+	# she turns to face the player again.
+	npc: sorry kid, i can't help you out. maybe i'd change my mind if there was a good reason, but the way i see it, it's just too risky.
+	player:
+	- show note | [if Inventory.has_item("03_urgent_note")]
+	player: would this be a good enough reason?
+	npc: what's this, a note? let me take a look...
+	[wait time="2" hide_text="true" skippable="true"]
+	[emote anim="t" who="engineer"]
+	npc: that definitely seems like a good reason to leave... and this blimp stuff, it's for some little explorer competition? hmm...
+	[wait time="2" hide_text="true" skippable="true"]
+	npc: you might just be in luck, kid. i didn't tell you this before, but i actually worked on some blueprints for a blimp myself a long, long time ago.
+	# [emote anim="p" who="engineer" repeat="-1"] p for ponder
+	npc: i never bothered seeing it through and didn't collect any parts for it. couldn't tell you why...
+	npc: tell you what- from what i can tell, i think you've got what it takes to make it past those mountains, kid.
+	npc: take these blueprints and use them to see what parts you'll need to find. some of the details are a little smudged, but hopefully you can figure out what it says.
+	do Inventory.add_item("03_blueprints")
+- actually...nevermind.
+[end_timeline]
+
+label has_all_parts
+npc: well would you look at that, you actually managed to get all the parts. you even
+npc: deciphered my terrible blueprints, hah! give me a second...
+[behavior type="m" who="engineer" wait="true"]
+[behavior type="m" who="engineer" index="1" wait="true"]
+npc: watch and learn, kid! you're about to witness some real magic!
+# the player watches as margo assembles the parts for the blimp quickly and flawlessly, almost like magic.
+npc: aaaaand... ta-daaa! what a beauty! oh, i can't believe i put this dream of mine aside
+npc: for so long. look at me now... my wonderful- err, OUR wonderful creation is finally
+npc: complete!! oh, the places you'll go! i'm glad i was able to help you towards
+npc: accomplishing your dreams, kid. i feel like you've lit a fire in me that's been dim for
+npc: a long, long time.
+npc: tell you what, bring me a brush and some painting tools, and i'll give this blimp a
+npc: makeover that'll be sure to win you the competition.
+[end_timeline]
+
+label broken_engine
+npc: start it up, kid!
+# the player starts the blimp engine. the blimp rattles briefly before calming down, but
+# eventually begins to spark and smoke before making it off the ground. the player quickly
+# turns the blimp off and exits.
+
+npc: this can't be right... maybe i need to review the blueprints... hey, kid, did you see
+npc: what happened? what was that in there?
+
+player: when i started the engine, everything was rattling and bumping around, and then it just
+player: kind of blew up in my face.
+
+npc: so it was an engine problem after all... nice observational skills there. who gave you
+npc: that engine? surely they must be able to repair it or give you a better one.
+
+player: i got it from research director desmond since i volunteered to participate in the
+player: competition. do you know where i could find him?
+
+npc: desmond made that engine? no way... it must have been a rush job or something. he's way
+npc: too talented to make something so... rusty. you can probably find him at his office in
+npc: the GOOD building. i'll be waiting!
+[end_timeline]

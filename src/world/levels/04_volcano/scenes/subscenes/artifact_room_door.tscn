@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://64a343uwlum0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70lkw"]
+size = Vector2(57, 591)
+
+[node name="ArtifactRoomDoor" type="StaticBody2D"]
+position = Vector2(7590, 1)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, -285.5)
+shape = SubResource("RectangleShape2D_70lkw")

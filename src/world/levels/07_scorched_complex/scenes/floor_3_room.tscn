@@ -1,0 +1,174 @@
+[gd_scene load_steps=33 format=4 uid="uid://cwbrw0baiucav"]
+
+[ext_resource type="PackedScene" uid="uid://dwapdsx6u217o" path="res://src/world/common/scene/scene.tscn" id="1_j2cbu"]
+[ext_resource type="PackedScene" uid="uid://tem7qe8rdwgl" path="res://src/character/styles/base/eye_l_base.tscn" id="2_m7v8f"]
+[ext_resource type="PackedScene" uid="uid://deqdhg7d7px4r" path="res://src/character/styles/base/eye_r_base.tscn" id="3_6uy1c"]
+[ext_resource type="PackedScene" uid="uid://dfj53lpxv6wc8" path="res://src/character/styles/base/hand_l_base.tscn" id="4_teh0a"]
+[ext_resource type="PackedScene" uid="uid://c7xsd06q4xeea" path="res://src/character/styles/base/hand_r_base.tscn" id="5_3dmwu"]
+[ext_resource type="PackedScene" uid="uid://ddnpfatnhpbjs" path="res://src/character/styles/base/head_base.tscn" id="6_g3g24"]
+[ext_resource type="PackedScene" uid="uid://bh6o0ivr6eucq" path="res://src/character/styles/base/leg_l_base.tscn" id="7_pn5cl"]
+[ext_resource type="PackedScene" uid="uid://655nh84fdgg4" path="res://src/character/styles/base/leg_r_base.tscn" id="8_2gogj"]
+[ext_resource type="PackedScene" uid="uid://b6mdjdj6t27lt" path="res://src/character/styles/base/pupil_l_base.tscn" id="9_qxtcp"]
+[ext_resource type="PackedScene" uid="uid://dn3ytutkepvws" path="res://src/character/styles/base/pupil_r_base.tscn" id="10_b8b71"]
+[ext_resource type="Script" uid="uid://ekgsgj4smvbr" path="res://src/character/common/style/style.gd" id="11_hdqv0"]
+[ext_resource type="PackedScene" uid="uid://ccslu0b12mtfa" path="res://src/character/styles/base/torso_base.tscn" id="12_klfy3"]
+[ext_resource type="Script" uid="uid://brw3qxymvneca" path="res://src/systems/interactables/interactable_scene_switch.gd" id="13_6uy1c"]
+[ext_resource type="PackedScene" uid="uid://cgkvddl3qycs1" path="res://src/world/levels/07_scorched_complex/logic/phone/phone.tscn" id="13_klfy3"]
+[ext_resource type="Script" uid="uid://dqd071bb4t6rh" path="res://src/systems/behaviors/behavior_style_change.gd" id="14_njn24"]
+[ext_resource type="Script" uid="uid://byyuugyltgunu" path="res://src/systems/polygon_copier.gd" id="14_teh0a"]
+[ext_resource type="Texture2D" uid="uid://tneqmutf7qda" path="res://src/world/levels/07_scorched_complex/assets/rooms/drawer.png" id="14_vckfa"]
+[ext_resource type="Script" uid="uid://h51b74w6ojmo" path="res://src/systems/interactables/interactable_dialogue.gd" id="15_3dmwu"]
+[ext_resource type="PackedScene" uid="uid://dhvs6gueve3as" path="res://src/character/styles/player_sc/face_marks_player_sc.tscn" id="15_sakfc"]
+[ext_resource type="Texture2D" uid="uid://bgit8mqhagaxf" path="res://src/world/levels/07_scorched_complex/assets/_common/door.png" id="15_yhlw6"]
+[ext_resource type="Texture2D" uid="uid://harujweox7ci" path="res://src/world/levels/07_scorched_complex/assets/_common/phone.png" id="16_klfy3"]
+[ext_resource type="Resource" uid="uid://c0yq307q1mfap" path="res://src/world/levels/07_scorched_complex/dialogue/phone.dtl" id="16_pn5cl"]
+[ext_resource type="PackedScene" uid="uid://g3n4ubd0hrps" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water_pack.tscn" id="16_q8tyu"]
+[ext_resource type="Script" uid="uid://cu217q42b0tjy" path="res://src/systems/free_on_game_event.gd" id="17_pn5cl"]
+[ext_resource type="Script" uid="uid://do8xp0vbjsptt" path="res://src/world/dialogue/text_bubble_marker.gd" id="18_qxtcp"]
+[ext_resource type="Resource" uid="uid://ba83ar8eud6p1" path="res://src/world/dialogue/npc.dch" id="19_b8b71"]
+[ext_resource type="Resource" uid="uid://cyx2lef15qr70" path="res://src/world/levels/07_scorched_complex/dialogue/apartment.dtl" id="25_yhlw6"]
+[ext_resource type="Script" uid="uid://ddgj0d7l8hicn" path="res://src/systems/lock_and_key.gd" id="26_0eo2u"]
+[ext_resource type="Script" uid="uid://b1v0738dkl5jg" path="res://src/systems/swapper.gd" id="26_blxg5"]
+[ext_resource type="AudioStream" uid="uid://c3k2hlvvx3rlk" path="res://src/world/levels/07_scorched_complex/assets/audio/apartment.ogg" id="29_sakfc"]
+
+[sub_resource type="Resource" id="Resource_n2pch"]
+resource_local_to_scene = true
+script = ExtResource("11_hdqv0")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_g3g24")
+eye_r = ExtResource("3_6uy1c")
+eye_l = ExtResource("2_m7v8f")
+pupil_r = ExtResource("10_b8b71")
+pupil_l = ExtResource("9_qxtcp")
+torso = ExtResource("12_klfy3")
+hand_r = ExtResource("5_3dmwu")
+hand_l = ExtResource("4_teh0a")
+leg_r = ExtResource("8_2gogj")
+leg_l = ExtResource("7_pn5cl")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pn5cl"]
+radius = 54.96
+
+[node name="Floor3Room" instance=ExtResource("1_j2cbu")]
+scene_name = "floor_3_room"
+
+[node name="Player" parent="." index="1"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+style = SubResource("Resource_n2pch")
+
+[node name="Phone" parent="Player" index="12" instance=ExtResource("13_klfy3")]
+
+[node name="BehaviorStyleChange" type="Node2D" parent="Player" index="14" node_paths=PackedStringArray("target")]
+script = ExtResource("14_njn24")
+style_additions = Dictionary[String, Variant]({
+"face_marks": ExtResource("15_sakfc")
+})
+target = NodePath("..")
+metadata/_custom_type_script = "uid://dqd071bb4t6rh"
+
+[node name="WaterPack" parent="Player" index="15" instance=ExtResource("16_q8tyu")]
+
+[node name="Environment" parent="." index="3"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Midground" type="Parallax2D" parent="Environment" index="0"]
+
+[node name="Drawer" type="Sprite2D" parent="Environment/Midground" index="0"]
+position = Vector2(-1741, -55)
+texture = ExtResource("14_vckfa")
+
+[node name="Door" type="Sprite2D" parent="Environment/Midground" index="1"]
+position = Vector2(8, -179)
+texture = ExtResource("15_yhlw6")
+
+[node name="GroundLayer" parent="." index="5"]
+tile_map_data = PackedByteArray("AADi/wAAAAAAAAAAAADj/wAAAAAAAAAAAADk/wAAAAAAAAAAAADl/wAAAAAAAAAAAADm/wAAAAAAAAAAAADn/wAAAAAAAAAAAADo/wAAAAAAAAAAAADp/wAAAAAAAAAAAADq/wAAAAAAAAAAAADr/wAAAAAAAAAAAADs/wAAAAAAAAAAAADt/wAAAAAAAAAAAADu/wAAAAAAAAAAAADv/wAAAAAAAAAAAADw/wAAAAAAAAAAAADx/wAAAAAAAAAAAADy/wAAAAAAAAAAAADz/wAAAAAAAAAAAAD0/wAAAAAAAAAAAAD1/wAAAAAAAAAAAAD2/wAAAAAAAAAAAAD3/wAAAAAAAAAAAAD4/wAAAAAAAAAAAAD5/wAAAAAAAAAAAAD6/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAA=")
+
+[node name="Entrance" type="Node2D" parent="Interactables" index="0"]
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="Interactables/Entrance" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("13_6uy1c")
+scene_name = "floor_3"
+position_in_new_scene = Vector2(1517, 0)
+target = NodePath("..")
+metadata/_custom_type_script = "uid://brw3qxymvneca"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Entrance/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-120, -8, -116, -359, 133, -354, 135, -5)
+script = ExtResource("14_teh0a")
+target = NodePath("../..")
+
+[node name="Phone" type="Sprite2D" parent="Interactables" index="1"]
+position = Vector2(1823, -78)
+texture = ExtResource("16_klfy3")
+
+[node name="InteractableDialogue" type="Area2D" parent="Interactables/Phone" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("15_3dmwu")
+timeline = ExtResource("16_pn5cl")
+labels = Dictionary[String, String]({
+"07_started": "jakob_calling"
+})
+target = NodePath("..")
+player_interact_offset = Vector2(-100, 0)
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Phone/InteractableDialogue" index="0"]
+shape = SubResource("CircleShape2D_pn5cl")
+
+[node name="FreeOnGameEvent" type="Node" parent="Interactables/Phone" index="1" node_paths=PackedStringArray("target")]
+script = ExtResource("17_pn5cl")
+game_event = "07_picked_up_phone"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cu217q42b0tjy"
+
+[node name="TextBubbleMarker" type="Marker2D" parent="Interactables/Phone" index="2"]
+position = Vector2(0, -75)
+script = ExtResource("18_qxtcp")
+character = ExtResource("19_b8b71")
+metadata/_custom_type_script = "uid://do8xp0vbjsptt"
+
+[node name="Swapper" type="Node2D" parent="." index="10" node_paths=PackedStringArray("subscenes")]
+script = ExtResource("26_blxg5")
+subscenes = {
+NodePath("Respirator"): "07_spoke_to_urbexers"
+}
+
+[node name="Respirator" type="Node2D" parent="Swapper" index="0"]
+position = Vector2(-1742, 0)
+
+[node name="InteractableDialogue" type="Area2D" parent="Swapper/Respirator" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("15_3dmwu")
+timeline = ExtResource("25_yhlw6")
+labels = Dictionary[String, String]({
+"07_started": "respirator"
+})
+text_bubble_markers = Array[NodePath]([NodePath("../../../Player/TextBubbleMarker")])
+target = NodePath("..")
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Swapper/Respirator/InteractableDialogue" index="0"]
+polygon = PackedVector2Array(-66, -98, -63, -19, 69, -17, 64, -98)
+
+[node name="LockAndKey" type="Node" parent="Swapper/Respirator" index="1" node_paths=PackedStringArray("lock")]
+script = ExtResource("26_0eo2u")
+key = "07_respirator"
+lock = NodePath("../InteractableDialogue")
+metadata/_custom_type_script = "uid://ddgj0d7l8hicn"
+
+[node name="InteriorAmbiance" type="AudioStreamPlayer" parent="." index="11"]
+process_mode = 3
+stream = ExtResource("29_sakfc")
+autoplay = true
+bus = &"Music"

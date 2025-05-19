@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bru7xdlpn0s43"]
+
+[ext_resource type="PackedScene" uid="uid://cbs4h5pudt2yp" path="res://src/ui/instructions_menu/instructions_menu.tscn" id="1_hwewy"]
+[ext_resource type="Script" uid="uid://ba2kiaanfx45y" path="res://src/world/levels/07_scorched_complex/menus/instructions/popup_instructions.gd" id="2_ak15h"]
+
+[node name="GhostInstructions" instance=ExtResource("1_hwewy")]
+script = ExtResource("2_ak15h")
+event_name = "07_ghost_instructions_shown"
+
+[node name="TitleLabel" parent="PanelContainer/MarginContainer/VBoxContainer" index="1"]
+text = "Avoid the Ghosts"
+
+[node name="BodyLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "1. Listen and watch for approaching ghosts
+2. Crouch to hide behind objects (even when being chased!)
+
+Hint: Use noise to manipulate the ghosts"

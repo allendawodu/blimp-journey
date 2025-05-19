@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cumfvgc0jrneb"]
+
+[ext_resource type="Script" uid="uid://ce15wcben581s" path="res://src/ui/hand/drag_component.gd" id="1_tutwl"]
+[ext_resource type="Script" uid="uid://bvep18k4xljpk" path="res://src/ui/hand/card.gd" id="1_uf5q8"]
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uf5q8")
+
+[node name="DragComponent" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+script = ExtResource("1_tutwl")
+
+[node name="PopupPosition" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(64, -32)
+
+[node name="PressedTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true

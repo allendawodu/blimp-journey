@@ -1,0 +1,27 @@
+player: nice store.
+npc: do you realize you're shopping in the same store bucky lucas once shopped?
+player: who's bucky lucas?
+npc: why, the first person voted out on the first season of reality tv island, of course!
+npc: he's, like, a major celebrity!
+player: um...
+player: can i buy some food or something?
+npc: i ain't helpin' nobody who don't know who bucky lucas is!
+[end_timeline]
+
+label snacks
+npc: i gotta stock up on snacks for reality tv island tomorrow night!
+[end_timeline]
+
+label hurry
+npc: reality tv island is on in less than 24 hours!
+npc: i gotta go!
+[behavior type="d" who="manager"]
+[behavior type="m" who="manager" wait="true"]
+do SaverLoader.complete_event("02_hurry")
+[end_timeline]
+
+label nobody
+npc: you're a nobody unless you've been on tv!
+player: have you been on tv?
+npc: ...
+[end_timeline]

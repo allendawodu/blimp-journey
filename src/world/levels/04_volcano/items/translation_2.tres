@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemUseable" load_steps=3 format=3 uid="uid://djufxrjbn6gk5"]
+
+[ext_resource type="Script" uid="uid://ufp4xfsqamg" path="res://src/systems/item/item_useable.gd" id="1_i3an0"]
+[ext_resource type="Resource" uid="uid://c5k3y7q60gj4h" path="res://src/world/levels/04_volcano/timelines/thoughts.dtl" id="2_lsax4"]
+
+[resource]
+script = ExtResource("1_i3an0")
+interactable_node_path = NodePath("Interactables/Shortcut/InteractableDialogue")
+max_distance_to_interactable = 512.0
+timeline = ExtResource("2_lsax4")
+name = "04_translation_2"
+display_name = "Translation Page (2/2)"
+info = ""

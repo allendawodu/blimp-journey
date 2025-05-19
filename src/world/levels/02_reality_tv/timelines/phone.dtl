@@ -1,0 +1,19 @@
+label success
+npc: papa pete's pizza. what's your order?
+player: um... small plain pizza.
+npc: and where do you want that delivered?
+player: at...
+- the motel office.
+	npc: no way!
+	npc: you stiffed me on a tip last week!
+- motel room 4b.
+	npc: ok.
+	npc: we'll send a driver right over.
+	[signal arg="run_pizzagirl_1"]
+- motel room 6b.
+	npc: nobody's been in that room for years!
+[end_timeline]
+
+label failure
+player: no one answered...
+[end_timeline]

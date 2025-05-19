@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm7cq32t7aosu"]
+
+[ext_resource type="PackedScene" uid="uid://bqpjqjy1lqxeg" path="res://src/world/common/level/level.tscn" id="1_2maor"]
+[ext_resource type="PackedScene" uid="uid://b3cltlgp6qgj6" path="res://src/world/levels/05_tutorial/scenes/main_street.tscn" id="2_exnyj"]
+[ext_resource type="PackedScene" uid="uid://cd3d0hbpdu0fl" path="res://src/world/levels/05_tutorial/menus/control_scheme.tscn" id="2_y1m6q"]
+[ext_resource type="PackedScene" uid="uid://vjm1fq10m6mm" path="res://src/world/levels/05_tutorial/scenes/part_2.tscn" id="3_0ncll"]
+
+[node name="Tutorial" instance=ExtResource("1_2maor")]
+level_code = 5
+scenes = {
+"main_street": ExtResource("2_exnyj"),
+"part_2": ExtResource("3_0ncll")
+}
+
+[node name="ControlScheme" parent="UI" index="1" instance=ExtResource("2_y1m6q")]
+visible = false

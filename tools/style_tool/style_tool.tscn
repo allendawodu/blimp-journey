@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://15q5tda57pl0"]
+
+[ext_resource type="Script" uid="uid://dghemh0xabihl" path="res://tools/style_tool/style_tool.gd" id="1_o5jil"]
+[ext_resource type="Script" uid="uid://b8wxx1u2icxqb" path="res://tools/style_tool/importer.gd" id="22_spd33"]
+
+[node name="StyleTool" type="Node"]
+script = ExtResource("1_o5jil")
+
+[node name="Importer" type="Node" parent="."]
+script = ExtResource("22_spd33")

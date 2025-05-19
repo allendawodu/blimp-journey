@@ -1,0 +1,273 @@
+[gd_scene load_steps=46 format=4 uid="uid://2k8453gk8cl5"]
+
+[ext_resource type="PackedScene" uid="uid://dwapdsx6u217o" path="res://src/world/common/scene/scene.tscn" id="1_6niul"]
+[ext_resource type="PackedScene" uid="uid://b5nv4hta6iqmd" path="res://src/world/levels/07_scorched_complex/logic/stealth/game_over/death_by_flying_ghost.tscn" id="2_ah8pg"]
+[ext_resource type="PackedScene" uid="uid://tem7qe8rdwgl" path="res://src/character/styles/base/eye_l_base.tscn" id="2_scgyy"]
+[ext_resource type="PackedScene" uid="uid://c4qqlg68xrjw2" path="res://src/world/levels/07_scorched_complex/logic/stealth/game_over/death_by_walking_ghost.tscn" id="3_r5igt"]
+[ext_resource type="PackedScene" uid="uid://deqdhg7d7px4r" path="res://src/character/styles/base/eye_r_base.tscn" id="3_vw781"]
+[ext_resource type="PackedScene" uid="uid://dfj53lpxv6wc8" path="res://src/character/styles/base/hand_l_base.tscn" id="4_rudh4"]
+[ext_resource type="PackedScene" uid="uid://c7xsd06q4xeea" path="res://src/character/styles/base/hand_r_base.tscn" id="5_1v4ty"]
+[ext_resource type="PackedScene" uid="uid://ddnpfatnhpbjs" path="res://src/character/styles/base/head_base.tscn" id="6_jumy6"]
+[ext_resource type="PackedScene" uid="uid://bh6o0ivr6eucq" path="res://src/character/styles/base/leg_l_base.tscn" id="7_3vjn1"]
+[ext_resource type="PackedScene" uid="uid://655nh84fdgg4" path="res://src/character/styles/base/leg_r_base.tscn" id="8_lahjw"]
+[ext_resource type="PackedScene" uid="uid://b6mdjdj6t27lt" path="res://src/character/styles/base/pupil_l_base.tscn" id="9_nbojw"]
+[ext_resource type="PackedScene" uid="uid://dn3ytutkepvws" path="res://src/character/styles/base/pupil_r_base.tscn" id="10_vsudw"]
+[ext_resource type="Script" uid="uid://ekgsgj4smvbr" path="res://src/character/common/style/style.gd" id="11_pwsbl"]
+[ext_resource type="PackedScene" uid="uid://ccslu0b12mtfa" path="res://src/character/styles/base/torso_base.tscn" id="12_7kkhx"]
+[ext_resource type="PackedScene" uid="uid://bl2l6bdrpyq1v" path="res://src/world/levels/07_scorched_complex/logic/flashlight/flashlight.tscn" id="13_scgyy"]
+[ext_resource type="PackedScene" uid="uid://cgkvddl3qycs1" path="res://src/world/levels/07_scorched_complex/logic/phone/phone.tscn" id="14_nbojw"]
+[ext_resource type="Script" uid="uid://brw3qxymvneca" path="res://src/systems/interactables/interactable_scene_switch.gd" id="14_rudh4"]
+[ext_resource type="Script" uid="uid://byyuugyltgunu" path="res://src/systems/polygon_copier.gd" id="15_1v4ty"]
+[ext_resource type="PackedScene" uid="uid://g3n4ubd0hrps" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water_pack.tscn" id="15_vsudw"]
+[ext_resource type="PackedScene" uid="uid://xn8dsefh5yvv" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_walking/ghost.tscn" id="16_1v4ty"]
+[ext_resource type="Script" uid="uid://dqd071bb4t6rh" path="res://src/systems/behaviors/behavior_style_change.gd" id="16_vus8g"]
+[ext_resource type="PackedScene" uid="uid://0sohy4u4x1ap" path="res://src/character/styles/player_sc/pack_player_sc.tscn" id="17_71iit"]
+[ext_resource type="Script" uid="uid://blh80gwmwdoh" path="res://src/systems/interactables/interactable_collectible.gd" id="17_jumy6"]
+[ext_resource type="Texture2D" uid="uid://bgldae4pg87yj" path="res://src/world/levels/07_scorched_complex/assets/_common/elevator.png" id="18_8pe75"]
+[ext_resource type="Script" uid="uid://h51b74w6ojmo" path="res://src/systems/interactables/interactable_dialogue.gd" id="18_lahjw"]
+[ext_resource type="Script" uid="uid://cf1hoy76cmvj4" path="res://src/world/levels/07_scorched_complex/logic/water_pack/water_pack_collectible.gd" id="19_mcqj4"]
+[ext_resource type="Resource" uid="uid://cyx2lef15qr70" path="res://src/world/levels/07_scorched_complex/dialogue/apartment.dtl" id="19_nbojw"]
+[ext_resource type="Texture2D" uid="uid://cdwul04uyyip4" path="res://src/character/styles/player_sc/pack_player_sc.png" id="21_71iit"]
+[ext_resource type="Texture2D" uid="uid://cb5ltheoesoup" path="res://src/world/levels/07_scorched_complex/assets/floor/stool.png" id="21_c8e53"]
+[ext_resource type="Texture2D" uid="uid://caflcp6xcpkn8" path="res://src/world/levels/07_scorched_complex/assets/lobby/box_1.png" id="22_phf71"]
+[ext_resource type="PackedScene" uid="uid://bo3qq8tjs8ggv" path="res://src/world/levels/07_scorched_complex/logic/stealth/player_visibility/player_visibility.tscn" id="22_pwsbl"]
+[ext_resource type="PackedScene" uid="uid://cdkf8i0ck5o81" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_bounds/ghost_bounds.tscn" id="23_7kkhx"]
+[ext_resource type="Texture2D" uid="uid://512ql85syupq" path="res://src/world/levels/07_scorched_complex/assets/lobby/box_2.png" id="23_o31wq"]
+[ext_resource type="Texture2D" uid="uid://ckl6fvwqer346" path="res://src/world/levels/07_scorched_complex/assets/lobby/couch.png" id="24_o31wq"]
+[ext_resource type="PackedScene" uid="uid://dxyjfe6h3errq" path="res://src/world/levels/07_scorched_complex/logic/stealth/player_visibility/alerting_object.tscn" id="25_0a8jx"]
+[ext_resource type="Texture2D" uid="uid://m752nskpaw42" path="res://src/world/levels/07_scorched_complex/assets/basement/valve.png" id="25_spoy3"]
+[ext_resource type="Script" uid="uid://bpb7jt42qh7dp" path="res://src/world/levels/07_scorched_complex/logic/pipes/interactable_pipe.gd" id="26_mcqj4"]
+[ext_resource type="Texture2D" uid="uid://dxwiovdebd5v2" path="res://src/world/levels/07_scorched_complex/logic/pipes/pipe_2.png" id="27_hf70o"]
+[ext_resource type="Script" uid="uid://ddgj0d7l8hicn" path="res://src/systems/lock_and_key.gd" id="28_eefko"]
+[ext_resource type="Texture2D" uid="uid://dhtflyp25c0by" path="res://src/world/levels/07_scorched_complex/logic/pipes/pipe_1.png" id="28_vus8g"]
+[ext_resource type="Texture2D" uid="uid://baysld717bri5" path="res://src/world/levels/07_scorched_complex/logic/pipes/pipe_0.png" id="29_71iit"]
+[ext_resource type="AudioStream" uid="uid://c3k2hlvvx3rlk" path="res://src/world/levels/07_scorched_complex/assets/audio/apartment.ogg" id="36_xmia2"]
+[ext_resource type="PackedScene" uid="uid://cs6rnogmyi5k8" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_flying/ghost_flying.tscn" id="39_r5igt"]
+
+[sub_resource type="Resource" id="Resource_n2pch"]
+resource_local_to_scene = true
+script = ExtResource("11_pwsbl")
+color_skin = Color(1, 1, 1, 1)
+color_head = Color(1, 1, 1, 1)
+color_eyelid_r = Color(1, 1, 1, 1)
+color_eyelid_l = Color(1, 1, 1, 1)
+color_torso = Color(1, 1, 1, 1)
+color_hand_r = Color(1, 1, 1, 1)
+color_hand_l = Color(1, 1, 1, 1)
+color_leg_r = Color(1, 1, 1, 1)
+color_leg_l = Color(1, 1, 1, 1)
+head = ExtResource("6_jumy6")
+eye_r = ExtResource("3_vw781")
+eye_l = ExtResource("2_scgyy")
+pupil_r = ExtResource("10_vsudw")
+pupil_l = ExtResource("9_nbojw")
+torso = ExtResource("12_7kkhx")
+hand_r = ExtResource("5_1v4ty")
+hand_l = ExtResource("4_rudh4")
+leg_r = ExtResource("8_lahjw")
+leg_l = ExtResource("7_3vjn1")
+metadata/_custom_type_script = "uid://ekgsgj4smvbr"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vjn1"]
+radius = 50.0
+
+[node name="Basement" instance=ExtResource("1_6niul")]
+scene_name = "basement"
+
+[node name="DeathByFlyingGhost" parent="UI" index="0" instance=ExtResource("2_ah8pg")]
+visible = false
+
+[node name="DeathByWalkingGhost" parent="UI" index="1" instance=ExtResource("3_r5igt")]
+visible = false
+
+[node name="Player" parent="." index="1"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+style = SubResource("Resource_n2pch")
+
+[node name="Flashlight" parent="Player" index="12" instance=ExtResource("13_scgyy")]
+
+[node name="Phone" parent="Player" index="13" instance=ExtResource("14_nbojw")]
+
+[node name="WaterPack" parent="Player" index="14" instance=ExtResource("15_vsudw")]
+
+[node name="BehaviorStyleChange" type="Node2D" parent="Player" index="16" node_paths=PackedStringArray("target")]
+script = ExtResource("16_vus8g")
+style_additions = Dictionary[String, Variant]({
+"pack": ExtResource("17_71iit")
+})
+target = NodePath("..")
+metadata/_custom_type_script = "uid://dqd071bb4t6rh"
+
+[node name="Environment" parent="." index="3"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+
+[node name="BG" type="Parallax2D" parent="Environment" index="0"]
+
+[node name="Midground" type="Parallax2D" parent="Environment" index="1"]
+
+[node name="Elevator2" type="Sprite2D" parent="Environment/Midground" index="0"]
+position = Vector2(-877, -495)
+texture = ExtResource("18_8pe75")
+
+[node name="Hidable" type="Parallax2D" parent="Environment" index="2"]
+z_index = 2
+
+[node name="Stool" type="Sprite2D" parent="Environment/Hidable" index="0"]
+position = Vector2(1306, -83)
+rotation = 1.57079
+texture = ExtResource("21_c8e53")
+
+[node name="Box1" type="Sprite2D" parent="Environment/Hidable" index="1"]
+position = Vector2(291, -43)
+texture = ExtResource("22_phf71")
+
+[node name="Box2" type="Sprite2D" parent="Environment/Hidable" index="2"]
+position = Vector2(297, -110)
+texture = ExtResource("22_phf71")
+
+[node name="Box4" type="Sprite2D" parent="Environment/Hidable" index="3"]
+position = Vector2(376, -78)
+rotation = -0.354416
+texture = ExtResource("23_o31wq")
+
+[node name="Box3" type="Sprite2D" parent="Environment/Hidable" index="4"]
+position = Vector2(364, -40)
+texture = ExtResource("22_phf71")
+
+[node name="Box5" type="Sprite2D" parent="Environment/Hidable" index="5"]
+position = Vector2(-1487.5, -44.0264)
+texture = ExtResource("22_phf71")
+
+[node name="Box6" type="Sprite2D" parent="Environment/Hidable" index="6"]
+position = Vector2(-1481.5, -111.026)
+texture = ExtResource("22_phf71")
+
+[node name="Box7" type="Sprite2D" parent="Environment/Hidable" index="7"]
+position = Vector2(-1402.5, -79.0264)
+rotation = -0.354416
+texture = ExtResource("23_o31wq")
+
+[node name="Box8" type="Sprite2D" parent="Environment/Hidable" index="8"]
+position = Vector2(-1414.5, -41.0264)
+texture = ExtResource("22_phf71")
+
+[node name="Couch" type="Sprite2D" parent="Environment/Hidable" index="9"]
+position = Vector2(2030, -100)
+texture = ExtResource("24_o31wq")
+
+[node name="GroundLayer" parent="." index="5"]
+tile_map_data = PackedByteArray("AADY/wAAAAAAAAAAAADZ/wAAAAAAAAAAAADa/wAAAAAAAAAAAADb/wAAAAAAAAAAAADc/wAAAAAAAAAAAADd/wAAAAAAAAAAAADe/wAAAAAAAAAAAADf/wAAAAAAAAAAAADg/wAAAAAAAAAAAADh/wAAAAAAAAAAAADi/wAAAAAAAAAAAADj/wAAAAAAAAAAAADk/wAAAAAAAAAAAADl/wAAAAAAAAAAAADm/wAAAAAAAAAAAADn/wAAAAAAAAAAAADo/wAAAAAAAAAAAADp/wAAAAAAAAAAAADq/wAAAAAAAAAAAADr/wAAAAAAAAAAAADs/wAAAAAAAAAAAADt/wAAAAAAAAAAAADu/wAAAAAAAAAAAADv/wAAAAAAAAAAAADw/wAAAAAAAAAAAADx/wAAAAAAAAAAAADy/wAAAAAAAAAAAADz/wAAAAAAAAAAAAD0/wAAAAAAAAAAAAD1/wAAAAAAAAAAAAD2/wAAAAAAAAAAAAD3/wAAAAAAAAAAAAD4/wAAAAAAAAAAAAD5/wAAAAAAAAAAAAD6/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAhAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAjAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAlAAAAAAAAAAAAAAAmAAAAAAAAAAAAAAAnAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA=")
+
+[node name="Interactables" parent="." index="9"]
+modulate = Color(0.466181, 0.466181, 0.466181, 1)
+
+[node name="LeftElevator" type="Node2D" parent="Interactables" index="0"]
+position = Vector2(-884, 0)
+
+[node name="InteractableSceneSwitch" type="Area2D" parent="Interactables/LeftElevator" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("14_rudh4")
+scene_name = "lobby"
+position_in_new_scene = Vector2(-884, 0)
+target = NodePath("..")
+metadata/_custom_type_script = "uid://brw3qxymvneca"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/LeftElevator/InteractableSceneSwitch" index="0"]
+polygon = PackedVector2Array(-120, -8, -126, -347, 130, -347, 132, -162, 172, -156, 164, -73, 128, -67, 135, -5)
+script = ExtResource("15_1v4ty")
+target = NodePath("../..")
+
+[node name="WaterPack" type="Sprite2D" parent="Interactables" index="1"]
+position = Vector2(2338, -45)
+texture = ExtResource("21_71iit")
+script = ExtResource("19_mcqj4")
+
+[node name="InteractableCollectible" type="Area2D" parent="Interactables/WaterPack" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("17_jumy6")
+item_name = "07_water_pack"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://blh80gwmwdoh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/WaterPack/InteractableCollectible" index="0"]
+shape = SubResource("CircleShape2D_3vjn1")
+
+[node name="Pipes" type="Sprite2D" parent="Interactables" index="2"]
+position = Vector2(-1361, -332)
+texture = ExtResource("27_hf70o")
+
+[node name="InteractablePipe" type="Area2D" parent="Interactables/Pipes" index="0" node_paths=PackedStringArray("target")]
+position = Vector2(114, 328)
+collision_layer = 8
+script = ExtResource("26_mcqj4")
+progress_textures = Array[Texture2D]([ExtResource("27_hf70o"), ExtResource("28_vus8g"), ExtResource("29_71iit")])
+target = NodePath("..")
+metadata/_custom_type_script = "uid://d16v85ddrosp1"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Pipes/InteractablePipe" index="0"]
+polygon = PackedVector2Array(-43, -32, -52, -537, 35, -524, 32, -39)
+
+[node name="InteractableDialogue" type="Area2D" parent="Interactables/Pipes" index="1" node_paths=PackedStringArray("target")]
+position = Vector2(114, 328)
+collision_layer = 8
+script = ExtResource("18_lahjw")
+timeline = ExtResource("19_nbojw")
+labels = Dictionary[String, String]({
+"07_started": "pipes"
+})
+text_bubble_markers = Array[NodePath]([NodePath("../../../Player/TextBubbleMarker")])
+target = NodePath("..")
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Pipes/InteractableDialogue" index="0"]
+polygon = PackedVector2Array(-43, -32, -52, -537, 35, -524, 32, -39)
+
+[node name="AlertingObject" parent="Interactables/Pipes" index="2" instance=ExtResource("25_0a8jx")]
+alert_radius = 1400.0
+
+[node name="LockAndKey" type="Node" parent="Interactables/Pipes" index="3" node_paths=PackedStringArray("lock")]
+script = ExtResource("28_eefko")
+key = "07_wrench"
+lock = NodePath("../InteractableDialogue")
+metadata/_custom_type_script = "uid://ddgj0d7l8hicn"
+
+[node name="Valve" type="Sprite2D" parent="Interactables" index="3"]
+position = Vector2(-1237, -102)
+texture = ExtResource("25_spoy3")
+
+[node name="InteractableDialogue" type="Area2D" parent="Interactables/Valve" index="0" node_paths=PackedStringArray("target")]
+collision_layer = 8
+script = ExtResource("18_lahjw")
+timeline = ExtResource("19_nbojw")
+labels = Dictionary[String, String]({
+"07_started": "valve"
+})
+text_bubble_markers = Array[NodePath]([NodePath("../../../Player/TextBubbleMarker")])
+target = NodePath("..")
+metadata/_custom_type_script = "uid://h51b74w6ojmo"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Valve/InteractableDialogue" index="0"]
+polygon = PackedVector2Array(-5, -59, -46, -46, -67, -12, -62, 26, -21, 63, 19, 63, 56, 32, 66, -19, 34, -58)
+
+[node name="Ghost" parent="." index="10" instance=ExtResource("16_1v4ty")]
+position = Vector2(351, -14)
+walk_time = 13.0
+
+[node name="GhostFlying" parent="." index="11" instance=ExtResource("39_r5igt")]
+position = Vector2(1839, -348)
+
+[node name="PlayerVisibility" parent="." index="12" instance=ExtResource("22_pwsbl")]
+unique_name_in_owner = true
+
+[node name="CollisionPolygon2D" parent="PlayerVisibility/CrouchHidden" index="0"]
+polygon = PackedVector2Array(245, 95, 255, -140, 401, -143, 406, 121, 1219, 107, 1231, -152, 1380, -147, 1387, 105, 1917, 98, 1922, -185, 2115, -162, 2125, 187, -1554, 211, -1528, -145, -1391, -145, -1382, 124)
+
+[node name="GhostBounds" parent="." index="13" instance=ExtResource("23_7kkhx")]
+
+[node name="InteriorAmbiance" type="AudioStreamPlayer" parent="." index="14"]
+process_mode = 3
+stream = ExtResource("36_xmia2")
+autoplay = true
+bus = &"Music"
+
+[editable path="PlayerVisibility"]

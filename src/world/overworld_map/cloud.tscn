@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://daky188lmutcf"]
+
+[ext_resource type="Script" uid="uid://jywwkhwtqrbp" path="res://src/systems/random_texture_selector.gd" id="1_w8cn1"]
+[ext_resource type="Script" uid="uid://ddcxs16qquygd" path="res://src/world/overworld_map/cloud.gd" id="2_cafa1"]
+[ext_resource type="Texture2D" uid="uid://d0he4e52q3av6" path="res://src/world/overworld_map/cloud.png" id="2_jaijp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrthb"]
+size = Vector2(104.348, 71.7391)
+
+[node name="Cloud" type="Sprite2D"]
+scale = Vector2(1.84, 1.84)
+texture = ExtResource("2_jaijp")
+script = ExtResource("2_cafa1")
+
+[node name="RandomTextureSelector" type="Node" parent="."]
+script = ExtResource("1_w8cn1")
+textures = Array[Texture]([ExtResource("2_jaijp")])
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hrthb")
+
+[node name="ShakeCooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5

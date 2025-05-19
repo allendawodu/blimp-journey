@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2shfbqjh0prj"]
+
+[ext_resource type="PackedScene" uid="uid://cbs4h5pudt2yp" path="res://src/ui/instructions_menu/instructions_menu.tscn" id="1_emd2k"]
+[ext_resource type="Script" uid="uid://cghefo122m88w" path="res://src/world/levels/07_scorched_complex/logic/stealth/game_over/game_over.gd" id="2_byntf"]
+
+[node name="GameOver" instance=ExtResource("1_emd2k")]
+script = ExtResource("2_byntf")
+dialogic_signal_to_show = "game_over"
+
+[node name="InstructionsLabel" parent="PanelContainer/MarginContainer/VBoxContainer" index="0"]
+text = "Game Over"
+
+[node name="TitleLabel" parent="PanelContainer/MarginContainer/VBoxContainer" index="1"]
+visible = false
+text = "Death by Falling"
+
+[node name="BodyLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+text = ""
+
+[node name="ContinueButton" parent="PanelContainer/MarginContainer/VBoxContainer" index="4"]
+text = "Try Again"

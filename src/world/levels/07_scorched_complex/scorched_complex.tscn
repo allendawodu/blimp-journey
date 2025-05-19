@@ -1,0 +1,35 @@
+[gd_scene load_steps=13 format=3 uid="uid://ctgq87cq2776k"]
+
+[ext_resource type="PackedScene" uid="uid://bqpjqjy1lqxeg" path="res://src/world/common/level/level.tscn" id="1_dfyci"]
+[ext_resource type="PackedScene" uid="uid://cw48k231fq3k6" path="res://src/world/levels/07_scorched_complex/scenes/main_street.tscn" id="2_thfta"]
+[ext_resource type="PackedScene" uid="uid://2k8453gk8cl5" path="res://src/world/levels/07_scorched_complex/scenes/basement.tscn" id="3_uue82"]
+[ext_resource type="PackedScene" uid="uid://c8panjd0u6s5b" path="res://src/world/levels/07_scorched_complex/scenes/bathroom.tscn" id="4_pmalx"]
+[ext_resource type="PackedScene" uid="uid://bahgcomgdwvko" path="res://src/world/levels/07_scorched_complex/scenes/floor_2.tscn" id="5_n35d7"]
+[ext_resource type="PackedScene" uid="uid://bgh5bgqi8ku4h" path="res://src/world/levels/07_scorched_complex/scenes/floor_2_room.tscn" id="6_pa4lk"]
+[ext_resource type="PackedScene" uid="uid://ctwp3bgyufv2r" path="res://src/world/levels/07_scorched_complex/scenes/floor_3.tscn" id="7_qx4q6"]
+[ext_resource type="PackedScene" uid="uid://cwbrw0baiucav" path="res://src/world/levels/07_scorched_complex/scenes/floor_3_room.tscn" id="8_5c0yd"]
+[ext_resource type="PackedScene" uid="uid://dpcsx8lrbvpfs" path="res://src/world/levels/07_scorched_complex/scenes/lobby.tscn" id="9_d6rio"]
+[ext_resource type="PackedScene" uid="uid://rymc78b2l50i" path="res://src/world/levels/07_scorched_complex/scenes/roof.tscn" id="10_50r6l"]
+[ext_resource type="Script" uid="uid://biflrxjk5fs5y" path="res://src/world/levels/07_scorched_complex/logic/command_center_level.gd" id="11_n35d7"]
+[ext_resource type="PackedScene" uid="uid://2rknqml7p80l" path="res://src/world/levels/07_scorched_complex/menus/map/map.tscn" id="11_pmalx"]
+
+[node name="ScorchedComplex" instance=ExtResource("1_dfyci")]
+level_code = 7
+scenes = {
+"basement": ExtResource("3_uue82"),
+"bathroom": ExtResource("4_pmalx"),
+"floor_2": ExtResource("5_n35d7"),
+"floor_2_room": ExtResource("6_pa4lk"),
+"floor_3": ExtResource("7_qx4q6"),
+"floor_3_room": ExtResource("8_5c0yd"),
+"lobby": ExtResource("9_d6rio"),
+"main_street": ExtResource("2_thfta"),
+"roof": ExtResource("10_50r6l")
+}
+
+[node name="CommandCenterLevel" parent="." index="0"]
+script = ExtResource("11_n35d7")
+
+[node name="Map" parent="UI" index="1" instance=ExtResource("11_pmalx")]
+visible = false
+corresponding_item = "07_map"

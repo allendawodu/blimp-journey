@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp5lupkqampkx"]
+
+[ext_resource type="PackedScene" uid="uid://bqqngki8bm3iq" path="res://addons/maaacks_menus_template/base/scenes/overlaid_menu/overlaid_menu_container.tscn" id="1_bs87y"]
+[ext_resource type="Script" uid="uid://his1ha8h7tq" path="res://src/ui/maaack/overlaid_menus/overlaid_menu_container.gd" id="2_7vda4"]
+
+[node name="OverlaidMenuContainer" instance=ExtResource("1_bs87y")]
+script = ExtResource("2_7vda4")

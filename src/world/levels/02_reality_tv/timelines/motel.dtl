@@ -1,0 +1,62 @@
+npc: you want a room?
+player: i'm...
+- just passing through.
+	npc: you're not one of those bucky lucas memorabilia seekers, are you?
+	npc: his stuff's already been picked over.
+- not interested.
+	npc: i started charging people $1000/night after bucky lucas stayed here...
+	npc: haven't had any takers.
+[end_timeline]
+
+label pizza_girl
+npc: i'm supposed to deliver this pizza, but i forgot the room number!
+player: want me to take care of that for you?
+npc: sure!
+npc: i want to get home and watch tv, anyway.
+do Inventory.add_item("pizza")
+[signal arg="run_pizzagirl_2"]
+[wait time="2.0"]
+[end_timeline]
+
+label 4b
+player: pizza!
+npc: come in!
+[end_timeline]
+
+label bucky_lucas
+if {Inventory.has_item("pizza")}:
+	npc: finally!
+	npc: it took you guys forever to get here!
+	do Inventory.remove_item("pizza")
+	player: actually...
+	player: i'm not really the pizza guy,
+	player: i just wanted to meet you!
+	npc: ugh.
+	player: i'm not a stalker either!
+	player: can you tell me how to get on the show?
+	npc: are you sure you want to be famous?
+	npc: look at me.
+	npc: i've been hiding here from all the fanatics since I came here!
+	player: i could really use the grand prize.
+	npc: money and fame aren't all they're cracked up to be.
+	npc: but if you wish, use this stamp to mail in your application.
+	do Inventory.add_item("stamp")
+[end_timeline]
+
+label stalker
+npc: i heard a famous person stayed here once, but i don't know which room.
+[end_timeline]
+
+label door
+player: anyone home?
+[end_timeline]
+
+label security
+npc: get on kid.
+npc: let the show begin!
+[end_timeline]
+
+label trash
+npc: tomorrow's the first episode of the new season of reality tv island!
+npc: where are you gonna watch it?
+[end_timeline]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciq4lkiy5tuom"]
+
+[ext_resource type="Texture2D" uid="uid://base0r7ru5d5r" path="res://src/ui/icons/adjust.png" id="1_hisyb"]
+[ext_resource type="Script" uid="uid://dat8c1hk2l724" path="res://src/world/levels/05_tutorial/logic/pulsing_target/pulsing_jump_target.gd" id="2_k5ob4"]
+
+[node name="PulsingJumpTarget" type="Sprite2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_hisyb")
+script = ExtResource("2_k5ob4")

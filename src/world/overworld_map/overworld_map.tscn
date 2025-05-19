@@ -1,0 +1,501 @@
+[gd_scene load_steps=19 format=3 uid="uid://tckwwg0vm5q5"]
+
+[ext_resource type="Texture2D" uid="uid://drc33iypb6rrf" path="res://src/world/overworld_map/image.webp" id="1_6x0fe"]
+[ext_resource type="Script" uid="uid://cjsdfltf4ug5o" path="res://src/world/overworld_map/overworld_map.gd" id="1_7ttwt"]
+[ext_resource type="Script" uid="uid://15paw2ir21ft" path="res://src/systems/command_center/command_center_overworld_map.gd" id="1_en3a5"]
+[ext_resource type="Texture2D" uid="uid://d4l0lida5cbwt" path="res://src/world/overworld_map/blimp.png" id="2_ee44k"]
+[ext_resource type="Script" uid="uid://dl47sqjilx57u" path="res://src/world/overworld_map/cloud_clear_condition.gd" id="2_rtj8q"]
+[ext_resource type="Script" uid="uid://bhgfi1w3r2mn5" path="res://src/world/overworld_map/blimp.gd" id="3_3sexg"]
+[ext_resource type="PackedScene" uid="uid://bdja652n2bw2u" path="res://src/world/overworld_map/level_button.tscn" id="3_xomck"]
+[ext_resource type="Script" uid="uid://c2m6mob7atl2c" path="res://src/world/overworld_map/cloud_spawner.gd" id="4_c80hn"]
+[ext_resource type="FontFile" uid="uid://bfp7pbfnipkd4" path="res://src/ui/fonts/sour_gummy/SourGummy-Medium.otf" id="4_f65e5"]
+[ext_resource type="Texture2D" uid="uid://dgx3nggeb58t" path="res://src/ui/icons/cursor_interact.png" id="4_x5886"]
+
+[sub_resource type="Resource" id="Resource_ak5sq"]
+script = ExtResource("2_rtj8q")
+level_code = 5
+final_event = "05_finished"
+region_to_clear = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_0vif1"]
+font = ExtResource("4_f65e5")
+font_size = 47
+
+[sub_resource type="Shader" id="Shader_v1gdk"]
+code = "// ALL-IN-ONE BLOTCHY AURA
+// https://godotshaders.com/shader/various-canvas-outlines/
+// CC0
+shader_type canvas_item;
+
+// The texture to scroll with.
+uniform sampler2D scrollingTexture: hint_default_white;
+// The scroll texture scale.
+uniform vec2 textureScale = vec2(1.0);
+// Angle to scroll towards. In degrees. Starts at the right.
+uniform float angle: hint_range(0.0, 360.0) = 45.0;
+// Speed to scroll at.
+uniform float textureSpeed: hint_range(-10.0, 10.0) = 0.1;
+// Strength of the texture over the color.
+uniform float textureStrength: hint_range(0.0, 1.0) = 0.5;
+// Max distance from texture.
+uniform float maxLineWidth: hint_range(0.0, 100.0) = 10.0;
+// Min distance from texture.
+uniform float minLineWidth: hint_range(0.0, 100.0) = 5.0;
+// How often to recompute the outline.
+uniform float speed: hint_range(0.0, 10.0) = 1.0;
+// How big the outline blotches are.
+uniform float blockSize: hint_range(0.001, 100.0) = 20.0;
+// The outline color. GradientTexture1D is recommended.
+uniform sampler2D color: source_color;
+// The resolution for the gradient. Higher numbers will result in smoother but more expensive passes.
+uniform int gradientResolution: hint_range(1, 30) = 10;
+// Used to compensate for alpha values.
+uniform float tolerance: hint_range(0.0, 0.999) = 0.0;
+
+
+// Compensate UV for outline.
+void vertex() {
+	VERTEX = vec2(VERTEX.x * (1.0 + TEXTURE_PIXEL_SIZE.x * max(maxLineWidth, minLineWidth) * 2.0), VERTEX.y * (1.0 + TEXTURE_PIXEL_SIZE.y * max(maxLineWidth, minLineWidth) * 2.0));
+}
+
+// Checks a fragment for the edge of an uv.
+bool border(vec2 uv) {
+	vec2 uvBorder = abs(uv - vec2(0.5));
+	return max(step(0.5, uvBorder.x), step(0.5, uvBorder.y)) > 0.0;
+}
+
+// Gets alpha of given fragment if not near the edge.
+float get_alpha(sampler2D tex, vec2 uv){
+	float res = 0.0;
+	if (!border(uv)) {
+		res = texture(tex, uv).a;
+	}
+	return res;
+}
+
+// Pseudorandom number
+float hash(vec2 p, float s) {
+	return fract(35.1 * sin(dot(vec3(112.3, 459.2, 753.2), vec3(p, s))));
+}
+
+// Noise function.
+float noise(vec2 p, float s) {
+	vec2 d = vec2(0, 1);
+	vec2 b = floor(p);
+	vec2 f = fract(p);
+	return mix(
+		mix(hash(b + d.xx, s), hash(b + d.yx, s), f.x),
+		mix(hash(b + d.xy, s), hash(b + d.yy, s), f.x), f.y);
+}
+
+// Randomize line width at fragment.
+float get_line_width(vec2 p, float s) {
+	p /= blockSize;
+	float w = 0.0;
+	float intensity = 1.0;
+	for (int i = 0; i < 3; i++) {
+		w = mix(w, noise(p, s), intensity);
+		p /= 2.0;
+		intensity /= 2.0;
+	}
+	
+	return mix(maxLineWidth, minLineWidth, w);
+}
+
+// Checks for neighboring pixels.
+float compute_outline(vec2 size, sampler2D tex, vec2 uv) {
+	float res = 0.0;
+	for (float i = -1.0; i < 2.0; i += 2.0) {
+		res += get_alpha(tex, uv + vec2(i * size.x, 0.0));
+		res += get_alpha(tex, uv + vec2(0.0, i * size.y));
+		for (float j = -1.0; j < 2.0; j += 2.0) {
+			res += get_alpha(tex, uv + vec2(i * size.x, j * size.y));
+			res += get_alpha(tex, uv + vec2(i * size.x, j * size.y * 0.5));
+		}
+	}
+	return res;
+}
+
+// Checks for neighboring pixels.
+bool in_range(vec2 size, sampler2D tex, vec2 uv) {
+	for (float i = -1.0; i < 2.0; i += 2.0) {
+		if (get_alpha(tex, uv + vec2(i * size.x, 0.0)) > 0.0) {return true;};
+		if (get_alpha(tex, uv + vec2(0.0, i * size.y)) > 0.0) {return true;};
+		for (float j = -1.0; j < 2.0; j += 2.0) {
+			if (get_alpha(tex, uv + vec2(i * size.x, j * size.y)) > 0.0) {return true;};
+			if (get_alpha(tex, uv + vec2(i * size.x, j * size.y * 0.5)) > 0.0) {return true;};
+		}
+	}
+	return false;
+}
+
+// Get's closes pixel.
+float get_distance(vec2 maxDistance, sampler2D tex, vec2 uv) {
+	for (int i = 1; i < gradientResolution; i++) {
+		vec2 actualDistance = float(i) / float (gradientResolution) * maxDistance;
+		if (in_range(actualDistance, tex, uv)) {
+			return float(i) / float (gradientResolution);
+		}
+	}
+}
+
+void fragment() {
+	if (max(maxLineWidth, minLineWidth) > 0.0) {
+		// Correct image size to for outline in frame.
+		vec2 uv = UV;
+		uv -= vec2(0.5);
+		vec2 edge = TEXTURE_PIXEL_SIZE * max(maxLineWidth, minLineWidth) * 2.0;
+		uv = uv + uv * edge;
+		uv += vec2(0.5);
+		
+		// Apply outline.
+		vec4 newColor = texture(TEXTURE, uv);
+		if (newColor.a <= tolerance || border(uv)) {
+			// Correct angle to start at right and convert to radians.
+			float radiansAngle = radians(angle + 180.0);
+			// Make a vector out of the angle.
+			vec2 vector = vec2(cos(radiansAngle), sin(radiansAngle));
+			float timeStep = floor(TIME * speed);
+			vec2 size = TEXTURE_PIXEL_SIZE;
+			size *= get_line_width(uv / TEXTURE_PIXEL_SIZE, timeStep);
+			vec4 textureColor = texture(scrollingTexture, fract(UV / textureScale + vector * textureSpeed * TIME));
+			vec4 actualColor = texture(color, vec2(get_distance(edge / 2.0 + 0.01, TEXTURE, uv)));
+			vec4 finalColor = step(1.0 - tolerance, in_range(size, TEXTURE, uv) ? 1.0: 0.0) * mix(actualColor, textureColor, textureStrength);
+			newColor = finalColor;
+		}
+		COLOR = newColor;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ai3h3"]
+resource_local_to_scene = true
+shader = SubResource("Shader_v1gdk")
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 0.1
+shader_parameter/textureStrength = 0.5
+shader_parameter/maxLineWidth = 0.0
+shader_parameter/minLineWidth = 0.0
+shader_parameter/speed = 6.0
+shader_parameter/blockSize = 20.0
+shader_parameter/gradientResolution = 10
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj8tp"]
+size = Vector2(70, 100)
+
+[sub_resource type="Shader" id="Shader_yacfa"]
+code = "// ALL-IN-ONE BLOTCHY AURA
+// https://godotshaders.com/shader/various-canvas-outlines/
+// CC0
+shader_type canvas_item;
+
+// The texture to scroll with.
+uniform sampler2D scrollingTexture: hint_default_white;
+// The scroll texture scale.
+uniform vec2 textureScale = vec2(1.0);
+// Angle to scroll towards. In degrees. Starts at the right.
+uniform float angle: hint_range(0.0, 360.0) = 45.0;
+// Speed to scroll at.
+uniform float textureSpeed: hint_range(-10.0, 10.0) = 0.1;
+// Strength of the texture over the color.
+uniform float textureStrength: hint_range(0.0, 1.0) = 0.5;
+// Max distance from texture.
+uniform float maxLineWidth: hint_range(0.0, 100.0) = 10.0;
+// Min distance from texture.
+uniform float minLineWidth: hint_range(0.0, 100.0) = 5.0;
+// How often to recompute the outline.
+uniform float speed: hint_range(0.0, 10.0) = 1.0;
+// How big the outline blotches are.
+uniform float blockSize: hint_range(0.001, 100.0) = 20.0;
+// The outline color. GradientTexture1D is recommended.
+uniform sampler2D color: source_color;
+// The resolution for the gradient. Higher numbers will result in smoother but more expensive passes.
+uniform int gradientResolution: hint_range(1, 30) = 10;
+// Used to compensate for alpha values.
+uniform float tolerance: hint_range(0.0, 0.999) = 0.0;
+
+
+// Compensate UV for outline.
+void vertex() {
+	VERTEX = vec2(VERTEX.x * (1.0 + TEXTURE_PIXEL_SIZE.x * max(maxLineWidth, minLineWidth) * 2.0), VERTEX.y * (1.0 + TEXTURE_PIXEL_SIZE.y * max(maxLineWidth, minLineWidth) * 2.0));
+}
+
+// Checks a fragment for the edge of an uv.
+bool border(vec2 uv) {
+	vec2 uvBorder = abs(uv - vec2(0.5));
+	return max(step(0.5, uvBorder.x), step(0.5, uvBorder.y)) > 0.0;
+}
+
+// Gets alpha of given fragment if not near the edge.
+float get_alpha(sampler2D tex, vec2 uv){
+	float res = 0.0;
+	if (!border(uv)) {
+		res = texture(tex, uv).a;
+	}
+	return res;
+}
+
+// Pseudorandom number
+float hash(vec2 p, float s) {
+	return fract(35.1 * sin(dot(vec3(112.3, 459.2, 753.2), vec3(p, s))));
+}
+
+// Noise function.
+float noise(vec2 p, float s) {
+	vec2 d = vec2(0, 1);
+	vec2 b = floor(p);
+	vec2 f = fract(p);
+	return mix(
+		mix(hash(b + d.xx, s), hash(b + d.yx, s), f.x),
+		mix(hash(b + d.xy, s), hash(b + d.yy, s), f.x), f.y);
+}
+
+// Randomize line width at fragment.
+float get_line_width(vec2 p, float s) {
+	p /= blockSize;
+	float w = 0.0;
+	float intensity = 1.0;
+	for (int i = 0; i < 3; i++) {
+		w = mix(w, noise(p, s), intensity);
+		p /= 2.0;
+		intensity /= 2.0;
+	}
+	
+	return mix(maxLineWidth, minLineWidth, w);
+}
+
+// Checks for neighboring pixels.
+float compute_outline(vec2 size, sampler2D tex, vec2 uv) {
+	float res = 0.0;
+	for (float i = -1.0; i < 2.0; i += 2.0) {
+		res += get_alpha(tex, uv + vec2(i * size.x, 0.0));
+		res += get_alpha(tex, uv + vec2(0.0, i * size.y));
+		for (float j = -1.0; j < 2.0; j += 2.0) {
+			res += get_alpha(tex, uv + vec2(i * size.x, j * size.y));
+			res += get_alpha(tex, uv + vec2(i * size.x, j * size.y * 0.5));
+		}
+	}
+	return res;
+}
+
+// Checks for neighboring pixels.
+bool in_range(vec2 size, sampler2D tex, vec2 uv) {
+	for (float i = -1.0; i < 2.0; i += 2.0) {
+		if (get_alpha(tex, uv + vec2(i * size.x, 0.0)) > 0.0) {return true;};
+		if (get_alpha(tex, uv + vec2(0.0, i * size.y)) > 0.0) {return true;};
+		for (float j = -1.0; j < 2.0; j += 2.0) {
+			if (get_alpha(tex, uv + vec2(i * size.x, j * size.y)) > 0.0) {return true;};
+			if (get_alpha(tex, uv + vec2(i * size.x, j * size.y * 0.5)) > 0.0) {return true;};
+		}
+	}
+	return false;
+}
+
+// Get's closes pixel.
+float get_distance(vec2 maxDistance, sampler2D tex, vec2 uv) {
+	for (int i = 1; i < gradientResolution; i++) {
+		vec2 actualDistance = float(i) / float (gradientResolution) * maxDistance;
+		if (in_range(actualDistance, tex, uv)) {
+			return float(i) / float (gradientResolution);
+		}
+	}
+}
+
+void fragment() {
+	if (max(maxLineWidth, minLineWidth) > 0.0) {
+		// Correct image size to for outline in frame.
+		vec2 uv = UV;
+		uv -= vec2(0.5);
+		vec2 edge = TEXTURE_PIXEL_SIZE * max(maxLineWidth, minLineWidth) * 2.0;
+		uv = uv + uv * edge;
+		uv += vec2(0.5);
+		
+		// Apply outline.
+		vec4 newColor = texture(TEXTURE, uv);
+		if (newColor.a <= tolerance || border(uv)) {
+			// Correct angle to start at right and convert to radians.
+			float radiansAngle = radians(angle + 180.0);
+			// Make a vector out of the angle.
+			vec2 vector = vec2(cos(radiansAngle), sin(radiansAngle));
+			float timeStep = floor(TIME * speed);
+			vec2 size = TEXTURE_PIXEL_SIZE;
+			size *= get_line_width(uv / TEXTURE_PIXEL_SIZE, timeStep);
+			vec4 textureColor = texture(scrollingTexture, fract(UV / textureScale + vector * textureSpeed * TIME));
+			vec4 actualColor = texture(color, vec2(get_distance(edge / 2.0 + 0.01, TEXTURE, uv)));
+			vec4 finalColor = step(1.0 - tolerance, in_range(size, TEXTURE, uv) ? 1.0: 0.0) * mix(actualColor, textureColor, textureStrength);
+			newColor = finalColor;
+		}
+		COLOR = newColor;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ld041"]
+resource_local_to_scene = true
+shader = SubResource("Shader_yacfa")
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 0.1
+shader_parameter/textureStrength = 0.5
+shader_parameter/maxLineWidth = 0.0
+shader_parameter/minLineWidth = 0.0
+shader_parameter/speed = 6.0
+shader_parameter/blockSize = 20.0
+shader_parameter/gradientResolution = 10
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rklgp"]
+radius = 32.7217
+
+[node name="OverworldMap" type="Node"]
+script = ExtResource("1_7ttwt")
+clear_clouds_conditions = Array[ExtResource("2_rtj8q")]([SubResource("Resource_ak5sq")])
+
+[node name="CommandCenter" type="Node" parent="."]
+script = ExtResource("1_en3a5")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.419638, 0.615534, 0.890562, 1)
+
+[node name="UI2" type="CanvasLayer" parent="."]
+
+[node name="MessageLabel" type="Label" parent="UI2"]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -58.0
+offset_right = 20.0
+offset_bottom = -35.6666
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_0vif1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map" type="Sprite2D" parent="."]
+self_modulate = Color(0.419601, 0.615729, 0.891171, 1)
+position = Vector2(964.152, 538.125)
+scale = Vector2(1.83974, 1.83974)
+texture = ExtResource("1_6x0fe")
+
+[node name="Levels" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="LevelButton" parent="Levels" instance=ExtResource("3_xomck")]
+position = Vector2(1749, 949)
+level_path = "uid://dm7cq32t7aosu"
+level_code = "05"
+
+[node name="Sprite2D" parent="Levels/LevelButton" index="0"]
+self_modulate = Color(0.962506, 0.605011, 0.551945, 1)
+material = SubResource("ShaderMaterial_ai3h3")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_x5886")
+
+[node name="CollisionShape2D" parent="Levels/LevelButton" index="1"]
+shape = SubResource("RectangleShape2D_kj8tp")
+
+[node name="LevelButton2" parent="Levels" instance=ExtResource("3_xomck")]
+position = Vector2(1528, 301)
+level_path = "uid://cp72hpyboiagf"
+level_code = "06"
+
+[node name="Sprite2D" parent="Levels/LevelButton2" index="0"]
+self_modulate = Color(0.962506, 0.605011, 0.551945, 1)
+material = SubResource("ShaderMaterial_ld041")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_x5886")
+
+[node name="CollisionShape2D" parent="Levels/LevelButton2" index="1"]
+shape = SubResource("RectangleShape2D_kj8tp")
+
+[node name="CloudSpawners" type="Node2D" parent="."]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="CloudSpawner" type="Polygon2D" parent="CloudSpawners"]
+modulate = Color(0.866085, 0.866085, 0.866085, 1)
+self_modulate = Color(1, 1, 1, 0.5)
+color = Color(0.715718, 0.886658, 0.723721, 1)
+polygon = PackedVector2Array(1619, 678, 1543, 777, 1534, 862, 1392, 875, 1290, 786, 1191, 831, 973, 691, 1285, 453, 1662, 467)
+script = ExtResource("4_c80hn")
+region = 0
+
+[node name="CloudSpawner2" type="Polygon2D" parent="CloudSpawners"]
+visible = false
+modulate = Color(0.866085, 0.866085, 0.866085, 1)
+self_modulate = Color(1, 1, 1, 0.5)
+color = Color(0.778928, 0.836887, 0.937371, 1)
+polygon = PackedVector2Array(1642, 465, 1683, 366, 1606, 272, 1557, 339, 1487, 314, 1490, 267, 1211, 238, 1198, 339, 1281, 449)
+script = ExtResource("4_c80hn")
+region = 1
+
+[node name="CloudSpawner3" type="Polygon2D" parent="CloudSpawners"]
+modulate = Color(0.866085, 0.866085, 0.866085, 1)
+self_modulate = Color(1, 1, 1, 0.5)
+color = Color(0.936241, 0.798015, 0.762437, 1)
+polygon = PackedVector2Array(1200, 238, 1092, 173, 976, 206, 897, 294, 964, 388, 1189, 343)
+script = ExtResource("4_c80hn")
+region = 2
+
+[node name="CloudSpawner4" type="Polygon2D" parent="CloudSpawners"]
+modulate = Color(0.866085, 0.866085, 0.866085, 1)
+self_modulate = Color(1, 1, 1, 0.5)
+color = Color(0.660218, 0.879984, 0.899402, 1)
+polygon = PackedVector2Array(971, 391, 1189, 346, 1281, 453, 967, 673, 776, 756, 661, 716, 899, 400)
+script = ExtResource("4_c80hn")
+region = 3
+
+[node name="CloudSpawner5" type="Polygon2D" parent="CloudSpawners"]
+modulate = Color(0.866085, 0.866085, 0.866085, 1)
+self_modulate = Color(1, 1, 1, 0.5)
+color = Color(0.93269, 0.788496, 0.83953, 1)
+polygon = PackedVector2Array(704, 162, 556, 137, 408, 211, 421, 310, 589, 341, 652, 489, 803, 523, 899, 386, 937, 382, 901, 314, 717, 249)
+script = ExtResource("4_c80hn")
+region = 4
+
+[node name="CloudSpawner6" type="Polygon2D" parent="CloudSpawners"]
+modulate = Color(0.866085, 0.866085, 0.866085, 1)
+self_modulate = Color(1, 1, 1, 0.5)
+color = Color(0.796464, 0.867537, 0.657108, 1)
+polygon = PackedVector2Array(614, 395, 313, 474, 307, 568, 419, 570, 394, 678, 484, 747, 562, 689, 648, 732, 794, 534, 634, 476)
+script = ExtResource("4_c80hn")
+region = 5
+
+[node name="CloudSpawner7" type="Polygon2D" parent="CloudSpawners"]
+modulate = Color(0.866085, 0.866085, 0.866085, 1)
+self_modulate = Color(1, 1, 1, 0.5)
+color = Color(0.937406, 0.794169, 0.786169, 1)
+polygon = PackedVector2Array(412, 685, 495, 763, 363, 927, 219, 938, 147, 804, 300, 714)
+script = ExtResource("4_c80hn")
+region = 6
+
+[node name="Blimp" type="Sprite2D" parent="."]
+scale = Vector2(1.84, 1.84)
+texture = ExtResource("2_ee44k")
+script = ExtResource("3_3sexg")
+
+[node name="Area2D" type="Area2D" parent="Blimp"]
+collision_mask = 0
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blimp/Area2D"]
+shape = SubResource("CircleShape2D_rklgp")
+
+[editable path="Levels/LevelButton"]
+[editable path="Levels/LevelButton2"]

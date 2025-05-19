@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdkf8i0ck5o81"]
+
+[ext_resource type="Script" uid="uid://origa1tl3mfe" path="res://src/world/levels/07_scorched_complex/logic/stealth/ghost_bounds/ghost_bounds.gd" id="1_rjvds"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kpua"]
+size = Vector2(20, 5000)
+
+[node name="GhostBounds" type="Area2D"]
+collision_layer = 0
+collision_mask = 32
+input_pickable = false
+script = ExtResource("1_rjvds")
+
+[node name="RightCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2630, 0)
+shape = SubResource("RectangleShape2D_5kpua")
+
+[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2630, 0)
+shape = SubResource("RectangleShape2D_5kpua")

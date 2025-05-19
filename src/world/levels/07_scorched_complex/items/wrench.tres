@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://5ryusfmj1tsb"]
+
+[ext_resource type="Script" uid="uid://bpc76g8fprceh" path="res://src/systems/item/item.gd" id="1_8hshn"]
+[ext_resource type="Texture2D" uid="uid://q4bqq6w0ssph" path="res://src/world/levels/07_scorched_complex/menus/maintenance_closet/assets/wrench.png" id="2_fdr61"]
+
+[resource]
+script = ExtResource("1_8hshn")
+texture = ExtResource("2_fdr61")
+name = "07_wrench"
+display_name = "Pipe Wrench"
+info = "Fixes everything."
+metadata/_custom_type_script = "uid://bpc76g8fprceh"
